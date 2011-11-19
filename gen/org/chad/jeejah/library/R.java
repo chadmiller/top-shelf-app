@@ -11,8 +11,9 @@ public final class R {
     public static final class attr {
     }
     public static final class id {
-        public static final int computed_available=0x7f050000;
-        public static final int most_productive_ingredient=0x7f050001;
+        public static final int computed_available_drinks=0x7f050001;
+        public static final int drinks_list_header=0x7f050000;
+        public static final int most_productive_ingredient=0x7f050002;
     }
     public static final class layout {
         public static final int main=0x7f020000;
