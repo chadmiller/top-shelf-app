@@ -47,7 +47,6 @@ class RecipeBook {
 					} else if (fieldname.equals("name")) {
 						jp.nextToken();
 						recipe.name = jp.getText();
-						Log.d(TAG, "Got recipe for " + recipe.name);
 					} else if (fieldname.equals("glasses")) {
 
 						jp.nextToken();
