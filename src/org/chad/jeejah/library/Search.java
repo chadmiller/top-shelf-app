@@ -7,15 +7,15 @@ import android.widget.TextView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
-import android.view.View;
 import android.widget.AdapterView.OnItemClickListener;
+import android.view.View;
+import android.view.View.OnClickListener;
 
 import java.util.Set;
 import java.util.HashSet;
 
 public class Search extends Activity {
 
-	private Set<String> pantry;
 	private RecipeBook recipeBook;
 
 	@Override
@@ -23,22 +23,55 @@ public class Search extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
+		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
+		if (this.recipeBook == null) {
+			this.recipeBook = new RecipeBook(this);
+		}
+
+		setUp();
+	}
+
+	void setUp() {
+
 		TextView drinksListHeader = (TextView) findViewById(R.id.drinks_list_header);
 
-		this.recipeBook = new RecipeBook(this);
-		this.pantry = new HashSet<String>();
+		Set<String> pantry = new HashSet<String>();
+		pantry.add("amaretto");
+		pantry.add("apple brandy");
+		pantry.add("bitters");
+		pantry.add("club soda");
+		pantry.add("coffee liqueur");
+		pantry.add("vodka");
+		pantry.add("rum");
+		pantry.add("gin");
+		pantry.add("cola");
+		pantry.add("cream");
+		pantry.add("egg");
+		pantry.add("sweet vermuth");
+		pantry.add("lemon");
+		pantry.add("ice");
+		pantry.add("lime");
+		pantry.add("milk");
+		pantry.add("orange");
+		pantry.add("rum dark");
+		pantry.add("scotch");
+		pantry.add("tequila");
+		pantry.add("tonic");
 
-		this.pantry.add("coffee liqueur");
-		this.pantry.add("coffee");
-		this.pantry.add("vodka");
-		this.pantry.add("cream");
+		Recipe[] canMake = recipeBook.recipesConstructable(pantry);
 
-		Recipe[] canMake = recipeBook.recipesConstructable(this.pantry);
+		drinksListHeader.setText(String.format("You can make %d recipes (out of %d known recipes) with your %d ingredients:", canMake.length, recipeBook.recipes.size(), pantry.size()));
 
-		drinksListHeader.setText(String.format("You can make %d (out of %d known) drinks drinks with your %d ingredients.", canMake.length, recipeBook.recipes.size(), this.pantry.size()));
+		drinksListHeader.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				Intent intent = new Intent(Search.this, Pantry.class);
+				intent.putExtra("ingredients", recipeBook.knownIngredients.toArray(new String[recipeBook.knownIngredients.size()]));
+				Search.this.startActivityForResult(intent, 1);
+			}
+		});
 
 		ListView computedAvailableDrinks = (ListView) findViewById(R.id.computed_available_drinks);
-		computedAvailableDrinks.setAdapter(new ArrayAdapter<Recipe>(this, R.layout.recipe_list_item, canMake));
+		computedAvailableDrinks.setAdapter(new RecipeAdapter(this, canMake));
 
 		computedAvailableDrinks.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -54,9 +87,16 @@ public class Search extends Activity {
 				Search.this.startActivity(intent);
 			}
 		});
-
-
-
-
 	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		setUp();
+	}
+
+	@Override
+	public Object onRetainNonConfigurationInstance() {
+		return this.recipeBook;
+	}
+
 }

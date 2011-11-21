@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
 	android:padding="10dp"
-	android:textSize="16sp" >
-</TextView>
+	>
+	<ImageView
+		android:id="@+id/recipe_image"
+		android:layout_width="50px"
+		android:layout_height="50px"
+		android:paddingRight="10dp"
+		android:drawable="@android:drawable/sym_def_app_icon"
+		/>
+	<TextView
+		android:id="@+id/recipe_name"
+		android:layout_toRightOf="@id/recipe_image"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="18sp"
+		/>
+	<TextView
+		android:id="@+id/recipe_ingredients_list"
+		android:layout_toRightOf="@id/recipe_image"
+		android:layout_below="@id/recipe_name"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:hint="no ingredients"
+		/>
+	<TextView
+		android:id="@+id/recipe_ratings"
+		android:layout_toRightOf="@id/recipe_ingredients_list"
+		android:layout_alignParentRight="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:hint="no ratings"
+		android:gravity="right"
+		/>
+
+</RelativeLayout>

@@ -14,7 +14,11 @@
         </activity>
         <activity android:name="RecipeActivity"
 				  android:configChanges="orientation|keyboardHidden"
-                  android:label="Drinks">
+                  android:label="View Drink Recipe">
+        </activity>
+        <activity android:name="Pantry"
+				  android:configChanges="orientation|keyboardHidden"
+                  android:label="Set Owned Ingredients">
         </activity>
     </application>
 </manifest> 

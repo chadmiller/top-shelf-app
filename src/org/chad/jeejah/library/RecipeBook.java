@@ -26,11 +26,11 @@ class RecipeBook {
 //	};
 
 	public List<Recipe> recipes;
-	public Set<String> ownedIngredients;
+	public Set<String> knownIngredients;
 
 	public RecipeBook(Context context) {
 		recipes = new LinkedList<Recipe>();
-		this.ownedIngredients = new TreeSet<String>();
+		this.knownIngredients = new TreeSet<String>();
 
 		try {
 			java.io.InputStream recipeFile = context.getResources().openRawResource(R.raw.recipes);
@@ -70,6 +70,7 @@ class RecipeBook {
 						jp.nextToken();
 						while (jp.nextToken() != JsonToken.END_ARRAY) {
 							recipe.ingredients.add(jp.getText());
+							this.knownIngredients.add(jp.getText());
 						}
 					} else {
 						Log.e(TAG, "  UNKNOWN: " + jp.getCurrentToken());
