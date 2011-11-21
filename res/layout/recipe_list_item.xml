@@ -29,12 +29,13 @@
 		/>
 	<TextView
 		android:id="@+id/recipe_ratings"
-		android:layout_toRightOf="@id/recipe_ingredients_list"
+		android:layout_toRightOf="@id/recipe_name"
 		android:layout_alignParentRight="true"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:hint="no ratings"
 		android:gravity="right"
+		android:minWidth="40dip"
 		/>
 
 </RelativeLayout>
