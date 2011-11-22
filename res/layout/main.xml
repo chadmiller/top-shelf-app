@@ -3,24 +3,29 @@
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
+	android:background="@drawable/jackrose_as_background"
 	>
 	<TextView  
 		android:id="@+id/drinks_list_header"
 		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content" 
 		android:hint="Discovering what drinks you can make..."
+		android:background="#a000"
 		/>
 
 	<TextView  
 		android:id="@+id/most_productive_ingredient"
-		android:layout_width="wrap_content" 
+		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content" 
 		android:hint="There are no shopping suggestions."
+		android:background="#a000"
 		/>
 
 	<ListView
 		android:id="@+id/computed_available_drinks"
 		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content" 
+		android:background="#a000"
+		android:cacheColorHint="#00000000"
 		/>
 </LinearLayout>
