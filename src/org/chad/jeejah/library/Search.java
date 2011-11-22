@@ -2,6 +2,7 @@ package org.chad.jeejah.library;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.content.SharedPreferences;
 import android.content.Intent;
 import android.widget.TextView;
 import android.widget.ListView;
@@ -10,11 +11,15 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.util.Log;
+import android.preference.PreferenceManager;
 
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Search extends Activity {
+	public final static String TAG = "org.chad.jeejah.library.Search";
 
 	private RecipeBook recipeBook;
 
@@ -34,29 +39,20 @@ public class Search extends Activity {
 	void setUp() {
 
 		TextView drinksListHeader = (TextView) findViewById(R.id.drinks_list_header);
-
 		Set<String> pantry = new HashSet<String>();
-		pantry.add("amaretto");
-		pantry.add("apple brandy");
-		pantry.add("bitters");
-		pantry.add("club soda");
-		pantry.add("coffee liqueur");
-		pantry.add("vodka");
-		pantry.add("rum");
-		pantry.add("gin");
-		pantry.add("cola");
-		pantry.add("cream");
-		pantry.add("egg");
-		pantry.add("sweet vermuth");
-		pantry.add("lemon");
-		pantry.add("ice");
-		pantry.add("lime");
-		pantry.add("milk");
-		pantry.add("orange");
-		pantry.add("rum dark");
-		pantry.add("scotch");
-		pantry.add("tequila");
-		pantry.add("tonic");
+
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+
+		Iterator it = sp.getAll().keySet().iterator();
+		while (it.hasNext()) {
+			Object k = it.next();
+			String name = (String) k;
+			if (name.startsWith(Pantry.PREF_PREFIX)) {
+				if (sp.getBoolean(name, false)) {
+					pantry.add(name.substring(Pantry.PREF_PREFIX.length()));
+				}
+			}
+		}
 
 		Recipe[] canMake = recipeBook.recipesConstructable(pantry);
 

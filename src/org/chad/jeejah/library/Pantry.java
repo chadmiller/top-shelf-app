@@ -28,6 +28,8 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 
 public class Pantry extends PreferenceActivity {
+	public final static String TAG = "org.chad.jeejah.library.Pantry";
+
 	String[] ingredients;
 	final static String PREF_PREFIX = "checkbox_ingredient ";
 
