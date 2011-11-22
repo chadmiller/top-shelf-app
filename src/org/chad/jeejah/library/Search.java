@@ -1,6 +1,7 @@
 package org.chad.jeejah.library;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.content.SharedPreferences;
 import android.content.Intent;
@@ -13,6 +14,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.util.Log;
 import android.preference.PreferenceManager;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 
 import java.util.Set;
 import java.util.HashSet;
@@ -54,6 +58,10 @@ public class Search extends Activity {
 			}
 		}
 
+		if (pantry.isEmpty()) {
+			showDialog(1);
+		}
+
 		Recipe[] canMake = recipeBook.recipesConstructable(pantry);
 
 		drinksListHeader.setText(String.format("You can make %d recipes (out of %d known recipes) with your %d ingredients:", canMake.length, recipeBook.recipes.size(), pantry.size()));
@@ -83,6 +91,23 @@ public class Search extends Activity {
 				Search.this.startActivity(intent);
 			}
 		});
+	}
+
+
+
+	@Override
+	public Dialog onCreateDialog(int id) {
+		AlertDialog.Builder adb = new AlertDialog.Builder(this);
+		adb.setTitle("Welcome!")
+			.setMessage("Enter the ingredients you own to see what recipes you can make with them.")
+			.setPositiveButton("Begin", new DialogInterface.OnClickListener() { 
+				public void onClick(DialogInterface dialog, int which) {
+					Intent intent = new Intent(Search.this, Pantry.class);
+					intent.putExtra("ingredients", Search.this.recipeBook.knownIngredients.toArray(new String[Search.this.recipeBook.knownIngredients.size()]));
+					Search.this.startActivityForResult(intent, 1);
+				}
+			});
+		return adb.create();
 	}
 
 	@Override
