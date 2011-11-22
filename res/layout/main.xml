@@ -1,31 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:background="@drawable/jackrose_as_background"
 	>
-	<TextView  
-		android:id="@+id/drinks_list_header"
+	<RelativeLayout
+		android:id="@+id/drinks_header"
 		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content" 
-		android:hint="Discovering what drinks you can make..."
-		android:background="#a000"
-		/>
+		>
 
-	<TextView  
-		android:id="@+id/most_productive_ingredient"
-		android:layout_width="fill_parent" 
-		android:layout_height="wrap_content" 
-		android:hint="There are no shopping suggestions."
-		android:background="#a000"
-		/>
+		<TextView  
+			android:id="@+id/drinks_list_header"
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content" 
+			android:hint="Discovering what drinks you can make..."
+			android:background="#9000"
+			/>
+
+		<!--
+		<ImageView
+			android:id="@+id/drinks_filter_toggle_button"
+			android:layout_toRightOf="@id/drinks_list_header"
+			android:layout_width="50dip" 
+			android:layout_height="50dip" 
+			android:background="#d000"
+			android:gravity="right"
+			/>
+		-->
+
+		<TextView  
+			android:id="@+id/most_productive_ingredient"
+			android:layout_below="@id/drinks_list_header"
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content" 
+			android:hint="There are no shopping suggestions."
+			android:background="#9000"
+			/>
+
+	</RelativeLayout>
 
 	<ListView
 		android:id="@+id/computed_available_drinks"
+		android:layout_below="@id/drinks_header"
 		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content" 
-		android:background="#a000"
+		android:background="#9000"
 		android:cacheColorHint="#00000000"
 		/>
-</LinearLayout>
+</RelativeLayout>
