@@ -29,8 +29,7 @@
    "splash water", 
    "shake and strain", 
    "fill with club soda", 
-   "top with port", 
-   "top with top", 
+   "top port", 
    "garnish with sprinkle nutmeg"
   ], 
   "name": "Sangaree", 
@@ -41,7 +40,8 @@
    "brandy", 
    "nutmeg", 
    "powder sugar", 
-   "club soda"
+   "club soda", 
+   "port"
   ]
  }, 
  {
@@ -152,8 +152,7 @@
    "add 1/2 oz of grenadine", 
    "add 1/2 of lime", 
    "stir", 
-   "top with ginger ale", 
-   "top with top", 
+   "top ginger ale", 
    "garnish with cherry"
   ], 
   "name": "D-Lish", 
@@ -163,6 +162,7 @@
   "ingredients": [
    "grenadine", 
    "cherry", 
+   "ginger ale", 
    "rum", 
    "lime"
   ]
@@ -519,8 +519,7 @@
    "add 1 oz of lemon juice", 
    "add 1 tsp of powder sugar", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "garnish with lemon twist"
   ], 
   "name": "Sling", 
@@ -528,11 +527,12 @@
    "highball glass"
   ], 
   "ingredients": [
-   "cherry brandy", 
-   "lemon juice", 
    "lemon", 
    "powder sugar", 
-   "gin"
+   "lemon juice", 
+   "cherry brandy", 
+   "gin", 
+   "club soda"
   ]
  }, 
  {
@@ -543,8 +543,7 @@
    "add 3 oz of orange juice", 
    "add 3 oz of sweet/sour mix", 
    "splash grenadine", 
-   "top with rum", 
-   "top with top"
+   "top rum"
   ], 
   "name": "Beach Ball", 
   "glasses": [
@@ -734,8 +733,7 @@
    "get coffee glass", 
    "add 1 oz of frangelico", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Frangelico Coffee", 
   "glasses": [
@@ -743,7 +741,8 @@
   ], 
   "ingredients": [
    "coffee", 
-   "frangelico"
+   "frangelico", 
+   "whipped cream"
   ]
  }, 
  {
@@ -852,8 +851,7 @@
    "get coffee glass", 
    "add 1 oz of bourbon", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Kentucky Coffee", 
   "glasses": [
@@ -861,7 +859,8 @@
   ], 
   "ingredients": [
    "bourbon", 
-   "coffee"
+   "coffee", 
+   "whipped cream"
   ]
  }, 
  {
@@ -944,8 +943,7 @@
    "add 1 tsp of powder sugar", 
    "add 1 oz of irish whiskey", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Irish Coffee", 
   "glasses": [
@@ -954,7 +952,8 @@
   "ingredients": [
    "irish whiskey", 
    "coffee", 
-   "powder sugar"
+   "powder sugar", 
+   "whipped cream"
   ]
  }, 
  {
@@ -1230,8 +1229,7 @@
    "add 1/2 oz of coffee liqueur", 
    "add 1/2 oz of brandy", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Kioke Coffee (1)", 
   "glasses": [
@@ -1240,6 +1238,7 @@
   "ingredients": [
    "brandy", 
    "coffee", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -1485,8 +1484,7 @@
    "get coffee glass", 
    "add 1 oz of amaretto", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Amaretto Coffee", 
   "glasses": [
@@ -1494,7 +1492,8 @@
   ], 
   "ingredients": [
    "coffee", 
-   "amaretto"
+   "amaretto", 
+   "whipped cream"
   ]
  }, 
  {
@@ -1522,8 +1521,7 @@
    "add 1 oz of vodka", 
    "add 1 oz of banana liqueur", 
    "fill with orange juice", 
-   "top with splash grenadine", 
-   "top with top"
+   "top splash grenadine"
   ], 
   "name": "Banana Sunset", 
   "glasses": [
@@ -1531,6 +1529,7 @@
   ], 
   "ingredients": [
    "banana liqueur", 
+   "grenadine", 
    "vodka", 
    "orange juice"
   ]
@@ -1699,8 +1698,7 @@
    "add 1 1/2 oz of lime juice", 
    "add 1/2 oz of grenadine", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "garnish with orange slice", 
    "garnish with cherry"
   ], 
@@ -1709,11 +1707,12 @@
    "highball glass"
   ], 
   "ingredients": [
-   "grenadine", 
    "lime juice", 
-   "orange", 
+   "rum", 
+   "grenadine", 
    "cherry", 
-   "rum"
+   "orange", 
+   "club soda"
   ]
  }, 
  {
@@ -1761,8 +1760,7 @@
    "get coffee glass", 
    "add 1 oz of cr\u00e8me de cacao (dark)", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Cafe Cacao", 
   "glasses": [
@@ -1770,7 +1768,8 @@
   ], 
   "ingredients": [
    "coffee", 
-   "cr\u00e8me de cacao (dark)"
+   "cr\u00e8me de cacao (dark)", 
+   "whipped cream"
   ]
  }, 
  {
@@ -1902,15 +1901,15 @@
   "prepare_instructions": [
    "get cocktail glass", 
    "add 2 oz of gin", 
-   "top with 1 oz coffee liqueur", 
-   "top with top"
+   "top 1 oz coffee liqueur"
   ], 
   "name": "Russian Roulette", 
   "glasses": [
    "cocktail glass"
   ], 
   "ingredients": [
-   "gin"
+   "gin", 
+   "coffee liqueur"
   ]
  }, 
  {
@@ -2101,8 +2100,7 @@
    "get coffee glass", 
    "add 1 1/2 oz of peppermint schnapps", 
    "fill with hot chocolate", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Peppermint Chocolate", 
   "glasses": [
@@ -2110,7 +2108,8 @@
   ], 
   "ingredients": [
    "hot chocolate", 
-   "peppermint schnapps"
+   "peppermint schnapps", 
+   "whipped cream"
   ]
  }, 
  {
@@ -2214,8 +2213,7 @@
    "add 1 oz of gin", 
    "add 2 oz of sweet/sour mix", 
    "fill with club soda", 
-   "top with 1/2 oz cherry brandy", 
-   "top with top", 
+   "top 1/2 oz cherry brandy", 
    "garnish with cherry", 
    "garnish with orange slice"
   ], 
@@ -2227,6 +2225,7 @@
    "sweet/sour mix", 
    "grenadine", 
    "cherry", 
+   "cherry brandy", 
    "orange", 
    "gin", 
    "club soda"
@@ -2277,8 +2276,7 @@
    "get oldfashioned glass", 
    "add 1 1/2 oz of vodka", 
    "3/4 fill pineapple juice", 
-   "top with lemon lime soda", 
-   "top with top", 
+   "top lemon lime soda", 
    "gently stir"
   ], 
   "name": "Polish Professor", 
@@ -2287,6 +2285,7 @@
   ], 
   "ingredients": [
    "vodka", 
+   "lemon lime soda", 
    "pineapple juice"
   ]
  }, 
@@ -2495,8 +2494,7 @@
    "add 1 oz of pineapple juice", 
    "shake and strain", 
    "fill with club soda", 
-   "top with sambuca", 
-   "top with top"
+   "top sambuca"
   ], 
   "name": "Assassino", 
   "glasses": [
@@ -2504,9 +2502,10 @@
   ], 
   "ingredients": [
    "whiskey", 
+   "dry vermouth", 
    "pineapple juice", 
    "club soda", 
-   "dry vermouth"
+   "sambuca"
   ]
  }, 
  {
@@ -2785,8 +2784,7 @@
    "get coffee glass", 
    "add 1 oz of anisette", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Italian Coffee (1)", 
   "glasses": [
@@ -2794,6 +2792,7 @@
   ], 
   "ingredients": [
    "coffee", 
+   "whipped cream", 
    "anisette"
   ]
  }, 
@@ -2823,8 +2822,7 @@
    "get collins glass", 
    "add 1/2 tsp of grenadine", 
    "fill with orange juice", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "garnish with orange slice"
   ], 
   "name": "Batman (na)", 
@@ -2834,7 +2832,8 @@
   "ingredients": [
    "grenadine", 
    "orange", 
-   "orange juice"
+   "orange juice", 
+   "club soda"
   ]
  }, 
  {
@@ -3010,8 +3009,7 @@
    "add 1 1/2 oz of bourbon", 
    "add 1/2 oz of cr\u00e8me de cacao (dark)", 
    "fill with hot chocolate", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Kentucky Hot Chocolate", 
   "glasses": [
@@ -3020,6 +3018,7 @@
   "ingredients": [
    "bourbon", 
    "cr\u00e8me de cacao (dark)", 
+   "whipped cream", 
    "hot chocolate"
   ]
  }, 
@@ -3125,8 +3124,7 @@
    "1/2 fill pineapple juice", 
    "1/2 fill cranberry juice", 
    "stir", 
-   "top with ginger ale", 
-   "top with top"
+   "top ginger ale"
   ], 
   "name": "Cool Breeze", 
   "glasses": [
@@ -3134,8 +3132,9 @@
   ], 
   "ingredients": [
    "vodka", 
-   "pineapple juice", 
-   "cranberry juice"
+   "cranberry juice", 
+   "ginger ale", 
+   "pineapple juice"
   ]
  }, 
  {
@@ -3385,8 +3384,7 @@
    "add 3/4 oz of blue curacao", 
    "add 2 oz of sweet/sour mix", 
    "shake and strain", 
-   "top with 2 oz lemon lime soda", 
-   "top with top", 
+   "top 2 oz lemon lime soda", 
    "garnish with orange slice"
   ], 
   "name": "Blue Comet", 
@@ -3395,11 +3393,12 @@
   ], 
   "ingredients": [
    "vodka", 
-   "sweet/sour mix", 
+   "lemon lime soda", 
    "rum", 
    "orange", 
    "gin", 
-   "blue curacao"
+   "blue curacao", 
+   "sweet/sour mix"
   ]
  }, 
  {
@@ -3500,8 +3499,7 @@
    "add 1/2 oz of cr\u00e8me de cacao (dark)", 
    "fill with coffee", 
    "float with 1/4 oz grand marnier", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Fuzzy", 
   "glasses": [
@@ -3511,6 +3509,7 @@
    "grand marnier", 
    "coffee", 
    "cr\u00e8me de cacao (dark)", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -3541,8 +3540,7 @@
    "add 1 oz of rum", 
    "add 1/2 oz of banana liqueur", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Cafe Foster", 
   "glasses": [
@@ -3551,6 +3549,7 @@
   "ingredients": [
    "banana liqueur", 
    "coffee", 
+   "whipped cream", 
    "rum"
   ]
  }, 
@@ -3690,8 +3689,7 @@
    "add 1 1/2 oz of pineapple juice", 
    "add 1 1/2 oz of orange juice", 
    "shake and pour", 
-   "top with splash grenadine", 
-   "top with top", 
+   "top splash grenadine", 
    "garnish with lime slice"
   ], 
   "name": "La Bomba", 
@@ -3699,11 +3697,12 @@
    "highball glass"
   ], 
   "ingredients": [
-   "lime", 
-   "tequila premium", 
    "pineapple juice", 
    "orange juice", 
-   "cointreau"
+   "grenadine", 
+   "cointreau", 
+   "tequila premium", 
+   "lime"
   ]
  }, 
  {
@@ -3798,8 +3797,7 @@
    "add 1/2 oz of lemon juice", 
    "add 1/4 oz of cr\u00e8me de coconut", 
    "shake and strain", 
-   "float with 1/4 oz rum", 
-   "float float on top"
+   "float 1/4 oz rum"
   ], 
   "name": "San Juan", 
   "glasses": [
@@ -3816,8 +3814,7 @@
   "prepare_instructions": [
    "get rocks glass", 
    "fill with lemon lime soda (like Sprite)", 
-   "top with 1/2 oz grenadine", 
-   "top with top", 
+   "top 1/2 oz grenadine", 
    "garnish with cherry"
   ], 
   "name": "Shirley Temple (na)", 
@@ -3825,6 +3822,7 @@
    "rocks glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "cherry", 
    "lemon lime soda"
   ]
@@ -3912,15 +3910,15 @@
   "prepare_instructions": [
    "get shot glass", 
    "add 1 oz of coconut rum", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Coconut Cream Pie", 
   "glasses": [
    "shot glass"
   ], 
   "ingredients": [
-   "coconut rum"
+   "coconut rum", 
+   "whipped cream"
   ]
  }, 
  {
@@ -4540,8 +4538,7 @@
    "get rocks glass", 
    "add 1 1/4 oz of frangelico", 
    "add 3/4 oz of cr\u00e8me de cacao (dark)", 
-   "top with cream", 
-   "top with top"
+   "top cream"
   ], 
   "name": "Hazel Nut", 
   "glasses": [
@@ -4549,7 +4546,8 @@
   ], 
   "ingredients": [
    "frangelico", 
-   "cr\u00e8me de cacao (dark)"
+   "cr\u00e8me de cacao (dark)", 
+   "cream"
   ]
  }, 
  {
@@ -4557,8 +4555,7 @@
    "get shot glass", 
    "add 1/2 oz of vodka", 
    "add 1/2 oz of coffee liqueur", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Deep Throat", 
   "glasses": [
@@ -4566,6 +4563,7 @@
   ], 
   "ingredients": [
    "vodka", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -4591,8 +4589,7 @@
   "prepare_instructions": [
    "get shot glass", 
    "add 1 oz of coffee liqueur", 
-   "float with 1/8 oz irish cream", 
-   "float float on top"
+   "float 1/8 oz irish cream"
   ], 
   "name": "Baby Guinness", 
   "glasses": [
@@ -4681,8 +4678,7 @@
    "add 1 oz of coffee liqueur", 
    "add 1 oz of cr\u00e8me de menthe (white)", 
    "add 2 oz of ginger ale", 
-   "float with 2 oz milk", 
-   "float float on top"
+   "float 2 oz milk"
   ], 
   "name": "Ice Cap", 
   "glasses": [
@@ -4737,8 +4733,7 @@
    "get oldfashioned glass", 
    "fill with ice", 
    "add 1 1/2 oz of gold tequila (like Sauza Anejo Tequila)", 
-   "float with 3/4 oz galliano", 
-   "float float on top"
+   "float 3/4 oz galliano"
   ], 
   "name": "Mexican Gold", 
   "glasses": [
@@ -4906,8 +4901,7 @@
    "add 3/4 oz of irish cream", 
    "add 3/4 oz of cr\u00e8me de menthe (white)", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Zorro", 
   "glasses": [
@@ -4917,7 +4911,8 @@
    "sambuca", 
    "irish cream", 
    "coffee", 
-   "cr\u00e8me de menthe (white)"
+   "cr\u00e8me de menthe (white)", 
+   "whipped cream"
   ]
  }, 
  {
@@ -5165,8 +5160,7 @@
    "add 1/3 oz of vodka", 
    "add 1/3 oz of coffee liqueur", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top"
+   "top club soda"
   ], 
   "name": "Cucaracha", 
   "glasses": [
@@ -5175,6 +5169,7 @@
   "ingredients": [
    "tequila", 
    "vodka", 
+   "club soda", 
    "coffee liqueur"
   ]
  }, 
@@ -5283,8 +5278,7 @@
    "add 1/2 oz of irish cream", 
    "add 1/2 oz of frangelico", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Irish Nut", 
   "glasses": [
@@ -5293,7 +5287,8 @@
   "ingredients": [
    "irish cream", 
    "frangelico", 
-   "coffee"
+   "coffee", 
+   "whipped cream"
   ]
  }, 
  {
@@ -5384,6 +5379,29 @@
   "ingredients": [
    "banana liqueur", 
    "cream"
+  ]
+ }, 
+ {
+  "prepare_instructions": [
+   "get margarita glass", 
+   "optionally, salt rim", 
+   "add ice to mixing glass", 
+   "add 1 1/2 oz of tequila premium", 
+   "add 1/2 oz of triple sec", 
+   "add 3 oz of sweet/sour mix", 
+   "add 1/2 oz of cranberry juice", 
+   "shake and strain", 
+   "float grand marnier"
+  ], 
+  "name": "Pink Cadillac", 
+  "glasses": [
+   "margarita glass"
+  ], 
+  "ingredients": [
+   "triple sec", 
+   "sweet/sour mix", 
+   "cranberry juice", 
+   "tequila premium"
   ]
  }, 
  {
@@ -5663,14 +5681,14 @@
    "add 1/3 oz of peach schnapps", 
    "add 1/3 oz of coffee liqueur", 
    "add 1/3 oz of vodka", 
-   "top with splash grenadine", 
-   "top with top"
+   "top splash grenadine"
   ], 
   "name": "44D", 
   "glasses": [
    "shot glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "vodka", 
    "peach schnapps", 
    "coffee liqueur"
@@ -5682,8 +5700,7 @@
    "add 1/2 oz of irish cream", 
    "add 1/2 oz of frangelico", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Cafe Nelson", 
   "glasses": [
@@ -5692,7 +5709,8 @@
   "ingredients": [
    "irish cream", 
    "frangelico", 
-   "coffee"
+   "coffee", 
+   "whipped cream"
   ]
  }, 
  {
@@ -6057,8 +6075,7 @@
    "get rocks glass", 
    "add 1 1/4 oz of irish cream", 
    "add 3/4 oz of cr\u00e8me de menthe (white)", 
-   "top with cream", 
-   "top with top"
+   "top cream"
   ], 
   "name": "Barnumint and Baileys", 
   "glasses": [
@@ -6066,7 +6083,8 @@
   ], 
   "ingredients": [
    "irish cream", 
-   "cr\u00e8me de menthe (white)"
+   "cr\u00e8me de menthe (white)", 
+   "cream"
   ]
  }, 
  {
@@ -6569,8 +6587,7 @@
   "prepare_instructions": [
    "get cordial glass", 
    "add 3/4 oz of cr\u00e8me de cacao (dark)", 
-   "float with 1/4 oz cream", 
-   "float float on top"
+   "float 1/4 oz cream"
   ], 
   "name": "King Alphonse", 
   "glasses": [
@@ -6890,8 +6907,7 @@
    "add 1 1/4 oz of irish cream", 
    "add 3/4 oz of tuaca", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Chip Shot", 
   "glasses": [
@@ -6900,7 +6916,8 @@
   "ingredients": [
    "irish cream", 
    "tuaca", 
-   "coffee"
+   "coffee", 
+   "whipped cream"
   ]
  }, 
  {
@@ -6930,8 +6947,7 @@
    "add 3/4 oz of triple sec", 
    "add 1/4 of lemon", 
    "stir", 
-   "top with ginger ale", 
-   "top with top"
+   "top ginger ale"
   ], 
   "name": "Red And Ready", 
   "glasses": [
@@ -6939,8 +6955,9 @@
   ], 
   "ingredients": [
    "grenadine", 
-   "vodka", 
+   "ginger ale", 
    "lemon", 
+   "vodka", 
    "triple sec"
   ]
  }, 
@@ -7487,8 +7504,7 @@
    "get highball glass", 
    "add 2 oz of scotch whiskey", 
    "add 1 Dash of bitters", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "gently stir"
   ], 
   "name": "Stone Fence", 
@@ -7497,7 +7513,8 @@
   ], 
   "ingredients": [
    "scotch whiskey", 
-   "bitters"
+   "bitters", 
+   "club soda"
   ]
  }, 
  {
@@ -7535,8 +7552,7 @@
    "add 1/3 oz of lemon juice", 
    "add 2 oz of orange juice", 
    "stir", 
-   "top with 1/3 oz cr\u00e8me de cassis", 
-   "top with top", 
+   "top 1/3 oz cr\u00e8me de cassis", 
    "garnish with cherry"
   ], 
   "name": "Red Dwarf", 
@@ -7544,11 +7560,12 @@
    "highball glass"
   ], 
   "ingredients": [
-   "cherry", 
-   "lemon juice", 
-   "rum", 
+   "cr\u00e8me de cassis", 
    "orange juice", 
-   "peach schnapps"
+   "rum", 
+   "cherry", 
+   "peach schnapps", 
+   "lemon juice"
   ]
  }, 
  {
@@ -7596,8 +7613,7 @@
    "add 2 tsp of lemon juice", 
    "add 1 tsp of grenadine", 
    "shake and strain", 
-   "float with 3/4 oz port", 
-   "float float on top"
+   "float 3/4 oz port"
   ], 
   "name": "Crimson Cocktail", 
   "glasses": [
@@ -7723,8 +7739,7 @@
    "add 1/4 oz of sloe gin", 
    "add 1 Dash of grenadine", 
    "stir", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "garnish with lime squeeze"
   ], 
   "name": "Singapore Sling (2)", 
@@ -7739,6 +7754,7 @@
    "sloe gin", 
    "cherry brandy", 
    "gin", 
+   "club soda", 
    "lime"
   ]
  }, 
@@ -7974,8 +7990,7 @@
    "add 1 oz of lemon juice", 
    "add 2 oz of orange juice", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "garnish with orange slice"
   ], 
   "name": "Orange Fizz", 
@@ -7988,7 +8003,8 @@
    "powder sugar", 
    "lemon juice", 
    "orange", 
-   "gin"
+   "gin", 
+   "club soda"
   ]
  }, 
  {
@@ -8115,8 +8131,7 @@
    "get coffee glass", 
    "add 1 1/2 oz of whiskey", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Comfort Coffee", 
   "glasses": [
@@ -8124,7 +8139,8 @@
   ], 
   "ingredients": [
    "whiskey", 
-   "coffee"
+   "coffee", 
+   "whipped cream"
   ]
  }, 
  {
@@ -8158,8 +8174,7 @@
    "get shot glass", 
    "add 3/4 oz of vodka", 
    "add 1/4 oz of tia maria", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Deep Throat (2)", 
   "glasses": [
@@ -8167,7 +8182,8 @@
   ], 
   "ingredients": [
    "vodka", 
-   "tia maria"
+   "tia maria", 
+   "whipped cream"
   ]
  }, 
  {
@@ -8234,8 +8250,7 @@
    "add 1/2 oz of apricot brandy", 
    "add 1/2 oz of lemon juice", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top"
+   "top club soda"
   ], 
   "name": "Dry Hole", 
   "glasses": [
@@ -8245,6 +8260,7 @@
    "lemon juice", 
    "apricot brandy", 
    "cointreau", 
+   "club soda", 
    "rum"
   ]
  }, 
@@ -8630,8 +8646,7 @@
    "add 1/2 oz of brandy", 
    "add 1/2 oz of lemon juice", 
    "shake and strain", 
-   "top with 1/2 oz club soda", 
-   "top with top", 
+   "top 1/2 oz club soda", 
    "garnish with lemon slice"
   ], 
   "name": "Stay Up Late", 
@@ -8642,7 +8657,8 @@
    "gin", 
    "brandy", 
    "lemon", 
-   "lemon juice"
+   "lemon juice", 
+   "club soda"
   ]
  }, 
  {
@@ -8755,8 +8771,7 @@
    "add 1 1/4 oz of irish cream", 
    "add 3/4 oz of frangelico", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Irish Nut (2)", 
   "glasses": [
@@ -8765,7 +8780,8 @@
   "ingredients": [
    "irish cream", 
    "frangelico", 
-   "coffee"
+   "coffee", 
+   "whipped cream"
   ]
  }, 
  {
@@ -9215,8 +9231,7 @@
    "add 1/2 oz of lime juice", 
    "add 4 oz of pineapple juice", 
    "shake and strain", 
-   "top with dash grenadine", 
-   "top with top", 
+   "top dash grenadine", 
    "garnish with cherry", 
    "garnish with orange slice"
   ], 
@@ -9227,6 +9242,7 @@
   "ingredients": [
    "lime juice", 
    "pineapple juice", 
+   "grenadine", 
    "cherry", 
    "rum (dark)", 
    "banana liqueur", 
@@ -9244,8 +9260,7 @@
    "Blend", 
    "Blend", 
    "blend and strain", 
-   "float with grand marnier", 
-   "float float on top"
+   "float grand marnier"
   ], 
   "name": "Cadillac Margarita", 
   "glasses": [
@@ -9559,8 +9574,7 @@
    "add 1 oz of cr\u00e8me de cacao (white)", 
    "splash banana liqueur", 
    "stir and strain", 
-   "top with dash cr\u00e8me de cacao (dark)", 
-   "top with top"
+   "top dash cr\u00e8me de cacao (dark)"
   ], 
   "name": "Chocolate Martini", 
   "glasses": [
@@ -9569,7 +9583,8 @@
   "ingredients": [
    "banana liqueur", 
    "vodka", 
-   "cr\u00e8me de cacao (white)"
+   "cr\u00e8me de cacao (white)", 
+   "cr\u00e8me de cacao (dark)"
   ]
  }, 
  {
@@ -9819,8 +9834,7 @@
    "Blend", 
    "Blend", 
    "blend and pour", 
-   "top with whipped cream", 
-   "top with top", 
+   "top whipped cream", 
    "garnish with chocolate sprinkles"
   ], 
   "name": "Chocolate Orgasm", 
@@ -9833,6 +9847,7 @@
    "vanilla ice cream", 
    "frangelico", 
    "amaretto", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -10272,8 +10287,7 @@
    "add 1 oz of bourbon", 
    "add 1 oz of amaretto", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Tennessee Mud", 
   "glasses": [
@@ -10282,7 +10296,8 @@
   "ingredients": [
    "bourbon", 
    "amaretto", 
-   "coffee"
+   "coffee", 
+   "whipped cream"
   ]
  }, 
  {
@@ -10293,19 +10308,19 @@
    "add 1/2 oz of banana liqueur", 
    "add 1/2 oz of cr\u00e8me de cacao (dark)", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Jungle Coffee", 
   "glasses": [
    "coffee glass"
   ], 
   "ingredients": [
-   "brandy", 
-   "whiskey", 
    "coffee", 
    "cr\u00e8me de cacao (dark)", 
-   "banana liqueur"
+   "whiskey", 
+   "brandy", 
+   "banana liqueur", 
+   "whipped cream"
   ]
  }, 
  {
@@ -10415,8 +10430,7 @@
    "add 1 oz of rum (dark)", 
    "add 1 oz of amaretto", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Cafe Pucci", 
   "glasses": [
@@ -10425,7 +10439,8 @@
   "ingredients": [
    "coffee", 
    "rum (dark)", 
-   "amaretto"
+   "amaretto", 
+   "whipped cream"
   ]
  }, 
  {
@@ -10579,8 +10594,7 @@
    "add 1/2 oz of triple sec", 
    "add 1/2 oz of rum", 
    "add 1 1/2 oz of sweet/sour mix", 
-   "top with cranberry juice", 
-   "top with top", 
+   "top cranberry juice", 
    "splash lemon lime soda", 
    "garnish with lemon twist"
   ], 
@@ -10591,6 +10605,7 @@
   "ingredients": [
    "vodka", 
    "sweet/sour mix", 
+   "cranberry juice", 
    "rum", 
    "tequila", 
    "triple sec", 
@@ -10675,8 +10690,7 @@
    "add 1/3 oz of drambuie", 
    "add 1/3 oz of tia maria", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Lift", 
   "glasses": [
@@ -10686,7 +10700,8 @@
    "drambuie", 
    "coffee", 
    "amaretto", 
-   "tia maria"
+   "tia maria", 
+   "whipped cream"
   ]
  }, 
  {
@@ -10714,8 +10729,7 @@
    "add 1/2 oz of rum (dark)", 
    "add 1/2 oz of tia maria", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Jamaican Coffee (1)", 
   "glasses": [
@@ -10724,7 +10738,8 @@
   "ingredients": [
    "coffee", 
    "rum (dark)", 
-   "tia maria"
+   "tia maria", 
+   "whipped cream"
   ]
  }, 
  {
@@ -10892,14 +10907,14 @@
    "add 1/2 oz of sweet vermouth", 
    "add 1/8 oz of orange juice", 
    "stir and strain", 
-   "top with dash grenadine", 
-   "top with top"
+   "top dash grenadine"
   ], 
   "name": "Beauty Spot", 
   "glasses": [
    "cocktail glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "gin", 
    "sweet vermouth", 
    "orange juice", 
@@ -11125,8 +11140,7 @@
    "get collins glass", 
    "add 1 oz of gin", 
    "fill with lemon lime soda (like Sprite)", 
-   "top with 1 oz whiskey", 
-   "top with top", 
+   "top 1 oz whiskey", 
    "garnish with lemon wedge"
   ], 
   "name": "Zoot", 
@@ -11136,7 +11150,8 @@
   "ingredients": [
    "lemon lime soda", 
    "gin", 
-   "lemon"
+   "lemon", 
+   "whiskey"
   ]
  }, 
  {
@@ -11769,8 +11784,7 @@
    "add 1 1/2 oz of grand marnier", 
    "fill with coffee", 
    "add 1 tsp of powder sugar", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Cafe Grand Marnier", 
   "glasses": [
@@ -11779,7 +11793,8 @@
   "ingredients": [
    "grand marnier", 
    "coffee", 
-   "powder sugar"
+   "powder sugar", 
+   "whipped cream"
   ]
  }, 
  {
@@ -11917,8 +11932,7 @@
    "add 1/2 oz of peach schnapps", 
    "1/2 fill orange juice", 
    "1/2 fill cranberry juice", 
-   "top with amaretto", 
-   "top with top"
+   "top amaretto"
   ], 
   "name": "Sex On The Beach (1)", 
   "glasses": [
@@ -11926,6 +11940,7 @@
   ], 
   "ingredients": [
    "vodka", 
+   "amaretto", 
    "cranberry juice", 
    "orange juice", 
    "peach schnapps"
@@ -12003,8 +12018,7 @@
    "add 1/2 oz of coffee liqueur", 
    "add 1/2 oz of peppermint schnapps", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Pikes Peak", 
   "glasses": [
@@ -12013,6 +12027,7 @@
   "ingredients": [
    "coffee", 
    "peppermint schnapps", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -12095,8 +12110,7 @@
   "prepare_instructions": [
    "get cordial glass", 
    "add 1 1/2 oz of cr\u00e8me de cacao (dark)", 
-   "float with cream", 
-   "float float on top"
+   "float cream"
   ], 
   "name": "Angel's Dream", 
   "glasses": [
@@ -12152,8 +12166,7 @@
    "add 1 oz of lemon juice", 
    "add 1 Dash of grenadine", 
    "shake and strain", 
-   "top with galliano", 
-   "top with top", 
+   "top galliano", 
    "garnish with orange slice", 
    "garnish with cherry"
   ], 
@@ -12162,6 +12175,7 @@
    "collins glass"
   ], 
   "ingredients": [
+   "galliano", 
    "pineapple juice", 
    "rum", 
    "grenadine", 
@@ -12175,8 +12189,7 @@
   "prepare_instructions": [
    "get cordial glass", 
    "add 1/2 oz of metaxa", 
-   "float with 1/2 oz galliano", 
-   "float float on top"
+   "float 1/2 oz galliano"
   ], 
   "name": "Harbor Light", 
   "glasses": [
@@ -12378,8 +12391,7 @@
    "get coffee glass", 
    "add 1 oz of galliano", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Italian Coffee (3)", 
   "glasses": [
@@ -12387,7 +12399,8 @@
   ], 
   "ingredients": [
    "coffee", 
-   "galliano"
+   "galliano", 
+   "whipped cream"
   ]
  }, 
  {
@@ -12855,8 +12868,7 @@
    "add 1/2 oz of amaretto", 
    "add 1 oz of cream", 
    "stir and strain", 
-   "top with rum", 
-   "top with top"
+   "top rum"
   ], 
   "name": "Thong", 
   "glasses": [
@@ -12864,6 +12876,7 @@
   ], 
   "ingredients": [
    "cream", 
+   "rum", 
    "peach schnapps", 
    "cr\u00e8me de cacao (white)", 
    "amaretto", 
@@ -13532,8 +13545,7 @@
    "add 1 1/2 oz of frangelico", 
    "add 1/2 oz of cr\u00e8me de cacao (white)", 
    "fill with coffee", 
-   "top with 2 oz cream", 
-   "top with top"
+   "top 2 oz cream"
   ], 
   "name": "Mocha Nut", 
   "glasses": [
@@ -13542,7 +13554,8 @@
   "ingredients": [
    "coffee", 
    "frangelico", 
-   "cr\u00e8me de cacao (white)"
+   "cr\u00e8me de cacao (white)", 
+   "cream"
   ]
  }, 
  {
@@ -13662,8 +13675,7 @@
    "add 1/4 oz of coconut rum", 
    "add 1/4 oz of cream", 
    "shake and strain", 
-   "top with rum", 
-   "top with top"
+   "top rum"
   ], 
   "name": "Freebase", 
   "glasses": [
@@ -13748,8 +13760,7 @@
    "add 1 oz of coffee liqueur", 
    "add 1 oz of galliano", 
    "fill with cola", 
-   "top with 1 oz beer", 
-   "top with top"
+   "top 1 oz beer"
   ], 
   "name": "California Rootbeer (2)", 
   "glasses": [
@@ -13759,6 +13770,7 @@
    "coffee liqueur", 
    "vodka", 
    "galliano", 
+   "beer", 
    "cola"
   ]
  }, 
@@ -13857,8 +13869,7 @@
    "add 1/2 oz of vodka", 
    "add 1/2 oz of frangelico", 
    "add 1/2 oz of cr\u00e8me de cacao (white)", 
-   "float with cream", 
-   "float float on top"
+   "float cream"
   ], 
   "name": "Russian Qualude (1)", 
   "glasses": [
@@ -13897,14 +13908,14 @@
    "get collins glass", 
    "add 1 oz of rum", 
    "fill with orange juice", 
-   "top with 1/2 oz sloe gin", 
-   "top with top"
+   "top 1/2 oz sloe gin"
   ], 
   "name": "Sloe Sunset", 
   "glasses": [
    "collins glass"
   ], 
   "ingredients": [
+   "sloe gin", 
    "orange juice", 
    "rum"
   ]
@@ -13940,14 +13951,14 @@
    "add 1/2 oz of grand marnier", 
    "add 3 oz of orange juice", 
    "shake and strain", 
-   "top with splash grenadine", 
-   "top with top"
+   "top splash grenadine"
   ], 
   "name": "High Roller", 
   "glasses": [
    "rocks glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "grand marnier", 
    "vodka", 
    "orange juice"
@@ -14153,17 +14164,35 @@
    "add 1 oz of strawberry schnapps", 
    "add 2 oz of cranberry juice", 
    "add 2 oz of orange juice", 
-   "top with 1 oz club soda", 
-   "top with top"
+   "top 1 oz club soda"
   ], 
   "name": "Affair", 
   "glasses": [
    "highball glass"
   ], 
   "ingredients": [
+   "orange juice", 
    "strawberry schnapps", 
    "cranberry juice", 
-   "orange juice"
+   "club soda"
+  ]
+ }, 
+ {
+  "prepare_instructions": [
+   "get shot glass", 
+   "optionally, salt rim", 
+   "add ice to mixing glass", 
+   "add 1 oz of sour apple schnapps", 
+   "add 1 Dash of lime juice", 
+   "stir and strain"
+  ], 
+  "name": "Green Apple", 
+  "glasses": [
+   "shot glass"
+  ], 
+  "ingredients": [
+   "lime juice", 
+   "sour apple schnapps"
   ]
  }, 
  {
@@ -14417,8 +14446,7 @@
    "add 1/2 oz of cointreau", 
    "add 1/2 oz of lemon juice", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top"
+   "top club soda"
   ], 
   "name": "Cruise Control", 
   "glasses": [
@@ -14428,6 +14456,7 @@
    "lemon juice", 
    "apricot brandy", 
    "cointreau", 
+   "club soda", 
    "rum"
   ]
  }, 
@@ -14519,8 +14548,7 @@
    "add 3/4 oz of irish cream", 
    "add 2 oz of cream", 
    "shake and strain", 
-   "top with whipped cream", 
-   "top with top", 
+   "top whipped cream", 
    "garnish with chocolate sprinkles"
   ], 
   "name": "Pussy Supreme", 
@@ -14531,6 +14559,7 @@
    "irish cream", 
    "chocolate sprinkles", 
    "curacao", 
+   "whipped cream", 
    "cream"
   ]
  }, 
@@ -14689,8 +14718,7 @@
    "add 1/2 oz of peppermint schnapps", 
    "add 1/2 oz of coffee liqueur", 
    "add 1/2 oz of irish cream", 
-   "top with club soda", 
-   "top with top"
+   "top club soda"
   ], 
   "name": "After Eight (2)", 
   "glasses": [
@@ -14699,6 +14727,7 @@
   "ingredients": [
    "irish cream", 
    "peppermint schnapps", 
+   "club soda", 
    "coffee liqueur"
   ]
  }, 
@@ -14816,8 +14845,7 @@
    "add 1/2 oz of cr\u00e8me de cacao (white)", 
    "add 1/2 oz of cream", 
    "shake and strain", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Toreador", 
   "glasses": [
@@ -14826,6 +14854,7 @@
   "ingredients": [
    "tequila", 
    "cr\u00e8me de cacao (white)", 
+   "whipped cream", 
    "cream"
   ]
  }, 
@@ -14857,8 +14886,7 @@
    "add 1/2 oz of coconut rum", 
    "add 1/2 oz of pineapple juice", 
    "shake and strain", 
-   "top with 1/2 oz chambord raspberry schnapps", 
-   "top with top"
+   "top 1/2 oz chambord raspberry schnapps"
   ], 
   "name": "Wet Dream (3)", 
   "glasses": [
@@ -14867,7 +14895,8 @@
   "ingredients": [
    "blue curacao", 
    "pineapple juice", 
-   "coconut rum"
+   "coconut rum", 
+   "chambord raspberry schnapps"
   ]
  }, 
  {
@@ -15086,6 +15115,29 @@
  }, 
  {
   "prepare_instructions": [
+   "get collins glass", 
+   "optionally, salt rim", 
+   "add 2 oz of whiskey", 
+   "add 2 oz of triple sec", 
+   "add 2 oz of lime juice", 
+   "add 2 oz of sweet/sour mix", 
+   "stir", 
+   "garnish with lime slice"
+  ], 
+  "name": "Desert Jackarita", 
+  "glasses": [
+   "collins glass"
+  ], 
+  "ingredients": [
+   "whiskey", 
+   "lime juice", 
+   "sweet/sour mix", 
+   "triple sec", 
+   "lime"
+  ]
+ }, 
+ {
+  "prepare_instructions": [
    "get rocks glass", 
    "add 1/2 oz of peppermint schnapps", 
    "add 1/2 oz of cr\u00e8me de cacao (dark)", 
@@ -15142,8 +15194,7 @@
    "add 1/2 oz of cr\u00e8me de cacao (white)", 
    "add 1/2 oz of sweet/sour mix", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "garnish with mint sprig"
   ], 
   "name": "Adrienne's Dream", 
@@ -15151,11 +15202,12 @@
    "collins glass"
   ], 
   "ingredients": [
-   "mint", 
+   "sweet/sour mix", 
+   "cr\u00e8me de cacao (white)", 
    "brandy", 
    "peppermint schnapps", 
-   "sweet/sour mix", 
-   "cr\u00e8me de cacao (white)"
+   "mint", 
+   "club soda"
   ]
  }, 
  {
@@ -15459,8 +15511,7 @@
    "add 1 1/2 oz of gin", 
    "add 1/2 oz of cherry brandy", 
    "add 4 oz of orange juice", 
-   "top with ginger ale", 
-   "top with top", 
+   "top ginger ale", 
    "stir", 
    "garnish with orange slice"
   ], 
@@ -15471,6 +15522,7 @@
   "ingredients": [
    "orange", 
    "gin", 
+   "ginger ale", 
    "cherry brandy", 
    "orange juice"
   ]
@@ -15500,8 +15552,7 @@
    "add 1/2 oz of brandy", 
    "add 1/2 oz of coffee liqueur", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Mexican Coffee (2)", 
   "glasses": [
@@ -15510,6 +15561,7 @@
   "ingredients": [
    "brandy", 
    "coffee", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -15540,19 +15592,19 @@
    "add 2 oz of sweet/sour mix", 
    "add 2 oz of orange juice", 
    "shake and strain", 
-   "top with 1 oz lemon lime soda", 
-   "top with top"
+   "top 1 oz lemon lime soda"
   ], 
   "name": "Fishbone", 
   "glasses": [
    "collins glass"
   ], 
   "ingredients": [
+   "lemon lime soda", 
+   "orange juice", 
    "melon liqueur", 
-   "blue curacao", 
    "sweet/sour mix", 
-   "coconut rum", 
-   "orange juice"
+   "blue curacao", 
+   "coconut rum"
   ]
  }, 
  {
@@ -15565,19 +15617,19 @@
    "add 1/2 oz of lemon juice", 
    "add 1/2 tsp of grenadine", 
    "shake and strain", 
-   "top with cola", 
-   "top with top"
+   "top cola"
   ], 
   "name": "Mandeville", 
   "glasses": [
    "oldfashioned glass"
   ], 
   "ingredients": [
+   "rum", 
    "grenadine", 
-   "lemon juice", 
    "rum (dark)", 
+   "lemon juice", 
    "amaretto", 
-   "rum"
+   "cola"
   ]
  }, 
  {
@@ -16243,8 +16295,7 @@
    "add 2 oz of lemon juice", 
    "add 1 tsp of powder sugar", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "garnish with cherry", 
    "garnish with orange slice"
   ], 
@@ -16258,7 +16309,8 @@
    "powder sugar", 
    "lemon juice", 
    "cherry", 
-   "orange"
+   "orange", 
+   "club soda"
   ]
  }, 
  {
@@ -16308,8 +16360,7 @@
    "get rocks glass", 
    "add 1 1/2 oz of scotch whiskey", 
    "add 1/2 oz of amaretto", 
-   "float with cream", 
-   "float float on top"
+   "float cream"
   ], 
   "name": "Marlon Brando", 
   "glasses": [
@@ -16382,8 +16433,7 @@
    "add 1/2 oz of vodka", 
    "add 1/2 oz of coffee liqueur", 
    "fill with cola", 
-   "top with 1 oz cream", 
-   "top with top"
+   "top 1 oz cream"
   ], 
   "name": "Paralyzer", 
   "glasses": [
@@ -16393,6 +16443,7 @@
    "coffee liqueur", 
    "vodka", 
    "gold tequila", 
+   "cream", 
    "cola"
   ]
  }, 
@@ -16514,14 +16565,14 @@
    "add 1 1/2 oz of bourbon", 
    "fill with orange juice", 
    "stir", 
-   "top with 1/2 oz grenadine", 
-   "top with top"
+   "top 1/2 oz grenadine"
   ], 
   "name": "Kentucky Sunrise", 
   "glasses": [
    "collins glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "bourbon", 
    "orange juice"
   ]
@@ -16705,19 +16756,19 @@
    "add 1/2 oz of gin", 
    "add 1/2 oz of rum", 
    "add 1/2 oz of gold tequila (like Sauza Anejo Tequila)", 
-   "top with sweet/sour mix", 
-   "top with top"
+   "top sweet/sour mix"
   ], 
   "name": "Rocket Fuel", 
   "glasses": [
    "highball glass"
   ], 
   "ingredients": [
-   "gin", 
    "vodka", 
    "gold tequila", 
+   "sweet/sour mix", 
+   "rum", 
    "triple sec", 
-   "rum"
+   "gin"
   ]
  }, 
  {
@@ -16831,8 +16882,7 @@
    "add 1/2 oz of cr\u00e8me de cacao (white)", 
    "add 1/2 oz of coffee liqueur", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Mocha Almond Fudge", 
   "glasses": [
@@ -16842,6 +16892,7 @@
    "coffee", 
    "amaretto", 
    "cr\u00e8me de cacao (white)", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -17219,8 +17270,7 @@
    "add 1 oz of coffee liqueur", 
    "add 1/2 oz of peppermint schnapps", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Bavarian Coffee", 
   "glasses": [
@@ -17229,6 +17279,7 @@
   "ingredients": [
    "coffee", 
    "peppermint schnapps", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -17309,8 +17360,7 @@
    "add 1 oz of irish cream", 
    "add 1 oz of cr\u00e8me de cacao (dark)", 
    "stir", 
-   "top with cream", 
-   "top with top"
+   "top cream"
   ], 
   "name": "Chocolate Covered Peach", 
   "glasses": [
@@ -17318,8 +17368,9 @@
   ], 
   "ingredients": [
    "irish cream", 
+   "peach schnapps", 
    "cr\u00e8me de cacao (dark)", 
-   "peach schnapps"
+   "cream"
   ]
  }, 
  {
@@ -17345,16 +17396,16 @@
    "add 1 oz of chambord raspberry schnapps", 
    "splash sweet/sour mix", 
    "shake and strain", 
-   "top with dash lemon lime soda", 
-   "top with top"
+   "top dash lemon lime soda"
   ], 
   "name": "Grape Crush (2)", 
   "glasses": [
    "rocks glass"
   ], 
   "ingredients": [
-   "vodka", 
    "sweet/sour mix", 
+   "vodka", 
+   "lemon lime soda", 
    "chambord raspberry schnapps"
   ]
  }, 
@@ -17385,8 +17436,7 @@
    "add 1 oz of lemon juice", 
    "add 1/8 oz of grenadine", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "garnish with lemon slice"
   ], 
   "name": "Brandy Daisy", 
@@ -17397,7 +17447,8 @@
    "grenadine", 
    "brandy", 
    "lemon", 
-   "lemon juice"
+   "lemon juice", 
+   "club soda"
   ]
  }, 
  {
@@ -17705,14 +17756,14 @@
    "add 1 oz of melon liqueur", 
    "add 3 oz of pineapple juice", 
    "shake and strain", 
-   "top with splash grenadine", 
-   "top with top"
+   "top splash grenadine"
   ], 
   "name": "Jamaican Crawler", 
   "glasses": [
    "highball glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "melon liqueur", 
    "pineapple juice", 
    "rum"
@@ -18167,8 +18218,7 @@
    "get coffee glass", 
    "add 1 oz of amaretto", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Italian Coffee (2)", 
   "glasses": [
@@ -18176,7 +18226,8 @@
   ], 
   "ingredients": [
    "coffee", 
-   "amaretto"
+   "amaretto", 
+   "whipped cream"
   ]
  }, 
  {
@@ -18217,8 +18268,7 @@
    "add 1 1/2 oz of gold tequila (like Sauza Anejo Tequila)", 
    "fill with orange juice", 
    "stir", 
-   "top with 2 tsp cr\u00e8me de cassis", 
-   "top with top"
+   "top 2 tsp cr\u00e8me de cassis"
   ], 
   "name": "Executive Sunrise", 
   "glasses": [
@@ -18226,6 +18276,7 @@
   ], 
   "ingredients": [
    "gold tequila", 
+   "cr\u00e8me de cassis", 
    "orange juice"
   ]
  }, 
@@ -18500,8 +18551,7 @@
    "add gold tequila (like Sauza Anejo Tequila) to mixing glass", 
    "add 4 oz of orange juice", 
    "shake and strain", 
-   "top with 1/2 oz galliano", 
-   "top with top"
+   "top 1/2 oz galliano"
   ], 
   "name": "Jose Wallbanger", 
   "glasses": [
@@ -18509,7 +18559,8 @@
   ], 
   "ingredients": [
    "gold tequila", 
-   "orange juice"
+   "orange juice", 
+   "galliano"
   ]
  }, 
  {
@@ -18755,8 +18806,7 @@
    "get rocks glass", 
    "add 1 1/2 oz of brandy", 
    "add 1/2 oz of coffee liqueur", 
-   "float with cream", 
-   "float float on top"
+   "float cream"
   ], 
   "name": "Dirty White Mother", 
   "glasses": [
@@ -18816,8 +18866,7 @@
    "add 1/2 oz of coffee liqueur", 
    "add 1/2 oz of cr\u00e8me de cacao (dark)", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Coffee Nudge", 
   "glasses": [
@@ -18827,6 +18876,7 @@
    "brandy", 
    "coffee liqueur", 
    "coffee", 
+   "whipped cream", 
    "cr\u00e8me de cacao (dark)"
   ]
  }, 
@@ -19096,8 +19146,7 @@
    "add 3/4 oz of chambord raspberry schnapps", 
    "fill with sweet/sour mix", 
    "stir", 
-   "top with lemon lime soda", 
-   "top with top"
+   "top lemon lime soda"
   ], 
   "name": "Grateful Dead", 
   "glasses": [
@@ -19109,7 +19158,8 @@
    "chambord raspberry schnapps", 
    "rum", 
    "triple sec", 
-   "gin"
+   "gin", 
+   "lemon lime soda"
   ]
  }, 
  {
@@ -19283,8 +19333,7 @@
    "add 1 oz of sweet/sour mix", 
    "add 1 Dash of grenadine", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "garnish with lemon twist"
   ], 
   "name": "Apricot Cooler (2)", 
@@ -19295,7 +19344,8 @@
    "grenadine", 
    "lemon", 
    "apricot brandy", 
-   "sweet/sour mix"
+   "sweet/sour mix", 
+   "club soda"
   ]
  }, 
  {
@@ -19873,8 +19923,7 @@
    "add 1 oz of vodka", 
    "add 1 Dash of lemon juice", 
    "shake and strain", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Lemon Merange", 
   "glasses": [
@@ -19882,7 +19931,8 @@
   ], 
   "ingredients": [
    "vodka", 
-   "lemon juice"
+   "lemon juice", 
+   "whipped cream"
   ]
  }, 
  {
@@ -20072,8 +20122,7 @@
    "add 2 oz of coconut rum", 
    "1/2 fill coffee", 
    "1/2 fill hot chocolate", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Co-Co-Mo", 
   "glasses": [
@@ -20082,7 +20131,8 @@
   "ingredients": [
    "coffee", 
    "hot chocolate", 
-   "coconut rum"
+   "coconut rum", 
+   "whipped cream"
   ]
  }, 
  {
@@ -20231,14 +20281,14 @@
    "add gold tequila (like Sauza Anejo Tequila) to mixing glass", 
    "add 1/2 oz of vodka", 
    "shake and strain", 
-   "top with 1/4 oz tabasco", 
-   "top with top"
+   "top 1/4 oz tabasco"
   ], 
   "name": "Hot Spot", 
   "glasses": [
    "shot glass"
   ], 
   "ingredients": [
+   "tabasco", 
    "vodka", 
    "gold tequila"
   ]
@@ -20346,8 +20396,7 @@
    "add 1 1/4 oz of irish cream", 
    "add 3/4 oz of cr\u00e8me de cacao (dark)", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top", 
+   "top whipped cream", 
    "garnish with cherry"
   ], 
   "name": "Creme de la Creme", 
@@ -20358,6 +20407,7 @@
    "cherry", 
    "irish cream", 
    "coffee", 
+   "whipped cream", 
    "cr\u00e8me de cacao (dark)"
   ]
  }, 
@@ -20471,18 +20521,18 @@
    "add 1 oz of lemon juice", 
    "add 1 tsp of powder sugar", 
    "shake and strain", 
-   "top with cola", 
-   "top with top"
+   "top cola"
   ], 
   "name": "Root Beer", 
   "glasses": [
    "cocktail glass"
   ], 
   "ingredients": [
+   "coffee liqueur", 
    "lemon juice", 
    "galliano", 
    "powder sugar", 
-   "coffee liqueur"
+   "cola"
   ]
  }, 
  {
@@ -20513,8 +20563,7 @@
    "add 1/2 oz of triple sec", 
    "add 1/2 oz of rum", 
    "add 1 1/2 oz of sweet/sour mix", 
-   "top with cola", 
-   "top with top", 
+   "top cola", 
    "garnish with lemon twist"
   ], 
   "name": "Long Island Ice Tea (1)", 
@@ -20528,7 +20577,8 @@
    "tequila", 
    "triple sec", 
    "gin", 
-   "lemon"
+   "lemon", 
+   "cola"
   ]
  }, 
  {
@@ -20600,8 +20650,7 @@
    "add 1/2 oz of orange juice", 
    "add 1 oz of sweet/sour mix", 
    "shake and strain", 
-   "top with lemon lime soda", 
-   "top with top", 
+   "top lemon lime soda", 
    "garnish with lemon slice"
   ], 
   "name": "Go Go Juice", 
@@ -20615,6 +20664,7 @@
    "rum", 
    "tequila", 
    "gin", 
+   "lemon lime soda", 
    "blue curacao", 
    "lemon"
   ]
@@ -20710,8 +20760,7 @@
    "get rocks glass", 
    "add 2 1/2 oz of coffee liqueur", 
    "add 1/4 oz of cr\u00e8me de noyaux", 
-   "float with 1/4 oz cream", 
-   "float float on top"
+   "float 1/4 oz cream"
   ], 
   "name": "Kahlua Cocktail", 
   "glasses": [
@@ -20749,8 +20798,7 @@
    "add 1 1/2 oz of gin", 
    "add 1/2 oz of lime juice", 
    "stir", 
-   "top with pineapple juice", 
-   "top with top"
+   "top pineapple juice"
   ], 
   "name": "Pineapple Gimlet", 
   "glasses": [
@@ -20758,6 +20806,7 @@
   ], 
   "ingredients": [
    "gin", 
+   "pineapple juice", 
    "lime juice"
   ]
  }, 
@@ -20785,14 +20834,14 @@
    "get highball glass", 
    "add 1 oz of vodka", 
    "fill with orange juice", 
-   "top with 1/2 oz melon liqueur", 
-   "top with top"
+   "top 1/2 oz melon liqueur"
   ], 
   "name": "Melon Ball", 
   "glasses": [
    "highball glass"
   ], 
   "ingredients": [
+   "melon liqueur", 
    "vodka", 
    "orange juice"
   ]
@@ -20802,8 +20851,7 @@
    "get coffee glass", 
    "add 1 1/2 oz of whiskey", 
    "fill with hot chocolate", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Southern Hot Chocolate", 
   "glasses": [
@@ -20811,7 +20859,8 @@
   ], 
   "ingredients": [
    "whiskey", 
-   "hot chocolate"
+   "hot chocolate", 
+   "whipped cream"
   ]
  }, 
  {
@@ -20835,8 +20884,7 @@
    "get collins glass", 
    "add 1 oz of tequila", 
    "fill with orange juice", 
-   "top with 1/2 oz grenadine", 
-   "top with top", 
+   "top 1/2 oz grenadine", 
    "garnish with cherry"
   ], 
   "name": "Tequila Sunrise", 
@@ -20844,6 +20892,7 @@
    "collins glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "cherry", 
    "tequila", 
    "orange juice"
@@ -20875,33 +20924,33 @@
    "add 1/2 oz of galliano", 
    "add 2 tsp of cr\u00e8me de cacao (dark)", 
    "fill with coffee", 
-   "top with 2 oz cream", 
-   "top with top"
+   "top 2 oz cream"
   ], 
   "name": "Good Golly", 
   "glasses": [
    "coffee glass"
   ], 
   "ingredients": [
+   "galliano", 
    "coffee", 
    "rum (dark)", 
    "cr\u00e8me de cacao (dark)", 
-   "galliano"
+   "cream"
   ]
  }, 
  {
   "prepare_instructions": [
    "get cordial glass", 
    "add 1 1/2 oz of chambord raspberry schnapps", 
-   "top with dash cream", 
-   "top with top"
+   "top dash cream"
   ], 
   "name": "White Cap", 
   "glasses": [
    "cordial glass"
   ], 
   "ingredients": [
-   "chambord raspberry schnapps"
+   "chambord raspberry schnapps", 
+   "cream"
   ]
  }, 
  {
@@ -21184,17 +21233,17 @@
    "add 1/3 oz of chambord raspberry schnapps", 
    "add 1/3 oz of pineapple juice", 
    "shake and strain", 
-   "top with champagne", 
-   "top with top"
+   "top champagne"
   ], 
   "name": "Lobotomy", 
   "glasses": [
    "shot glass"
   ], 
   "ingredients": [
+   "pineapple juice", 
    "amaretto", 
    "chambord raspberry schnapps", 
-   "pineapple juice"
+   "champagne"
   ]
  }, 
  {
@@ -21873,8 +21922,7 @@
    "get coffee glass", 
    "add 1 oz of tia maria", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top", 
+   "top whipped cream", 
    "garnish with cherry"
   ], 
   "name": "Jamaican Coffee (2)", 
@@ -21884,7 +21932,8 @@
   "ingredients": [
    "cherry", 
    "coffee", 
-   "tia maria"
+   "tia maria", 
+   "whipped cream"
   ]
  }, 
  {
@@ -21916,8 +21965,7 @@
    "add 1/2 oz of peach schnapps", 
    "shake and strain", 
    "fill with orange juice", 
-   "top with pineapple juice", 
-   "top with top", 
+   "top pineapple juice", 
    "garnish with orange slice"
   ], 
   "name": "Smooch", 
@@ -21925,6 +21973,7 @@
    "collins glass"
   ], 
   "ingredients": [
+   "pineapple juice", 
    "orange juice", 
    "peach schnapps", 
    "melon liqueur", 
@@ -21982,8 +22031,7 @@
   "prepare_instructions": [
    "get rocks glass", 
    "fill with cola", 
-   "top with 1/2 oz grenadine", 
-   "top with top", 
+   "top 1/2 oz grenadine", 
    "garnish with cherry"
   ], 
   "name": "Roy Rogers (na)", 
@@ -21991,6 +22039,7 @@
    "rocks glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "cherry", 
    "cola"
   ]
@@ -22000,8 +22049,7 @@
    "get highball glass", 
    "add 3 oz of grape juice", 
    "add 3 oz of cranberry juice", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "garnish with lime wedge"
   ], 
   "name": "Beach Blanket Bingo (na)", 
@@ -22011,6 +22059,7 @@
   "ingredients": [
    "grape juice", 
    "cranberry juice", 
+   "club soda", 
    "lime"
   ]
  }, 
@@ -22022,8 +22071,7 @@
    "add 1 oz of cranberry juice", 
    "add 1 oz of sweet/sour mix", 
    "shake and strain", 
-   "top with lemon lime soda", 
-   "top with top", 
+   "top lemon lime soda", 
    "splash grenadine", 
    "garnish with cherry"
   ], 
@@ -22032,11 +22080,12 @@
    "collins glass"
   ], 
   "ingredients": [
+   "lemon lime soda", 
+   "cranberry juice", 
+   "orange juice", 
    "grenadine", 
    "cherry", 
-   "sweet/sour mix", 
-   "cranberry juice", 
-   "orange juice"
+   "sweet/sour mix"
   ]
  }, 
  {
@@ -22216,8 +22265,7 @@
    "add 3/4 oz of cr\u00e8me de noyaux", 
    "add 1 Dash of milk", 
    "shake and strain", 
-   "top with 1/4 oz cherry brandy", 
-   "top with top", 
+   "top 1/4 oz cherry brandy", 
    "garnish with cherry"
   ], 
   "name": "Banana Split", 
@@ -22225,11 +22273,12 @@
    "cocktail glass"
   ], 
   "ingredients": [
-   "banana liqueur", 
    "cherry", 
-   "milk", 
    "cr\u00e8me de cacao (white)", 
-   "cr\u00e8me de noyaux"
+   "cr\u00e8me de noyaux", 
+   "cherry brandy", 
+   "banana liqueur", 
+   "milk"
   ]
  }, 
  {
@@ -22325,8 +22374,7 @@
    "add 1 1/2 oz of vodka", 
    "fill with grapefruit juice", 
    "stir", 
-   "top with 1/2 oz galliano", 
-   "top with top", 
+   "top 1/2 oz galliano", 
    "garnish with lime slice"
   ], 
   "name": "Vodka Sunset", 
@@ -22336,6 +22384,7 @@
   "ingredients": [
    "grapefruit juice", 
    "vodka", 
+   "galliano", 
    "lime"
   ]
  }, 
@@ -22576,8 +22625,7 @@
   "prepare_instructions": [
    "get shot glass", 
    "add 1 oz of sambuca", 
-   "float with 1 oz blackberry brandy", 
-   "float float on top"
+   "float 1 oz blackberry brandy"
   ], 
   "name": "Jellybean (2)", 
   "glasses": [
@@ -22593,8 +22641,7 @@
    "add 1/2 oz of coffee liqueur", 
    "add 1/2 oz of irish cream", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Cafe Toledo", 
   "glasses": [
@@ -22603,6 +22650,7 @@
   "ingredients": [
    "irish cream", 
    "coffee", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -22752,8 +22800,7 @@
    "get highball glass", 
    "add 1 1/2 oz of vodka", 
    "fill with club soda", 
-   "top with splash orange juice", 
-   "top with top", 
+   "top splash orange juice", 
    "garnish with lime slice"
   ], 
   "name": "Handball Cooler", 
@@ -22763,6 +22810,7 @@
   "ingredients": [
    "vodka", 
    "club soda", 
+   "orange juice", 
    "lime"
   ]
  }, 
@@ -22988,8 +23036,7 @@
    "get coffee glass", 
    "add 1 1/2 oz of rum", 
    "fill with hot chocolate", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Hot Chocolate Rum", 
   "glasses": [
@@ -22997,6 +23044,7 @@
   ], 
   "ingredients": [
    "hot chocolate", 
+   "whipped cream", 
    "rum"
   ]
  }, 
@@ -23093,8 +23141,7 @@
    "add 1 tsp of powder sugar", 
    "add 1 oz of pineapple juice", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top"
+   "top club soda"
   ], 
   "name": "Pineapple Fizz", 
   "glasses": [
@@ -23103,6 +23150,7 @@
   "ingredients": [
    "rum", 
    "pineapple juice", 
+   "club soda", 
    "powder sugar"
   ]
  }, 
@@ -23131,8 +23179,7 @@
    "add 1 oz of vodka", 
    "add 1 oz of spiced rum", 
    "3/4 fill lemon lime soda", 
-   "top with 1 1/2 oz amaretto", 
-   "top with top"
+   "top 1 1/2 oz amaretto"
   ], 
   "name": "357 Magnum", 
   "glasses": [
@@ -23141,6 +23188,7 @@
   "ingredients": [
    "spiced rum", 
    "vodka", 
+   "amaretto", 
    "lemon lime soda"
   ]
  }, 
@@ -23230,15 +23278,15 @@
   "prepare_instructions": [
    "get rocks glass", 
    "add 1 1/4 oz of coffee liqueur", 
-   "top with cream", 
-   "top with top"
+   "top cream"
   ], 
   "name": "Muddy River", 
   "glasses": [
    "rocks glass"
   ], 
   "ingredients": [
-   "coffee liqueur"
+   "coffee liqueur", 
+   "cream"
   ]
  }, 
  {
@@ -23560,8 +23608,7 @@
   "prepare_instructions": [
    "get cordial glass", 
    "add 1 oz of cr\u00e8me de cacao (dark)", 
-   "float with 1 oz cream", 
-   "float float on top"
+   "float 1 oz cream"
   ], 
   "name": "Angel Kiss (1)", 
   "glasses": [
@@ -23876,8 +23923,7 @@
    "add 1/2 oz of triple sec", 
    "add 1 1/2 oz of lemon juice", 
    "stir", 
-   "top with cola", 
-   "top with top", 
+   "top cola", 
    "garnish with cherry"
   ], 
   "name": "Long Island Ice Tea (5)", 
@@ -23891,7 +23937,8 @@
    "cherry", 
    "triple sec", 
    "lemon juice", 
-   "gin"
+   "gin", 
+   "cola"
   ]
  }, 
  {
@@ -23904,8 +23951,7 @@
    "add 1/3 oz of galliano", 
    "fill with orange juice", 
    "stir", 
-   "top with dash grenadine", 
-   "top with top"
+   "top dash grenadine"
   ], 
   "name": "Pussy Crusher", 
   "glasses": [
@@ -23916,6 +23962,7 @@
    "galliano", 
    "orange juice", 
    "rum", 
+   "grenadine", 
    "triple sec", 
    "gin"
   ]
@@ -24080,16 +24127,16 @@
    "add 1/4 of lemon", 
    "add 1 tsp of powder sugar", 
    "stir", 
-   "top with ginger ale", 
-   "top with top"
+   "top ginger ale"
   ], 
   "name": "Royal Guard", 
   "glasses": [
    "highball glass"
   ], 
   "ingredients": [
-   "scotch whiskey", 
+   "ginger ale", 
    "lemon", 
+   "scotch whiskey", 
    "powder sugar"
   ]
  }, 
@@ -24099,14 +24146,14 @@
    "add 1 oz of vodka", 
    "add 1/2 oz of melon liqueur", 
    "fill with orange juice", 
-   "top with dash grenadine", 
-   "top with top"
+   "top dash grenadine"
   ], 
   "name": "Melon Ball Sunrise", 
   "glasses": [
    "highball glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "melon liqueur", 
    "vodka", 
    "orange juice"
@@ -24418,14 +24465,14 @@
   "prepare_instructions": [
    "get shot glass", 
    "add 3/4 oz of peppermint schnapps", 
-   "top with dash grenadine", 
-   "top with top"
+   "top dash grenadine"
   ], 
   "name": "Rudolphs Nose", 
   "glasses": [
    "shot glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "peppermint schnapps"
   ]
  }, 
@@ -24647,14 +24694,14 @@
    "add 3/4 oz of triple sec", 
    "add 2 oz of orange juice", 
    "stir", 
-   "top with splash grenadine", 
-   "top with top"
+   "top splash grenadine"
   ], 
   "name": "Southern Belle", 
   "glasses": [
    "collins glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "bourbon", 
    "pineapple juice", 
    "orange juice", 
@@ -24887,8 +24934,7 @@
    "add 1/4 oz of cr\u00e8me de menthe (white)", 
    "add 1/4 oz of cream", 
    "shake and strain", 
-   "top with rum", 
-   "top with top"
+   "top rum"
   ], 
   "name": "Chocolate Rum", 
   "glasses": [
@@ -25003,8 +25049,7 @@
    "get highball glass", 
    "add 1 oz of vodka", 
    "fill with orange juice", 
-   "top with 1/2 oz galliano", 
-   "top with top"
+   "top 1/2 oz galliano"
   ], 
   "name": "Harvey Wallbanger", 
   "glasses": [
@@ -25012,6 +25057,7 @@
   ], 
   "ingredients": [
    "vodka", 
+   "galliano", 
    "orange juice"
   ]
  }, 
@@ -25098,8 +25144,7 @@
    "add 3/4 oz of amaretto", 
    "add 1/2 oz of cr\u00e8me de cacao (dark)", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Almond Chocolate", 
   "glasses": [
@@ -25108,7 +25153,8 @@
   "ingredients": [
    "coffee", 
    "amaretto", 
-   "cr\u00e8me de cacao (dark)"
+   "cr\u00e8me de cacao (dark)", 
+   "whipped cream"
   ]
  }, 
  {
@@ -25363,8 +25409,7 @@
    "get coffee glass", 
    "add 1 oz of coffee liqueur", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Kahlua Coffee", 
   "glasses": [
@@ -25372,6 +25417,7 @@
   ], 
   "ingredients": [
    "coffee", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -25599,8 +25645,7 @@
    "add 1/2 oz of brandy", 
    "add 1/2 oz of cr\u00e8me de cacao (dark)", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Kioke Coffee (2)", 
   "glasses": [
@@ -25610,6 +25655,7 @@
    "brandy", 
    "coffee liqueur", 
    "coffee", 
+   "whipped cream", 
    "cr\u00e8me de cacao (dark)"
   ]
  }, 
@@ -25623,8 +25669,7 @@
    "add 1/4 oz of banana liqueur", 
    "add 1 tsp of powder sugar", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "garnish with peach slice"
   ], 
   "name": "Georgia Peach Fizz", 
@@ -25637,7 +25682,8 @@
    "powder sugar", 
    "brandy", 
    "banana liqueur", 
-   "peach slice"
+   "peach slice", 
+   "club soda"
   ]
  }, 
  {
@@ -25747,8 +25793,7 @@
    "add 1/3 oz of coffee liqueur", 
    "add 1/3 oz of irish cream", 
    "add 1/3 oz of cr\u00e8me de cacao (white)", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Chocolate Sundae", 
   "glasses": [
@@ -25757,6 +25802,7 @@
   "ingredients": [
    "irish cream", 
    "cr\u00e8me de cacao (white)", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -26433,8 +26479,7 @@
   "prepare_instructions": [
    "get highball glass", 
    "fill with orange juice", 
-   "top with grenadine", 
-   "top with top", 
+   "top grenadine", 
    "garnish with cherry", 
    "garnish with orange slice"
   ], 
@@ -26443,9 +26488,10 @@
    "highball glass"
   ], 
   "ingredients": [
-   "orange", 
+   "grenadine", 
    "cherry", 
-   "orange juice"
+   "orange juice", 
+   "orange"
   ]
  }, 
  {
@@ -26589,8 +26635,7 @@
    "add 1/2 oz of rum (dark)", 
    "add 1/2 oz of tia maria", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Calypso Coffee", 
   "glasses": [
@@ -26599,7 +26644,8 @@
   "ingredients": [
    "coffee", 
    "rum (dark)", 
-   "tia maria"
+   "tia maria", 
+   "whipped cream"
   ]
  }, 
  {
@@ -26835,8 +26881,7 @@
    "add 2 tsp of lime juice", 
    "add 2 tsp of lemon juice", 
    "shake and strain", 
-   "top with 1 tsp cherry brandy", 
-   "top with top"
+   "top 1 tsp cherry brandy"
   ], 
   "name": "Gates Of Hell", 
   "glasses": [
@@ -26845,7 +26890,8 @@
   "ingredients": [
    "lime juice", 
    "lemon juice", 
-   "gold tequila"
+   "gold tequila", 
+   "cherry brandy"
   ]
  }, 
  {
@@ -27006,8 +27052,7 @@
    "get collins glass", 
    "1/2 fill white wine", 
    "1/2 fill ginger ale", 
-   "top with 1/4 oz blue curacao", 
-   "top with top", 
+   "top 1/4 oz blue curacao", 
    "gently stir"
   ], 
   "name": "Smurf Juice", 
@@ -27016,7 +27061,8 @@
   ], 
   "ingredients": [
    "white wine", 
-   "ginger ale"
+   "ginger ale", 
+   "blue curacao"
   ]
  }, 
  {
@@ -27261,8 +27307,7 @@
    "add 1 1/4 oz of brandy", 
    "add 3/4 oz of coffee liqueur", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Kioke Coffee (3)", 
   "glasses": [
@@ -27271,6 +27316,7 @@
   "ingredients": [
    "brandy", 
    "coffee", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -27443,8 +27489,7 @@
    "add 2 oz of peach schnapps", 
    "fill with orange juice", 
    "stir", 
-   "top with 1 oz cranberry juice", 
-   "top with top"
+   "top 1 oz cranberry juice"
   ], 
   "name": "Jamaican Sunrise", 
   "glasses": [
@@ -27452,6 +27497,7 @@
   ], 
   "ingredients": [
    "vodka", 
+   "cranberry juice", 
    "orange juice", 
    "peach schnapps"
   ]
@@ -27486,8 +27532,7 @@
    "add 1/2 oz of melon liqueur", 
    "1/2 fill orange juice", 
    "1/2 fill lemon lime soda", 
-   "float with 1 tsp grenadine", 
-   "float float on top"
+   "float 1 tsp grenadine"
   ], 
   "name": "Electric Watermelon", 
   "glasses": [
@@ -27876,14 +27921,14 @@
   "prepare_instructions": [
    "get cordial glass", 
    "add 3 oz of peach schnapps", 
-   "top with 1 oz grenadine", 
-   "top with top"
+   "top 1 oz grenadine"
   ], 
   "name": "Boner", 
   "glasses": [
    "cordial glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "peach schnapps"
   ]
  }, 
@@ -28053,8 +28098,7 @@
    "get rocks glass", 
    "add 1 1/4 oz of coffee liqueur", 
    "3/4 fill cream", 
-   "top with cola", 
-   "top with top"
+   "top cola"
   ], 
   "name": "Smith and Wesson", 
   "glasses": [
@@ -28062,7 +28106,8 @@
   ], 
   "ingredients": [
    "coffee liqueur", 
-   "cream"
+   "cream", 
+   "cola"
   ]
  }, 
  {
@@ -28756,8 +28801,7 @@
    "add 1/2 oz of coffee liqueur", 
    "add 1/4 oz of cream", 
    "shake and strain", 
-   "float with 1 tsp rum", 
-   "float float on top"
+   "float 1 tsp rum"
   ], 
   "name": "Network Special", 
   "glasses": [
@@ -28789,8 +28833,7 @@
    "get coffee glass", 
    "add 1 1/2 oz of coconut rum", 
    "fill with hot chocolate", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Cocoa Beach", 
   "glasses": [
@@ -28798,7 +28841,8 @@
   ], 
   "ingredients": [
    "hot chocolate", 
-   "coconut rum"
+   "coconut rum", 
+   "whipped cream"
   ]
  }, 
  {
@@ -28828,8 +28872,7 @@
    "add 1 oz of coffee liqueur", 
    "add 1 oz of irish whiskey", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Kahlua Irish Coffee", 
   "glasses": [
@@ -28838,6 +28881,7 @@
   "ingredients": [
    "irish whiskey", 
    "coffee", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -29152,8 +29196,7 @@
    "add 1 oz of scotch whiskey", 
    "add 1 tsp of powder sugar", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Arctic Coast Coffee", 
   "glasses": [
@@ -29162,6 +29205,7 @@
   "ingredients": [
    "scotch whiskey", 
    "coffee", 
+   "whipped cream", 
    "powder sugar"
   ]
  }, 
@@ -29267,8 +29311,7 @@
    "add 1/2 oz of grand marnier", 
    "add 1 oz of brandy", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Parisian Coffee", 
   "glasses": [
@@ -29278,6 +29321,7 @@
    "grand marnier", 
    "brandy", 
    "coffee", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -29310,8 +29354,7 @@
    "add 1 oz of tequila", 
    "fill with orange juice", 
    "stir", 
-   "top with blackberry brandy", 
-   "top with top", 
+   "top blackberry brandy", 
    "garnish with cherry"
   ], 
   "name": "Tequila Sunset", 
@@ -29319,6 +29362,7 @@
    "collins glass"
   ], 
   "ingredients": [
+   "blackberry brandy", 
    "cherry", 
    "tequila", 
    "orange juice"
@@ -29520,8 +29564,7 @@
    "add 1/2 oz of tequila", 
    "add 1/2 oz of coffee liqueur", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Mexican Coffee (1)", 
   "glasses": [
@@ -29530,6 +29573,7 @@
   "ingredients": [
    "tequila", 
    "coffee", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -29612,8 +29656,7 @@
    "get oldfashioned glass", 
    "add 1 1/4 oz of coffee liqueur", 
    "fill with cream", 
-   "float with 3/4 oz brandy", 
-   "float float on top"
+   "float 3/4 oz brandy"
   ], 
   "name": "Separator", 
   "glasses": [
@@ -29778,8 +29821,7 @@
    "get coffee glass", 
    "add 1 oz of drambuie", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Scotch Coffee", 
   "glasses": [
@@ -29787,7 +29829,8 @@
   ], 
   "ingredients": [
    "drambuie", 
-   "coffee"
+   "coffee", 
+   "whipped cream"
   ]
  }, 
  {
@@ -30041,8 +30084,7 @@
    "add 1/2 oz of peppermint schnapps", 
    "add 1/2 oz of cr\u00e8me de cacao (dark)", 
    "fill with hot chocolate", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Hot Peppermint Patty", 
   "glasses": [
@@ -30051,7 +30093,8 @@
   "ingredients": [
    "hot chocolate", 
    "peppermint schnapps", 
-   "cr\u00e8me de cacao (dark)"
+   "cr\u00e8me de cacao (dark)", 
+   "whipped cream"
   ]
  }, 
  {
@@ -30437,14 +30480,14 @@
   "prepare_instructions": [
    "get shot glass", 
    "add 1 oz of frangelico", 
-   "top with 1/4 oz grand marnier", 
-   "top with top"
+   "top 1/4 oz grand marnier"
   ], 
   "name": "Orange Monk", 
   "glasses": [
    "shot glass"
   ], 
   "ingredients": [
+   "grand marnier", 
    "frangelico"
   ]
  }, 
@@ -30868,8 +30911,7 @@
    "add 1/2 oz of blue curacao", 
    "add 1/2 oz of rum", 
    "add 1 1/2 oz of sweet/sour mix", 
-   "top with cola", 
-   "top with top", 
+   "top cola", 
    "garnish with lemon twist"
   ], 
   "name": "Blue Long Island", 
@@ -30883,7 +30925,8 @@
    "tequila", 
    "gin", 
    "blue curacao", 
-   "lemon"
+   "lemon", 
+   "cola"
   ]
  }, 
  {
@@ -30908,8 +30951,7 @@
    "get collins glass", 
    "add 1 oz of tequila", 
    "fill with orange juice", 
-   "top with 1/2 oz galliano", 
-   "top with top"
+   "top 1/2 oz galliano"
   ], 
   "name": "Freddy Fudpucker (1)", 
   "glasses": [
@@ -30917,6 +30959,7 @@
   ], 
   "ingredients": [
    "tequila", 
+   "galliano", 
    "orange juice"
   ]
  }, 
@@ -31047,8 +31090,7 @@
    "add 1 Dash of frangelico", 
    "add 1 Dash of cr\u00e8me de cacao (dark)", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top", 
+   "top whipped cream", 
    "garnish with cinnamon"
   ], 
   "name": "Cafe Theatre", 
@@ -31061,7 +31103,8 @@
    "irish cream", 
    "frangelico", 
    "cr\u00e8me de cacao (white)", 
-   "ground cinnamon"
+   "ground cinnamon", 
+   "whipped cream"
   ]
  }, 
  {
@@ -31230,8 +31273,7 @@
    "add 1/2 oz of grenadine", 
    "add 1/2 oz of cranberry juice", 
    "shake and strain", 
-   "top with lemon lime soda", 
-   "top with top"
+   "top lemon lime soda"
   ], 
   "name": "Black Orchid", 
   "glasses": [
@@ -31240,6 +31282,7 @@
   "ingredients": [
    "grenadine", 
    "rum (dark)", 
+   "lemon lime soda", 
    "chambord raspberry schnapps", 
    "cranberry juice"
   ]
@@ -31249,8 +31292,7 @@
    "get coffee glass", 
    "add 1 1/2 oz of peppermint schnapps", 
    "fill with hot chocolate", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Adult Hot Chocolate", 
   "glasses": [
@@ -31258,7 +31300,8 @@
   ], 
   "ingredients": [
    "hot chocolate", 
-   "peppermint schnapps"
+   "peppermint schnapps", 
+   "whipped cream"
   ]
  }, 
  {
@@ -31304,8 +31347,7 @@
    "add 1 1/2 oz of wild turkey 101", 
    "add 3 oz of sweet/sour mix", 
    "shake and strain", 
-   "top with splash club soda", 
-   "top with top", 
+   "top splash club soda", 
    "garnish with orange slice", 
    "garnish with cherry"
   ], 
@@ -31317,7 +31359,8 @@
    "orange", 
    "cherry", 
    "sweet/sour mix", 
-   "wild turkey 101"
+   "wild turkey 101", 
+   "club soda"
   ]
  }, 
  {
@@ -31469,8 +31512,7 @@
    "add 1 1/2 oz of vodka", 
    "splash blue curacao", 
    "shake and strain", 
-   "top with lemon lime soda", 
-   "top with top"
+   "top lemon lime soda"
   ], 
   "name": "Green Scorpion", 
   "glasses": [
@@ -31478,6 +31520,7 @@
   ], 
   "ingredients": [
    "bourbon", 
+   "lemon lime soda", 
    "vodka", 
    "blue curacao"
   ]
@@ -31529,8 +31572,7 @@
    "add 1/2 oz of coffee liqueur", 
    "add 1/2 oz of grand marnier", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "B52 Coffee", 
   "glasses": [
@@ -31540,6 +31582,7 @@
    "grand marnier", 
    "irish cream", 
    "coffee", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -31816,8 +31859,7 @@
    "add 1/2 oz of cream", 
    "add 3 oz of pineapple juice", 
    "shake and strain", 
-   "top with rum", 
-   "top with top", 
+   "top rum", 
    "garnish with cherry", 
    "garnish with pineapple"
   ], 
@@ -31878,8 +31920,7 @@
    "add 1/4 oz of sloe gin", 
    "add 1/4 oz of tequila", 
    "add 1/4 oz of green chartreuse", 
-   "top with rum", 
-   "top with top"
+   "top rum"
   ], 
   "name": "Red Tiger", 
   "glasses": [
@@ -31888,7 +31929,8 @@
   "ingredients": [
    "tequila", 
    "sloe gin", 
-   "green chartreuse"
+   "green chartreuse", 
+   "rum"
   ]
  }, 
  {
@@ -32167,8 +32209,7 @@
    "add 1/3 oz of banana liqueur", 
    "add 1/3 oz of cr\u00e8me de noyaux", 
    "add 1/3 oz of coffee liqueur", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Banana Split (2)", 
   "glasses": [
@@ -32177,6 +32218,7 @@
   "ingredients": [
    "banana liqueur", 
    "cr\u00e8me de noyaux", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -32229,8 +32271,7 @@
    "get coffee glass", 
    "1/2 fill coffee", 
    "1/2 fill hot chocolate", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Cafe Mocha (na)", 
   "glasses": [
@@ -32238,7 +32279,8 @@
   ], 
   "ingredients": [
    "coffee", 
-   "hot chocolate"
+   "hot chocolate", 
+   "whipped cream"
   ]
  }, 
  {
@@ -32362,8 +32404,7 @@
   "prepare_instructions": [
    "get rocks glass", 
    "add 2 oz of brandy", 
-   "top with ginger ale", 
-   "top with top", 
+   "top ginger ale", 
    "garnish with orange twist"
   ], 
   "name": "Sleepyhead", 
@@ -32372,7 +32413,8 @@
   ], 
   "ingredients": [
    "orange", 
-   "brandy"
+   "brandy", 
+   "ginger ale"
   ]
  }, 
  {
@@ -32433,6 +32475,25 @@
    "dry vermouth", 
    "amaretto", 
    "lemon"
+  ]
+ }, 
+ {
+  "prepare_instructions": [
+   "get margarita glass", 
+   "optionally, salt rim", 
+   "add 1 oz of melon liqueur", 
+   "add 1 1/2 oz of tequila", 
+   "add 1 oz of sweet/sour mix", 
+   "blend and pour"
+  ], 
+  "name": "Midori Margarita", 
+  "glasses": [
+   "margarita glass"
+  ], 
+  "ingredients": [
+   "melon liqueur", 
+   "tequila", 
+   "sweet/sour mix"
   ]
  }, 
  {
@@ -32593,8 +32654,7 @@
    "add 3/4 oz of whiskey", 
    "add 1/4 oz of sherry", 
    "stir and strain", 
-   "top with dash cointreau", 
-   "top with top", 
+   "top dash cointreau", 
    "garnish with lemon twist"
   ], 
   "name": "Moons Dream", 
@@ -32604,6 +32664,7 @@
   "ingredients": [
    "whiskey", 
    "lemon", 
+   "cointreau", 
    "sherry"
   ]
  }, 
@@ -32848,8 +32909,7 @@
    "add 2 oz of rum", 
    "add 4 oz of orange juice", 
    "stir", 
-   "top with dash bitters", 
-   "top with top", 
+   "top dash bitters", 
    "garnish with orange slice"
   ], 
   "name": "Aunt Agatha", 
@@ -32858,6 +32918,7 @@
   ], 
   "ingredients": [
    "orange", 
+   "bitters", 
    "orange juice", 
    "rum"
   ]
@@ -33017,10 +33078,8 @@
    "add 1/2 oz of triple sec", 
    "add 1/2 oz of rum", 
    "add 1 1/2 oz of sweet/sour mix", 
-   "top with cola", 
-   "top with top", 
-   "top with rum", 
-   "top with top", 
+   "top cola", 
+   "top rum", 
    "garnish with lemon twist"
   ], 
   "name": "Boston Tea Party", 
@@ -33034,7 +33093,8 @@
    "tequila", 
    "triple sec", 
    "gin", 
-   "lemon"
+   "lemon", 
+   "cola"
   ]
  }, 
  {
@@ -33195,8 +33255,7 @@
    "add 1 oz of cream", 
    "add 3/4 oz of coffee liqueur", 
    "shake and pour", 
-   "top with whipped cream", 
-   "top with top", 
+   "top whipped cream", 
    "garnish with cherry"
   ], 
   "name": "Gentle Bull (1)", 
@@ -33207,6 +33266,7 @@
    "cherry", 
    "tequila", 
    "cream", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -33278,8 +33338,7 @@
    "add 1 1/2 oz of gin", 
    "add 1 oz of triple sec", 
    "shake and strain", 
-   "top with 1/4 oz blue curacao", 
-   "top with top"
+   "top 1/4 oz blue curacao"
   ], 
   "name": "Indigo", 
   "glasses": [
@@ -33287,6 +33346,7 @@
   ], 
   "ingredients": [
    "gin", 
+   "blue curacao", 
    "triple sec"
   ]
  }, 
@@ -33607,8 +33667,7 @@
    "get shot glass", 
    "add 1/2 oz of vodka", 
    "add 1/2 oz of irish cream", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Blow Job", 
   "glasses": [
@@ -33616,7 +33675,8 @@
   ], 
   "ingredients": [
    "vodka", 
-   "irish cream"
+   "irish cream", 
+   "whipped cream"
   ]
  }, 
  {
@@ -33776,19 +33836,19 @@
    "add 1/2 oz of coffee liqueur", 
    "add 1 oz of irish cream", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Cancun Coffee", 
   "glasses": [
    "coffee glass"
   ], 
   "ingredients": [
-   "coffee liqueur", 
    "coffee", 
-   "sugar", 
+   "anisette", 
    "irish cream", 
-   "anisette"
+   "sugar", 
+   "whipped cream", 
+   "coffee liqueur"
   ]
  }, 
  {
@@ -33988,8 +34048,7 @@
    "add 1 oz of cr\u00e8me de cacao (white)", 
    "add 1 oz of coffee liqueur", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Nudge", 
   "glasses": [
@@ -33999,6 +34058,7 @@
    "vodka", 
    "coffee liqueur", 
    "coffee", 
+   "whipped cream", 
    "cr\u00e8me de cacao (white)"
   ]
  }, 
@@ -34097,8 +34157,7 @@
    "get coffee glass", 
    "add 1 oz of sambuca", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Cafe Romano", 
   "glasses": [
@@ -34106,7 +34165,8 @@
   ], 
   "ingredients": [
    "sambuca", 
-   "coffee"
+   "coffee", 
+   "whipped cream"
   ]
  }, 
  {
@@ -34222,8 +34282,7 @@
    "add 1 tsp of powder sugar", 
    "add 1 oz of brandy", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Venetian Coffee", 
   "glasses": [
@@ -34232,6 +34291,7 @@
   "ingredients": [
    "brandy", 
    "coffee", 
+   "whipped cream", 
    "powder sugar"
   ]
  }, 
@@ -34303,8 +34363,7 @@
    "add 1 1/2 oz of orange juice", 
    "add 1 1/2 oz of sweet/sour mix", 
    "add 1/2 oz of grenadine", 
-   "top with rum", 
-   "top with top", 
+   "top rum", 
    "garnish with cherry", 
    "garnish with pineapple"
   ], 
@@ -34315,6 +34374,7 @@
   "ingredients": [
    "sweet/sour mix", 
    "orange juice", 
+   "rum", 
    "grenadine", 
    "cherry", 
    "rum (dark) jamaican", 
@@ -34428,8 +34488,7 @@
    "add 1/2 oz of tequila", 
    "add 1 oz of orange juice", 
    "shake and strain", 
-   "float with 1/2 oz galliano", 
-   "float float on top"
+   "float 1/2 oz galliano"
   ], 
   "name": "Cripple Creek", 
   "glasses": [
@@ -34462,15 +34521,15 @@
   "prepare_instructions": [
    "get beermug glass", 
    "fill with beer", 
-   "top with 1 oz lemon lime soda", 
-   "top with top"
+   "top 1 oz lemon lime soda"
   ], 
   "name": "Shandy", 
   "glasses": [
    "beermug"
   ], 
   "ingredients": [
-   "beer"
+   "beer", 
+   "lemon lime soda"
   ]
  }, 
  {
@@ -34832,8 +34891,7 @@
    "add 1/3 oz of cherry brandy", 
    "add 1/3 oz of coffee liqueur", 
    "shake and strain", 
-   "float with 1/3 oz irish cream", 
-   "float float on top"
+   "float 1/3 oz irish cream"
   ], 
   "name": "Black Forest Cake", 
   "glasses": [
@@ -35224,8 +35282,7 @@
    "Blend", 
    "Blend", 
    "blend and pour", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Sweet Dream", 
   "glasses": [
@@ -35235,6 +35292,7 @@
    "vodka", 
    "cream", 
    "powder sugar", 
+   "whipped cream", 
    "irish cream"
   ]
  }, 
@@ -35250,8 +35308,7 @@
    "Blend", 
    "Blend", 
    "blend and pour", 
-   "top with rum", 
-   "top with top", 
+   "top rum", 
    "garnish with cherry", 
    "garnish with pineapple"
   ], 
@@ -35275,8 +35332,7 @@
    "get rocks glass", 
    "add 1 1/2 oz of tequila", 
    "add 1/2 oz of coffee liqueur", 
-   "float with cream", 
-   "float float on top"
+   "float cream"
   ], 
   "name": "White Bull", 
   "glasses": [
@@ -35448,8 +35504,7 @@
    "add 1 1/4 oz of tequila", 
    "add 3/4 oz of coffee liqueur", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Mexican Coffee (3)", 
   "glasses": [
@@ -35458,6 +35513,7 @@
   "ingredients": [
    "tequila", 
    "coffee", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -35779,8 +35835,7 @@
    "get shot glass", 
    "add 3/4 oz of tequila", 
    "add 1/4 oz of rum", 
-   "float with 1/4 oz cream", 
-   "float float on top"
+   "float 1/4 oz cream"
   ], 
   "name": "Snake Bite", 
   "glasses": [
@@ -36051,8 +36106,7 @@
    "add 1 1/4 oz of amaretto", 
    "add 3/4 oz of frangelico", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Italian Coffee (4)", 
   "glasses": [
@@ -36061,7 +36115,8 @@
   "ingredients": [
    "coffee", 
    "amaretto", 
-   "frangelico"
+   "frangelico", 
+   "whipped cream"
   ]
  }, 
  {
@@ -36213,8 +36268,7 @@
    "get highball glass", 
    "add 1 1/4 oz of tequila", 
    "fill with orange juice", 
-   "float with galliano", 
-   "float float on top"
+   "float galliano"
   ], 
   "name": "Charlie Good Lay", 
   "glasses": [
@@ -36351,8 +36405,7 @@
    "get rocks glass", 
    "add 1 1/2 oz of vodka", 
    "add 1/2 oz of amaretto", 
-   "float with cream", 
-   "float float on top"
+   "float cream"
   ], 
   "name": "Godchild", 
   "glasses": [
@@ -36390,8 +36443,7 @@
    "get rocks glass", 
    "add 1 1/4 oz of scotch whiskey", 
    "add 3/4 oz of coffee liqueur", 
-   "top with cream", 
-   "top with top"
+   "top cream"
   ], 
   "name": "Aggravation (2)", 
   "glasses": [
@@ -36399,7 +36451,8 @@
   ], 
   "ingredients": [
    "scotch whiskey", 
-   "coffee liqueur"
+   "coffee liqueur", 
+   "cream"
   ]
  }, 
  {
@@ -36564,8 +36617,7 @@
    "add 1/3 oz of cr\u00e8me de noyaux", 
    "add 1/3 oz of whiskey", 
    "add 1/3 oz of pineapple juice", 
-   "top with melon liqueur", 
-   "top with top"
+   "top melon liqueur"
   ], 
   "name": "Watermelon (1)", 
   "glasses": [
@@ -36573,8 +36625,9 @@
   ], 
   "ingredients": [
    "whiskey", 
+   "cr\u00e8me de noyaux", 
    "pineapple juice", 
-   "cr\u00e8me de noyaux"
+   "melon liqueur"
   ]
  }, 
  {
@@ -36602,10 +36655,8 @@
   "prepare_instructions": [
    "get cordial glass", 
    "add 1/3 oz of cr\u00e8me de menthe (white)", 
-   "float with 1/3 oz galliano", 
-   "float float on top", 
-   "float with 1/3 oz blackberry brandy", 
-   "float float on top"
+   "float 1/3 oz galliano", 
+   "float 1/3 oz blackberry brandy"
   ], 
   "name": "Pousse Cafe", 
   "glasses": [
@@ -36681,8 +36732,7 @@
   "prepare_instructions": [
    "get cordial glass", 
    "add 1 1/2 oz of cr\u00e8me de cacao (dark)", 
-   "float with cream", 
-   "float float on top"
+   "float cream"
   ], 
   "name": "Alfonso", 
   "glasses": [
@@ -36779,8 +36829,7 @@
    "add 1 1/2 oz of irish whiskey", 
    "add 3/4 oz of coffee liqueur", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Irish Coffee (2)", 
   "glasses": [
@@ -36789,6 +36838,7 @@
   "ingredients": [
    "irish whiskey", 
    "coffee", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -37502,8 +37552,7 @@
    "add 3/4 oz of cognac", 
    "add 3/4 oz of grand marnier", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "French Kiss Coffee", 
   "glasses": [
@@ -37512,7 +37561,8 @@
   "ingredients": [
    "grand marnier", 
    "coffee", 
-   "cognac"
+   "cognac", 
+   "whipped cream"
   ]
  }, 
  {
@@ -37544,8 +37594,7 @@
    "add 1/4 oz of lime juice", 
    "fill with orange juice", 
    "stir", 
-   "top with sambuca", 
-   "top with top"
+   "top sambuca"
   ], 
   "name": "Red Death", 
   "glasses": [
@@ -37558,6 +37607,7 @@
    "triple sec", 
    "whiskey", 
    "sloe gin", 
+   "sambuca", 
    "amaretto"
   ]
  }, 
@@ -37956,8 +38006,7 @@
    "get coffee glass", 
    "add 1 1/4 oz of peppermint schnapps", 
    "fill with hot chocolate", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Girl Scout Cookie (4)", 
   "glasses": [
@@ -37965,7 +38014,8 @@
   ], 
   "ingredients": [
    "hot chocolate", 
-   "peppermint schnapps"
+   "peppermint schnapps", 
+   "whipped cream"
   ]
  }, 
  {
@@ -38240,8 +38290,7 @@
    "get rocks glass", 
    "add 1 1/2 oz of rum (dark) jamaican", 
    "add 1/2 oz of coffee liqueur", 
-   "float with cream", 
-   "float float on top"
+   "float cream"
   ], 
   "name": "High Jamaican Wind", 
   "glasses": [
@@ -38257,8 +38306,7 @@
    "get oldfashioned glass", 
    "add 1 1/2 oz of melon liqueur", 
    "add 1 1/2 oz of vodka", 
-   "top with 1/4 oz cream", 
-   "top with top"
+   "top 1/4 oz cream"
   ], 
   "name": "Green Russian", 
   "glasses": [
@@ -38266,7 +38314,8 @@
   ], 
   "ingredients": [
    "melon liqueur", 
-   "vodka"
+   "vodka", 
+   "cream"
   ]
  }, 
  {
@@ -38294,8 +38343,7 @@
   "prepare_instructions": [
    "get rocks glass", 
    "add 1 1/4 oz of peach schnapps", 
-   "float with 3/4 oz irish cream", 
-   "float float on top", 
+   "float 3/4 oz irish cream", 
    "add 1 Dash of grenadine"
   ], 
   "name": "Brain Tumor (2)", 
@@ -38439,8 +38487,7 @@
    "add 1 oz of coconut rum", 
    "add 1 oz of banana liqueur", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top", 
+   "top whipped cream", 
    "garnish with chocolate sprinkles"
   ], 
   "name": "Beach Bum Coffee", 
@@ -38451,7 +38498,8 @@
    "banana liqueur", 
    "coffee", 
    "chocolate sprinkles", 
-   "coconut rum"
+   "coconut rum", 
+   "whipped cream"
   ]
  }, 
  {
@@ -38962,14 +39010,14 @@
    "add 1/2 oz of melon liqueur", 
    "1/2 fill pineapple juice", 
    "1/2 fill orange juice", 
-   "top with dash grenadine", 
-   "top with top"
+   "top dash grenadine"
   ], 
   "name": "Scuba Steve", 
   "glasses": [
    "collins glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "mandarin vodka", 
    "pineapple juice", 
    "orange juice", 
@@ -39217,8 +39265,7 @@
    "add 3 oz of coffee", 
    "add 3 oz of hot chocolate", 
    "add 1 tsp of powder sugar", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Cafe Mocha Rum", 
   "glasses": [
@@ -39228,6 +39275,7 @@
    "coffee", 
    "rum", 
    "powder sugar", 
+   "whipped cream", 
    "hot chocolate"
   ]
  }, 
@@ -39269,8 +39317,7 @@
    "add 1 oz of orange juice", 
    "add 1 oz of cranberry juice", 
    "shake and strain", 
-   "top with 1 oz cream", 
-   "top with top"
+   "top 1 oz cream"
   ], 
   "name": "Amaretto Cruise", 
   "glasses": [
@@ -39282,7 +39329,8 @@
    "orange juice", 
    "rum", 
    "peach schnapps", 
-   "amaretto"
+   "amaretto", 
+   "cream"
   ]
  }, 
  {
@@ -39467,8 +39515,7 @@
   "prepare_instructions": [
    "get cordial glass", 
    "add 1/2 oz of benedictine", 
-   "float with 1/2 oz apple brandy", 
-   "float float on top"
+   "float 1/2 oz apple brandy"
   ], 
   "name": "A and B", 
   "glasses": [
@@ -39594,8 +39641,7 @@
    "add 3/4 oz of blue curacao", 
    "add 1 1/2 oz of sweet/sour mix", 
    "shake and strain", 
-   "top with lemon lime soda", 
-   "top with top", 
+   "top lemon lime soda", 
    "garnish with lemon slice"
   ], 
   "name": "Electric Tea", 
@@ -39608,6 +39654,7 @@
    "sweet/sour mix", 
    "rum", 
    "gin", 
+   "lemon lime soda", 
    "blue curacao", 
    "lemon"
   ]
@@ -40136,8 +40183,7 @@
    "get highball glass", 
    "add 1 oz of gin", 
    "fill with tonic", 
-   "top with ginger ale", 
-   "top with top"
+   "top ginger ale"
   ], 
   "name": "Nuclear Submarine", 
   "glasses": [
@@ -40145,7 +40191,8 @@
   ], 
   "ingredients": [
    "gin", 
-   "tonic"
+   "tonic", 
+   "ginger ale"
   ]
  }, 
  {
@@ -40412,8 +40459,7 @@
    "get coffee glass", 
    "add 1 1/4 oz of brandy", 
    "fill with hot chocolate", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Chocolate Stinger", 
   "glasses": [
@@ -40421,7 +40467,8 @@
   ], 
   "ingredients": [
    "brandy", 
-   "hot chocolate"
+   "hot chocolate", 
+   "whipped cream"
   ]
  }, 
  {
@@ -40484,8 +40531,7 @@
    "get coffee glass", 
    "add 1 oz of irish cream", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Bailey's Coffee", 
   "glasses": [
@@ -40493,7 +40539,8 @@
   ], 
   "ingredients": [
    "irish cream", 
-   "coffee"
+   "coffee", 
+   "whipped cream"
   ]
  }, 
  {
@@ -40557,8 +40604,7 @@
    "get highball glass", 
    "add 1 oz of amaretto", 
    "fill with orange juice", 
-   "top with club soda", 
-   "top with top"
+   "top club soda"
   ], 
   "name": "Bocci Ball", 
   "glasses": [
@@ -40566,7 +40612,8 @@
   ], 
   "ingredients": [
    "amaretto", 
-   "orange juice"
+   "orange juice", 
+   "club soda"
   ]
  }, 
  {
@@ -40578,17 +40625,17 @@
    "add 2 oz of pineapple juice", 
    "add 1 oz of orange juice", 
    "shake and strain", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Orange Climax", 
   "glasses": [
    "highball glass"
   ], 
   "ingredients": [
+   "orange juice", 
    "bourbon", 
    "pineapple juice", 
-   "orange juice", 
+   "whipped cream", 
    "peach schnapps"
   ]
  }, 
@@ -40674,14 +40721,14 @@
    "get highball glass", 
    "add 1 1/2 oz of gold tequila (like Sauza Anejo Tequila)", 
    "fill with orange juice", 
-   "top with 1/4 oz bitters", 
-   "top with top"
+   "top 1/4 oz bitters"
   ], 
   "name": "Tijuana Sunrise", 
   "glasses": [
    "highball glass"
   ], 
   "ingredients": [
+   "bitters", 
    "gold tequila", 
    "orange juice"
   ]
@@ -41166,14 +41213,14 @@
    "add 1 1/2 oz of brandy", 
    "add 1 1/2 oz of lemon juice", 
    "shake and strain", 
-   "top with dash grenadine", 
-   "top with top"
+   "top dash grenadine"
   ], 
   "name": "Brandy Gump", 
   "glasses": [
    "cocktail glass"
   ], 
   "ingredients": [
+   "grenadine", 
    "brandy", 
    "lemon juice"
   ]
@@ -41185,8 +41232,7 @@
    "add 1 oz of amaretto", 
    "add 2 oz of sweet/sour mix", 
    "shake and strain", 
-   "top with splash pineapple juice", 
-   "top with top"
+   "top splash pineapple juice"
   ], 
   "name": "Bend Me Over", 
   "glasses": [
@@ -41194,7 +41240,8 @@
   ], 
   "ingredients": [
    "amaretto", 
-   "sweet/sour mix"
+   "sweet/sour mix", 
+   "pineapple juice"
   ]
  }, 
  {
@@ -41893,8 +41940,7 @@
    "add 1 oz of chambord raspberry schnapps", 
    "add 1 oz of cr\u00e8me de cacao (white)", 
    "fill with hot chocolate", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Royal Hot Chocolate", 
   "glasses": [
@@ -41903,6 +41949,7 @@
   "ingredients": [
    "hot chocolate", 
    "chambord raspberry schnapps", 
+   "whipped cream", 
    "cr\u00e8me de cacao (white)"
   ]
  }, 
@@ -42760,8 +42807,7 @@
   "prepare_instructions": [
    "get cordial glass", 
    "add 2 oz of apricot brandy", 
-   "float with 1/2 oz cream", 
-   "float float on top"
+   "float 1/2 oz cream"
   ], 
   "name": "Princess", 
   "glasses": [
@@ -42781,8 +42827,7 @@
    "Blend", 
    "Blend", 
    "blend and pour", 
-   "top with 1 oz coffee liqueur", 
-   "top with top"
+   "top 1 oz coffee liqueur"
   ], 
   "name": "Fierce Frosty", 
   "glasses": [
@@ -42791,7 +42836,8 @@
   "ingredients": [
    "vodka", 
    "cr\u00e8me de cacao (white)", 
-   "cr\u00e8me de menthe (white)"
+   "cr\u00e8me de menthe (white)", 
+   "coffee liqueur"
   ]
  }, 
  {
@@ -42904,8 +42950,7 @@
    "add 1/2 oz of vodka", 
    "add 1/2 oz of triple sec", 
    "add 1 1/2 oz of sweet/sour mix", 
-   "top with cola", 
-   "top with top", 
+   "top cola", 
    "garnish with lemon twist"
   ], 
   "name": "Ice Tea", 
@@ -42913,11 +42958,12 @@
    "collins glass"
   ], 
   "ingredients": [
-   "gin", 
    "vodka", 
    "lemon", 
+   "triple sec", 
+   "gin", 
    "sweet/sour mix", 
-   "triple sec"
+   "cola"
   ]
  }, 
  {
@@ -42949,8 +42995,7 @@
    "add 2 oz of rum", 
    "add 1 tsp of powder sugar", 
    "fill with coffee", 
-   "float with 1 oz cream", 
-   "float float on top"
+   "float 1 oz cream"
   ], 
   "name": "Caribbean Coffee", 
   "glasses": [
@@ -42988,8 +43033,7 @@
    "get rocks glass", 
    "add 1 1/2 oz of vodka", 
    "add 1/2 oz of coffee liqueur", 
-   "float with cream", 
-   "float float on top"
+   "float cream"
   ], 
   "name": "White Russian", 
   "glasses": [
@@ -43148,8 +43192,7 @@
    "add 1/2 oz of coffee liqueur", 
    "add 3/4 oz of frangelico", 
    "fill with coffee", 
-   "top with cream", 
-   "top with top"
+   "top cream"
   ], 
   "name": "Afternoon", 
   "glasses": [
@@ -43157,9 +43200,10 @@
   ], 
   "ingredients": [
    "irish cream", 
+   "coffee liqueur", 
    "frangelico", 
    "coffee", 
-   "coffee liqueur"
+   "cream"
   ]
  }, 
  {
@@ -43351,8 +43395,7 @@
    "Blend", 
    "Blend", 
    "blend and pour", 
-   "top with rum", 
-   "top with top", 
+   "top rum", 
    "garnish with cherry", 
    "garnish with pineapple"
   ], 
@@ -43400,8 +43443,7 @@
    "add 1 oz of sweet/sour mix", 
    "splash orange juice", 
    "stir", 
-   "top with cola", 
-   "top with top", 
+   "top cola", 
    "garnish with cherry"
   ], 
   "name": "Long Island Ice Tea (3)", 
@@ -43416,7 +43458,8 @@
    "rum", 
    "cherry", 
    "triple sec", 
-   "gin"
+   "gin", 
+   "cola"
   ]
  }, 
  {
@@ -43822,8 +43865,7 @@
    "add 1 oz of vodka", 
    "add 1/2 oz of coffee liqueur", 
    "add 1/2 oz of amaretto", 
-   "top with club soda", 
-   "top with top"
+   "top club soda"
   ], 
   "name": "Brain Eraser", 
   "glasses": [
@@ -43832,6 +43874,7 @@
   "ingredients": [
    "vodka", 
    "amaretto", 
+   "club soda", 
    "coffee liqueur"
   ]
  }, 
@@ -43901,18 +43944,18 @@
    "add 1/2 oz of grand marnier", 
    "add 1/2 oz of frangelico", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Millionaire's Coffee", 
   "glasses": [
    "coffee glass"
   ], 
   "ingredients": [
-   "grand marnier", 
    "coffee", 
-   "frangelico", 
    "irish cream", 
+   "frangelico", 
+   "grand marnier", 
+   "whipped cream", 
    "coffee liqueur"
   ]
  }, 
@@ -44065,8 +44108,7 @@
    "add 1/2 oz of rum", 
    "add 1/2 oz of triple sec", 
    "add 1 oz of sweet/sour mix", 
-   "top with cola", 
-   "top with top", 
+   "top cola", 
    "garnish with lemon slice"
   ], 
   "name": "Texas Ice Tea", 
@@ -44079,7 +44121,8 @@
    "rum", 
    "tequila", 
    "triple sec", 
-   "sweet/sour mix"
+   "sweet/sour mix", 
+   "cola"
   ]
  }, 
  {
@@ -44606,8 +44649,7 @@
    "add 1/2 oz of coffee brandy", 
    "add 1/4 oz of cream", 
    "shake and strain", 
-   "top with 1 tsp rum", 
-   "top with top"
+   "top 1 tsp rum"
   ], 
   "name": "Network Special (2)", 
   "glasses": [
@@ -45141,8 +45183,7 @@
    "add 1 1/2 oz of gold tequila (like Sauza Anejo Tequila)", 
    "add 2 1/2 oz of cranberry juice", 
    "shake and strain", 
-   "top with 1 oz ginger ale", 
-   "top with top", 
+   "top 1 oz ginger ale", 
    "gently stir"
   ], 
   "name": "Lazy Sunday", 
@@ -45150,6 +45191,7 @@
    "highball glass"
   ], 
   "ingredients": [
+   "ginger ale", 
    "gold tequila", 
    "cranberry juice"
   ]
@@ -45187,14 +45229,14 @@
    "add 1 tsp of cherry brandy", 
    "add 4 oz of orange juice", 
    "shake and strain", 
-   "top with ginger ale", 
-   "top with top"
+   "top ginger ale"
   ], 
   "name": "Ginger Breeze", 
   "glasses": [
    "highball glass"
   ], 
   "ingredients": [
+   "ginger ale", 
    "cherry brandy", 
    "orange juice", 
    "rum"
@@ -45452,17 +45494,17 @@
    "add 1/4 oz of frangelico", 
    "splash cream", 
    "shake and strain", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "German Chocolate Cake", 
   "glasses": [
    "rocks glass"
   ], 
   "ingredients": [
+   "coconut rum", 
    "frangelico", 
    "cr\u00e8me de cacao (white)", 
-   "coconut rum", 
+   "whipped cream", 
    "cream"
   ]
  }, 
@@ -45647,8 +45689,7 @@
   "prepare_instructions": [
    "get cordial glass", 
    "add 3/4 oz of cr\u00e8me de cacao (dark)", 
-   "float with 1/4 oz cream", 
-   "float float on top", 
+   "float 1/4 oz cream", 
    "garnish with cherry"
   ], 
   "name": "Angel Tip", 
@@ -46131,8 +46172,7 @@
    "add 1 oz of rum (dark) jamaican", 
    "add 1 oz of vodka", 
    "stir", 
-   "top with cola", 
-   "top with top"
+   "top cola"
   ], 
   "name": "Bad Dream", 
   "glasses": [
@@ -46142,7 +46182,8 @@
    "rum (dark) jamaican", 
    "vodka", 
    "rum (dark)", 
-   "rum"
+   "rum", 
+   "cola"
   ]
  }, 
  {
@@ -46154,8 +46195,7 @@
    "add 1/2 oz of lemon juice", 
    "add 1/2 oz of grenadine", 
    "shake and strain", 
-   "top with club soda", 
-   "top with top", 
+   "top club soda", 
    "garnish with cherry", 
    "garnish with orange slice"
   ], 
@@ -46169,7 +46209,8 @@
    "whiskey", 
    "lemon juice", 
    "orange", 
-   "bourbon"
+   "bourbon", 
+   "club soda"
   ]
  }, 
  {
@@ -46261,8 +46302,7 @@
    "add 2 Dashes of bitters", 
    "add 1/4 tsp of powder sugar", 
    "shake and strain", 
-   "top with splash champagne", 
-   "top with top"
+   "top splash champagne"
   ], 
   "name": "Fancy Whiskey", 
   "glasses": [
@@ -46271,6 +46311,7 @@
   "ingredients": [
    "whiskey", 
    "bitters", 
+   "champagne", 
    "curacao", 
    "powder sugar"
   ]
@@ -46471,8 +46512,7 @@
    "get shot glass", 
    "add 1/2 oz of butterscotch schnapps", 
    "add 1/2 oz of irish cream", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Blow Job (2)", 
   "glasses": [
@@ -46480,7 +46520,8 @@
   ], 
   "ingredients": [
    "butterscotch schnapps", 
-   "irish cream"
+   "irish cream", 
+   "whipped cream"
   ]
  }, 
  {
@@ -46638,8 +46679,7 @@
    "get coffee glass", 
    "add 1 1/2 oz of drambuie", 
    "fill with coffee", 
-   "top with whipped cream", 
-   "top with top"
+   "top whipped cream"
   ], 
   "name": "Scottish Coffee", 
   "glasses": [
@@ -46647,7 +46687,8 @@
   ], 
   "ingredients": [
    "drambuie", 
-   "coffee"
+   "coffee", 
+   "whipped cream"
   ]
  }, 
  {
@@ -46724,8 +46765,7 @@
    "Blend", 
    "Blend", 
    "blend and pour", 
-   "top with 1 oz champagne", 
-   "top with top"
+   "top 1 oz champagne"
   ], 
   "name": "Russian Brunch", 
   "glasses": [
@@ -46733,6 +46773,7 @@
   ], 
   "ingredients": [
    "vodka", 
+   "champagne", 
    "orange juice"
   ]
  }, 
