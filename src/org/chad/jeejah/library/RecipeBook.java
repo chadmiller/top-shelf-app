@@ -3,11 +3,18 @@ package org.chad.jeejah.library;
 import android.util.Log;
 import android.content.Context;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import java.util.Set;
 import java.util.TreeSet;
+
 import java.util.List;
 import java.util.LinkedList;
+import java.util.ArrayList;
+
 import java.util.Iterator;
+import java.util.Collections;
 
 import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.JsonParser;
@@ -25,11 +32,14 @@ class RecipeBook {
 //		}
 //	};
 
-	public List<Recipe> recipes;
+	public List<Recipe> allRecipes;
+	public List<Recipe> producableRecipes;
+	public Map<String,Integer> countRecipesSoleAdditionalIngredient;
+
 	public Set<String> knownIngredients;
 
 	public RecipeBook(Context context) {
-		recipes = new LinkedList<Recipe>();
+		this.allRecipes = new ArrayList<Recipe>(2400);
 		this.knownIngredients = new TreeSet<String>();
 
 		try {
@@ -76,11 +86,15 @@ class RecipeBook {
 						Log.e(TAG, "  UNKNOWN: " + jp.getCurrentToken());
 					}
 				}
-				this.recipes.add(recipe);
+				this.allRecipes.add(recipe);
 
 			}
 
-			Log.d(TAG, "recipes count " + this.recipes.size());
+			Collections.sort(this.allRecipes);
+			Log.d(TAG, "recipes count " + this.allRecipes.size());
+
+			this.countRecipesSoleAdditionalIngredient = new TreeMap<String,Integer>();
+			this.producableRecipes = new ArrayList<Recipe>();
 
 		} catch (java.io.IOException ex) {
 			Log.e(TAG, "Can't parse JSON", ex);
@@ -88,29 +102,33 @@ class RecipeBook {
 	}
 
 
-	public Recipe[] recipesConstructable(Set<String> pantry) {
-		TreeSet<Recipe> results = new TreeSet<Recipe>();
-		Iterator bookIterator = this.recipes.iterator();
+	synchronized void updateProducable(Set<String> pantry) {
+		// Maybe this should be new-and-clobber.  Hopefully, single threaded.
+		this.producableRecipes.clear();
+		this.countRecipesSoleAdditionalIngredient.clear();
 
-		while(bookIterator.hasNext()) {
-			Recipe recipe = (Recipe) bookIterator.next(); 
-			if (pantry.containsAll(recipe.ingredients)) {
-				results.add(recipe);
-			}
+		if (pantry.size() == 0) {
+			return;
 		}
 
-		return results.toArray(new Recipe[results.size()]);
+		Iterator bookIterator = this.allRecipes.iterator();
+		while (bookIterator.hasNext()) {
+			Recipe recipe = (Recipe) bookIterator.next(); 
+			Set<String> recipeNeeds = new TreeSet<String>(recipe.ingredients);
+			recipeNeeds.removeAll(pantry);
+			int size = recipeNeeds.size();
+
+			if (size == 0) {
+				this.producableRecipes.add(recipe);
+			} else if (size == 1) {
+				Integer i = (Integer) countRecipesSoleAdditionalIngredient.get((Object) recipe.name);
+				if (i == null) {
+					countRecipesSoleAdditionalIngredient.put(recipe.name, new Integer(1));
+				} else {
+					countRecipesSoleAdditionalIngredient.put(recipe.name, i + 1);
+				}
+			}
+		}
 	}
-
-
-	// get all recipes
-
-	// make a list of all ingredients.   "unownedIngredients"
-	// remove all ingredients we own.
-
-	// for each ingredient unownedIngredients,
-	//    for each recipe,
-	//        if incredient is in recipe,
-	//            candidate_recipes.remove(recipe)
 
 }

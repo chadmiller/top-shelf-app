@@ -27,6 +27,8 @@ public class Search extends Activity {
 
 	private RecipeBook recipeBook;
 
+	private RecipeAdapter recipeAdapter;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,16 +39,45 @@ public class Search extends Activity {
 			this.recipeBook = new RecipeBook(this);
 		}
 
+		Set<String> pantry = new HashSet<String>();
+		this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
+
+		ListView computedAvailableDrinks = (ListView) findViewById(R.id.computed_available_drinks);
+		computedAvailableDrinks.setAdapter(this.recipeAdapter);
+		computedAvailableDrinks.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Recipe recipe = (Recipe) parent.getItemAtPosition(position);
+				Intent intent = new Intent(Search.this, RecipeActivity.class);
+				intent.setAction(Intent.ACTION_VIEW);
+				android.os.Bundle recipe_info = new android.os.Bundle();
+				recipe_info.putString(Recipe.KEY_NAME, recipe.name);
+				recipe_info.putStringArray(Recipe.KEY_PREPARE_INST, recipe.prepare_instructions.toArray(new String[recipe.prepare_instructions.size()]));
+				recipe_info.putStringArray(Recipe.KEY_CONSUME_INST, recipe.consume_instructions.toArray(new String[recipe.consume_instructions.size()]));
+				recipe_info.putStringArray(Recipe.KEY_INGREDIENTS, recipe.ingredients.toArray(new String[recipe.ingredients.size()]));
+				intent.putExtra("recipe", recipe_info);
+				Search.this.startActivity(intent);
+			}
+		});
+
+		TextView drinksListHeader = (TextView) findViewById(R.id.drinks_list_header);
+		drinksListHeader.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				/*
+				Intent intent = new Intent(Search.this, Pantry.class);
+				intent.putExtra("ingredients", recipeBook.knownIngredients.toArray(new String[recipeBook.knownIngredients.size()]));
+				Search.this.startActivityForResult(intent, 1);
+				*/
+				Search.this.recipeAdapter.toggleVisibility();
+			}
+		});
+
 		setUp();
 	}
 
 	void setUp() {
-
-		TextView drinksListHeader = (TextView) findViewById(R.id.drinks_list_header);
 		Set<String> pantry = new HashSet<String>();
 
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-
 		Iterator it = sp.getAll().keySet().iterator();
 		while (it.hasNext()) {
 			Object k = it.next();
@@ -62,37 +93,17 @@ public class Search extends Activity {
 			showDialog(1);
 		}
 
-		Recipe[] canMake = recipeBook.recipesConstructable(pantry);
-
-		drinksListHeader.setText(String.format("You can make %d recipes (out of %d known recipes) with your %d ingredients:", canMake.length, recipeBook.recipes.size(), pantry.size()));
-
-		drinksListHeader.setOnClickListener(new OnClickListener() {
-			public void onClick(View view) {
-				Intent intent = new Intent(Search.this, Pantry.class);
-				intent.putExtra("ingredients", recipeBook.knownIngredients.toArray(new String[recipeBook.knownIngredients.size()]));
-				Search.this.startActivityForResult(intent, 1);
-			}
-		});
+		this.recipeBook.updateProducable(pantry);
+		this.recipeAdapter.updatePantry(pantry);
 
 		ListView computedAvailableDrinks = (ListView) findViewById(R.id.computed_available_drinks);
-		computedAvailableDrinks.setAdapter(new RecipeAdapter(this, canMake));
+		Log.d(TAG, "would set fastScroll " + (this.recipeAdapter.targetRecipeList.size() > 21));
+		//computedAvailableDrinks.setFastScrollEnabled(this.recipeAdapter.targetRecipeList.size() > 21);
 
-		computedAvailableDrinks.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Recipe recipe = (Recipe) parent.getItemAtPosition(position);
-				Intent intent = new Intent(Search.this, RecipeActivity.class);
-				intent.setAction(Intent.ACTION_VIEW);
-				android.os.Bundle recipe_info = new android.os.Bundle();
-				recipe_info.putString(Recipe.KEY_NAME, recipe.name);
-				recipe_info.putStringArray(Recipe.KEY_PREPARE_INST, recipe.prepare_instructions.toArray(new String[recipe.prepare_instructions.size()]));
-				recipe_info.putStringArray(Recipe.KEY_CONSUME_INST, recipe.consume_instructions.toArray(new String[recipe.consume_instructions.size()]));
-				recipe_info.putStringArray(Recipe.KEY_INGREDIENTS, recipe.ingredients.toArray(new String[recipe.ingredients.size()]));
-				intent.putExtra("recipe", recipe_info);
-				Search.this.startActivity(intent);
-			}
-		});
+		TextView drinksListHeader = (TextView) findViewById(R.id.drinks_list_header);
+		drinksListHeader.setText(String.format("You can make %d recipes (out of %d known recipes) with your %d ingredients:", recipeBook.producableRecipes.size(), recipeBook.allRecipes.size(), pantry.size()));
+
 	}
-
 
 
 	@Override

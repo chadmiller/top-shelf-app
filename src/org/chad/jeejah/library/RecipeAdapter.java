@@ -6,10 +6,14 @@ import android.view.ViewGroup;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.content.Context;
+import android.util.Log;
 
 import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 class RecipeAdapter extends android.widget.BaseAdapter {
+	public final static String TAG = "org.chad.jeejah.library.RecipeAdapter";
 
 	public static class ViewHolder {
 		public TextView name;
@@ -18,17 +22,45 @@ class RecipeAdapter extends android.widget.BaseAdapter {
 		public TextView ratings;
 	}
 
-	private Recipe[] recipeList;
+	private Set<String> pantry;
+	private RecipeBook recipeBook;
+	private boolean useProducableOnly;
 	private LayoutInflater inflater;
 
-	public RecipeAdapter(Context context, Recipe[] list) {
+	public List targetRecipeList;
+
+	public void toggleVisibility() {
+		this.useProducableOnly = !this.useProducableOnly;
+		if (useProducableOnly) {
+			this.targetRecipeList = recipeBook.producableRecipes;
+		} else {
+			this.targetRecipeList = recipeBook.allRecipes;
+		}
+		this.notifyDataSetChanged();
+		Log.i(TAG, "producable only set to " + this.useProducableOnly);
+	}
+
+	public void updatePantry(Set<String> pantry) {
+		this.pantry = pantry;
+		this.notifyDataSetChanged();
+	}
+
+	public RecipeAdapter(Context context, RecipeBook recipeBook, Set<String> pantry, boolean useProducableOnly) {
 		super();
-		this.recipeList = list;
+		this.recipeBook = recipeBook;
+		this.useProducableOnly = useProducableOnly;
+		this.pantry = pantry;
+
+		if (useProducableOnly) {
+			this.targetRecipeList = recipeBook.producableRecipes;
+		} else {
+			this.targetRecipeList = recipeBook.allRecipes;
+		}
 		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
 	public int getCount() {
-		return recipeList.length;
+		return this.targetRecipeList.size();
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -45,13 +77,44 @@ class RecipeAdapter extends android.widget.BaseAdapter {
 			holder = (ViewHolder) convertView.getTag();
 		}
 
-		holder.name.setText(this.recipeList[position].name);
-		//holder.photo.setImageBitmap();  // FIXME glass type
+		Recipe recipe = (Recipe) this.targetRecipeList.get(position);
 
-		Iterator<String> iter = this.recipeList[position].ingredients.iterator();
-		StringBuffer buffer = new StringBuffer(iter.next());
-		while (iter.hasNext()) buffer.append(", ").append(iter.next());
+		boolean bad = false;
+		Iterator<String> iter = recipe.ingredients.iterator();
+		StringBuffer buffer = new StringBuffer();
+		if (this.useProducableOnly) {
+			// Display all the same way
+			buffer.append(iter.next());
+			while (iter.hasNext()) {
+				buffer.append(", ").append(iter.next());
+			}
+		} else {
+			String s = iter.next();
+			if (this.pantry.contains(s)) {
+				buffer.append(s);
+			} else {
+				bad = true;
+				buffer.append("(").append(s).append(")");
+			}
+			while (iter.hasNext()) {
+				s = iter.next();
+				buffer.append(", ");
+				if (this.pantry.contains(s)) {
+					buffer.append(s);
+				} else {
+					bad = true;
+					buffer.append("(").append(s).append(")");
+				}
+			}
+		}
 		holder.ingredients.setText(buffer.toString());
+		//holder.photo.setImageBitmap();  // FIXME glass type
+		if (bad) {
+			holder.name.setText("* " + recipe.name);
+		} else {
+			holder.name.setText(recipe.name);
+		}
+
 
 		return convertView;
 	}
@@ -60,20 +123,17 @@ class RecipeAdapter extends android.widget.BaseAdapter {
 
 	public int getItemViewType(int position) { return 1; }
 
-	public boolean hasStableIds() { return false; }
+	public boolean hasStableIds() { return true; }
 
 	public long getItemId(int position) {
-		//return this.recipeList[position].name;
-		return 1L;
+		return this.targetRecipeList.get(position).hashCode();
 	}
 
 	public Recipe getItem(int position) {
-		return this.recipeList[position];
+		return (Recipe) this.targetRecipeList.get(position);
 	}
 
-	public boolean isEmpty() { return (this.recipeList == null) || (this.recipeList.length == 0); }
-
-	//public void registerDataSetObserver(DataSetObserver observer) { }
+	public boolean isEmpty() { return (this.targetRecipeList == null) || (this.targetRecipeList.size() == 0); }
 
 }
 
