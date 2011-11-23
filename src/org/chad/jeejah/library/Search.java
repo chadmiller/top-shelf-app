@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.view.Window;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.util.Log;
@@ -22,6 +23,10 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
 
+import com.markupartist.android.widget.ActionBar;
+import com.markupartist.android.widget.ActionBar.Action;
+import com.markupartist.android.widget.ActionBar.IntentAction;
+
 public class Search extends Activity {
 	public final static String TAG = "org.chad.jeejah.library.Search";
 
@@ -29,10 +34,14 @@ public class Search extends Activity {
 
 	private RecipeAdapter recipeAdapter;
 
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.main);
+
+		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
 
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
 		if (this.recipeBook == null) {
@@ -59,17 +68,46 @@ public class Search extends Activity {
 			}
 		});
 
+		/*
 		TextView drinksListHeader = (TextView) findViewById(R.id.drinks_list_header);
 		drinksListHeader.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
-				/*
 				Intent intent = new Intent(Search.this, Pantry.class);
 				intent.putExtra("ingredients", recipeBook.knownIngredients.toArray(new String[recipeBook.knownIngredients.size()]));
 				Search.this.startActivityForResult(intent, 1);
-				*/
-				Search.this.recipeAdapter.toggleVisibility();
 			}
 		});
+		*/
+
+		class ListToggleAction implements Action {
+			@Override
+			public int getDrawable() {
+				return R.drawable.ic_btn_toggle_viewable;
+			}
+
+			@Override
+			public void performAction(View view) {
+				Search.this.recipeAdapter.toggleVisibility();
+			}
+		}
+		actionBar.addAction(new ListToggleAction());
+
+
+		class PickIngredientsAction implements Action {
+			@Override
+			public int getDrawable() {
+				return R.drawable.ic_btn_mark_owned_ingredients;
+			}
+
+			@Override
+			public void performAction(View view) {
+				Intent intent = new Intent(Search.this, Pantry.class);
+				intent.putExtra("ingredients", Search.this.recipeBook.knownIngredients.toArray(new String[Search.this.recipeBook.knownIngredients.size()]));
+				Search.this.startActivityForResult(intent, 1);
+			}
+		}
+		actionBar.addAction(new PickIngredientsAction());
+
 
 		setUp();
 	}
@@ -100,8 +138,8 @@ public class Search extends Activity {
 		Log.d(TAG, "would set fastScroll " + (this.recipeAdapter.targetRecipeList.size() > 21));
 		//computedAvailableDrinks.setFastScrollEnabled(this.recipeAdapter.targetRecipeList.size() > 21);
 
-		TextView drinksListHeader = (TextView) findViewById(R.id.drinks_list_header);
-		drinksListHeader.setText(String.format("You can make %d recipes (out of %d known recipes) with your %d ingredients:", recipeBook.producableRecipes.size(), recipeBook.allRecipes.size(), pantry.size()));
+		//TextView drinksListHeader = (TextView) findViewById(R.id.drinks_list_header);
+		//drinksListHeader.setText(String.format("You can make %d recipes (out of %d known recipes) with your %d ingredients:", recipeBook.producableRecipes.size(), recipeBook.allRecipes.size(), pantry.size()));
 
 	}
 

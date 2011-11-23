@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/org.chad.jeejah.library"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:background="@drawable/jackrose_as_background"
@@ -10,6 +12,14 @@
 		android:layout_height="wrap_content" 
 		>
 
+
+		<com.markupartist.android.widget.ActionBar
+			android:id="@+id/actionbar"
+			app:title="Drinks"
+			style="@style/ActionBar"
+			/>
+
+		<!--
 		<TextView  
 			android:id="@+id/drinks_list_header"
 			android:layout_width="fill_parent" 
@@ -18,7 +28,6 @@
 			android:background="#9000"
 			/>
 
-		<!--
 		<ImageView
 			android:id="@+id/drinks_filter_toggle_button"
 			android:layout_toRightOf="@id/drinks_list_header"
@@ -27,7 +36,6 @@
 			android:background="#d000"
 			android:gravity="right"
 			/>
-		-->
 
 		<TextView  
 			android:id="@+id/most_productive_ingredient"
@@ -37,6 +45,7 @@
 			android:hint="There are no shopping suggestions."
 			android:background="#9000"
 			/>
+		-->
 
 	</RelativeLayout>
 
