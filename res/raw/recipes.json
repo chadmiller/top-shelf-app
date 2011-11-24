@@ -748,8 +748,8 @@
  {
   "prepare_instructions": [
    "get highball glass", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill grapefruit juice"
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill grapefruit juice"
   ], 
   "name": "Virgin Seabreeze (na)", 
   "glasses": [
@@ -1170,8 +1170,8 @@
    "get highball glass", 
    "add 1 oz of melon liqueur", 
    "add 1 oz of vodka", 
-   "1/2 fill lemon lime soda", 
-   "1/2 fill lemonade", 
+   "\u00bd fill lemon lime soda", 
+   "\u00bd fill lemonade", 
    "stir"
   ], 
   "name": "Green Eyed Lady", 
@@ -1465,8 +1465,8 @@
    "get rocks glass", 
    "add 3/4 oz of vodka", 
    "add 3/4 oz of triple sec", 
-   "1/2 fill orange juice", 
-   "1/2 fill cream"
+   "\u00bd fill orange juice", 
+   "\u00bd fill cream"
   ], 
   "name": "Dreamsicle (3)", 
   "glasses": [
@@ -1720,8 +1720,8 @@
    "get highball glass", 
    "add 1 oz of vodka", 
    "add 1 oz of banana liqueur", 
-   "1/3 fill cola", 
-   "2/3 fill lemonade"
+   "\u2153 fill cola", 
+   "\u2154 fill lemonade"
   ], 
   "name": "Bananarama", 
   "glasses": [
@@ -1777,7 +1777,7 @@
    "get brandysnifter glass", 
    "add 1 tsp of powder sugar", 
    "add 1 oz of brandy", 
-   "3/4 fill hot water", 
+   "\u00be fill hot water", 
    "garnish with lemon twist"
   ], 
   "name": "Brandy Toddy", 
@@ -1811,8 +1811,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 2 oz of coconut rum", 
-   "2/3 fill lemonade", 
-   "1/3 fill pineapple juice", 
+   "\u2154 fill lemonade", 
+   "\u2153 fill pineapple juice", 
    "stir"
   ], 
   "name": "Malibu Chill", 
@@ -2275,7 +2275,7 @@
   "prepare_instructions": [
    "get oldfashioned glass", 
    "add 1 1/2 oz of vodka", 
-   "3/4 fill pineapple juice", 
+   "\u00be fill pineapple juice", 
    "top lemon lime soda", 
    "gently stir"
   ], 
@@ -2556,8 +2556,8 @@
   "prepare_instructions": [
    "get collins glass", 
    "add 2 oz of gin", 
-   "1/2 fill orange juice", 
-   "1/2 fill cranberry juice", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill cranberry juice", 
    "garnish with orange slice"
   ], 
   "name": "Honey Getter", 
@@ -2661,8 +2661,8 @@
   "prepare_instructions": [
    "get largewine glass", 
    "add 1/2 oz of grand marnier", 
-   "1/2 fill champagne", 
-   "1/2 fill orange juice"
+   "\u00bd fill champagne", 
+   "\u00bd fill orange juice"
   ], 
   "name": "Grand Mimosa", 
   "glasses": [
@@ -3121,8 +3121,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 1/2 oz of vodka", 
-   "1/2 fill pineapple juice", 
-   "1/2 fill cranberry juice", 
+   "\u00bd fill pineapple juice", 
+   "\u00bd fill cranberry juice", 
    "stir", 
    "top ginger ale"
   ], 
@@ -3439,8 +3439,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 oz of rum (dark) jamaican", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill orange juice"
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill orange juice"
   ], 
   "name": "Caribbean Madras", 
   "glasses": [
@@ -3961,8 +3961,8 @@
    "add 1 oz of coconut rum", 
    "add 1 oz of spiced rum", 
    "add 1 oz of strawberry schnapps", 
-   "1/3 fill lemonade", 
-   "2/3 fill orange juice", 
+   "\u2153 fill lemonade", 
+   "\u2154 fill orange juice", 
    "stir"
   ], 
   "name": "Captain Caribbean", 
@@ -4204,8 +4204,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 oz of vodka", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill orange juice"
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill orange juice"
   ], 
   "name": "Madras", 
   "glasses": [
@@ -4271,8 +4271,8 @@
   "prepare_instructions": [
    "get oldfashioned glass", 
    "add 1 oz of rum", 
-   "1/3 fill orange juice", 
-   "2/3 fill pineapple juice", 
+   "\u2153 fill orange juice", 
+   "\u2154 fill pineapple juice", 
    "splash rum (dark)", 
    "garnish with cherry", 
    "garnish with pineapple"
@@ -4293,8 +4293,8 @@
  {
   "prepare_instructions": [
    "get collins glass", 
-   "1/2 fill orange juice", 
-   "1/2 fill tonic", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill tonic", 
    "garnish with orange slice"
   ], 
   "name": "Orange Tonic (na)", 
@@ -6492,8 +6492,8 @@
   "prepare_instructions": [
    "get rocks glass", 
    "add 1 1/4 oz of amaretto", 
-   "1/2 fill orange juice", 
-   "1/2 fill cream"
+   "\u00bd fill orange juice", 
+   "\u00bd fill cream"
   ], 
   "name": "Orange Frosty", 
   "glasses": [
@@ -7066,8 +7066,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 2 oz of whiskey", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill ginger ale", 
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill ginger ale", 
    "garnish with orange slice"
   ], 
   "name": "Tramp Juice", 
@@ -8504,8 +8504,8 @@
    "add 1/2 oz of coconut rum", 
    "add 1/2 oz of melon liqueur", 
    "add 1/2 oz of banana liqueur", 
-   "1/2 fill pineapple juice", 
-   "1/2 fill sweet/sour mix", 
+   "\u00bd fill pineapple juice", 
+   "\u00bd fill sweet/sour mix", 
    "stir"
   ], 
   "name": "June Bug", 
@@ -8810,8 +8810,8 @@
    "get highball glass", 
    "add 1 oz of vodka", 
    "add 1 oz of melon liqueur", 
-   "1/2 fill pineapple juice", 
-   "1/2 fill cranberry juice"
+   "\u00bd fill pineapple juice", 
+   "\u00bd fill cranberry juice"
   ], 
   "name": "Melon Breeze", 
   "glasses": [
@@ -9416,8 +9416,8 @@
    "get oldfashioned glass", 
    "add 1 oz of coconut rum", 
    "add 1 oz of grand marnier", 
-   "1/2 fill pineapple juice", 
-   "1/2 fill cranberry juice"
+   "\u00bd fill pineapple juice", 
+   "\u00bd fill cranberry juice"
   ], 
   "name": "Malibu Monsoon", 
   "glasses": [
@@ -9923,8 +9923,8 @@
  {
   "prepare_instructions": [
    "get highball glass", 
-   "1/2 fill orange juice", 
-   "1/2 fill lemon juice"
+   "\u00bd fill orange juice", 
+   "\u00bd fill lemon juice"
   ], 
   "name": "Saint Clemence (na)", 
   "glasses": [
@@ -10008,7 +10008,7 @@
  {
   "prepare_instructions": [
    "get brandysnifter glass", 
-   "1/2 fill ice", 
+   "\u00bd fill ice", 
    "add 4 oz of irish cream", 
    "add 1 1/2 oz of milk", 
    "stir"
@@ -10248,8 +10248,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 2 oz of blue curacao", 
-   "1/2 fill orange juice", 
-   "1/2 fill lemonade", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill lemonade", 
    "stir"
   ], 
   "name": "Blue Sunshine", 
@@ -10484,7 +10484,7 @@
  {
   "prepare_instructions": [
    "get champagne glass", 
-   "3/4 fill champagne", 
+   "\u00be fill champagne", 
    "add 1 oz of cranberry juice", 
    "add 1/2 oz of cointreau"
   ], 
@@ -11001,8 +11001,8 @@
    "add 3/4 oz of vodka", 
    "add 3/4 oz of sloe gin", 
    "add 3/4 oz of peach schnapps", 
-   "1/2 fill orange juice", 
-   "1/2 fill pineapple juice"
+   "\u00bd fill orange juice", 
+   "\u00bd fill pineapple juice"
   ], 
   "name": "Puerto Rican Punch", 
   "glasses": [
@@ -11021,8 +11021,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 2 oz of coconut rum", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill lemonade"
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill lemonade"
   ], 
   "name": "Malibu Cove", 
   "glasses": [
@@ -11336,8 +11336,8 @@
  {
   "prepare_instructions": [
    "get highball glass", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill club soda"
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill club soda"
   ], 
   "name": "Cranberry Sparkle (na)", 
   "glasses": [
@@ -11930,8 +11930,8 @@
    "get collins glass", 
    "add 1 oz of vodka", 
    "add 1/2 oz of peach schnapps", 
-   "1/2 fill orange juice", 
-   "1/2 fill cranberry juice", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill cranberry juice", 
    "top amaretto"
   ], 
   "name": "Sex On The Beach (1)", 
@@ -12226,8 +12226,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 1/2 oz of vodka", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill pineapple juice", 
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill pineapple juice", 
    "stir"
   ], 
   "name": "Downeaster", 
@@ -12511,8 +12511,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 oz of amaretto", 
-   "1/2 fill orange juice", 
-   "1/2 fill cream", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill cream", 
    "stir"
   ], 
   "name": "Popsicle", 
@@ -12529,8 +12529,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 2 oz of amaretto", 
-   "2/3 fill lemonade", 
-   "1/3 fill pineapple juice", 
+   "\u2154 fill lemonade", 
+   "\u2153 fill pineapple juice", 
    "stir"
   ], 
   "name": "Amaretto Chill", 
@@ -12645,7 +12645,7 @@
    "get brandysnifter glass", 
    "add 1 1/4 oz of courvoisier", 
    "add 3/4 oz of grand marnier", 
-   "3/4 fill hot water", 
+   "\u00be fill hot water", 
    "garnish with lemon twist"
   ], 
   "name": "Hot Toddy (2)", 
@@ -12721,8 +12721,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 2 oz of melon liqueur", 
-   "2/3 fill lemonade", 
-   "1/3 fill pineapple juice", 
+   "\u2154 fill lemonade", 
+   "\u2153 fill pineapple juice", 
    "stir"
   ], 
   "name": "Melon Chill", 
@@ -13135,8 +13135,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 2 oz of bourbon", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill pineapple juice"
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill pineapple juice"
   ], 
   "name": "Trolley", 
   "glasses": [
@@ -13363,8 +13363,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 oz of vodka", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill grapefruit juice"
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill grapefruit juice"
   ], 
   "name": "Seabreeze", 
   "glasses": [
@@ -14863,8 +14863,8 @@
    "get highball glass", 
    "add 1 oz of vodka", 
    "add 1 oz of peach schnapps", 
-   "1/3 fill cola", 
-   "2/3 fill lemonade", 
+   "\u2153 fill cola", 
+   "\u2154 fill lemonade", 
    "stir"
   ], 
   "name": "Mad Hatter", 
@@ -15569,8 +15569,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 oz of vodka", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill pineapple juice"
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill pineapple juice"
   ], 
   "name": "Baybreeze", 
   "glasses": [
@@ -16543,9 +16543,9 @@
    "get highball glass", 
    "add 1 oz of coconut rum", 
    "add 1 oz of peach schnapps", 
-   "1/3 fill orange juice", 
-   "1/3 fill pineapple juice", 
-   "1/3 fill cranberry juice"
+   "\u2153 fill orange juice", 
+   "\u2153 fill pineapple juice", 
+   "\u2153 fill cranberry juice"
   ], 
   "name": "Malibu Orchid", 
   "glasses": [
@@ -16825,8 +16825,8 @@
  {
   "prepare_instructions": [
    "get largewine glass", 
-   "1/2 fill champagne", 
-   "1/2 fill orange juice"
+   "\u00bd fill champagne", 
+   "\u00bd fill orange juice"
   ], 
   "name": "Mimosa", 
   "glasses": [
@@ -16980,7 +16980,7 @@
  {
   "prepare_instructions": [
    "get wine glass", 
-   "1/2 fill ice", 
+   "\u00bd fill ice", 
    "add 4 oz of white wine", 
    "fill with club soda", 
    "splash blue curacao", 
@@ -17097,8 +17097,8 @@
    "add 3/4 oz of rum", 
    "add 3/4 oz of vodka", 
    "add 1/2 oz of triple sec", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill sweet/sour mix", 
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill sweet/sour mix", 
    "stir"
   ], 
   "name": "Long Beach Ice Tea (2)", 
@@ -17617,8 +17617,8 @@
    "add ice to mixing glass", 
    "add 1 oz of rum", 
    "add 1 oz of banana liqueur", 
-   "1/3 fill orange juice", 
-   "2/3 fill pineapple juice", 
+   "\u2153 fill orange juice", 
+   "\u2154 fill pineapple juice", 
    "shake and strain", 
    "garnish with pineapple"
   ], 
@@ -18103,8 +18103,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 oz of vodka", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill orange juice", 
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill orange juice", 
    "garnish with orange slice"
   ], 
   "name": "Ocean Breeze", 
@@ -18299,8 +18299,8 @@
   "prepare_instructions": [
    "get collins glass", 
    "add 1 oz of rum", 
-   "1/2 fill orange juice", 
-   "1/2 fill lemon lime soda"
+   "\u00bd fill orange juice", 
+   "\u00bd fill lemon lime soda"
   ], 
   "name": "Rum Cooler", 
   "glasses": [
@@ -18315,7 +18315,7 @@
  {
   "prepare_instructions": [
    "get wine glass", 
-   "3/4 fill white wine", 
+   "\u00be fill white wine", 
    "add 1/2 oz of cr\u00e8me de cassis", 
    "garnish with lemon twist"
   ], 
@@ -18435,8 +18435,8 @@
    "get highball glass", 
    "add 3/4 oz of vodka", 
    "add 3/4 oz of melon liqueur", 
-   "1/2 fill orange juice", 
-   "1/2 fill cranberry juice"
+   "\u00bd fill orange juice", 
+   "\u00bd fill cranberry juice"
   ], 
   "name": "Watermelon (2)", 
   "glasses": [
@@ -19697,8 +19697,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 oz of whiskey", 
-   "1/2 fill club soda", 
-   "1/2 fill ginger ale", 
+   "\u00bd fill club soda", 
+   "\u00bd fill ginger ale", 
    "garnish with lemon twist"
   ], 
   "name": "Presbyterian", 
@@ -20062,8 +20062,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 2 oz of bourbon", 
-   "1/2 fill pineapple juice", 
-   "1/2 fill cranberry juice"
+   "\u00bd fill pineapple juice", 
+   "\u00bd fill cranberry juice"
   ], 
   "name": "Long Hot Night", 
   "glasses": [
@@ -20120,8 +20120,8 @@
   "prepare_instructions": [
    "get coffee glass", 
    "add 2 oz of coconut rum", 
-   "1/2 fill coffee", 
-   "1/2 fill hot chocolate", 
+   "\u00bd fill coffee", 
+   "\u00bd fill hot chocolate", 
    "top whipped cream"
   ], 
   "name": "Co-Co-Mo", 
@@ -21132,8 +21132,8 @@
    "get highball glass", 
    "add 3/4 oz of melon liqueur", 
    "add 3/4 oz of coconut rum", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill orange juice", 
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill orange juice", 
    "stir"
   ], 
   "name": "Caribbean Sunset", 
@@ -21678,7 +21678,7 @@
  {
   "prepare_instructions": [
    "get champagne glass", 
-   "3/4 fill champagne", 
+   "\u00be fill champagne", 
    "add 1 oz of orange juice", 
    "add 1/2 oz of triple sec", 
    "garnish with orange slice"
@@ -21863,8 +21863,8 @@
    "add 1/2 oz of amaretto", 
    "add 1/2 oz of grenadine", 
    "add 1/2 oz of melon liqueur", 
-   "1/2 fill orange juice", 
-   "1/2 fill pineapple juice", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill pineapple juice", 
    "splash lemon lime soda"
   ], 
   "name": "Gummy Bear", 
@@ -22285,8 +22285,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 2 oz of rum", 
-   "1/2 fill pineapple juice", 
-   "1/2 fill grapefruit juice"
+   "\u00bd fill pineapple juice", 
+   "\u00bd fill grapefruit juice"
   ], 
   "name": "Sombrero Cooler", 
   "glasses": [
@@ -22781,8 +22781,8 @@
    "get highball glass", 
    "add 1 oz of coconut rum", 
    "add 1 oz of vodka", 
-   "1/2 fill orange juice", 
-   "1/2 fill pineapple juice"
+   "\u00bd fill orange juice", 
+   "\u00bd fill pineapple juice"
   ], 
   "name": "Malibu Beach", 
   "glasses": [
@@ -23118,8 +23118,8 @@
    "get rocks glass", 
    "add 1 oz of amaretto", 
    "add 1 oz of whiskey", 
-   "1/2 fill orange juice", 
-   "1/2 fill sweet/sour mix", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill sweet/sour mix", 
    "stir"
   ], 
   "name": "Armadillo", 
@@ -23178,7 +23178,7 @@
    "get highball glass", 
    "add 1 oz of vodka", 
    "add 1 oz of spiced rum", 
-   "3/4 fill lemon lime soda", 
+   "\u00be fill lemon lime soda", 
    "top 1 1/2 oz amaretto"
   ], 
   "name": "357 Magnum", 
@@ -24519,8 +24519,8 @@
    "get highball glass", 
    "add 1 oz of coconut rum", 
    "add 1 oz of vodka", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill pineapple juice"
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill pineapple juice"
   ], 
   "name": "Malibu Bay Breeze", 
   "glasses": [
@@ -24736,8 +24736,8 @@
    "get collins glass", 
    "add 1 oz of triple sec", 
    "add 1 oz of peach schnapps", 
-   "1/2 fill orange juice", 
-   "1/2 fill pineapple juice", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill pineapple juice", 
    "garnish with orange slice", 
    "garnish with cherry"
   ], 
@@ -24870,8 +24870,8 @@
   "prepare_instructions": [
    "get collins glass", 
    "add 1 1/2 oz of bourbon", 
-   "1/2 fill pineapple juice", 
-   "1/2 fill grapefruit juice", 
+   "\u00bd fill pineapple juice", 
+   "\u00bd fill grapefruit juice", 
    "garnish with orange slice", 
    "garnish with cherry"
   ], 
@@ -25491,8 +25491,8 @@
   "prepare_instructions": [
    "get collins glass", 
    "1/2FillIce collins", 
-   "1/2 fill red wine", 
-   "1/2 fill lemon lime soda", 
+   "\u00bd fill red wine", 
+   "\u00bd fill lemon lime soda", 
    "garnish with cherry"
   ], 
   "name": "Wine Cooler", 
@@ -25609,8 +25609,8 @@
    "get collins glass", 
    "add 3 oz of vodka", 
    "add 1 tsp of grenadine", 
-   "1/2 fill sweet/sour mix", 
-   "1/2 fill ginger ale"
+   "\u00bd fill sweet/sour mix", 
+   "\u00bd fill ginger ale"
   ], 
   "name": "Pink Pillow", 
   "glasses": [
@@ -26025,8 +26025,8 @@
    "add 1 oz of vodka", 
    "add 1 oz of melon liqueur", 
    "add 1 oz of strawberry schnapps", 
-   "1/2 fill orange juice", 
-   "1/2 fill pineapple juice"
+   "\u00bd fill orange juice", 
+   "\u00bd fill pineapple juice"
   ], 
   "name": "Beachside", 
   "glasses": [
@@ -26089,8 +26089,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 1/2 oz of rum (dark) jamaican", 
-   "1/2 fill pineapple juice", 
-   "1/2 fill orange juice", 
+   "\u00bd fill pineapple juice", 
+   "\u00bd fill orange juice", 
    "splash grenadine"
   ], 
   "name": "Lounge Lizard", 
@@ -26235,8 +26235,8 @@
  {
   "prepare_instructions": [
    "get highball glass", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill orange juice"
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill orange juice"
   ], 
   "name": "Virgin Madras (na)", 
   "glasses": [
@@ -26397,8 +26397,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 oz of vodka", 
-   "1/2 fill orange juice", 
-   "1/2 fill grapefruit juice"
+   "\u00bd fill orange juice", 
+   "\u00bd fill grapefruit juice"
   ], 
   "name": "California Driver", 
   "glasses": [
@@ -26617,8 +26617,8 @@
  {
   "prepare_instructions": [
    "get largewine glass", 
-   "1/2 fill champagne", 
-   "1/2 fill orange juice"
+   "\u00bd fill champagne", 
+   "\u00bd fill orange juice"
   ], 
   "name": "Bucks Fizz", 
   "glasses": [
@@ -26677,8 +26677,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 oz of vodka", 
-   "1/2 fill orange juice", 
-   "1/2 fill grapefruit juice"
+   "\u00bd fill orange juice", 
+   "\u00bd fill grapefruit juice"
   ], 
   "name": "Californian", 
   "glasses": [
@@ -27008,8 +27008,8 @@
  {
   "prepare_instructions": [
    "get highball glass", 
-   "1/2 fill orange juice", 
-   "1/2 fill club soda", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill club soda", 
    "garnish with orange slice"
   ], 
   "name": "Orange Sparkle (na)", 
@@ -27050,8 +27050,8 @@
  {
   "prepare_instructions": [
    "get collins glass", 
-   "1/2 fill white wine", 
-   "1/2 fill ginger ale", 
+   "\u00bd fill white wine", 
+   "\u00bd fill ginger ale", 
    "top 1/4 oz blue curacao", 
    "gently stir"
   ], 
@@ -27367,7 +27367,7 @@
  {
   "prepare_instructions": [
    "get wine glass", 
-   "3/4 fill champagne", 
+   "\u00be fill champagne", 
    "add 1/2 oz of cr\u00e8me de cassis", 
    "garnish with lemon twist"
   ], 
@@ -27530,8 +27530,8 @@
    "add 1/2 oz of vodka", 
    "add 1/2 oz of triple sec", 
    "add 1/2 oz of melon liqueur", 
-   "1/2 fill orange juice", 
-   "1/2 fill lemon lime soda", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill lemon lime soda", 
    "float 1 tsp grenadine"
   ], 
   "name": "Electric Watermelon", 
@@ -28097,7 +28097,7 @@
   "prepare_instructions": [
    "get rocks glass", 
    "add 1 1/4 oz of coffee liqueur", 
-   "3/4 fill cream", 
+   "\u00be fill cream", 
    "top cola"
   ], 
   "name": "Smith and Wesson", 
@@ -28210,7 +28210,7 @@
    "splash club soda", 
    "add 1 Dash of simple syrup", 
    "mash with spoon", 
-   "1/2 fill ice", 
+   "\u00bd fill ice", 
    "add 1 1/2 oz of rum", 
    "garnish with mint sprig"
   ], 
@@ -28245,8 +28245,8 @@
  {
   "prepare_instructions": [
    "get highball glass", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill pineapple juice"
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill pineapple juice"
   ], 
   "name": "Virgin Baybreeze (na)", 
   "glasses": [
@@ -28311,8 +28311,8 @@
  {
   "prepare_instructions": [
    "get beermug glass", 
-   "1/2 fill beer (stout)", 
-   "1/2 fill champagne"
+   "\u00bd fill beer (stout)", 
+   "\u00bd fill champagne"
   ], 
   "name": "Black Velvet", 
   "glasses": [
@@ -28449,8 +28449,8 @@
    "get highball glass", 
    "add 1 oz of vodka", 
    "add 1 oz of triple sec", 
-   "1/3 fill grape juice", 
-   "2/3 fill cranberry juice", 
+   "\u2153 fill grape juice", 
+   "\u2154 fill cranberry juice", 
    "stir"
   ], 
   "name": "Grapeberry", 
@@ -28889,8 +28889,8 @@
   "prepare_instructions": [
    "get largewine glass", 
    "add 1/2 oz of triple sec", 
-   "1/2 fill champagne", 
-   "1/2 fill orange juice"
+   "\u00bd fill champagne", 
+   "\u00bd fill orange juice"
   ], 
   "name": "New York Mimosa", 
   "glasses": [
@@ -28926,8 +28926,8 @@
    "get collins glass", 
    "add 3/4 oz of rum", 
    "add 3/4 oz of brandy", 
-   "1/2 fill orange juice", 
-   "1/2 fill pineapple juice", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill pineapple juice", 
    "splash grenadine"
   ], 
   "name": "Scorpion (1)", 
@@ -29737,8 +29737,8 @@
    "get highball glass", 
    "add 1 oz of rum (dark)", 
    "add 1 oz of triple sec", 
-   "1/2 fill orange juice", 
-   "1/2 fill lemonade"
+   "\u00bd fill orange juice", 
+   "\u00bd fill lemonade"
   ], 
   "name": "Jamaican Sourball", 
   "glasses": [
@@ -29780,8 +29780,8 @@
    "add 1 oz of vodka", 
    "add 1 oz of coconut rum", 
    "add 1 oz of peach schnapps", 
-   "1/2 fill pineapple juice", 
-   "1/2 fill cranberry juice"
+   "\u00bd fill pineapple juice", 
+   "\u00bd fill cranberry juice"
   ], 
   "name": "All Night Relaxer", 
   "glasses": [
@@ -30185,8 +30185,8 @@
    "add 1 1/2 oz of vodka", 
    "add 1 oz of peach schnapps", 
    "add 1 oz of melon liqueur", 
-   "1/2 fill orange juice", 
-   "1/2 fill pineapple juice"
+   "\u00bd fill orange juice", 
+   "\u00bd fill pineapple juice"
   ], 
   "name": "Jungle Lust", 
   "glasses": [
@@ -30243,8 +30243,8 @@
  {
   "prepare_instructions": [
    "get highball glass", 
-   "1/2 fill bloody mary mix", 
-   "1/2 fill beer"
+   "\u00bd fill bloody mary mix", 
+   "\u00bd fill beer"
   ], 
   "name": "Red Eye", 
   "glasses": [
@@ -30848,8 +30848,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 oz of grenadine", 
-   "1/2 fill orange juice", 
-   "1/2 fill pineapple juice", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill pineapple juice", 
    "stir"
   ], 
   "name": "Afterglow (na) (2)", 
@@ -31308,8 +31308,8 @@
   "prepare_instructions": [
    "get collins glass", 
    "1/2FillIce collins", 
-   "1/2 fill white wine", 
-   "1/2 fill club soda", 
+   "\u00bd fill white wine", 
+   "\u00bd fill club soda", 
    "garnish with lemon twist"
   ], 
   "name": "Wine Spritzer", 
@@ -32269,8 +32269,8 @@
  {
   "prepare_instructions": [
    "get coffee glass", 
-   "1/2 fill coffee", 
-   "1/2 fill hot chocolate", 
+   "\u00bd fill coffee", 
+   "\u00bd fill hot chocolate", 
    "top whipped cream"
   ], 
   "name": "Cafe Mocha (na)", 
@@ -32540,8 +32540,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 1/2 oz of rum (dark)", 
-   "1/2 fill cranberry juice", 
-   "1/2 fill pineapple juice"
+   "\u00bd fill cranberry juice", 
+   "\u00bd fill pineapple juice"
   ], 
   "name": "Black Storm", 
   "glasses": [
@@ -33355,8 +33355,8 @@
    "get highball glass", 
    "add 1 oz of vodka", 
    "add 1 oz of blue curacao", 
-   "2/3 fill lemon lime soda", 
-   "1/3 fill pineapple juice"
+   "\u2154 fill lemon lime soda", 
+   "\u2153 fill pineapple juice"
   ], 
   "name": "Rainstorm (2)", 
   "glasses": [
@@ -33566,8 +33566,8 @@
    "get highball glass", 
    "add 1 oz of vodka", 
    "add 1 oz of banana liqueur", 
-   "1/2 fill lemonade", 
-   "1/2 fill orange juice"
+   "\u00bd fill lemonade", 
+   "\u00bd fill orange juice"
   ], 
   "name": "Banana Sourball", 
   "glasses": [
@@ -34026,8 +34026,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 1/2 oz of vodka", 
-   "1/2 fill pineapple juice", 
-   "1/2 fill club soda", 
+   "\u00bd fill pineapple juice", 
+   "\u00bd fill club soda", 
    "garnish with orange slice"
   ], 
   "name": "Machete", 
@@ -34926,8 +34926,8 @@
    "add 1 oz of rum", 
    "add 1 oz of tequila", 
    "add 1 Dash of cr\u00e8me de menthe (white)", 
-   "1/2 fill orange juice", 
-   "1/2 fill grapefruit juice"
+   "\u00bd fill orange juice", 
+   "\u00bd fill grapefruit juice"
   ], 
   "name": "Acapulco Zombie", 
   "glasses": [
@@ -35073,8 +35073,8 @@
   "prepare_instructions": [
    "get collins glass", 
    "add 2 oz of grenadine", 
-   "1/2 fill grapefruit juice", 
-   "1/2 fill club soda"
+   "\u00bd fill grapefruit juice", 
+   "\u00bd fill club soda"
   ], 
   "name": "Grapefruit Lemonade (na)", 
   "glasses": [
@@ -36771,8 +36771,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 oz of vodka", 
-   "1/2 fill cola", 
-   "1/2 fill lemonade", 
+   "\u00bd fill cola", 
+   "\u00bd fill lemonade", 
    "stir"
   ], 
   "name": "Flash Cola", 
@@ -36847,8 +36847,8 @@
    "get highball glass", 
    "add 2 oz of rum", 
    "add 1 oz of triple sec", 
-   "1/2 fill orange juice", 
-   "1/2 fill pineapple juice", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill pineapple juice", 
    "garnish with cherry"
   ], 
   "name": "Hairy Virgin", 
@@ -37381,8 +37381,8 @@
   "prepare_instructions": [
    "get collins glass", 
    "add 2 oz of brandy", 
-   "1/2 fill grapefruit juice", 
-   "1/2 fill cranberry juice", 
+   "\u00bd fill grapefruit juice", 
+   "\u00bd fill cranberry juice", 
    "garnish with lime slice"
   ], 
   "name": "Nantuckett", 
@@ -37530,8 +37530,8 @@
    "add 1 oz of vodka", 
    "add 1 oz of amaretto", 
    "add 1 tsp of grenadine", 
-   "1/2 fill orange juice", 
-   "1/2 fill lemon juice"
+   "\u00bd fill orange juice", 
+   "\u00bd fill lemon juice"
   ], 
   "name": "Red Baby", 
   "glasses": [
@@ -38398,8 +38398,8 @@
  {
   "prepare_instructions": [
    "get wine glass", 
-   "1/2 fill champagne", 
-   "1/2 fill pineapple juice"
+   "\u00bd fill champagne", 
+   "\u00bd fill pineapple juice"
   ], 
   "name": "Hawaiian Mimosa", 
   "glasses": [
@@ -39008,8 +39008,8 @@
    "get collins glass", 
    "add 1 oz of mandarin vodka", 
    "add 1/2 oz of melon liqueur", 
-   "1/2 fill pineapple juice", 
-   "1/2 fill orange juice", 
+   "\u00bd fill pineapple juice", 
+   "\u00bd fill orange juice", 
    "top dash grenadine"
   ], 
   "name": "Scuba Steve", 
@@ -39596,7 +39596,7 @@
  {
   "prepare_instructions": [
    "get collins glass", 
-   "1/2 fill orange juice", 
+   "\u00bd fill orange juice", 
    "add 1 oz of sweet/sour mix", 
    "fill with club soda", 
    "garnish with orange slice"
@@ -40279,8 +40279,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 2 oz of coconut rum", 
-   "1/2 fill orange juice", 
-   "1/2 fill lemon lime soda"
+   "\u00bd fill orange juice", 
+   "\u00bd fill lemon lime soda"
   ], 
   "name": "Malibu Cooler", 
   "glasses": [
@@ -42122,8 +42122,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 1 oz of banana liqueur", 
-   "1/3 fill pineapple juice", 
-   "2/3 fill champagne"
+   "\u2153 fill pineapple juice", 
+   "\u2154 fill champagne"
   ], 
   "name": "Caribbean Champagne", 
   "glasses": [
@@ -42727,7 +42727,7 @@
    "add 1/4 oz of water", 
    "add 1 tsp of powder sugar", 
    "mash with spoon", 
-   "3/4 fill ice", 
+   "\u00be fill ice", 
    "add 3 oz of bourbon", 
    "garnish with mint sprig"
   ], 
@@ -43171,8 +43171,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 2 oz of blue curacao", 
-   "2/3 fill lemonade", 
-   "1/3 fill pineapple juice", 
+   "\u2154 fill lemonade", 
+   "\u2153 fill pineapple juice", 
    "stir"
   ], 
   "name": "Blue Chill", 
@@ -43330,8 +43330,8 @@
   "prepare_instructions": [
    "get collins glass", 
    "add 2 oz of amaretto", 
-   "1/2 fill orange juice", 
-   "1/2 fill lemon lime soda", 
+   "\u00bd fill orange juice", 
+   "\u00bd fill lemon lime soda", 
    "garnish with orange slice", 
    "garnish with cherry"
   ], 
@@ -43741,8 +43741,8 @@
   "prepare_instructions": [
    "get rocks glass", 
    "add 1 1/4 oz of amaretto", 
-   "1/2 fill cream", 
-   "1/2 fill orange juice"
+   "\u00bd fill cream", 
+   "\u00bd fill orange juice"
   ], 
   "name": "Creamsicle (2)", 
   "glasses": [
@@ -44254,8 +44254,8 @@
   "prepare_instructions": [
    "get highball glass", 
    "add 2 oz of goldschlager", 
-   "1/3 fill cola", 
-   "2/3 fill lemonade", 
+   "\u2153 fill cola", 
+   "\u2154 fill lemonade", 
    "stir"
   ], 
   "name": "Mummy Dust", 
@@ -45043,7 +45043,7 @@
    "add 1 oz of club soda", 
    "add 1 tsp of powder sugar", 
    "mash with spoon", 
-   "1/2 fill ice", 
+   "\u00bd fill ice", 
    "add 2 oz of brandy", 
    "garnish with cherry", 
    "garnish with orange slice"
@@ -45432,8 +45432,8 @@
    "get highball glass", 
    "add 1 oz of vodka", 
    "add 1 oz of peach schnapps", 
-   "1/2 fill pineapple juice", 
-   "1/2 fill cranberry juice"
+   "\u00bd fill pineapple juice", 
+   "\u00bd fill cranberry juice"
   ], 
   "name": "Sex On The Beach (3)", 
   "glasses": [
@@ -45941,8 +45941,8 @@
   "prepare_instructions": [
    "get collins glass", 
    "add 2 oz of bourbon", 
-   "1/2 fill ginger ale", 
-   "1/2 fill orange juice", 
+   "\u00bd fill ginger ale", 
+   "\u00bd fill orange juice", 
    "splash grenadine"
   ], 
   "name": "Tex Mex", 
@@ -46975,8 +46975,8 @@
  {
   "prepare_instructions": [
    "get champagne glass", 
-   "1/2 fill champagne", 
-   "1/2 fill cranberry juice"
+   "\u00bd fill champagne", 
+   "\u00bd fill cranberry juice"
   ], 
   "name": "Hibiscus", 
   "glasses": [
