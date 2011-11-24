@@ -58,4 +58,15 @@
 		android:cacheColorHint="#00000000"
 		android:fastScrollEnabled="true"
 		/>
+
+	<TextView
+		android:id="@+id/recipe_not_producable_description"
+		android:layout_below="@id/computed_available_drinks"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		android:text=" *  Required ingredients not available."
+		android:background="#d000"
+		android:visibility="gone"
+		/>
+
 </RelativeLayout>

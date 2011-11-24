@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.LinearLayout;
 import android.content.Intent;
+import android.content.res.Resources;
+
+import java.util.TreeSet;
+import java.util.Iterator;
 
 public class RecipeActivity extends Activity {
 	@Override
@@ -27,23 +31,59 @@ public class RecipeActivity extends Activity {
 		String[] preparation = recipeInfo.getStringArray(Recipe.KEY_PREPARE_INST);
 		String[] consumation = recipeInfo.getStringArray(Recipe.KEY_CONSUME_INST);
 
+		Resources res = getResources();
+		TreeSet<String> jargonSet = new TreeSet<String>();
+
 
 		for (int i = 0; i < ingredients.length; i++) {
 			TextView t = new TextView(this);
-			t.setText("      " + ingredients[i]);
+			t.setText("\u2022   " + ingredients[i]);
+			t.setPadding(30, 3, 30, 2);
 			ingredientsContainer.addView(t);
 		}
 
 		for (int i = 0; i < preparation.length; i++) {
 			TextView t = new TextView(this);
-			t.setText("      " + preparation[i]);
+			t.setText("" + (i+1) + ".  " + preparation[i]);
+			t.setPadding(30, 5, 30, 5);
 			preparationContainer.addView(t);
+
+			if (preparation[i].matches(".*?\\bblend\\b.*"))
+				jargonSet.add(res.getString(R.string.term_blend));
+			if (preparation[i].matches(".*?\\bbuild\\b.*"))
+				jargonSet.add(res.getString(R.string.term_build));
+			if (preparation[i].matches(".*?\\bdash\\b.*"))
+				jargonSet.add(res.getString(R.string.term_dash));
+			if (preparation[i].matches(".*?\\bfill\\b.*"))
+				jargonSet.add(res.getString(R.string.term_fill));
+			if (preparation[i].matches(".*?\\bfloat\\b.*"))
+				jargonSet.add(res.getString(R.string.term_float));
+			if (preparation[i].matches(".*?\\blayer\\b.*"))
+				jargonSet.add(res.getString(R.string.term_layer));
+			if (preparation[i].matches(".*?\\bmuddle\\b.*"))
+				jargonSet.add(res.getString(R.string.term_muddle));
+			if (preparation[i].matches(".*?\\brim\\b.*"))
+				jargonSet.add(res.getString(R.string.term_rim));
+			if (preparation[i].matches(".*?\\bsplash\\b.*"))
+				jargonSet.add(res.getString(R.string.term_splash));
+			//if (preparation[i].matches("\\btop\\b")
+				//jargonSet.add(res.getString(R.string.term_top));
 		}
 
 		for (int i = 0; i < consumation.length; i++) {
 			TextView t = new TextView(this);
 			t.setText("      " + consumation[i]);
 			consumationContainer.addView(t);
+		}
+
+		if (jargonSet.size() > 0) {
+			StringBuilder s = new StringBuilder();
+			Iterator i = jargonSet.iterator();
+			while (i.hasNext()) {
+				s.append(i.next()).append("\n\n");
+			}
+			TextView jargon = (TextView) findViewById(R.id.jargon_defined);
+			jargon.setText("Jargon:\n\n" + s.toString());
 		}
 
 	}
