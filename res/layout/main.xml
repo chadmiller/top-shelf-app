@@ -66,6 +66,7 @@
 		android:layout_height="wrap_content" 
 		android:text=" * Ingredients not available."
 		android:background="#c000"
+		android:textColor="#ff8"
 		android:padding="10dip"
 		/>
 

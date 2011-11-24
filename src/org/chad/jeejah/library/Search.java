@@ -118,14 +118,14 @@ public class Search extends Activity {
 	void updateFootnote() {
 		if (this.recipeAdapter.isFiltered()) {
 			if (this.recipeAdapter.targetRecipeList.size() == 0) {
-				this.recipeListFootnote.setText("After filtering, your owned ingredient list says you can't make anything. Switch to unfiltered list or add ingredeints.");
+				this.recipeListFootnote.setText("There are no recipes that satisfy the ingredients you say you have. (Tap here to update your list.)");
 				this.recipeListFootnote.setVisibility(View.VISIBLE);
 			} else {
 				this.recipeListFootnote.setVisibility(View.GONE);
 			}
 		} else {
 			this.recipeListFootnote.setVisibility(View.VISIBLE);
-			this.recipeListFootnote.setText(" * Not producable with ingredients you have indicated you have. (Tap here to update list.)");
+			this.recipeListFootnote.setText(" * You don't own an ingredient. (Tap here to update your list.)");
 		}
 	}
 
