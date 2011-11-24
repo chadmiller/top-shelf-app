@@ -18,7 +18,9 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:singleLine="true"
+		android:textColor="#fff"
 		android:textSize="18sp"
+		android:textStyle="bold"
 		/>
 	<TextView
 		android:id="@+id/recipe_ingredients_list"
@@ -27,6 +29,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:hint="no ingredients"
+		android:textColor="#fff"
 		/>
 	<TextView
 		android:id="@+id/recipe_ratings"
@@ -38,6 +41,7 @@
 		android:singleLine="true"
 		android:gravity="right"
 		android:minWidth="40dip"
+		android:textColor="#fff"
 		/>
 
 </RelativeLayout>
