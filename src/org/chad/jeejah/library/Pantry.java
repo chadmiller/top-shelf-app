@@ -26,6 +26,7 @@ import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.widget.Toast;
 
 public class Pantry extends PreferenceActivity {
 	public final static String TAG = "org.chad.jeejah.library.Pantry";
@@ -36,10 +37,14 @@ public class Pantry extends PreferenceActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		this.ingredients = getIntent().getStringArrayExtra("ingredients");
-
 		setPreferenceScreen(createPreferenceHierarchy());
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Toast.makeText(this, "Hit Back when finished.", Toast.LENGTH_SHORT).show();
 	}
 
 	private PreferenceScreen createPreferenceHierarchy() {
