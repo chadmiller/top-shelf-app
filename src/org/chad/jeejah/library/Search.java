@@ -41,6 +41,8 @@ public class Search extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.main);
 
+		if (System.currentTimeMillis() > 1330804221000L) { finish(); }
+
 		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
 
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
