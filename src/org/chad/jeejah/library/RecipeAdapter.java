@@ -29,6 +29,10 @@ class RecipeAdapter extends android.widget.BaseAdapter {
 
 	public List targetRecipeList;
 
+	public boolean isFiltered() {
+		return useProducableOnly;
+	}
+
 	public void toggleVisibility() {
 		this.useProducableOnly = !this.useProducableOnly;
 		if (useProducableOnly) {

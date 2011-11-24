@@ -23,15 +23,6 @@ import org.codehaus.jackson.JsonToken;
 class RecipeBook {
 	public final static String TAG = "org.chad.jeejah.library.RecipeBook";
 
-//	private class Ingredient {
-//		public final String name;
-//		public List<Recipe> used_by;
-//		public Ingredient(String name) {
-//			this.name = name;
-//			this.used_by = new LinkedList<Recipe>();
-//		}
-//	};
-
 	public List<Recipe> allRecipes;
 	public List<Recipe> producableRecipes;
 	public Map<String,Integer> countRecipesSoleAdditionalIngredient;
