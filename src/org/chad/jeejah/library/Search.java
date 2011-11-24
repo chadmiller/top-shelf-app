@@ -54,8 +54,6 @@ public class Search extends Activity {
 		Set<String> pantry = new HashSet<String>();
 		this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
 
-		this.recipeListFootnote = (TextView) findViewById(R.id.recipe_list_footnote);
-
 		ListView recipeListView = (ListView) findViewById(R.id.recipe_list);
 		recipeListView.setAdapter(this.recipeAdapter);
 		recipeListView.setOnItemClickListener(new OnItemClickListener() {
@@ -102,6 +100,15 @@ public class Search extends Activity {
 			}
 		}
 		actionBar.addAction(new PickIngredientsAction());
+
+		this.recipeListFootnote = (TextView) findViewById(R.id.recipe_list_footnote);
+		this.recipeListFootnote.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				Intent intent = new Intent(Search.this, Pantry.class);
+				intent.putExtra("ingredients", Search.this.recipeBook.knownIngredients.toArray(new String[Search.this.recipeBook.knownIngredients.size()]));
+				Search.this.startActivityForResult(intent, 1);
+			}
+		});
 
 
 		setUp();
