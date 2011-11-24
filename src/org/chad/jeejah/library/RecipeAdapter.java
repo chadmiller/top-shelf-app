@@ -110,7 +110,7 @@ class RecipeAdapter extends android.widget.BaseAdapter {
 		holder.ingredients.setText(buffer.toString());
 		//holder.photo.setImageBitmap();  // FIXME glass type
 		if (bad) {
-			holder.name.setText("* " + recipe.name);
+			holder.name.setText(recipe.name + "*");
 		} else {
 			holder.name.setText(recipe.name);
 		}
