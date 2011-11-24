@@ -25,7 +25,7 @@ class RecipeBook {
 
 	public List<Recipe> allRecipes;
 	public List<Recipe> producableRecipes;
-	public Map<String,Integer> countRecipesSoleAdditionalIngredient;
+	public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
 
 	public Set<String> knownIngredients;
 
@@ -84,7 +84,7 @@ class RecipeBook {
 			Collections.sort(this.allRecipes);
 			Log.d(TAG, "recipes count " + this.allRecipes.size());
 
-			this.countRecipesSoleAdditionalIngredient = new TreeMap<String,Integer>();
+			this.countRecipesSoleAdditionalIngredient = new TreeMap<String,List<Recipe>>();
 			this.producableRecipes = new ArrayList<Recipe>();
 
 		} catch (java.io.IOException ex) {
@@ -112,12 +112,13 @@ class RecipeBook {
 			if (size == 0) {
 				this.producableRecipes.add(recipe);
 			} else if (size == 1) {
-				Integer i = (Integer) countRecipesSoleAdditionalIngredient.get((Object) recipe.name);
-				if (i == null) {
-					countRecipesSoleAdditionalIngredient.put(recipe.name, new Integer(1));
-				} else {
-					countRecipesSoleAdditionalIngredient.put(recipe.name, i + 1);
+				Object remaining = recipeNeeds.toArray()[0];
+				List<Recipe> l = (List<Recipe>) countRecipesSoleAdditionalIngredient.get(remaining);
+				if (l == null) {
+					l = new LinkedList<Recipe>();
+					countRecipesSoleAdditionalIngredient.put((String) remaining, l);
 				}
+				l.add(recipe);
 			}
 		}
 	}

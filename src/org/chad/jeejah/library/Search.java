@@ -20,6 +20,8 @@ import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 
 import java.util.Set;
+import java.util.Map;
+import java.util.List;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -151,6 +153,12 @@ public class Search extends Activity {
 		this.recipeBook.updateProducable(pantry);
 		this.recipeAdapter.updatePantry(pantry);
 		this.updateFootnote();
+
+		Iterator<Map.Entry<String,List<Recipe>>> ingredientsThatSatisfyIter = this.recipeBook.countRecipesSoleAdditionalIngredient.entrySet().iterator();
+		while (ingredientsThatSatisfyIter.hasNext()) {
+			Map.Entry<String,List<Recipe>> entry = ingredientsThatSatisfyIter.next();
+			Log.d(TAG, "if you had " + entry.getKey() + " you could make another " + entry.getValue().size() + " items: " + entry.getValue().toString());
+		}
 
 		//ListView recipeListView = (ListView) findViewById(R.id.recipe_list);
 		//Log.d(TAG, "would set fastScroll " + (this.recipeAdapter.targetRecipeList.size() > 21));
