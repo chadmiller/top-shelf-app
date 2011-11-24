@@ -33,6 +33,7 @@ public class Search extends Activity {
 	private RecipeBook recipeBook;
 
 	private RecipeAdapter recipeAdapter;
+	private TextView recipeListFootnote;
 
 
 	@Override
@@ -53,9 +54,11 @@ public class Search extends Activity {
 		Set<String> pantry = new HashSet<String>();
 		this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
 
-		ListView computedAvailableDrinks = (ListView) findViewById(R.id.computed_available_drinks);
-		computedAvailableDrinks.setAdapter(this.recipeAdapter);
-		computedAvailableDrinks.setOnItemClickListener(new OnItemClickListener() {
+		this.recipeListFootnote = (TextView) findViewById(R.id.recipe_list_footnote);
+
+		ListView recipeListView = (ListView) findViewById(R.id.recipe_list);
+		recipeListView.setAdapter(this.recipeAdapter);
+		recipeListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Recipe recipe = (Recipe) parent.getItemAtPosition(position);
 				Intent intent = new Intent(Search.this, RecipeActivity.class);
@@ -70,17 +73,6 @@ public class Search extends Activity {
 			}
 		});
 
-		/*
-		TextView drinksListHeader = (TextView) findViewById(R.id.drinks_list_header);
-		drinksListHeader.setOnClickListener(new OnClickListener() {
-			public void onClick(View view) {
-				Intent intent = new Intent(Search.this, Pantry.class);
-				intent.putExtra("ingredients", recipeBook.knownIngredients.toArray(new String[recipeBook.knownIngredients.size()]));
-				Search.this.startActivityForResult(intent, 1);
-			}
-		});
-		*/
-
 		class ListToggleAction implements Action {
 			@Override
 			public int getDrawable() {
@@ -90,6 +82,7 @@ public class Search extends Activity {
 			@Override
 			public void performAction(View view) {
 				Search.this.recipeAdapter.toggleVisibility();
+				Search.this.updateFootnote();
 			}
 		}
 		actionBar.addAction(new ListToggleAction());
@@ -114,6 +107,21 @@ public class Search extends Activity {
 		setUp();
 	}
 
+
+	void updateFootnote() {
+		if (this.recipeAdapter.isFiltered()) {
+			if (this.recipeAdapter.targetRecipeList.size() == 0) {
+				this.recipeListFootnote.setText("After filtering, your owned ingredient list says you can't make anything. Switch to unfiltered list or add ingredeints.");
+				this.recipeListFootnote.setVisibility(View.VISIBLE);
+			} else {
+				this.recipeListFootnote.setVisibility(View.GONE);
+			}
+		} else {
+			this.recipeListFootnote.setVisibility(View.VISIBLE);
+			this.recipeListFootnote.setText(" * Not producable with ingredients you have indicated you have. (Tap here to update list.)");
+		}
+	}
+
 	void setUp() {
 		Set<String> pantry = new HashSet<String>();
 
@@ -135,9 +143,10 @@ public class Search extends Activity {
 
 		this.recipeBook.updateProducable(pantry);
 		this.recipeAdapter.updatePantry(pantry);
+		this.updateFootnote();
 
-		ListView computedAvailableDrinks = (ListView) findViewById(R.id.computed_available_drinks);
-		Log.d(TAG, "would set fastScroll " + (this.recipeAdapter.targetRecipeList.size() > 21));
+		//ListView recipeListView = (ListView) findViewById(R.id.recipe_list);
+		//Log.d(TAG, "would set fastScroll " + (this.recipeAdapter.targetRecipeList.size() > 21));
 		//computedAvailableDrinks.setFastScrollEnabled(this.recipeAdapter.targetRecipeList.size() > 21);
 
 		//TextView drinksListHeader = (TextView) findViewById(R.id.drinks_list_header);

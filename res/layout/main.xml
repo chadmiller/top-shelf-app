@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res/org.chad.jeejah.library"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
+	android:orientation="vertical"
 	android:background="@drawable/jackrose_as_background"
 	>
 	<RelativeLayout
@@ -50,23 +51,22 @@
 	</RelativeLayout>
 
 	<ListView
-		android:id="@+id/computed_available_drinks"
-		android:layout_below="@id/drinks_header"
+		android:id="@+id/recipe_list"
 		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content" 
 		android:background="#9000"
 		android:cacheColorHint="#00000000"
 		android:fastScrollEnabled="true"
+		android:layout_weight="1"
 		/>
 
 	<TextView
-		android:id="@+id/recipe_not_producable_description"
-		android:layout_below="@id/computed_available_drinks"
+		android:id="@+id/recipe_list_footnote"
 		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content" 
-		android:text=" *  Required ingredients not available."
-		android:background="#d000"
-		android:visibility="gone"
+		android:text=" * Ingredients not available."
+		android:background="#c000"
+		android:padding="10dip"
 		/>
 
-</RelativeLayout>
+</LinearLayout>
