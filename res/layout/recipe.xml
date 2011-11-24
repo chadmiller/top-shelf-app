@@ -14,6 +14,7 @@
 			android:layout_height="wrap_content" 
 			android:hint="A Recipe"
 			android:textSize="24sp"
+			android:textColor="#fff"
 			android:padding="16px"
 			/>
 		<LinearLayout
