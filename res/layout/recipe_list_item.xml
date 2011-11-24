@@ -10,7 +10,6 @@
 		android:layout_width="50px"
 		android:layout_height="50px"
 		android:paddingRight="10dp"
-		android:drawable="@android:drawable/sym_def_app_icon"
 		/>
 	<TextView
 		android:id="@+id/recipe_name"
