@@ -8,15 +8,30 @@
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
 		>
-		<TextView  
-			android:id="@+id/recipe_title"
+		<LinearLayout
+			android:orientation="horizontal"
 			android:layout_width="fill_parent" 
 			android:layout_height="wrap_content" 
-			android:hint="A Recipe"
-			android:textSize="22sp"
-			android:textColor="#fff"
 			android:padding="16px"
-			/>
+			>
+			<TextView  
+				android:id="@+id/recipe_title"
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" 
+				android:lines="1"
+				android:ellipsize="marquee"
+				android:textSize="22sp"
+				android:textColor="#fff"
+				android:layout_weight="1"
+				/>
+			<ImageView  
+				android:id="@+id/recipe_favorited_icon"
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content" 
+				android:gravity="right|center_vertical"
+				android:src="@android:drawable/btn_star_big_off"
+				/>
+		</LinearLayout>
 		<LinearLayout
 			android:id="@+id/recipe_ingredients"
 			android:layout_width="fill_parent" 
