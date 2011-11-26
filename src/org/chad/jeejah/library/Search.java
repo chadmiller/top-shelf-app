@@ -99,6 +99,8 @@ public class Search extends Activity {
 				Intent intent = new Intent(Search.this, ShoppingListActivity.class);
 				intent.setAction(Intent.ACTION_VIEW);
 
+				// Single productive ingredients
+				// This can't be computed by recipebook author.
 				Bundle singleIngredients = new Bundle();
 				singleIngredients.putStringArray("keys", Search.this.recipeBook.countRecipesSoleAdditionalIngredient.keySet().toArray(new String[Search.this.recipeBook.countRecipesSoleAdditionalIngredient.size()]));
 
@@ -107,8 +109,17 @@ public class Search extends Activity {
 					Map.Entry<String,List<Recipe>> entry = ingredientsThatSatisfyIter.next();
 					singleIngredients.putStringArray("enabledby " + entry.getKey(), toStringsArray(entry.getValue()));
 				}
-
 				intent.putExtra(ShoppingListActivity.SINGLE_KEY, singleIngredients);
+
+				// Most common ingredients
+				Bundle mostCommonIngredients = new Bundle();
+				mostCommonIngredients.putStringArrayList("ingredients", Search.this.recipeBook.mostUsedIngredients);
+				intent.putExtra(ShoppingListActivity.MOSTUSED_KEY, mostCommonIngredients);
+
+				// Favorite recipes require ingredients
+				// This can't be computed by recipebook author.
+
+
 				Search.this.startActivity(intent);
 			}
 		}

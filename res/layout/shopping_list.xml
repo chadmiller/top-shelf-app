@@ -37,5 +37,21 @@
 				android:layout_height="wrap_content"
 				/>
 		</LinearLayout>
+
+
+		<LinearLayout
+			android:id="@+id/most_used_ingredients"
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:padding="10px"
+			>
+			<TextView
+				android:text="These ingredients show up most often in recipes."
+				android:textSize="@dimen/shoppinglist_headers_height"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				/>
+		</LinearLayout>
 	</LinearLayout>
 </ScrollView>

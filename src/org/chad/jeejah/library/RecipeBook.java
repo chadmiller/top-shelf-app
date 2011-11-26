@@ -28,14 +28,14 @@ class RecipeBook {
 	public List<Recipe> allRecipes;
 	public List<Recipe> producableRecipes;
 	public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
-	public List<String> mostUsedIngredients;
+	public ArrayList<String> mostUsedIngredients;
 
 	public Set<String> knownIngredients;
 
 	public RecipeBook(Context context) {
 		this.allRecipes = new ArrayList<Recipe>(2400);
 		this.knownIngredients = new TreeSet<String>();
-		this.mostUsedIngredients = new LinkedList<String>();
+		this.mostUsedIngredients = new ArrayList<String>(17);
 
 		try {
 			java.io.InputStream recipeFile = context.getResources().openRawResource(R.raw.recipes);
@@ -48,6 +48,7 @@ class RecipeBook {
 				if (fieldname.equals("version")) {
 					this.version = jp.getText();
 				} else if (fieldname.equals("most_used_ingredients")) {
+					jp.nextToken();
 					while (jp.nextToken() != JsonToken.END_ARRAY) {
 						this.mostUsedIngredients.add(jp.getText());
 					}
