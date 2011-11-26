@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.util.Log;
+import android.text.Html;
 
 import java.util.TreeSet;
 import java.util.Iterator;
@@ -40,7 +41,7 @@ public class ShoppingListActivity extends Activity {
 				String[] recipes = singleIngredients.getStringArray("enabledby "+ingredients[i]);
 				if ((recipes != null) && (recipes.length > visibilityLimit)) {
 					TextView t = new TextView(this);
-					t.setText("\u2022 " + ingredients[i] + " would let you make");
+					t.setText(Html.fromHtml("\u2022 <b>" + ingredients[i] + "</b> would let you make"));
 					t.setTextSize(16);
 					t.setPadding(10, 8, 10, 2);
 					singleIngredientSuggestionsContainer.addView(t);
