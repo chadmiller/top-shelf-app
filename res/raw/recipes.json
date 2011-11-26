@@ -1,4 +1,23 @@
 {
+ "most_used_ingredients": [
+  "vodka", 
+  "lemon", 
+  "gin", 
+  "orange juice", 
+  "rum", 
+  "grenadine", 
+  "lime", 
+  "cream", 
+  "pineapple juice", 
+  "triple sec", 
+  "sweet/sour mix", 
+  "cherry", 
+  "dry vermouth", 
+  "coffee liqueur", 
+  "amaretto", 
+  "brandy", 
+  "orange"
+ ], 
  "book": [
   {
    "prepare_instructions": [
@@ -318,7 +337,7 @@
    "ingredients": [
     "grenadine", 
     "tequila", 
-    "lemon juice", 
+    "lemon", 
     "pineapple juice"
    ]
   }, 
@@ -384,8 +403,8 @@
    ], 
    "ingredients": [
     "whiskey", 
-    "lemon juice", 
     "sloe gin", 
+    "lemon", 
     "cherry"
    ]
   }, 
@@ -443,8 +462,7 @@
     "blackberry brandy", 
     "dry vermouth", 
     "vodka", 
-    "lemon", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -464,12 +482,12 @@
     "oldfashioned glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "cranberry juice", 
     "grenadine", 
     "powder sugar", 
     "orange", 
-    "bourbon"
+    "bourbon", 
+    "lime"
    ]
   }, 
   {
@@ -528,12 +546,11 @@
     "highball glass"
    ], 
    "ingredients": [
+    "gin", 
     "lemon", 
     "powder sugar", 
-    "lemon juice", 
-    "cherry brandy", 
-    "gin", 
-    "club soda"
+    "club soda", 
+    "cherry brandy"
    ]
   }, 
   {
@@ -575,10 +592,10 @@
    ], 
    "ingredients": [
     "vodka", 
-    "powder sugar", 
+    "lemon", 
     "pineapple juice", 
     "club soda", 
-    "lemon juice"
+    "powder sugar"
    ]
   }, 
   {
@@ -780,7 +797,7 @@
     "apple brandy", 
     "grenadine", 
     "brandy", 
-    "lemon juice", 
+    "lemon", 
     "cr\u00e8me de menthe (white)"
    ]
   }, 
@@ -799,7 +816,7 @@
    ], 
    "ingredients": [
     "grand marnier", 
-    "lemon juice", 
+    "lemon", 
     "curacao"
    ]
   }, 
@@ -820,7 +837,7 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "rum"
    ]
   }, 
@@ -1142,7 +1159,7 @@
    "ingredients": [
     "grenadine", 
     "whiskey", 
-    "lemon juice", 
+    "lemon", 
     "triple sec", 
     "club soda"
    ]
@@ -1315,7 +1332,7 @@
    "ingredients": [
     "gin", 
     "dry vermouth", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -1353,7 +1370,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "cointreau", 
     "powder sugar"
    ]
@@ -1430,10 +1447,10 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
-    "cherry", 
     "bitters", 
-    "cointreau"
+    "lemon", 
+    "cointreau", 
+    "cherry"
    ]
   }, 
   {
@@ -1667,7 +1684,7 @@
     "grenadine", 
     "gin", 
     "apricot brandy", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -1706,12 +1723,12 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "rum", 
     "grenadine", 
     "cherry", 
     "orange", 
-    "club soda"
+    "club soda", 
+    "lime"
    ]
   }, 
   {
@@ -1749,7 +1766,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "cr\u00e8me de menthe (white)", 
     "whiskey"
    ]
@@ -1840,7 +1857,7 @@
    "ingredients": [
     "apple brandy", 
     "grenadine", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -1891,8 +1908,8 @@
     "oldfashioned glass"
    ], 
    "ingredients": [
-    "lemon juice", 
     "amaretto", 
+    "lemon", 
     "champagne"
    ]
   }, 
@@ -1988,9 +2005,9 @@
    ], 
    "ingredients": [
     "brandy", 
-    "lemon juice", 
-    "club soda", 
-    "powder sugar"
+    "lemon", 
+    "powder sugar", 
+    "club soda"
    ]
   }, 
   {
@@ -2068,9 +2085,9 @@
     "sour glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "blue curacao", 
-    "rum"
+    "rum", 
+    "lime"
    ]
   }, 
   {
@@ -2262,10 +2279,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "cr\u00e8me de cacao (white)", 
     "rum", 
     "pineapple juice", 
-    "cr\u00e8me de cacao (white)"
+    "lime"
    ]
   }, 
   {
@@ -2318,8 +2335,8 @@
    ], 
    "ingredients": [
     "whiskey", 
-    "lemon juice", 
-    "bitters"
+    "bitters", 
+    "lemon"
    ]
   }, 
   {
@@ -2340,9 +2357,9 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice", 
+    "bitters", 
     "apricot brandy", 
-    "bitters"
+    "lemon"
    ]
   }, 
   {
@@ -2364,8 +2381,7 @@
     "brandy", 
     "green chartreuse", 
     "lemon", 
-    "bitters", 
-    "lemon juice"
+    "bitters"
    ]
   }, 
   {
@@ -2385,12 +2401,11 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lemon", 
+    "gin", 
     "cherry", 
+    "lemon", 
     "powder sugar", 
-    "lemon juice", 
-    "cherry brandy", 
-    "gin"
+    "cherry brandy"
    ]
   }, 
   {
@@ -2410,12 +2425,11 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lemon", 
-    "anisette", 
-    "lemon juice", 
     "apricot brandy", 
     "gin", 
-    "club soda"
+    "lemon", 
+    "club soda", 
+    "anisette"
    ]
   }, 
   {
@@ -2474,9 +2488,9 @@
     "highball glass"
    ], 
    "ingredients": [
+    "lemon", 
     "orange juice", 
     "cherry", 
-    "lemon juice", 
     "cherry brandy", 
     "dubonnet", 
     "club soda"
@@ -2647,7 +2661,6 @@
     "salted margarita glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "peach schnapps", 
     "gold tequila", 
     "triple sec", 
@@ -2809,8 +2822,8 @@
    ], 
    "ingredients": [
     "whiskey", 
-    "lemon juice", 
     "sloe gin", 
+    "lemon", 
     "cherry"
    ]
   }, 
@@ -2975,9 +2988,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "gin", 
-    "lemon juice", 
     "apricot brandy", 
+    "gin", 
+    "lemon", 
     "dry vermouth"
    ]
   }, 
@@ -3109,7 +3122,7 @@
    "ingredients": [
     "grenadine", 
     "bourbon", 
-    "lemon juice", 
+    "lemon", 
     "orange juice", 
     "rum"
    ]
@@ -3189,8 +3202,8 @@
     "highball glass"
    ], 
    "ingredients": [
+    "lemon", 
     "cherry", 
-    "lemon juice", 
     "cherry brandy", 
     "gin", 
     "dubonnet", 
@@ -3243,12 +3256,11 @@
     "hurricane glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "grenadine", 
+    "rum", 
     "lemon", 
     "pineapple juice", 
-    "rum", 
-    "grenadine", 
-    "lemon juice"
+    "lime"
    ]
   }, 
   {
@@ -3347,7 +3359,7 @@
     "grenadine", 
     "gin", 
     "apricot brandy", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -3763,7 +3775,7 @@
     "apple brandy", 
     "grenadine", 
     "brandy", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -3781,8 +3793,8 @@
    ], 
    "ingredients": [
     "banana liqueur", 
-    "lime juice", 
-    "coffee liqueur"
+    "coffee liqueur", 
+    "lime"
    ]
   }, 
   {
@@ -3802,8 +3814,8 @@
    ], 
    "ingredients": [
     "grapefruit juice", 
-    "lemon juice", 
     "rum", 
+    "lemon", 
     "cr\u00e8me de coconut"
    ]
   }, 
@@ -3946,7 +3958,6 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
     "tonic", 
     "lime"
@@ -3990,8 +4001,8 @@
    ], 
    "ingredients": [
     "brandy", 
+    "lemon", 
     "triple sec", 
-    "lemon juice", 
     "rum"
    ]
   }, 
@@ -4026,11 +4037,11 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "vodka", 
     "cr\u00e8me de cacao (white)", 
+    "vodka", 
+    "cream", 
     "triple sec", 
-    "cream"
+    "lime"
    ]
   }, 
   {
@@ -4074,7 +4085,7 @@
    "ingredients": [
     "grand marnier", 
     "citron vodka", 
-    "lemon juice", 
+    "lemon", 
     "club soda", 
     "sugar"
    ]
@@ -4112,9 +4123,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "gold tequila", 
-    "pineapple juice"
+    "pineapple juice", 
+    "lime"
    ]
   }, 
   {
@@ -4190,8 +4201,8 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lemon juice", 
     "apricot brandy", 
+    "lemon", 
     "triple sec"
    ]
   }, 
@@ -4321,9 +4332,9 @@
    "ingredients": [
     "grapefruit juice", 
     "gold tequila", 
+    "lemon", 
     "orange juice", 
     "cherry", 
-    "lemon juice", 
     "blue curacao"
    ]
   }, 
@@ -4663,7 +4674,6 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
     "lemon", 
     "triple sec"
    ]
@@ -4790,7 +4800,7 @@
    "ingredients": [
     "wild turkey", 
     "tequila", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -4930,8 +4940,8 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "brandy", 
+    "lime", 
     "bitters", 
     "club soda", 
     "powder sugar"
@@ -4955,7 +4965,7 @@
     "gin", 
     "dry vermouth", 
     "cherry", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -5142,12 +5152,11 @@
     "sour glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "lemon", 
-    "benedictine", 
-    "powder sugar", 
     "whiskey", 
-    "lemon juice"
+    "lime", 
+    "lemon", 
+    "powder sugar", 
+    "benedictine"
    ]
   }, 
   {
@@ -5229,9 +5238,9 @@
    "ingredients": [
     "grenadine", 
     "vodka", 
+    "lemon", 
     "triple sec", 
-    "orange juice", 
-    "lemon juice"
+    "orange juice"
    ]
   }, 
   {
@@ -5543,8 +5552,8 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice", 
-    "apricot brandy"
+    "apricot brandy", 
+    "lemon"
    ]
   }, 
   {
@@ -5643,7 +5652,7 @@
    ], 
    "ingredients": [
     "blue curacao", 
-    "lemon juice", 
+    "lemon", 
     "orange juice", 
     "rum"
    ]
@@ -5666,9 +5675,9 @@
    ], 
    "ingredients": [
     "vodka", 
+    "lemon", 
     "cherry", 
     "triple sec", 
-    "lemon juice", 
     "apricot brandy", 
     "banana liqueur"
    ]
@@ -5741,9 +5750,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "gin", 
-    "lemon juice", 
     "apricot brandy", 
+    "gin", 
+    "lemon", 
     "dry vermouth"
    ]
   }, 
@@ -5811,7 +5820,7 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lemon juice", 
+    "lemon", 
     "cr\u00e8me de menthe (white)", 
     "rum"
    ]
@@ -5871,7 +5880,6 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
     "lemon lime soda", 
     "lime"
@@ -6033,13 +6041,13 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "lemon", 
     "orange juice", 
     "rum", 
     "cherry", 
     "ginger ale", 
     "rum (dark)", 
-    "lemon juice"
+    "lime"
    ]
   }, 
   {
@@ -6061,9 +6069,9 @@
    "ingredients": [
     "vodka", 
     "gold tequila", 
+    "lemon", 
     "rum", 
     "melon liqueur", 
-    "lemon juice", 
     "gin", 
     "club soda"
    ]
@@ -6124,7 +6132,7 @@
     "cherry", 
     "bourbon", 
     "sloe gin", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -6258,7 +6266,6 @@
    ], 
    "ingredients": [
     "whiskey", 
-    "lime juice", 
     "club soda", 
     "lime"
    ]
@@ -6318,7 +6325,7 @@
    ], 
    "ingredients": [
     "whiskey", 
-    "lemon juice", 
+    "lemon", 
     "egg", 
     "powder sugar", 
     "sweet vermouth"
@@ -6375,7 +6382,7 @@
    ], 
    "ingredients": [
     "apple brandy", 
-    "lemon juice", 
+    "lemon", 
     "triple sec"
    ]
   }, 
@@ -6573,10 +6580,10 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "blue curacao", 
+    "rum", 
     "pineapple juice", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -6648,7 +6655,7 @@
    "ingredients": [
     "orange", 
     "gin", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -6749,7 +6756,7 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lemon juice", 
+    "lemon", 
     "pineapple juice", 
     "rum"
    ]
@@ -6839,9 +6846,9 @@
    "ingredients": [
     "sherry", 
     "scotch whiskey", 
-    "lemon juice", 
-    "orange juice", 
-    "powder sugar"
+    "lemon", 
+    "powder sugar", 
+    "orange juice"
    ]
   }, 
   {
@@ -6931,7 +6938,7 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lemon juice", 
+    "lemon", 
     "pineapple juice", 
     "rum"
    ]
@@ -7035,7 +7042,7 @@
     "maraschino liqueur", 
     "gin", 
     "blue curacao", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -7172,11 +7179,11 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "cherry", 
     "rum", 
     "cherry brandy", 
     "triple sec", 
-    "cherry"
+    "lime"
    ]
   }, 
   {
@@ -7231,8 +7238,8 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
     "sloe gin", 
+    "lemon", 
     "cherry"
    ]
   }, 
@@ -7304,9 +7311,9 @@
     "coffee glass"
    ], 
    "ingredients": [
-    "lemon juice", 
-    "gold tequila", 
     "coffee", 
+    "gold tequila", 
+    "lemon", 
     "cr\u00e8me de cacao (dark)"
    ]
   }, 
@@ -7365,7 +7372,7 @@
    "ingredients": [
     "cr\u00e8me de menthe (green)", 
     "vodka", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -7382,7 +7389,6 @@
     "oldfashioned glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "rum", 
     "pineapple juice", 
     "lime"
@@ -7421,7 +7427,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "powder sugar", 
     "club soda"
    ]
@@ -7557,12 +7563,12 @@
     "highball glass"
    ], 
    "ingredients": [
+    "lemon", 
     "cr\u00e8me de cassis", 
     "orange juice", 
     "rum", 
     "cherry", 
-    "peach schnapps", 
-    "lemon juice"
+    "peach schnapps"
    ]
   }, 
   {
@@ -7619,7 +7625,7 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "port"
    ]
   }, 
@@ -7745,10 +7751,9 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "lemon", 
     "cr\u00e8me de cassis", 
     "grenadine", 
-    "lemon juice", 
     "sloe gin", 
     "cherry brandy", 
     "gin", 
@@ -7836,9 +7841,9 @@
     "sour glass"
    ], 
    "ingredients": [
-    "whiskey", 
-    "lemon juice", 
     "red wine", 
+    "whiskey", 
+    "lemon", 
     "powder sugar"
    ]
   }, 
@@ -7928,9 +7933,9 @@
    ], 
    "ingredients": [
     "dry vermouth", 
+    "lemon", 
     "grenadine", 
     "cherry", 
-    "lemon juice", 
     "apricot brandy", 
     "gin"
    ]
@@ -7969,9 +7974,9 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lime juice", 
     "vodka", 
-    "rum"
+    "rum", 
+    "lime"
    ]
   }, 
   {
@@ -7992,10 +7997,10 @@
     "highball glass"
    ], 
    "ingredients": [
+    "lemon", 
     "orange juice", 
     "triple sec", 
     "powder sugar", 
-    "lemon juice", 
     "orange", 
     "gin", 
     "club soda"
@@ -8114,10 +8119,10 @@
     "oldfashioned glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "sugar", 
+    "rum", 
     "powder sugar", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -8251,8 +8256,8 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lemon juice", 
     "apricot brandy", 
+    "lemon", 
     "cointreau", 
     "club soda", 
     "rum"
@@ -8291,8 +8296,8 @@
    "ingredients": [
     "orange", 
     "vodka", 
+    "lemon", 
     "grape juice", 
-    "lemon juice", 
     "powder sugar"
    ]
   }, 
@@ -8484,8 +8489,8 @@
     "collins glass"
    ], 
    "ingredients": [
+    "lemon", 
     "pineapple juice", 
-    "lemon juice", 
     "cr\u00e8me de menthe (white)", 
     "pineapple", 
     "gin", 
@@ -8567,7 +8572,7 @@
    "ingredients": [
     "grenadine", 
     "whiskey", 
-    "lemon juice", 
+    "lemon", 
     "orange juice"
    ]
   }, 
@@ -8629,7 +8634,7 @@
    "ingredients": [
     "whiskey", 
     "lemonade", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -8651,7 +8656,6 @@
     "gin", 
     "brandy", 
     "lemon", 
-    "lemon juice", 
     "club soda"
    ]
   }, 
@@ -9234,13 +9238,13 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "pineapple juice", 
     "grenadine", 
     "cherry", 
     "rum (dark)", 
+    "orange", 
     "banana liqueur", 
-    "orange"
+    "lime"
    ]
   }, 
   {
@@ -9259,10 +9263,10 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "triple sec", 
     "sweet/sour mix", 
     "tequila premium", 
-    "triple sec"
+    "lime"
    ]
   }, 
   {
@@ -9299,9 +9303,9 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "rum", 
     "club soda", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -9321,12 +9325,11 @@
     "highball glass"
    ], 
    "ingredients": [
+    "banana liqueur", 
     "lemon", 
     "pineapple juice", 
     "orange juice", 
-    "rum", 
-    "lemon juice", 
-    "banana liqueur"
+    "rum"
    ]
   }, 
   {
@@ -9459,7 +9462,7 @@
    "ingredients": [
     "grenadine", 
     "vodka", 
-    "lemon juice", 
+    "lemon", 
     "club soda"
    ]
   }, 
@@ -9536,10 +9539,10 @@
    ], 
    "ingredients": [
     "rum (dark) jamaican", 
-    "lime juice", 
-    "lemon juice", 
     "grenadine", 
-    "club soda"
+    "lemon", 
+    "club soda", 
+    "lime"
    ]
   }, 
   {
@@ -9760,7 +9763,7 @@
    ], 
    "ingredients": [
     "whiskey", 
-    "lime juice", 
+    "lime", 
     "grapefruit juice", 
     "cherry"
    ]
@@ -9806,9 +9809,9 @@
    ], 
    "ingredients": [
     "melon liqueur", 
-    "lemon juice", 
+    "lemon", 
     "coconut rum", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -9830,8 +9833,8 @@
     "gin", 
     "brandy", 
     "amaretto", 
-    "triple sec", 
-    "lemon juice"
+    "lemon", 
+    "triple sec"
    ]
   }, 
   {
@@ -9911,7 +9914,7 @@
    "ingredients": [
     "blackberry brandy", 
     "tequila", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -9975,8 +9978,8 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
-    "ginger ale"
+    "ginger ale", 
+    "lemon"
    ]
   }, 
   {
@@ -10111,7 +10114,6 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "rum", 
     "lime"
    ]
@@ -10187,7 +10189,6 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
     "club soda", 
     "lime"
@@ -10350,13 +10351,12 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "grapefruit juice", 
     "rum", 
     "rum (dark)", 
     "powder sugar", 
     "rum (dark) jamaican", 
     "mint", 
-    "grapefruit juice", 
     "lime"
    ]
   }, 
@@ -10881,9 +10881,9 @@
    "ingredients": [
     "orange", 
     "whiskey", 
-    "lemon juice", 
+    "lemon", 
     "benedictine", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -10899,7 +10899,7 @@
    ], 
    "ingredients": [
     "vodka", 
-    "lemon juice", 
+    "lemon", 
     "rum"
    ]
   }, 
@@ -10957,7 +10957,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "triple sec"
    ]
   }, 
@@ -11133,7 +11133,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "sweet vermouth", 
     "grand marnier"
    ]
@@ -11208,10 +11208,10 @@
     "shot glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
+    "peach schnapps", 
     "chambord raspberry schnapps", 
-    "peach schnapps"
+    "lime"
    ]
   }, 
   {
@@ -11270,13 +11270,13 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
     "orange juice", 
     "triple sec", 
     "whiskey", 
     "sloe gin", 
-    "amaretto"
+    "amaretto", 
+    "lime"
    ]
   }, 
   {
@@ -11678,8 +11678,8 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lemon juice", 
     "vodka 100 proof", 
+    "lemon", 
     "apple juice"
    ]
   }, 
@@ -11854,9 +11854,9 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "tequila", 
-    "sloe gin"
+    "sloe gin", 
+    "lime"
    ]
   }, 
   {
@@ -11965,7 +11965,7 @@
    "ingredients": [
     "whiskey", 
     "amaretto", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -12007,9 +12007,8 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "rum", 
     "grenadine", 
+    "rum", 
     "cr\u00e8me de cacao (white)", 
     "sweet vermouth", 
     "lime"
@@ -12085,7 +12084,7 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lemon juice", 
+    "lemon", 
     "curacao", 
     "rum"
    ]
@@ -12154,9 +12153,9 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lime juice", 
+    "cream", 
     "rum", 
-    "cream"
+    "lime"
    ]
   }, 
   {
@@ -12179,11 +12178,11 @@
    ], 
    "ingredients": [
     "galliano", 
+    "lemon", 
     "pineapple juice", 
     "rum", 
     "grenadine", 
     "cherry", 
-    "lemon juice", 
     "apricot brandy", 
     "orange"
    ]
@@ -12345,7 +12344,6 @@
     "brandy", 
     "lemon", 
     "cointreau", 
-    "lemon juice", 
     "rum"
    ]
   }, 
@@ -12472,7 +12470,7 @@
     "grenadine", 
     "gin", 
     "egg", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -12618,7 +12616,6 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lime juice", 
     "club soda", 
     "lime"
    ]
@@ -12779,8 +12776,8 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lemon juice", 
     "apricot brandy", 
+    "lemon", 
     "powder sugar", 
     "rum"
    ]
@@ -12853,12 +12850,11 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "rum (dark)", 
-    "triple sec", 
-    "powder sugar", 
     "cr\u00e8me de menthe (green)", 
-    "lime"
+    "rum (dark)", 
+    "lime", 
+    "triple sec", 
+    "powder sugar"
    ]
   }, 
   {
@@ -12923,8 +12919,8 @@
    "ingredients": [
     "maraschino liqueur", 
     "gin", 
-    "lemon juice", 
     "orange bitters", 
+    "lemon", 
     "cherry"
    ]
   }, 
@@ -13108,10 +13104,10 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "sweet vermouth", 
     "brandy", 
+    "lemon", 
     "bitters", 
-    "lemon juice"
+    "sweet vermouth"
    ]
   }, 
   {
@@ -13163,7 +13159,6 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "gin", 
     "ginger ale", 
     "lime"
@@ -13294,11 +13289,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "orange juice", 
+    "gin", 
     "rum", 
     "cherry brandy", 
-    "gin", 
+    "orange juice", 
     "lime"
    ]
   }, 
@@ -13428,7 +13422,7 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "rum"
    ]
   }, 
@@ -13577,9 +13571,8 @@
     "margarita glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "vodka", 
     "grenadine", 
+    "vodka", 
     "rum (dark)", 
     "apricot brandy", 
     "lime"
@@ -13599,8 +13592,8 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lemon juice", 
     "rum (dark)", 
+    "lemon", 
     "cointreau"
    ]
   }, 
@@ -13618,7 +13611,7 @@
    "ingredients": [
     "grapefruit juice", 
     "tequila", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -13705,7 +13698,6 @@
    ], 
    "ingredients": [
     "whiskey", 
-    "lemon juice", 
     "lemon", 
     "sweet vermouth", 
     "dry vermouth"
@@ -13835,7 +13827,7 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "club soda"
    ]
   }, 
@@ -13936,8 +13928,8 @@
    ], 
    "ingredients": [
     "bourbon", 
+    "lemon", 
     "cranberry juice", 
-    "lemon juice", 
     "sugar"
    ]
   }, 
@@ -14076,9 +14068,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
+    "lemon", 
     "curacao", 
     "powder sugar", 
-    "lemon juice", 
     "sugar", 
     "brandy", 
     "orange"
@@ -14189,8 +14181,8 @@
     "shot glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "sour apple schnapps"
+    "sour apple schnapps", 
+    "lime"
    ]
   }, 
   {
@@ -14388,7 +14380,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "whiskey", 
     "grapefruit juice"
    ]
@@ -14451,8 +14443,8 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lemon juice", 
     "apricot brandy", 
+    "lemon", 
     "cointreau", 
     "club soda", 
     "rum"
@@ -14471,7 +14463,6 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "tequila", 
     "cranberry juice", 
     "lime"
@@ -14599,9 +14590,8 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "rum", 
     "grenadine", 
+    "rum", 
     "cr\u00e8me de cacao (white)", 
     "sweet vermouth", 
     "lime"
@@ -14621,9 +14611,9 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
-    "triple sec"
+    "triple sec", 
+    "lime"
    ]
   }, 
   {
@@ -14663,11 +14653,11 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
+    "lime", 
     "lemon", 
-    "triple sec", 
-    "cranberry juice"
+    "cranberry juice", 
+    "triple sec"
    ]
   }, 
   {
@@ -14705,7 +14695,7 @@
    ], 
    "ingredients": [
     "grand marnier", 
-    "lemon juice", 
+    "lemon", 
     "orange juice", 
     "gin"
    ]
@@ -15128,7 +15118,6 @@
    ], 
    "ingredients": [
     "whiskey", 
-    "lime juice", 
     "sweet/sour mix", 
     "triple sec", 
     "lime"
@@ -15313,10 +15302,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "scotch whiskey", 
     "cointreau", 
-    "sweet vermouth"
+    "sweet vermouth", 
+    "lime"
    ]
   }, 
   {
@@ -15338,7 +15327,6 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
     "rum", 
     "cointreau", 
@@ -15346,7 +15334,8 @@
     "brandy", 
     "gin", 
     "bourbon", 
-    "club soda"
+    "club soda", 
+    "lime"
    ]
   }, 
   {
@@ -15365,7 +15354,7 @@
    "ingredients": [
     "benedictine", 
     "dry vermouth", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -15424,7 +15413,7 @@
    ], 
    "ingredients": [
     "grand marnier", 
-    "lemon juice", 
+    "lemon", 
     "cr\u00e8me de cacao (white)", 
     "rum"
    ]
@@ -15622,10 +15611,10 @@
     "oldfashioned glass"
    ], 
    "ingredients": [
+    "lemon", 
     "rum", 
     "grenadine", 
     "rum (dark)", 
-    "lemon juice", 
     "amaretto", 
     "cola"
    ]
@@ -15756,7 +15745,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "cr\u00e8me de cassis"
    ]
   }, 
@@ -15773,8 +15762,8 @@
     "shot glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "peach schnapps"
+    "peach schnapps", 
+    "lime"
    ]
   }, 
   {
@@ -15910,8 +15899,8 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
     "dry vermouth", 
+    "lemon", 
     "cherry", 
     "anisette"
    ]
@@ -16050,12 +16039,11 @@
     "oldfashioned glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "maraschino liqueur", 
+    "rum", 
     "lemon", 
     "pineapple juice", 
-    "rum", 
-    "maraschino liqueur", 
-    "lemon juice"
+    "lime"
    ]
   }, 
   {
@@ -16159,12 +16147,11 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lemon", 
-    "cherry", 
+    "gin", 
     "scotch whiskey", 
-    "lemon juice", 
+    "lemon", 
     "drambuie", 
-    "gin"
+    "cherry"
    ]
   }, 
   {
@@ -16182,7 +16169,6 @@
    ], 
    "ingredients": [
     "gin", 
-    "lime juice", 
     "club soda", 
     "lime"
    ]
@@ -16302,10 +16288,10 @@
     "collins glass"
    ], 
    "ingredients": [
+    "lemon", 
     "drambuie", 
-    "scotch whiskey", 
     "powder sugar", 
-    "lemon juice", 
+    "scotch whiskey", 
     "cherry", 
     "orange", 
     "club soda"
@@ -16328,10 +16314,10 @@
    ], 
    "ingredients": [
     "banana liqueur", 
-    "lime juice", 
     "grenadine", 
+    "rum", 
     "cointreau", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -16350,7 +16336,7 @@
     "gin", 
     "vodka", 
     "triple sec", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -16473,9 +16459,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "brandy", 
-    "apricot brandy"
+    "apricot brandy", 
+    "lime"
    ]
   }, 
   {
@@ -16491,7 +16477,6 @@
    ], 
    "ingredients": [
     "gin", 
-    "lime juice", 
     "lime"
    ]
   }, 
@@ -16511,8 +16496,7 @@
    "ingredients": [
     "brandy", 
     "lemon", 
-    "cr\u00e8me de cassis", 
-    "lemon juice"
+    "cr\u00e8me de cassis"
    ]
   }, 
   {
@@ -16682,10 +16666,10 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lemon juice", 
-    "rum", 
     "bitters", 
-    "powder sugar"
+    "lemon", 
+    "powder sugar", 
+    "rum"
    ]
   }, 
   {
@@ -17296,8 +17280,7 @@
    "ingredients": [
     "gin", 
     "blue curacao", 
-    "lemon", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -17443,7 +17426,6 @@
     "grenadine", 
     "brandy", 
     "lemon", 
-    "lemon juice", 
     "club soda"
    ]
   }, 
@@ -17684,7 +17666,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "cointreau", 
     "pernod"
    ]
@@ -17705,11 +17687,11 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "gin", 
     "ginger ale", 
     "rum", 
     "bitters", 
-    "gin"
+    "lime"
    ]
   }, 
   {
@@ -17841,7 +17823,7 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "cream"
    ]
   }, 
@@ -18380,7 +18362,7 @@
    "ingredients": [
     "banana liqueur", 
     "brandy", 
-    "lemon juice", 
+    "lemon", 
     "orange juice"
    ]
   }, 
@@ -18613,8 +18595,8 @@
    ], 
    "ingredients": [
     "apple brandy", 
-    "lemon juice", 
     "apricot brandy", 
+    "lemon", 
     "sweet vermouth"
    ]
   }, 
@@ -18636,10 +18618,10 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lime juice", 
+    "cherry", 
     "lemon lime soda", 
     "coconut rum", 
-    "cherry"
+    "lime"
    ]
   }, 
   {
@@ -18736,7 +18718,7 @@
     "grand marnier", 
     "galliano", 
     "rum", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -18849,8 +18831,7 @@
    "ingredients": [
     "lemon lime soda", 
     "blue curacao", 
-    "lemon", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -18922,9 +18903,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "gin", 
     "bitters", 
+    "lime", 
     "curacao", 
     "orange bitters"
    ]
@@ -19098,9 +19079,9 @@
     "shot glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
-    "triple sec"
+    "triple sec", 
+    "lime"
    ]
   }, 
   {
@@ -19312,7 +19293,7 @@
    "ingredients": [
     "orange", 
     "whiskey", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -19413,8 +19394,7 @@
    "ingredients": [
     "brandy", 
     "lemon", 
-    "port", 
-    "lemon juice"
+    "port"
    ]
   }, 
   {
@@ -19470,8 +19450,8 @@
    "ingredients": [
     "maraschino liqueur", 
     "brandy", 
-    "pineapple juice", 
-    "lemon juice"
+    "lemon", 
+    "pineapple juice"
    ]
   }, 
   {
@@ -19493,7 +19473,7 @@
     "orange", 
     "benedictine", 
     "vodka", 
-    "lemon juice", 
+    "lemon", 
     "orange juice"
    ]
   }, 
@@ -19552,10 +19532,10 @@
    ], 
    "ingredients": [
     "orange", 
-    "lime juice", 
-    "rum", 
+    "apple juice", 
     "powder sugar", 
-    "apple juice"
+    "rum", 
+    "lime"
    ]
   }, 
   {
@@ -19720,7 +19700,7 @@
    "ingredients": [
     "orange", 
     "whiskey", 
-    "lemon juice", 
+    "lemon", 
     "powder sugar", 
     "cherry"
    ]
@@ -19856,9 +19836,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
+    "lemon", 
     "rum", 
     "grenadine", 
-    "lemon juice", 
     "apricot brandy", 
     "sweet vermouth", 
     "apple brandy"
@@ -19881,7 +19861,6 @@
    ], 
    "ingredients": [
     "white wine", 
-    "lemon juice", 
     "lemon", 
     "pineapple juice", 
     "powder sugar"
@@ -19921,7 +19900,7 @@
    ], 
    "ingredients": [
     "vodka", 
-    "lemon juice", 
+    "lemon", 
     "whipped cream"
    ]
   }, 
@@ -19967,12 +19946,11 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lemon", 
-    "curacao", 
     "benedictine", 
-    "lemon juice", 
     "bitters", 
-    "bourbon"
+    "lemon", 
+    "bourbon", 
+    "curacao"
    ]
   }, 
   {
@@ -20195,11 +20173,11 @@
     "rocks glass"
    ], 
    "ingredients": [
+    "lemon", 
     "orange juice", 
     "grenadine", 
     "tequila", 
     "triple sec", 
-    "lemon juice", 
     "orange"
    ]
   }, 
@@ -20519,8 +20497,8 @@
    ], 
    "ingredients": [
     "coffee liqueur", 
-    "lemon juice", 
     "galliano", 
+    "lemon", 
     "powder sugar", 
     "cola"
    ]
@@ -20623,8 +20601,8 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
     "champagne", 
+    "lemon", 
     "cr\u00e8me de menthe (white)"
    ]
   }, 
@@ -20798,7 +20776,7 @@
    "ingredients": [
     "gin", 
     "pineapple juice", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -21020,10 +20998,10 @@
    ], 
    "ingredients": [
     "orange", 
-    "lime juice", 
     "vodka", 
     "apricot brandy", 
-    "curacao"
+    "curacao", 
+    "lime"
    ]
   }, 
   {
@@ -21400,11 +21378,10 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "pineapple juice", 
     "rum (dark) jamaican", 
-    "lemon juice", 
     "bitters", 
+    "lemon", 
+    "pineapple juice", 
     "lime"
    ]
   }, 
@@ -21424,7 +21401,7 @@
     "whiskey", 
     "amaretto", 
     "pineapple juice", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -21479,9 +21456,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "gin", 
-    "lemon juice", 
     "apricot brandy", 
+    "gin", 
+    "lemon", 
     "triple sec"
    ]
   }, 
@@ -21521,7 +21498,6 @@
     "salted margarita glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "sweet/sour mix", 
     "orange juice", 
     "lime"
@@ -21562,8 +21538,8 @@
    "ingredients": [
     "orange", 
     "gin", 
-    "lemon juice", 
     "ginger ale", 
+    "lemon", 
     "orange juice"
    ]
   }, 
@@ -21599,7 +21575,7 @@
    ], 
    "ingredients": [
     "tequila", 
-    "lemon juice", 
+    "lemon", 
     "pernod"
    ]
   }, 
@@ -21655,11 +21631,11 @@
     "hurricane glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "cr\u00e8me de cacao (white)", 
     "rum (spiced)", 
     "milk", 
     "orange juice", 
-    "cr\u00e8me de cacao (white)"
+    "lime"
    ]
   }, 
   {
@@ -21729,9 +21705,9 @@
    ], 
    "ingredients": [
     "vodka", 
-    "lemon juice", 
-    "club soda", 
-    "pineapple juice"
+    "lemon", 
+    "pineapple juice", 
+    "club soda"
    ]
   }, 
   {
@@ -21748,9 +21724,9 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "cranberry juice", 
-    "club soda"
+    "club soda", 
+    "lime"
    ]
   }, 
   {
@@ -21824,7 +21800,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "orange juice"
    ]
   }, 
@@ -21883,8 +21859,8 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
-    "green chartreuse"
+    "green chartreuse", 
+    "lemon"
    ]
   }, 
   {
@@ -21988,7 +21964,7 @@
    "ingredients": [
     "grenadine", 
     "grand marnier", 
-    "lemon juice", 
+    "lemon", 
     "curacao", 
     "orange"
    ]
@@ -22008,7 +21984,6 @@
     "salted margarita glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "tequila", 
     "triple sec", 
     "lime"
@@ -22237,10 +22212,10 @@
     "collins glass"
    ], 
    "ingredients": [
-    "ginger ale", 
     "bitters", 
-    "scotch whiskey", 
-    "lemon juice"
+    "ginger ale", 
+    "lemon", 
+    "scotch whiskey"
    ]
   }, 
   {
@@ -22303,7 +22278,7 @@
     "gin", 
     "bitters", 
     "powder sugar", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -22352,7 +22327,7 @@
    ], 
    "ingredients": [
     "whiskey", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -22504,9 +22479,9 @@
    ], 
    "ingredients": [
     "blackberry brandy", 
-    "lime juice", 
     "amaretto", 
-    "triple sec"
+    "triple sec", 
+    "lime"
    ]
   }, 
   {
@@ -22657,7 +22632,6 @@
    ], 
    "ingredients": [
     "grapefruit juice", 
-    "lime juice", 
     "gold tequila", 
     "cranberry juice", 
     "lime"
@@ -22715,8 +22689,8 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lime juice", 
-    "tequila"
+    "tequila", 
+    "lime"
    ]
   }, 
   {
@@ -22734,11 +22708,11 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "bourbon", 
     "lemon lime soda", 
+    "bourbon", 
+    "sweet/sour mix", 
     "cranberry juice", 
-    "sweet/sour mix"
+    "lime"
    ]
   }, 
   {
@@ -22757,11 +22731,11 @@
     "oldfashioned glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "grand marnier", 
     "citron vodka", 
     "grapefruit juice", 
     "orange juice", 
-    "grand marnier"
+    "lime"
    ]
   }, 
   {
@@ -22945,8 +22919,8 @@
    ], 
    "ingredients": [
     "vodka", 
-    "chambord raspberry schnapps", 
-    "lemon juice"
+    "lemon", 
+    "chambord raspberry schnapps"
    ]
   }, 
   {
@@ -22976,7 +22950,6 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
     "lime"
    ]
@@ -23014,9 +22987,8 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "cola", 
-    "lime"
+    "lime", 
+    "cola"
    ]
   }, 
   {
@@ -23052,9 +23024,9 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
-    "campari", 
-    "cointreau"
+    "lemon", 
+    "cointreau", 
+    "campari"
    ]
   }, 
   {
@@ -23312,8 +23284,8 @@
    "ingredients": [
     "grenadine", 
     "orange", 
-    "lemon juice", 
     "bitters", 
+    "lemon", 
     "ginger ale"
    ]
   }, 
@@ -23403,7 +23375,6 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "tequila", 
     "lime"
    ]
@@ -23481,14 +23452,14 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "pineapple juice", 
     "cherry", 
     "cointreau", 
     "benedictine", 
     "cherry brandy", 
     "pineapple", 
-    "gin"
+    "gin", 
+    "lime"
    ]
   }, 
   {
@@ -23507,11 +23478,11 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "grapefruit juice", 
-    "bitters", 
     "apricot brandy", 
+    "grapefruit juice", 
     "bourbon", 
-    "lemon juice"
+    "lemon", 
+    "bitters"
    ]
   }, 
   {
@@ -23712,9 +23683,9 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
-    "ginger ale"
+    "ginger ale", 
+    "lime"
    ]
   }, 
   {
@@ -23796,8 +23767,8 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
     "rum (dark)", 
+    "lemon", 
     "triple sec"
    ]
   }, 
@@ -23857,8 +23828,8 @@
    "ingredients": [
     "apple brandy", 
     "brandy", 
+    "lemon", 
     "triple sec", 
-    "lemon juice", 
     "powder sugar"
    ]
   }, 
@@ -23920,10 +23891,10 @@
    "ingredients": [
     "vodka", 
     "gold tequila", 
+    "lemon", 
     "rum", 
     "cherry", 
     "triple sec", 
-    "lemon juice", 
     "gin", 
     "cola"
    ]
@@ -23970,12 +23941,11 @@
     "coffee glass"
    ], 
    "ingredients": [
-    "cinnamon stick", 
-    "lemon", 
+    "orange", 
     "drambuie", 
     "scotch whiskey", 
-    "lemon juice", 
-    "orange"
+    "cinnamon stick", 
+    "lemon"
    ]
   }, 
   {
@@ -24014,11 +23984,11 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "brandy", 
-    "lemon juice", 
+    "lemon", 
+    "powder sugar", 
     "club soda", 
-    "powder sugar"
+    "lime"
    ]
   }, 
   {
@@ -24182,10 +24152,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
-    "cointreau", 
-    "cranberry juice"
+    "lime", 
+    "cranberry juice", 
+    "cointreau"
    ]
   }, 
   {
@@ -24244,9 +24214,9 @@
    ], 
    "ingredients": [
     "maraschino liqueur", 
-    "lime juice", 
     "brandy", 
-    "dubonnet"
+    "dubonnet", 
+    "lime"
    ]
   }, 
   {
@@ -24295,8 +24265,8 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "tequila", 
+    "lime", 
     "cola"
    ]
   }, 
@@ -24420,9 +24390,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "tequila", 
-    "sloe gin"
+    "sloe gin", 
+    "lime"
    ]
   }, 
   {
@@ -24573,8 +24543,8 @@
    "ingredients": [
     "peach brandy", 
     "vodka", 
-    "ginger ale", 
-    "lemon juice"
+    "lemon", 
+    "ginger ale"
    ]
   }, 
   {
@@ -24615,8 +24585,8 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
     "rum", 
+    "lemon", 
     "triple sec", 
     "grapefruit juice"
    ]
@@ -24709,7 +24679,6 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice", 
     "apricot brandy", 
     "lemon"
    ]
@@ -24823,11 +24792,11 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "rum", 
-    "mint", 
     "powder sugar", 
-    "cr\u00e8me de cassis"
+    "mint", 
+    "cr\u00e8me de cassis", 
+    "rum", 
+    "lime"
    ]
   }, 
   {
@@ -25076,10 +25045,10 @@
     "shot glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "triple sec", 
     "vodka", 
     "chambord raspberry schnapps", 
-    "triple sec"
+    "lime"
    ]
   }, 
   {
@@ -25178,9 +25147,8 @@
    "ingredients": [
     "lemon", 
     "orange juice", 
-    "brandy", 
     "benedictine", 
-    "lemon juice", 
+    "brandy", 
     "orange", 
     "bourbon", 
     "club soda"
@@ -25254,9 +25222,9 @@
     "highball glass"
    ], 
    "ingredients": [
+    "lemon", 
     "powder sugar", 
     "whiskey", 
-    "lemon juice", 
     "pineapple", 
     "orange", 
     "port", 
@@ -25414,7 +25382,6 @@
     "salted margarita glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
     "triple sec", 
     "lime"
@@ -25536,11 +25503,11 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "cr\u00e8me de noyaux", 
+    "pineapple juice", 
     "rum (dark)", 
     "cranberry juice", 
-    "pineapple juice"
+    "lime"
    ]
   }, 
   {
@@ -25656,8 +25623,8 @@
     "collins glass"
    ], 
    "ingredients": [
+    "lemon", 
     "peach brandy", 
-    "lemon juice", 
     "powder sugar", 
     "brandy", 
     "banana liqueur", 
@@ -25721,9 +25688,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "tonic", 
-    "rum"
+    "rum", 
+    "lime"
    ]
   }, 
   {
@@ -25844,8 +25811,8 @@
    ], 
    "ingredients": [
     "orange bitters", 
-    "lemon juice", 
     "cognac", 
+    "lemon", 
     "curacao", 
     "powder sugar"
    ]
@@ -25928,8 +25895,8 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lemon juice", 
     "ginger ale", 
+    "lemon", 
     "orange juice"
    ]
   }, 
@@ -25948,7 +25915,6 @@
    ], 
    "ingredients": [
     "apple brandy", 
-    "lemon juice", 
     "lemon", 
     "powder sugar", 
     "club soda"
@@ -26056,9 +26022,9 @@
     "collins glass"
    ], 
    "ingredients": [
-    "bitters", 
     "ginger ale", 
-    "lemon juice", 
+    "lemon", 
+    "bitters", 
     "powder sugar"
    ]
   }, 
@@ -26285,7 +26251,7 @@
    ], 
    "ingredients": [
     "apple brandy", 
-    "lemon juice", 
+    "lemon", 
     "powder sugar", 
     "club soda"
    ]
@@ -26324,8 +26290,8 @@
    "ingredients": [
     "grenadine", 
     "tequila", 
-    "pineapple juice", 
-    "lemon juice"
+    "lemon", 
+    "pineapple juice"
    ]
   }, 
   {
@@ -26421,8 +26387,8 @@
    ], 
    "ingredients": [
     "orange bitters", 
+    "lemon", 
     "benedictine", 
-    "lemon juice", 
     "cherry brandy", 
     "gin", 
     "bitters", 
@@ -26638,11 +26604,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "dry vermouth", 
-    "lemon", 
-    "lemon juice", 
     "blackberry brandy", 
+    "dry vermouth", 
     "bourbon", 
+    "lemon", 
     "bitters"
    ]
   }, 
@@ -26717,7 +26682,7 @@
     "gin", 
     "blue curacao", 
     "gold tequila", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -26777,7 +26742,7 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "orange juice"
    ]
   }, 
@@ -26797,8 +26762,8 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
     "amaretto", 
+    "lemon", 
     "dry vermouth"
    ]
   }, 
@@ -26817,7 +26782,6 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "apricot brandy", 
     "curacao", 
     "lime"
@@ -26861,10 +26825,10 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "lemon juice", 
+    "lemon", 
     "gold tequila", 
-    "cherry brandy"
+    "cherry brandy", 
+    "lime"
    ]
   }, 
   {
@@ -26880,8 +26844,8 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "tequila", 
+    "lime", 
     "ginger ale", 
     "cr\u00e8me de cassis"
    ]
@@ -26914,9 +26878,9 @@
     "sour glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "gold tequila", 
-    "pineapple juice"
+    "pineapple juice", 
+    "lime"
    ]
   }, 
   {
@@ -27051,7 +27015,7 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lemon juice", 
+    "lemon", 
     "club soda"
    ]
   }, 
@@ -27075,7 +27039,7 @@
     "bitters", 
     "rum (dark)", 
     "powder sugar", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -27095,8 +27059,8 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice", 
-    "apricot brandy"
+    "apricot brandy", 
+    "lemon"
    ]
   }, 
   {
@@ -27115,10 +27079,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
+    "lemon", 
     "bourbon", 
     "galliano", 
     "mint", 
-    "lemon juice", 
     "simple syrup"
    ]
   }, 
@@ -27194,9 +27158,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "rum", 
     "cr\u00e8me de menthe (white)", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -27327,9 +27291,9 @@
    ], 
    "ingredients": [
     "gold tequila", 
+    "lemon", 
     "grenadine", 
     "cherry", 
-    "lemon juice", 
     "maraschino cherry juice", 
     "egg", 
     "lime"
@@ -27411,7 +27375,7 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "grand marnier"
    ]
   }, 
@@ -27487,9 +27451,9 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lime juice", 
+    "orange", 
     "rum", 
-    "orange"
+    "lime"
    ]
   }, 
   {
@@ -27533,11 +27497,11 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "gin", 
     "blue curacao", 
     "orange bitters", 
     "bitters", 
-    "gin"
+    "lime"
    ]
   }, 
   {
@@ -27595,10 +27559,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "rum", 
     "powder sugar", 
     "orange juice", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -27762,8 +27726,8 @@
     "Swish in mouth"
    ], 
    "ingredients": [
-    "lime juice", 
-    "irish cream"
+    "irish cream", 
+    "lime"
    ]
   }, 
   {
@@ -27840,7 +27804,7 @@
    "ingredients": [
     "brandy", 
     "sloe gin", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -27880,11 +27844,11 @@
     "oldfashioned glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "vodka", 
     "cr\u00e8me de cacao (white)", 
+    "vodka", 
+    "cream", 
     "triple sec", 
-    "cream"
+    "lime"
    ]
   }, 
   {
@@ -27936,7 +27900,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "cointreau"
    ]
   }, 
@@ -27996,8 +27960,8 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lemon juice", 
-    "rum (dark)"
+    "rum (dark)", 
+    "lemon"
    ]
   }, 
   {
@@ -28407,8 +28371,8 @@
    ], 
    "ingredients": [
     "vodka", 
+    "lemon", 
     "sugar", 
-    "lemon juice", 
     "grand marnier", 
     "blue curacao", 
     "champagne"
@@ -28487,10 +28451,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "brandy", 
     "cherry brandy", 
-    "cointreau", 
-    "lemon juice"
+    "brandy", 
+    "lemon", 
+    "cointreau"
    ]
   }, 
   {
@@ -28700,8 +28664,8 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lemon juice", 
     "rum (dark)", 
+    "lemon", 
     "anisette"
    ]
   }, 
@@ -28737,9 +28701,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
-    "cherry brandy"
+    "cherry brandy", 
+    "lime"
    ]
   }, 
   {
@@ -28961,12 +28925,12 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
     "lemon lime soda", 
     "orange juice", 
     "whiskey", 
-    "peppermint schnapps"
+    "peppermint schnapps", 
+    "lime"
    ]
   }, 
   {
@@ -28984,8 +28948,8 @@
    ], 
    "ingredients": [
     "banana liqueur", 
-    "lime juice", 
-    "tequila"
+    "tequila", 
+    "lime"
    ]
   }, 
   {
@@ -29076,7 +29040,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "triple sec", 
     "sweet vermouth", 
     "dry vermouth"
@@ -29249,10 +29213,10 @@
     "margarita glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "cranberry juice", 
     "gold tequila", 
     "triple sec", 
-    "cranberry juice"
+    "lime"
    ]
   }, 
   {
@@ -29310,8 +29274,7 @@
     "dry vermouth", 
     "bourbon", 
     "lemon", 
-    "cr\u00e8me de cassis", 
-    "lemon juice"
+    "cr\u00e8me de cassis"
    ]
   }, 
   {
@@ -29672,7 +29635,7 @@
     "rum", 
     "mint", 
     "club soda", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -29733,7 +29696,6 @@
    ], 
    "ingredients": [
     "cherry", 
-    "lemon juice", 
     "rum (dark)", 
     "lemon", 
     "powder sugar"
@@ -29833,7 +29795,6 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "ginger ale", 
     "rum", 
     "orange juice", 
@@ -29909,9 +29870,9 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lemon juice", 
+    "apricot brandy", 
     "sloe gin", 
-    "apricot brandy"
+    "lemon"
    ]
   }, 
   {
@@ -29946,8 +29907,8 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lemon juice", 
     "simple syrup", 
+    "lemon", 
     "orange juice", 
     "cream"
    ]
@@ -30002,7 +29963,6 @@
    ], 
    "ingredients": [
     "irish whiskey", 
-    "lime juice", 
     "club soda", 
     "lime"
    ]
@@ -30098,9 +30058,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "dry vermouth", 
-    "lemon juice", 
     "apricot brandy", 
+    "dry vermouth", 
+    "lemon", 
     "gin"
    ]
   }, 
@@ -30383,13 +30343,13 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "rum", 
     "ginger ale", 
     "brandy", 
     "gin", 
     "bourbon", 
-    "bitters"
+    "bitters", 
+    "lime"
    ]
   }, 
   {
@@ -30556,7 +30516,6 @@
     "cherry brandy", 
     "scotch whiskey", 
     "lemon", 
-    "lemon juice", 
     "sweet vermouth"
    ]
   }, 
@@ -30691,7 +30650,7 @@
    "ingredients": [
     "bourbon", 
     "champagne", 
-    "lemon juice", 
+    "lemon", 
     "powder sugar"
    ]
   }, 
@@ -31040,7 +30999,6 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "tonic", 
     "lime"
    ]
@@ -31087,8 +31045,8 @@
     "rocks glass"
    ], 
    "ingredients": [
+    "lemon", 
     "peach brandy", 
-    "lemon juice", 
     "powder sugar", 
     "brandy", 
     "cherry", 
@@ -31145,8 +31103,8 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lemon juice", 
     "rum (dark)", 
+    "lemon", 
     "pineapple juice"
    ]
   }, 
@@ -31502,7 +31460,7 @@
     "irish whiskey", 
     "grenadine", 
     "club soda", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -31668,9 +31626,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
+    "apricot brandy", 
     "gin", 
-    "lemon juice", 
-    "apricot brandy"
+    "lemon"
    ]
   }, 
   {
@@ -32260,10 +32218,10 @@
    ], 
    "ingredients": [
     "strawberry schnapps", 
+    "lemon", 
     "orange juice", 
     "cherry", 
     "cointreau", 
-    "lemon juice", 
     "cognac"
    ]
   }, 
@@ -32466,10 +32424,10 @@
     "beermug"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
+    "rum", 
     "beer", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -32527,12 +32485,11 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
+    "lime", 
+    "lemon", 
     "cranberry juice", 
-    "triple sec", 
-    "lemon juice", 
-    "lime"
+    "triple sec"
    ]
   }, 
   {
@@ -32663,7 +32620,7 @@
     "maraschino cherry juice", 
     "brandy", 
     "simple syrup", 
-    "lemon juice", 
+    "lemon", 
     "orange juice"
    ]
   }, 
@@ -32933,7 +32890,6 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "scotch whiskey", 
     "club soda", 
     "lime"
@@ -33154,10 +33110,9 @@
    ], 
    "ingredients": [
     "cr\u00e8me de coconut", 
-    "sweet/sour mix", 
-    "lime juice", 
     "tequila", 
     "amaretto", 
+    "sweet/sour mix", 
     "lime"
    ]
   }, 
@@ -33178,12 +33133,11 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lemon", 
     "maraschino liqueur", 
-    "triple sec", 
-    "powder sugar", 
     "brandy", 
-    "lemon juice"
+    "lemon", 
+    "triple sec", 
+    "powder sugar"
    ]
   }, 
   {
@@ -33200,8 +33154,8 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lime juice", 
-    "tequila"
+    "tequila", 
+    "lime"
    ]
   }, 
   {
@@ -33283,8 +33237,8 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lemon juice", 
     "tonic", 
+    "lemon", 
     "rum"
    ]
   }, 
@@ -33378,7 +33332,7 @@
     "oldfashioned glass"
    ], 
    "ingredients": [
-    "lemon juice", 
+    "lemon", 
     "pineapple juice", 
     "orange juice", 
     "lime"
@@ -33401,8 +33355,8 @@
    "ingredients": [
     "apple brandy", 
     "brandy", 
-    "triple sec", 
-    "lemon juice"
+    "lemon", 
+    "triple sec"
    ]
   }, 
   {
@@ -33478,10 +33432,10 @@
     "highball glass"
    ], 
    "ingredients": [
-    "cherry", 
-    "lemon juice", 
     "cherry brandy", 
-    "club soda"
+    "lemon", 
+    "club soda", 
+    "cherry"
    ]
   }, 
   {
@@ -33675,8 +33629,8 @@
    "ingredients": [
     "orange", 
     "gin", 
-    "lemon juice", 
     "amaretto", 
+    "lemon", 
     "sweet vermouth"
    ]
   }, 
@@ -33696,12 +33650,12 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "anisette", 
     "ginger ale", 
     "powder sugar", 
     "gin", 
-    "club soda"
+    "club soda", 
+    "lime"
    ]
   }, 
   {
@@ -33877,10 +33831,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "gin", 
-    "lemon juice", 
     "apricot brandy", 
-    "orange juice"
+    "lemon", 
+    "orange juice", 
+    "gin"
    ]
   }, 
   {
@@ -33898,8 +33852,8 @@
    ], 
    "ingredients": [
     "banana liqueur", 
-    "lime juice", 
-    "rum (dark)"
+    "rum (dark)", 
+    "lime"
    ]
   }, 
   {
@@ -33957,10 +33911,10 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lime juice", 
     "vodka", 
+    "rum", 
     "apricot brandy", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -34284,12 +34238,12 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "rum", 
     "ginger ale", 
     "brandy", 
     "gin", 
-    "bitters"
+    "bitters", 
+    "lime"
    ]
   }, 
   {
@@ -34799,7 +34753,7 @@
    "ingredients": [
     "rum (dark) jamaican", 
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "grenadine"
    ]
   }, 
@@ -34839,7 +34793,7 @@
     "grenadine", 
     "gin", 
     "grape juice", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -35001,9 +34955,9 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "brandy", 
     "cherry brandy", 
-    "lemon juice", 
+    "brandy", 
+    "lemon", 
     "powder sugar"
    ]
   }, 
@@ -35023,7 +34977,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "sweet vermouth", 
     "grand marnier"
    ]
@@ -35350,9 +35304,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "gin", 
-    "lemon juice", 
     "apricot brandy", 
+    "gin", 
+    "lemon", 
     "dry vermouth", 
     "cherry"
    ]
@@ -35450,9 +35404,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "rum", 
     "apricot brandy", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -35578,7 +35532,7 @@
    "ingredients": [
     "apple brandy", 
     "grenadine", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -36031,14 +35985,14 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "pineapple juice", 
     "orange juice", 
     "rum", 
     "grenadine", 
     "cherry", 
     "rum (dark)", 
-    "pineapple"
+    "pineapple", 
+    "lime"
    ]
   }, 
   {
@@ -36142,8 +36096,8 @@
    "ingredients": [
     "orange", 
     "bourbon", 
-    "triple sec", 
-    "lemon juice"
+    "lemon", 
+    "triple sec"
    ]
   }, 
   {
@@ -36181,7 +36135,7 @@
     "gin", 
     "vodka", 
     "beer", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -36293,7 +36247,7 @@
    "ingredients": [
     "grenadine", 
     "whiskey", 
-    "lime juice", 
+    "lime", 
     "powder sugar", 
     "orange"
    ]
@@ -36314,8 +36268,8 @@
    ], 
    "ingredients": [
     "whiskey", 
-    "lemon juice", 
     "ginger ale", 
+    "lemon", 
     "powder sugar"
    ]
   }, 
@@ -36388,9 +36342,9 @@
    ], 
    "ingredients": [
     "whiskey", 
-    "lemon juice", 
     "amaretto", 
     "mint", 
+    "lemon", 
     "grapefruit juice"
    ]
   }, 
@@ -36544,10 +36498,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "dubonnet", 
     "lemon", 
-    "rum"
+    "rum", 
+    "lime"
    ]
   }, 
   {
@@ -36665,7 +36619,7 @@
     "grenadine", 
     "grand marnier", 
     "rum", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -36899,9 +36853,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "gin", 
-    "lemon juice", 
     "apricot brandy", 
+    "gin", 
+    "lemon", 
     "cherry brandy"
    ]
   }, 
@@ -36937,9 +36891,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "bitters", 
-    "rum"
+    "rum", 
+    "lime"
    ]
   }, 
   {
@@ -36978,7 +36932,7 @@
    "ingredients": [
     "whiskey", 
     "lemon lime soda", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -37089,7 +37043,7 @@
    ], 
    "ingredients": [
     "orange", 
-    "lemon juice", 
+    "lemon", 
     "orange juice"
    ]
   }, 
@@ -37199,10 +37153,10 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "gin", 
     "blue curacao", 
     "sugar", 
-    "gin"
+    "lime"
    ]
   }, 
   {
@@ -37250,7 +37204,7 @@
    ], 
    "ingredients": [
     "orange", 
-    "lemon juice", 
+    "lemon", 
     "chambord raspberry schnapps", 
     "powder sugar"
    ]
@@ -37268,9 +37222,9 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "cherry herring", 
-    "galliano"
+    "galliano", 
+    "lime"
    ]
   }, 
   {
@@ -37367,7 +37321,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lime juice", 
+    "lime", 
     "cola"
    ]
   }, 
@@ -37420,10 +37374,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "rum", 
     "cherry brandy", 
     "triple sec", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -37559,14 +37513,14 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
     "orange juice", 
     "triple sec", 
     "whiskey", 
     "sloe gin", 
     "sambuca", 
-    "amaretto"
+    "amaretto", 
+    "lime"
    ]
   }, 
   {
@@ -37605,10 +37559,9 @@
     "champagne glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "grenadine", 
     "vodka", 
     "rum", 
-    "grenadine", 
     "apricot brandy", 
     "lime"
    ]
@@ -37629,11 +37582,11 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "triple sec", 
-    "lime juice", 
-    "sugar", 
     "cherry", 
-    "rum"
+    "rum", 
+    "triple sec", 
+    "sugar", 
+    "lime"
    ]
   }, 
   {
@@ -37671,7 +37624,7 @@
    "ingredients": [
     "gin", 
     "blue curacao", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -37736,11 +37689,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
+    "lemon", 
     "cranberry juice", 
     "triple sec", 
-    "lemon juice", 
     "simple syrup", 
     "lime"
    ]
@@ -37911,7 +37863,6 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "lemonade", 
     "coconut rum", 
     "lime"
@@ -38383,9 +38334,9 @@
    ], 
    "ingredients": [
     "maraschino liqueur", 
-    "lime juice", 
     "brandy", 
-    "dubonnet"
+    "dubonnet", 
+    "lime"
    ]
   }, 
   {
@@ -38528,7 +38479,6 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "club soda", 
     "lime"
    ]
@@ -38677,7 +38627,6 @@
    "ingredients": [
     "citron vodka", 
     "lemon", 
-    "lemon juice", 
     "powder sugar"
    ]
   }, 
@@ -38698,7 +38647,7 @@
    "ingredients": [
     "dry vermouth", 
     "scotch whiskey", 
-    "lemon juice", 
+    "lemon", 
     "orange bitters"
    ]
   }, 
@@ -38824,8 +38773,8 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
     "bitters", 
+    "lemon", 
     "cr\u00e8me de cacao (white)"
    ]
   }, 
@@ -38912,7 +38861,7 @@
    ], 
    "ingredients": [
     "apple brandy", 
-    "lemon juice", 
+    "lemon", 
     "powder sugar"
    ]
   }, 
@@ -39085,11 +39034,11 @@
     "margarita glass"
    ], 
    "ingredients": [
+    "lemon", 
     "orange juice", 
     "rum", 
     "grenadine", 
     "triple sec", 
-    "lemon juice", 
     "banana liqueur"
    ]
   }, 
@@ -39188,8 +39137,8 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
-    "brandy"
+    "brandy", 
+    "lime"
    ]
   }, 
   {
@@ -39208,9 +39157,9 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
-    "cherry brandy", 
-    "cr\u00e8me de noyaux"
+    "cr\u00e8me de noyaux", 
+    "lemon", 
+    "cherry brandy"
    ]
   }, 
   {
@@ -39252,13 +39201,13 @@
     "cocktail glass"
    ], 
    "ingredients": [
+    "lemon", 
     "grenadine", 
     "cherry", 
     "triple sec", 
     "sugar", 
     "brandy", 
-    "cherry brandy", 
-    "lemon juice"
+    "cherry brandy"
    ]
   }, 
   {
@@ -39324,8 +39273,8 @@
    ], 
    "ingredients": [
     "banana liqueur", 
-    "lemon juice", 
-    "rum (dark)"
+    "rum (dark)", 
+    "lemon"
    ]
   }, 
   {
@@ -39526,7 +39475,7 @@
     "grenadine", 
     "vodka", 
     "sloe gin", 
-    "lemon juice", 
+    "lemon", 
     "orange juice"
    ]
   }, 
@@ -39764,9 +39713,9 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
-    "cherry brandy", 
     "dry vermouth", 
+    "lemon", 
+    "cherry brandy", 
     "orange bitters"
    ]
   }, 
@@ -39786,7 +39735,7 @@
    ], 
    "ingredients": [
     "whiskey", 
-    "lemon juice", 
+    "lemon", 
     "pineapple juice", 
     "powder sugar"
    ]
@@ -39852,7 +39801,6 @@
     "cherry brandy", 
     "scotch whiskey", 
     "lemon", 
-    "lemon juice", 
     "sweet vermouth"
    ]
   }, 
@@ -39972,8 +39920,8 @@
    "ingredients": [
     "grenadine", 
     "bourbon", 
-    "cr\u00e8me de cacao (white)", 
-    "lemon juice"
+    "lemon", 
+    "cr\u00e8me de cacao (white)"
    ]
   }, 
   {
@@ -40084,7 +40032,7 @@
    "ingredients": [
     "apple brandy", 
     "benedictine", 
-    "lemon juice", 
+    "lemon", 
     "curacao"
    ]
   }, 
@@ -40107,10 +40055,10 @@
    ], 
    "ingredients": [
     "dry vermouth", 
+    "lemon", 
     "grenadine", 
     "cherry", 
     "sugar", 
-    "lemon juice", 
     "apricot brandy", 
     "gin"
    ]
@@ -40129,9 +40077,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "cointreau", 
-    "pernod"
+    "pernod", 
+    "lime"
    ]
   }, 
   {
@@ -40169,7 +40117,7 @@
     "gin", 
     "apricot brandy", 
     "dry vermouth", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -40208,7 +40156,7 @@
     "cr\u00e8me de menthe (green)", 
     "gin", 
     "mint", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -40301,7 +40249,6 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "sloe gin", 
     "club soda", 
     "lime"
@@ -40324,7 +40271,7 @@
    ], 
    "ingredients": [
     "vodka", 
-    "lemon juice", 
+    "lemon", 
     "triple sec", 
     "sour apple schnapps", 
     "apple (green)"
@@ -40345,8 +40292,8 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lemon juice", 
-    "frangelico"
+    "frangelico", 
+    "lemon"
    ]
   }, 
   {
@@ -40381,12 +40328,12 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "orange juice", 
     "rum", 
     "cherry", 
     "sweet vermouth", 
-    "orange"
+    "orange", 
+    "lime"
    ]
   }, 
   {
@@ -40407,7 +40354,7 @@
     "melon liqueur", 
     "rum (dark)", 
     "triple sec", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -40631,7 +40578,6 @@
    ], 
    "ingredients": [
     "gin", 
-    "lime juice", 
     "club soda", 
     "lime"
    ]
@@ -40668,8 +40614,8 @@
    ], 
    "ingredients": [
     "blackberry brandy", 
-    "lime juice", 
-    "vodka"
+    "vodka", 
+    "lime"
    ]
   }, 
   {
@@ -40759,7 +40705,6 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
     "lemon lime soda", 
     "lime"
@@ -40949,7 +40894,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "triple sec", 
     "melon liqueur"
    ]
@@ -41038,10 +40983,10 @@
    ], 
    "ingredients": [
     "vodka", 
+    "lemon", 
     "pineapple juice", 
     "cherry", 
     "triple sec", 
-    "lemon juice", 
     "pineapple"
    ]
   }, 
@@ -41079,10 +41024,10 @@
     "rocks glass"
    ], 
    "ingredients": [
+    "apricot brandy", 
     "gin", 
     "bitters", 
-    "apricot brandy", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -41117,7 +41062,6 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "tonic", 
     "rum", 
     "lime"
@@ -41138,7 +41082,6 @@
    ], 
    "ingredients": [
     "gin", 
-    "lime juice", 
     "lime"
    ]
   }, 
@@ -41194,7 +41137,7 @@
    "ingredients": [
     "grenadine", 
     "brandy", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -41459,9 +41402,9 @@
     "rocks glass"
    ], 
    "ingredients": [
-    "lemon juice", 
+    "apricot brandy", 
     "sloe gin", 
-    "apricot brandy"
+    "lemon"
    ]
   }, 
   {
@@ -41585,7 +41528,7 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -41701,8 +41644,8 @@
    ], 
    "ingredients": [
     "banana liqueur", 
-    "lemon juice", 
-    "rum (dark)"
+    "rum (dark)", 
+    "lemon"
    ]
   }, 
   {
@@ -41789,7 +41732,7 @@
    "ingredients": [
     "grenadine", 
     "tequila", 
-    "lemon juice", 
+    "lemon", 
     "club soda"
    ]
   }, 
@@ -41811,9 +41754,9 @@
    ], 
    "ingredients": [
     "vodka", 
+    "lemon", 
     "rum", 
     "powder sugar", 
-    "lemon juice", 
     "gin", 
     "coffee liqueur"
    ]
@@ -41834,9 +41777,9 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lime juice", 
+    "rum", 
     "frangelico", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -41879,7 +41822,6 @@
    "ingredients": [
     "grapefruit juice", 
     "orange juice", 
-    "lime juice", 
     "cherry", 
     "triple sec", 
     "orange", 
@@ -41992,7 +41934,7 @@
    "ingredients": [
     "grenadine", 
     "grape juice", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -42408,7 +42350,7 @@
     "gin", 
     "bitters", 
     "tonic", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -42427,9 +42369,9 @@
    ], 
    "ingredients": [
     "rum (dark) jamaican", 
-    "lime juice", 
     "bitters", 
-    "tia maria"
+    "tia maria", 
+    "lime"
    ]
   }, 
   {
@@ -42524,11 +42466,10 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "tequila", 
-    "powder sugar", 
     "sugar", 
-    "lemon juice", 
+    "lemon", 
+    "powder sugar", 
     "lime"
    ]
   }, 
@@ -42664,7 +42605,7 @@
     "gin", 
     "rum", 
     "powder sugar", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -43044,7 +42985,7 @@
     "vodka", 
     "sweet/sour mix", 
     "tonic", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -43102,12 +43043,12 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "orange bitters", 
     "orange juice", 
     "rum", 
     "powder sugar", 
-    "orange bitters", 
-    "orange"
+    "orange", 
+    "lime"
    ]
   }, 
   {
@@ -43127,7 +43068,6 @@
    "ingredients": [
     "brandy", 
     "lemon", 
-    "lemon juice", 
     "powder sugar"
    ]
   }, 
@@ -43203,9 +43143,9 @@
    ], 
    "ingredients": [
     "bourbon", 
+    "lemon", 
     "cr\u00e8me de cassis", 
-    "sweet vermouth", 
-    "lemon juice"
+    "sweet vermouth"
    ]
   }, 
   {
@@ -43326,8 +43266,8 @@
    ], 
    "ingredients": [
     "vodka", 
-    "cr\u00e8me de cacao (white)", 
-    "lemon juice"
+    "lemon", 
+    "cr\u00e8me de cacao (white)"
    ]
   }, 
   {
@@ -43389,9 +43329,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "rum", 
     "apricot brandy", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -43459,9 +43399,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
+    "cream", 
     "cr\u00e8me de cacao (white)", 
-    "cream"
+    "lime"
    ]
   }, 
   {
@@ -43774,8 +43714,8 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
     "champagne", 
+    "lemon", 
     "powder sugar"
    ]
   }, 
@@ -43976,8 +43916,8 @@
    ], 
    "ingredients": [
     "scotch whiskey", 
-    "cointreau", 
-    "lemon juice"
+    "lemon", 
+    "cointreau"
    ]
   }, 
   {
@@ -43997,8 +43937,8 @@
    ], 
    "ingredients": [
     "orange", 
-    "lemon juice", 
     "cognac", 
+    "lemon", 
     "cointreau", 
     "rum"
    ]
@@ -44118,9 +44058,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "tequila", 
-    "pineapple juice"
+    "pineapple juice", 
+    "lime"
    ]
   }, 
   {
@@ -44440,7 +44380,6 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "gold tequila", 
     "cr\u00e8me de menthe (white)", 
     "lime"
@@ -44741,11 +44680,11 @@
     "highball glass"
    ], 
    "ingredients": [
+    "orange", 
     "apricot brandy", 
-    "lime juice", 
     "vodka", 
     "lemon lime soda", 
-    "orange"
+    "lime"
    ]
   }, 
   {
@@ -44818,9 +44757,9 @@
     "collins glass"
    ], 
    "ingredients": [
+    "lemon", 
     "grenadine", 
     "powder sugar", 
-    "lemon juice", 
     "gin", 
     "club soda", 
     "cream"
@@ -44899,11 +44838,11 @@
     "highball glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "bourbon", 
+    "sugar", 
     "sweet/sour mix", 
     "triple sec", 
-    "sugar"
+    "lime"
    ]
   }, 
   {
@@ -44923,7 +44862,7 @@
    "ingredients": [
     "grenadine", 
     "bourbon", 
-    "lemon juice", 
+    "lemon", 
     "orange juice"
    ]
   }, 
@@ -44990,8 +44929,7 @@
    "ingredients": [
     "dry vermouth", 
     "bourbon", 
-    "lemon", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -45092,9 +45030,9 @@
    ], 
    "ingredients": [
     "galliano", 
+    "lemon", 
     "pineapple juice", 
     "rum", 
-    "lemon juice", 
     "apricot brandy", 
     "orange"
    ]
@@ -45525,7 +45463,7 @@
     "gin", 
     "anisette", 
     "champagne", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -45637,10 +45575,10 @@
     "shot glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
-    "chambord raspberry schnapps", 
-    "pineapple juice"
+    "lime", 
+    "pineapple juice", 
+    "chambord raspberry schnapps"
    ]
   }, 
   {
@@ -45678,12 +45616,12 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "lemon", 
     "tequila", 
     "sour cherries", 
     "st germain", 
-    "club soda"
+    "club soda", 
+    "lime"
    ]
   }, 
   {
@@ -45758,7 +45696,6 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lemon juice", 
     "rum (dark)", 
     "lemon", 
     "sweet vermouth"
@@ -45839,7 +45776,7 @@
     "irish whiskey", 
     "orange bitters", 
     "scotch whiskey", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -45860,7 +45797,7 @@
     "grenadine", 
     "gin", 
     "apricot brandy", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -45954,8 +45891,8 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
-    "ginger ale"
+    "ginger ale", 
+    "lemon"
    ]
   }, 
   {
@@ -45996,7 +45933,7 @@
    ], 
    "ingredients": [
     "grenadine", 
-    "lemon juice", 
+    "lemon", 
     "rum"
    ]
   }, 
@@ -46017,10 +45954,10 @@
    ], 
    "ingredients": [
     "cr\u00e8me de menthe (green)", 
-    "lime juice", 
+    "rum", 
     "lemon", 
     "powder sugar", 
-    "rum"
+    "lime"
    ]
   }, 
   {
@@ -46125,9 +46062,9 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "gold tequila", 
-    "sloe gin"
+    "sloe gin", 
+    "lime"
    ]
   }, 
   {
@@ -46189,10 +46126,10 @@
     "collins glass"
    ], 
    "ingredients": [
+    "lemon", 
     "grenadine", 
     "cherry", 
     "whiskey", 
-    "lemon juice", 
     "orange", 
     "bourbon", 
     "club soda"
@@ -46213,8 +46150,8 @@
    ], 
    "ingredients": [
     "dry vermouth", 
-    "lemon juice", 
-    "sloe gin"
+    "sloe gin", 
+    "lemon"
    ]
   }, 
   {
@@ -46229,7 +46166,7 @@
    ], 
    "ingredients": [
     "vodka", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -46249,7 +46186,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "mint", 
     "powder sugar", 
     "whiskey"
@@ -46271,7 +46208,6 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lemon juice", 
     "lemon", 
     "powder sugar", 
     "club soda", 
@@ -46466,7 +46402,7 @@
    "ingredients": [
     "sherry", 
     "rum", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -46617,8 +46553,8 @@
    ], 
    "ingredients": [
     "vodka", 
-    "cr\u00e8me de cacao (white)", 
-    "lemon juice"
+    "lemon", 
+    "cr\u00e8me de cacao (white)"
    ]
   }, 
   {
@@ -46636,7 +46572,7 @@
    ], 
    "ingredients": [
     "gin", 
-    "lemon juice", 
+    "lemon", 
     "cr\u00e8me de cassis"
    ]
   }, 
@@ -46694,13 +46630,12 @@
     "collins glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "vodka", 
     "lemon", 
     "orange juice", 
-    "lemon juice", 
     "orange", 
-    "blue curacao"
+    "blue curacao", 
+    "lime"
    ]
   }, 
   {
@@ -46867,10 +46802,10 @@
    ], 
    "ingredients": [
     "gold tequila", 
+    "lemon", 
     "orange juice", 
     "grenadine", 
     "cherry", 
-    "lemon juice", 
     "orange"
    ]
   }, 
@@ -46931,7 +46866,7 @@
     "peach brandy", 
     "gold tequila", 
     "cointreau", 
-    "lime juice"
+    "lime"
    ]
   }, 
   {
@@ -46950,7 +46885,7 @@
    "ingredients": [
     "grenadine", 
     "gin", 
-    "lemon juice"
+    "lemon"
    ]
   }, 
   {
@@ -47000,11 +46935,11 @@
     "highball glass"
    ], 
    "ingredients": [
+    "lemon", 
     "orange juice", 
     "rum", 
-    "brandy", 
     "cr\u00e8me de noyaux", 
-    "lemon juice", 
+    "brandy", 
     "orange"
    ]
   }, 
@@ -47225,12 +47160,12 @@
     "cocktail glass"
    ], 
    "ingredients": [
-    "lime juice", 
     "pineapple juice", 
     "rum (dark)", 
     "powder sugar", 
     "sugar", 
-    "gin"
+    "gin", 
+    "lime"
    ]
   }, 
   {
@@ -47266,9 +47201,9 @@
    ], 
    "ingredients": [
     "vodka", 
-    "lemon juice", 
-    "club soda", 
-    "powder sugar"
+    "lemon", 
+    "powder sugar", 
+    "club soda"
    ]
   }, 
   {
@@ -47285,7 +47220,7 @@
    ], 
    "ingredients": [
     "tequila", 
-    "lemon juice", 
+    "lemon", 
     "cr\u00e8me de menthe (white)"
    ]
   }, 
@@ -47330,5 +47265,6 @@
    ]
   }
  ], 
- "version": "1322332161"
+ "version": "1322351758", 
+ "schema": 2
 }
