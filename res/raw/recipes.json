@@ -645,8 +645,8 @@
    "add 1 oz of rum", 
    "add 1 \u00bd oz of cr\u00e8me de coconut", 
    "add 2 \u00bd oz of pineapple juice", 
-   "Blend", 
-   "Blend", 
+   "blend", 
+   "blend", 
    "blend and pour", 
    "garnish with cherry", 
    "garnish with pineapple"
@@ -1269,8 +1269,6 @@
    "add \u00bd oz of blue curacao", 
    "add \u00bd oz of cr\u00e8me de coconut", 
    "add 2 oz of pineapple juice", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Big Blue Sky", 
@@ -2062,8 +2060,6 @@
    "add 2 oz of rum", 
    "add \u00bd oz of blue curacao", 
    "add \u00bd oz of lime juice", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Frozen Blue Daiquiri", 
@@ -4089,8 +4085,6 @@
    "add 1 \u00bc oz of cr\u00e8me de menthe (green)", 
    "add \u00be oz of cr\u00e8me de cacao (white)", 
    "add 1 oz of cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Grasshopper (2)", 
@@ -6336,8 +6330,6 @@
    "add 1 \u00bd oz of vodka", 
    "add 4 oz of orange juice", 
    "add 1 of egg", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Egghead", 
@@ -7792,8 +7784,6 @@
    "add 1 oz of rum", 
    "add 1 oz of grenadine", 
    "add 1 oz of grapefruit juice", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Rockin Hurricane", 
@@ -7816,8 +7806,6 @@
    "add 1 oz of tequila", 
    "add \u00bd oz of triple sec", 
    "add 1 \u00bd oz of sweet/sour mix", 
-   "Blend", 
-   "Blend", 
    "blend and strain", 
    "garnish with lime slice"
   ], 
@@ -9262,8 +9250,6 @@
    "add \u00bd oz of triple sec", 
    "add 3 oz of sweet/sour mix", 
    "add \u00bc oz of lime juice", 
-   "Blend", 
-   "Blend", 
    "blend and strain", 
    "float grand marnier"
   ], 
@@ -9856,8 +9842,6 @@
    "add 1 oz of irish cream", 
    "add \u00bd oz of frangelico", 
    "add 2 Scoops of vanilla ice cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour", 
    "top whipped cream", 
    "garnish with chocolate sprinkles"
@@ -10083,8 +10067,6 @@
    "add \u00bd oz of triple sec", 
    "add 1 oz of orange juice", 
    "add \u00bd oz of cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Pumpkin Eater", 
@@ -10548,8 +10530,8 @@
    "add 1 dash of orange juice", 
    "add \u00bd oz of cream", 
    "add 1 \u00bd oz of sweet/sour mix", 
-   "Blend", 
-   "Blend", 
+   "blend", 
+   "blend", 
    "blend and pour", 
    "fill with club soda"
   ], 
@@ -10773,10 +10755,7 @@
    "add ice to blender", 
    "add \u00be oz of cr\u00e8me de cacao (white)", 
    "add \u00bc oz of galliano", 
-   "Blend", 
    "fill with cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Golden Cadillac (2)", 
@@ -11108,8 +11087,6 @@
    "add \u00be oz of banana liqueur", 
    "add \u00be oz of galliano", 
    "add 1 \u00bd oz of cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Italian Stallion", 
@@ -13143,8 +13120,6 @@
    "add 1 \u00bd oz of rum", 
    "add \u00bd oz of triple sec", 
    "add 2 oz of sweet/sour mix", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Frozen Daiquiri", 
@@ -13593,8 +13568,6 @@
    "add \u00bc oz of apricot brandy", 
    "add 2 \u00bd oz of lime juice", 
    "add \u00bc oz of grenadine", 
-   "Blend", 
-   "Blend", 
    "blend and pour", 
    "garnish with lime slice"
   ], 
@@ -13954,8 +13927,6 @@
    "add 1 oz of cranberry juice", 
    "add 1 TBSP of lemon juice", 
    "add 1 Tbsp of sugar", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Blizzard", 
@@ -17168,8 +17139,6 @@
    "add 1 oz of cr\u00e8me de cacao (white)", 
    "add 1 oz of triple sec", 
    "add 2 oz of cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Dreamsicle (2)", 
@@ -17900,8 +17869,6 @@
    "add 1 oz of tequila", 
    "add \u00bd oz of blue curacao", 
    "add 1 \u00bd oz of sweet/sour mix", 
-   "Blend", 
-   "Blend", 
    "blend and strain", 
    "garnish with lime slice"
   ], 
@@ -18967,8 +18934,6 @@
    "add ice to blender", 
    "add 4 oz of cranberry juice", 
    "add 4 oz of orange juice", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Orangatang (na)", 
@@ -19090,8 +19055,6 @@
    "add 1 \u00bd oz of whiskey", 
    "add 1 \u00bd oz of cr\u00e8me de cacao (white)", 
    "add 1 \u00bd oz of cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Southern Alexander", 
@@ -21362,8 +21325,6 @@
    "add \u00bd oz of coffee liqueur", 
    "add \u00bd oz of irish cream", 
    "add 1 oz of cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Texas Sling", 
@@ -21686,8 +21647,6 @@
    "add 2 oz of milk", 
    "add 2 oz of orange juice", 
    "add 1 dash of lime juice", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Windy Beach", 
@@ -23247,8 +23206,6 @@
    "add \u00be oz of cr\u00e8me de menthe (green)", 
    "add \u00be oz of sambuca", 
    "add 1 TBSP of cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Iceball", 
@@ -24257,8 +24214,6 @@
    "add 1 \u00bd oz of peach schnapps", 
    "add 1 \u00bd oz of sweet/sour mix", 
    "add 1 dash of grenadine", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Peach Margarita (2)", 
@@ -24421,8 +24376,6 @@
    "add \u00bd oz of cr\u00e8me de cacao (white)", 
    "add \u00bd oz of sambuca", 
    "add 2 oz of cream", 
-   "Blend", 
-   "Blend", 
    "blend and strain"
   ], 
   "name": "White Heart", 
@@ -25019,8 +24972,6 @@
    "add 1 oz of amaretto", 
    "add 1 oz of rum", 
    "add 2 oz of sweet/sour mix", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Amaretto Daiquiri", 
@@ -25136,8 +25087,8 @@
    "add 1 \u00bd oz of whiskey", 
    "add 1 \u00bd oz of coffee liqueur", 
    "add 2 Scoops of vanilla ice cream", 
-   "Blend", 
-   "Blend", 
+   "blend", 
+   "blend", 
    "blend and pour", 
    "garnish with chocolate sprinkles"
   ], 
@@ -25357,8 +25308,6 @@
    "add \u00bd oz of banana liqueur", 
    "add \u00bd oz of cr\u00e8me de cacao (white)", 
    "add 1 \u00bd oz of cream", 
-   "Blend", 
-   "Blend", 
    "blend and strain", 
    "garnish with cherry"
   ], 
@@ -25843,8 +25792,6 @@
    "add 1 oz of blue curacao", 
    "add 1 oz of cr\u00e8me de coconut", 
    "add 4 oz of pineapple juice", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Blue Sky", 
@@ -26140,8 +26087,6 @@
    "add 2 oz of rum", 
    "add 1 oz of triple sec", 
    "add 2 oz of pineapple juice", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Hairy Bitch", 
@@ -26183,8 +26128,6 @@
    "add ice to blender", 
    "add 1 \u00bd oz of melon liqueur", 
    "add 4 oz of lemonade", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Colossal Cantaloupe (2)", 
@@ -27222,8 +27165,6 @@
    "add 3 oz of pineapple juice", 
    "add 1 oz of sweet/sour mix", 
    "add \u00bd oz of simple syrup", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Anti Freeze (2)", 
@@ -27417,8 +27358,6 @@
    "add 2 oz of rum", 
    "add 1 oz of triple sec", 
    "add 2 oz of pineapple juice", 
-   "Blend", 
-   "Blend", 
    "blend and pour", 
    "garnish with cherry"
   ], 
@@ -28645,8 +28584,6 @@
    "add 1 \u00bd oz of tequila", 
    "add \u00bd oz of triple sec", 
    "add 2 oz of sweet/sour mix", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Frozen Margarita", 
@@ -29304,8 +29241,6 @@
    "add 1 oz of triple sec", 
    "add 2 oz of cranberry juice", 
    "add 1 \u00bd oz of lime juice", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Side Out Margarita", 
@@ -29645,8 +29580,6 @@
    "add ice to blender", 
    "add 2 oz of irish cream", 
    "add 2 oz of cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Cream Dream", 
@@ -30196,8 +30129,6 @@
    "add 3 oz of vodka", 
    "add 1 \u00bd oz of cinnamon schnapps", 
    "add 4 oz of apple juice", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Vodka Yummy", 
@@ -31186,8 +31117,6 @@
    "add 1 oz of vodka", 
    "add 1 oz of cream", 
    "add 1 Scoop of vanilla ice cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Mont Blanc", 
@@ -31697,8 +31626,6 @@
    "add 1 oz of chambord raspberry schnapps", 
    "add 1 oz of coffee liqueur", 
    "add 1 oz of cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Montmartre", 
@@ -32455,8 +32382,6 @@
    "add 1 oz of tequila premium", 
    "add \u00bd oz of blue curacao", 
    "add 1 \u00bd oz of sweet/sour mix", 
-   "Blend", 
-   "Blend", 
    "blend and strain", 
    "garnish with lime slice"
   ], 
@@ -35312,8 +35237,6 @@
    "add 1 oz of irish cream", 
    "add 2 oz of cream", 
    "add 1 \u00bd tsp of powder sugar", 
-   "Blend", 
-   "Blend", 
    "blend and pour", 
    "top whipped cream"
   ], 
@@ -35338,8 +35261,8 @@
    "add \u00bd oz of cr\u00e8me de noyaux", 
    "add 1 \u00bd oz of sweet/sour mix", 
    "add 1 \u00bd oz of orange juice", 
-   "Blend", 
-   "Blend", 
+   "blend", 
+   "blend", 
    "blend and pour", 
    "top rum", 
    "garnish with cherry", 
@@ -35849,8 +35772,6 @@
    "add 2 oz of irish cream", 
    "add 1 oz of coconut rum", 
    "add 2 oz of milk", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Coconut Frappe", 
@@ -37675,8 +37596,6 @@
    "add \u00bd oz of lime juice", 
    "add \u00bc oz of grenadine", 
    "add \u00bc oz of apricot brandy", 
-   "Blend", 
-   "Blend", 
    "blend and pour", 
    "garnish with lime twist"
   ], 
@@ -39158,8 +39077,6 @@
    "add 2 oz of lemon juice", 
    "add 2 oz of orange juice", 
    "add 1 dash of grenadine", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Zodiac", 
@@ -40796,8 +40713,6 @@
    "add 1 oz of peach schnapps", 
    "add 1 oz of blue curacao", 
    "add 4 oz of sweet/sour mix", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Catalina Margarita", 
@@ -41697,8 +41612,6 @@
    "add ice to blender", 
    "add 1 \u00bd oz of chambord raspberry schnapps", 
    "add \u00bc of lemon", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Chambord Frost", 
@@ -42626,8 +42539,6 @@
    "add 1 oz of sambuca", 
    "add 1 oz of cr\u00e8me de cacao (white)", 
    "add 1 oz of cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "Slalom", 
@@ -42881,8 +42792,6 @@
    "add 1 oz of vodka", 
    "add 1 oz of cr\u00e8me de cacao (white)", 
    "add 1 oz of cr\u00e8me de menthe (white)", 
-   "Blend", 
-   "Blend", 
    "blend and pour", 
    "top 1 oz coffee liqueur"
   ], 
@@ -42981,8 +42890,6 @@
    "add 1 oz of blue curacao", 
    "add 2 oz of pineapple juice", 
    "add 1 oz of cr\u00e8me de coconut", 
-   "Blend", 
-   "Blend", 
    "blend and pour", 
    "garnish with orange slice", 
    "garnish with cherry"
@@ -43029,8 +42936,6 @@
    "add ice to blender", 
    "add 1 oz of grand marnier", 
    "add 1 oz of tia maria", 
-   "Blend", 
-   "Blend", 
    "blend and pour", 
    "garnish with orange slice", 
    "garnish with sprinkle nutmeg"
@@ -43450,8 +43355,6 @@
    "add \u00bd oz of triple sec", 
    "add 1 \u00bd oz of sweet/sour mix", 
    "add 1 \u00bd oz of pineapple juice", 
-   "Blend", 
-   "Blend", 
    "blend and pour", 
    "top rum", 
    "garnish with cherry", 
@@ -43882,8 +43785,6 @@
    "add \u00bd oz of brandy", 
    "add \u00bd oz of cr\u00e8me de cacao (dark)", 
    "add 2 oz of cream", 
-   "Blend", 
-   "Blend", 
    "blend and strain", 
    "garnish with sprinkle nutmeg"
   ], 
@@ -44878,8 +44779,6 @@
    "add 3 oz of orange juice", 
    "add 1 dash of grenadine", 
    "add 1 dash of bitters", 
-   "Blend", 
-   "Blend", 
    "blend and pour", 
    "garnish with orange slice", 
    "garnish with cherry"
@@ -46477,8 +46376,6 @@
    "add 3 oz of orange juice", 
    "add 1 oz of lemonade", 
    "add \u00bd oz of grenadine", 
-   "Blend", 
-   "Blend", 
    "blend and pour", 
    "garnish with cherry"
   ], 
@@ -46821,8 +46718,6 @@
    "add ice to blender", 
    "add 1 oz of vodka", 
    "add 1 \u00bd oz of orange juice", 
-   "Blend", 
-   "Blend", 
    "blend and pour", 
    "top 1 oz champagne"
   ], 
@@ -47274,8 +47169,6 @@
    "add 1 oz of vodka", 
    "add 1 oz of cr\u00e8me de cacao (white)", 
    "add 2 Scoops of vanilla ice cream", 
-   "Blend", 
-   "Blend", 
    "blend and pour"
   ], 
   "name": "White Witch (2)", 
