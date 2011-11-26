@@ -28,14 +28,14 @@ class RecipeBook {
 	public List<Recipe> allRecipes;
 	public List<Recipe> producableRecipes;
 	public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
-	public Map<String,Integer> ingredientRecipeCount;
+	public List<String> mostUsedIngredients;
 
 	public Set<String> knownIngredients;
 
 	public RecipeBook(Context context) {
 		this.allRecipes = new ArrayList<Recipe>(2400);
 		this.knownIngredients = new TreeSet<String>();
-		this.ingredientRecipeCount = new TreeMap<String,Integer>();
+		this.mostUsedIngredients = new LinkedList<String>();
 
 		try {
 			java.io.InputStream recipeFile = context.getResources().openRawResource(R.raw.recipes);
@@ -47,6 +47,10 @@ class RecipeBook {
 				String fieldname = jp.getCurrentName();
 				if (fieldname.equals("version")) {
 					this.version = jp.getText();
+				} else if (fieldname.equals("most_used_ingredients")) {
+					while (jp.nextToken() != JsonToken.END_ARRAY) {
+						this.mostUsedIngredients.add(jp.getText());
+					}
 				} else if (fieldname.equals("book")) {
 					while (jp.nextToken() != JsonToken.END_ARRAY) {
 						jp.nextToken();
@@ -86,18 +90,6 @@ class RecipeBook {
 								Log.e(TAG, "  UNKNOWN: " + jp.getCurrentToken());
 							}
 						}
-						Iterator it = recipe.ingredients.iterator();
-						while (it.hasNext()) {
-							String key = (String) it.next();
-							Integer v = this.ingredientRecipeCount.get(key);
-							if (v == null) {
-								v = new Integer(1);
-							} else {
-								v += 1;
-							}
-							this.ingredientRecipeCount.put(key, v);
-						}
-
 						this.allRecipes.add(recipe);
 					}
 				}
