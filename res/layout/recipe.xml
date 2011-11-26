@@ -20,7 +20,7 @@
 				android:layout_height="wrap_content" 
 				android:lines="1"
 				android:ellipsize="marquee"
-				android:textSize="22sp"
+				android:textSize="@dimen/recipe_title_height"
 				android:textColor="#fff"
 				android:layout_weight="1"
 				/>
@@ -55,15 +55,15 @@
 			/>
 		<View
 			android:layout_width="fill_parent" 
-			android:layout_height="3px" 
-			android:color="#888"
+			android:layout_height="2px" 
+			android:color="#ccc"
 			/>
 		<TextView
 			android:id="@+id/jargon_defined"
 			android:layout_width="fill_parent" 
 			android:layout_height="wrap_content" 
 			android:padding="10px"
-			android:textSize="11dip"
+			android:textSize="@dimen/recipe_jargon_height"
 			/>
 	</LinearLayout>
 </ScrollView>

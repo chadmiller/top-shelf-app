@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World!</string>
-    <string name="app_name">ActionBar</string>
-    <string name="actionbar_activity_not_found">Failed to open intent...</string>
+    <string name="app_name">Drinks</string>
+	<string name="actionbar_activity_not_found">Failed to open intent...</string>
 
 	<string name="term_blend">Blend: Mix in an electric blender.</string>
 	<string name="term_build">Build: Fill a glass with ice, and pour in ingredients.</string>

@@ -24,6 +24,7 @@ import java.util.Map;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Collection;
 
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.Action;
@@ -31,6 +32,8 @@ import com.markupartist.android.widget.ActionBar.IntentAction;
 
 public class Search extends Activity {
 	public final static String TAG = "org.chad.jeejah.library.Search";
+
+	private static final String DATA_VERSION_DNS_RECORD_NAME = "ver.data.library.jeejah.chad.org.";
 
 	private RecipeBook recipeBook;
 
@@ -73,6 +76,45 @@ public class Search extends Activity {
 			}
 		});
 
+		class SuggestShoppingAction implements Action {
+			@Override
+			public int getDrawable() {
+				return R.drawable.ic_btn_suggest_shopping_list;
+			}
+
+			private String[] toStringsArray(List<Recipe> l) {
+				String[] arr = new String[l.size()];
+				Iterator it = l.iterator();
+				int i = 0;
+				while (it.hasNext()) {
+					Recipe r = (Recipe) it.next();
+					arr[i++] = r.name;
+				}
+				return arr;
+			}
+
+			@Override
+			public void performAction(View view) {
+
+				Intent intent = new Intent(Search.this, ShoppingListActivity.class);
+				intent.setAction(Intent.ACTION_VIEW);
+
+				Bundle singleIngredients = new Bundle();
+				singleIngredients.putStringArray("keys", Search.this.recipeBook.countRecipesSoleAdditionalIngredient.keySet().toArray(new String[Search.this.recipeBook.countRecipesSoleAdditionalIngredient.size()]));
+
+				Iterator<Map.Entry<String,List<Recipe>>> ingredientsThatSatisfyIter = Search.this.recipeBook.countRecipesSoleAdditionalIngredient.entrySet().iterator();
+				while (ingredientsThatSatisfyIter.hasNext()) {
+					Map.Entry<String,List<Recipe>> entry = ingredientsThatSatisfyIter.next();
+					singleIngredients.putStringArray("enabledby " + entry.getKey(), toStringsArray(entry.getValue()));
+				}
+
+				intent.putExtra(ShoppingListActivity.SINGLE_KEY, singleIngredients);
+				Search.this.startActivity(intent);
+			}
+		}
+		actionBar.addAction(new SuggestShoppingAction());
+
+
 		class ListToggleAction implements Action {
 			@Override
 			public int getDrawable() {
@@ -112,7 +154,6 @@ public class Search extends Activity {
 			}
 		});
 
-
 		setUp();
 	}
 
@@ -130,6 +171,7 @@ public class Search extends Activity {
 			this.recipeListFootnote.setText(" * You don't own an ingredient. (Tap here to update your list.)");
 		}
 	}
+
 
 	void setUp() {
 		Set<String> pantry = new HashSet<String>();
@@ -153,20 +195,6 @@ public class Search extends Activity {
 		this.recipeBook.updateProducable(pantry);
 		this.recipeAdapter.updatePantry(pantry);
 		this.updateFootnote();
-
-		Iterator<Map.Entry<String,List<Recipe>>> ingredientsThatSatisfyIter = this.recipeBook.countRecipesSoleAdditionalIngredient.entrySet().iterator();
-		while (ingredientsThatSatisfyIter.hasNext()) {
-			Map.Entry<String,List<Recipe>> entry = ingredientsThatSatisfyIter.next();
-			Log.d(TAG, "if you had " + entry.getKey() + " you could make another " + entry.getValue().size() + " items: " + entry.getValue().toString());
-		}
-
-		//ListView recipeListView = (ListView) findViewById(R.id.recipe_list);
-		//Log.d(TAG, "would set fastScroll " + (this.recipeAdapter.targetRecipeList.size() > 21));
-		//computedAvailableDrinks.setFastScrollEnabled(this.recipeAdapter.targetRecipeList.size() > 21);
-
-		//TextView drinksListHeader = (TextView) findViewById(R.id.drinks_list_header);
-		//drinksListHeader.setText(String.format("You can make %d recipes (out of %d known recipes) with your %d ingredients:", recipeBook.producableRecipes.size(), recipeBook.allRecipes.size(), pantry.size()));
-
 	}
 
 
@@ -185,10 +213,12 @@ public class Search extends Activity {
 		return adb.create();
 	}
 
+
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		setUp();
 	}
+
 
 	@Override
 	public Object onRetainNonConfigurationInstance() {
