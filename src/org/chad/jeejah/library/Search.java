@@ -81,77 +81,33 @@ public class Search extends Activity {
 			public int getDrawable() {
 				return R.drawable.ic_btn_suggest_shopping_list;
 			}
-
-			private String[] toStringsArray(List<Recipe> l) {
-				String[] arr = new String[l.size()];
-				Iterator it = l.iterator();
-				int i = 0;
-				while (it.hasNext()) {
-					Recipe r = (Recipe) it.next();
-					arr[i++] = r.name;
-				}
-				return arr;
-			}
-
 			@Override
 			public void performAction(View view) {
-
-				Intent intent = new Intent(Search.this, ShoppingListActivity.class);
-				intent.setAction(Intent.ACTION_VIEW);
-
-				// Single productive ingredients
-				// This can't be computed by recipebook author.
-				Bundle singleIngredients = new Bundle();
-				singleIngredients.putStringArray("keys", Search.this.recipeBook.countRecipesSoleAdditionalIngredient.keySet().toArray(new String[Search.this.recipeBook.countRecipesSoleAdditionalIngredient.size()]));
-
-				Iterator<Map.Entry<String,List<Recipe>>> ingredientsThatSatisfyIter = Search.this.recipeBook.countRecipesSoleAdditionalIngredient.entrySet().iterator();
-				while (ingredientsThatSatisfyIter.hasNext()) {
-					Map.Entry<String,List<Recipe>> entry = ingredientsThatSatisfyIter.next();
-					singleIngredients.putStringArray("enabledby " + entry.getKey(), toStringsArray(entry.getValue()));
-				}
-				intent.putExtra(ShoppingListActivity.SINGLE_KEY, singleIngredients);
-
-				// Most common ingredients
-				Bundle mostCommonIngredients = new Bundle();
-				mostCommonIngredients.putStringArrayList("ingredients", Search.this.recipeBook.mostUsedIngredients);
-				intent.putExtra(ShoppingListActivity.MOSTUSED_KEY, mostCommonIngredients);
-
-				// Favorite recipes require ingredients
-				// This can't be computed by recipebook author.
-
-
-				Search.this.startActivity(intent);
+				Search.this.startShowShoppingList();
 			}
 		}
 		actionBar.addAction(new SuggestShoppingAction());
-
 
 		class ListToggleAction implements Action {
 			@Override
 			public int getDrawable() {
 				return R.drawable.ic_btn_toggle_viewable;
 			}
-
 			@Override
 			public void performAction(View view) {
-				Search.this.recipeAdapter.toggleVisibility();
-				Search.this.updateFootnote();
+				Search.this.toggleFilterState();
 			}
 		}
 		actionBar.addAction(new ListToggleAction());
-
 
 		class PickIngredientsAction implements Action {
 			@Override
 			public int getDrawable() {
 				return R.drawable.ic_btn_mark_owned_ingredients;
 			}
-
 			@Override
 			public void performAction(View view) {
-				Intent intent = new Intent(Search.this, Pantry.class);
-				intent.putExtra("ingredients", Search.this.recipeBook.knownIngredients.toArray(new String[Search.this.recipeBook.knownIngredients.size()]));
-				Search.this.startActivityForResult(intent, 1);
+				Search.this.startSetIngredients();
 			}
 		}
 		actionBar.addAction(new PickIngredientsAction());
@@ -159,13 +115,61 @@ public class Search extends Activity {
 		this.recipeListFootnote = (TextView) findViewById(R.id.recipe_list_footnote);
 		this.recipeListFootnote.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
-				Intent intent = new Intent(Search.this, Pantry.class);
-				intent.putExtra("ingredients", Search.this.recipeBook.knownIngredients.toArray(new String[Search.this.recipeBook.knownIngredients.size()]));
-				Search.this.startActivityForResult(intent, 1);
+				Search.this.startSetIngredients();
 			}
 		});
 
 		setUp();
+	}
+
+	private String[] toStringsArray(List<Recipe> l) {
+		String[] arr = new String[l.size()];
+		Iterator it = l.iterator();
+		int i = 0;
+		while (it.hasNext()) {
+			Recipe r = (Recipe) it.next();
+			arr[i++] = r.name;
+		}
+		return arr;
+	}
+
+	void startShowShoppingList() {
+		Intent intent = new Intent(this, ShoppingListActivity.class);
+		intent.setAction(Intent.ACTION_VIEW);
+
+		// Single productive ingredients
+		// This can't be computed by recipebook author.
+		Bundle singleIngredients = new Bundle();
+		singleIngredients.putStringArray("keys", this.recipeBook.countRecipesSoleAdditionalIngredient.keySet().toArray(new String[this.recipeBook.countRecipesSoleAdditionalIngredient.size()]));
+
+		Iterator<Map.Entry<String,List<Recipe>>> ingredientsThatSatisfyIter = this.recipeBook.countRecipesSoleAdditionalIngredient.entrySet().iterator();
+		while (ingredientsThatSatisfyIter.hasNext()) {
+			Map.Entry<String,List<Recipe>> entry = ingredientsThatSatisfyIter.next();
+			singleIngredients.putStringArray("enabledby " + entry.getKey(), toStringsArray(entry.getValue()));
+		}
+		intent.putExtra(ShoppingListActivity.SINGLE_KEY, singleIngredients);
+
+		// Most common ingredients
+		Bundle mostCommonIngredients = new Bundle();
+		mostCommonIngredients.putStringArrayList("ingredients", this.recipeBook.mostUsedIngredients);
+		intent.putExtra(ShoppingListActivity.MOSTUSED_KEY, mostCommonIngredients);
+
+		// Favorite recipes require ingredients
+		// This can't be computed by recipebook author.
+
+
+		this.startActivity(intent);
+	}
+
+	void toggleFilterState() {
+		this.recipeAdapter.toggleVisibility();
+		this.updateFootnote();
+	}
+
+	void startSetIngredients() {
+		Intent intent = new Intent(this, Pantry.class);
+		intent.putExtra("ingredients", this.recipeBook.knownIngredients.toArray(new String[this.recipeBook.knownIngredients.size()]));
+		this.startActivityForResult(intent, 1);
 	}
 
 
