@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-		>
+	android:background="#430"
+	>
 	<LinearLayout
 		android:orientation="vertical"
 		android:layout_width="fill_parent"
@@ -16,7 +17,7 @@
 			android:padding="10px"
 			>
 			<TextView
-				android:text="Based on your current pantry, if you get one more ingredient, you can make lots of more recipes."
+				android:text="Based on your current stock, if you get just one more ingredient, you can make these more recipes."
 				android:textSize="@dimen/shoppinglist_headers_height"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
@@ -47,7 +48,7 @@
 			android:padding="10px"
 			>
 			<TextView
-				android:text="These ingredients show up most often in recipes."
+				android:text="These ingredients show up most often in recipes. (This doesn't consider what you already have in your stock.)"
 				android:textSize="@dimen/shoppinglist_headers_height"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
