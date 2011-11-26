@@ -9437,6 +9437,26 @@
  }, 
  {
   "prepare_instructions": [
+   "get collins glass", 
+   "add 4 oz of champagne", 
+   "add 3 oz of st germain", 
+   "add 4 oz of club soda", 
+   "stir", 
+   "garnish with lemon twist"
+  ], 
+  "name": "The Hummingbird", 
+  "glasses": [
+   "collins glass"
+  ], 
+  "ingredients": [
+   "champagne", 
+   "lemon", 
+   "st germain", 
+   "club soda"
+  ]
+ }, 
+ {
+  "prepare_instructions": [
    "get rocks glass", 
    "add ice to mixing glass", 
    "add 2 oz of vodka", 
@@ -41050,6 +41070,24 @@
    "lemon lime soda", 
    "tequila", 
    "lemon"
+  ]
+ }, 
+ {
+  "prepare_instructions": [
+   "get collins glass", 
+   "add 2 oz of st germain", 
+   "add 2 oz of citrus vodka", 
+   "add 8 oz of grapefruit juice", 
+   "stir"
+  ], 
+  "name": "Screaming Cricket", 
+  "glasses": [
+   "collins glass"
+  ], 
+  "ingredients": [
+   "grapefruit juice", 
+   "citrus vodka", 
+   "st germain"
   ]
  }, 
  {
