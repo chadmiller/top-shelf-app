@@ -23,6 +23,8 @@ import org.codehaus.jackson.JsonToken;
 class RecipeBook {
 	public final static String TAG = "org.chad.jeejah.library.RecipeBook";
 
+	public String version;
+
 	public List<Recipe> allRecipes;
 	public List<Recipe> producableRecipes;
 	public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
@@ -39,57 +41,64 @@ class RecipeBook {
 			JsonParser jp = jsonFactory.createJsonParser(recipeFile);
 
 			int i = 0;
-			while (jp.nextToken() != JsonToken.END_ARRAY) {
-
-				Recipe recipe = new Recipe();
-				while (jp.nextToken() != JsonToken.END_OBJECT) {
-					String fieldname = jp.getCurrentName();
-					if (fieldname == null) {
-					} else if (fieldname.equals("name")) {
+			while (jp.nextToken() != JsonToken.END_OBJECT) {
+				jp.nextToken();
+				String fieldname = jp.getCurrentName();
+				if (fieldname.equals("version")) {
+					this.version = jp.getText();
+				} else if (fieldname.equals("book")) {
+					while (jp.nextToken() != JsonToken.END_ARRAY) {
 						jp.nextToken();
-						recipe.name = jp.getText();
-					} else if (fieldname.equals("glasses")) {
-
-						jp.nextToken();
-						while (jp.nextToken() != JsonToken.END_ARRAY) {
-							if (recipe.glass != null) {
-								Log.v(TAG, "Glass already set to " + recipe.glass + " and now want " + jp.getText());
+						Recipe recipe = new Recipe();
+						while (jp.nextToken() != JsonToken.END_OBJECT) {
+							fieldname = jp.getCurrentName();
+							if (fieldname == null) {
+								Log.d(TAG, "what? " + jp.getCurrentToken());
+							} else if (fieldname.equals("name")) {
+								jp.nextToken();
+								recipe.name = jp.getText();
+							} else if (fieldname.equals("glasses")) {
+								jp.nextToken();
+								while (jp.nextToken() != JsonToken.END_ARRAY) {
+									if (recipe.glass != null) {
+										Log.v(TAG, "Glass already set to " + recipe.glass + " and now want " + jp.getText());
+									}
+									recipe.glass = jp.getText();
+								}
+							} else if (fieldname.equals("prepare_instructions")) {
+								jp.nextToken();
+								while (jp.nextToken() != JsonToken.END_ARRAY) {
+									recipe.prepare_instructions.add(jp.getText());
+								}
+							} else if (fieldname.equals("consume_instructions")) {
+								jp.nextToken();
+								while (jp.nextToken() != JsonToken.END_ARRAY) {
+									recipe.consume_instructions.add(jp.getText());
+								}
+							} else if (fieldname.equals("ingredients")) {
+								jp.nextToken();
+								while (jp.nextToken() != JsonToken.END_ARRAY) {
+									recipe.ingredients.add(jp.getText());
+									this.knownIngredients.add(jp.getText());
+								}
+							} else {
+								Log.e(TAG, "  UNKNOWN: " + jp.getCurrentToken());
 							}
-							recipe.glass = jp.getText();
 						}
-					} else if (fieldname.equals("prepare_instructions")) {
-						jp.nextToken();
-						while (jp.nextToken() != JsonToken.END_ARRAY) {
-							recipe.prepare_instructions.add(jp.getText());
-						}
-					} else if (fieldname.equals("consume_instructions")) {
-						jp.nextToken();
-						while (jp.nextToken() != JsonToken.END_ARRAY) {
-							recipe.consume_instructions.add(jp.getText());
-						}
-					} else if (fieldname.equals("ingredients")) {
-						jp.nextToken();
-						while (jp.nextToken() != JsonToken.END_ARRAY) {
-							recipe.ingredients.add(jp.getText());
-							this.knownIngredients.add(jp.getText());
-						}
-					} else {
-						Log.e(TAG, "  UNKNOWN: " + jp.getCurrentToken());
+						this.allRecipes.add(recipe);
 					}
 				}
-				this.allRecipes.add(recipe);
-
 			}
 
 			Collections.sort(this.allRecipes);
 			Log.d(TAG, "recipes count " + this.allRecipes.size());
 
-			this.countRecipesSoleAdditionalIngredient = new TreeMap<String,List<Recipe>>();
-			this.producableRecipes = new ArrayList<Recipe>();
-
 		} catch (java.io.IOException ex) {
 			Log.e(TAG, "Can't parse JSON", ex);
 		}
+
+		this.countRecipesSoleAdditionalIngredient = new TreeMap<String,List<Recipe>>();
+		this.producableRecipes = new ArrayList<Recipe>();
 	}
 
 
