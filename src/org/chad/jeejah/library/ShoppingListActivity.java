@@ -98,7 +98,7 @@ public class ShoppingListActivity extends Activity {
 					TextView t = new TextView(this);
 					t.setText(Html.fromHtml("\u2022 <b>" + ((String) it.next()) + "</b>"));
 					t.setTextSize(16);
-					t.setPadding(10, 3, 10, 2);
+					t.setPadding(20, 3, 10, 2);
 					container.addView(t);
 					hasWritten = true;
 				}
