@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:background="#200"
+	android:background="@drawable/flickr_lincolnlog_158661200_as_background"
 	>
 	<LinearLayout
 		android:orientation="vertical"
