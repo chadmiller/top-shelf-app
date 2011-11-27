@@ -21,7 +21,7 @@ import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.JsonToken;
 
 class RecipeBook {
-	public final static String TAG = "org.chad.jeejah.library.RecipeBook";
+	private final static String TAG = "org.chad.jeejah.library.RecipeBook";
 
 	public String version;
 

@@ -7,48 +7,12 @@
 	android:orientation="vertical"
 	android:background="@drawable/jackrose_as_background"
 	>
-	<RelativeLayout
-		android:id="@+id/drinks_header"
-		android:layout_width="fill_parent" 
-		android:layout_height="wrap_content" 
-		>
 
-
-		<com.markupartist.android.widget.ActionBar
-			android:id="@+id/actionbar"
-			app:title="Drinks"
-			style="@style/ActionBar"
-			/>
-
-		<!--
-		<TextView  
-			android:id="@+id/drinks_list_header"
-			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content" 
-			android:hint="Discovering what drinks you can make..."
-			android:background="#9000"
-			/>
-
-		<ImageView
-			android:id="@+id/drinks_filter_toggle_button"
-			android:layout_toRightOf="@id/drinks_list_header"
-			android:layout_width="50dip" 
-			android:layout_height="50dip" 
-			android:background="#d000"
-			android:gravity="right"
-			/>
-
-		<TextView  
-			android:id="@+id/most_productive_ingredient"
-			android:layout_below="@id/drinks_list_header"
-			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content" 
-			android:hint="There are no shopping suggestions."
-			android:background="#9000"
-			/>
-		-->
-
-	</RelativeLayout>
+	<com.markupartist.android.widget.ActionBar
+		android:id="@+id/actionbar"
+		app:title="Drinks"
+		style="@style/ActionBar"
+		/>
 
 	<ListView
 		android:id="@+id/recipe_list"
@@ -68,6 +32,7 @@
 		android:background="#c000"
 		android:textColor="#ff8"
 		android:padding="10dip"
+		android:visibility="gone"
 		/>
 
 </LinearLayout>

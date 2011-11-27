@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 class RecipeAdapter extends android.widget.BaseAdapter {
-	public final static String TAG = "org.chad.jeejah.library.RecipeAdapter";
+	private final static String TAG = "org.chad.jeejah.library.RecipeAdapter";
 
 	public static class ViewHolder {
 		public TextView name;

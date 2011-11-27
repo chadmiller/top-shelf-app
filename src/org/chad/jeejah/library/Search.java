@@ -18,6 +18,8 @@ import android.preference.PreferenceManager;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.Set;
 import java.util.Map;
@@ -31,7 +33,7 @@ import com.markupartist.android.widget.ActionBar.Action;
 import com.markupartist.android.widget.ActionBar.IntentAction;
 
 public class Search extends Activity {
-	public final static String TAG = "org.chad.jeejah.library.Search";
+	private final static String TAG = "org.chad.jeejah.library.Search";
 
 	private static final String DATA_VERSION_DNS_RECORD_NAME = "ver.data.library.jeejah.chad.org.";
 
@@ -238,6 +240,50 @@ public class Search extends Activity {
 	@Override
 	public Object onRetainNonConfigurationInstance() {
 		return this.recipeBook;
+	}
+
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.add(Menu.NONE, R.id.instructions, 1, "Help");
+		menu.add(Menu.NONE, R.id.stock, 2, "Set Stock");
+		menu.add(Menu.NONE, R.id.shoppingsuggestions, 3, "Shopping Suggestions");
+		menu.add(Menu.NONE, R.id.feedback, 4, "Feedback");
+		menu.add(Menu.NONE, R.id.credits, 5, "Credits");
+		menu.add(Menu.NONE, R.id.togglefilter, 6, "Toggle Filter");
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+		Intent intent;
+		switch (item.getItemId()) {
+			case R.id.instructions:
+				intent = new Intent(this, Instructions.class);
+				startActivity(intent);
+				return true;
+			case R.id.feedback:
+				intent = new Intent(this, Feedback.class);
+				intent.putExtra("source", TAG);
+				startActivity(intent);
+				return true;
+			case R.id.stock:
+				startSetIngredients();
+				return true;
+			case R.id.shoppingsuggestions:
+				startShowShoppingList();
+				return true;
+			case R.id.togglefilter:
+				toggleFilterState();
+				return true;
+			case R.id.credits:
+				intent = new Intent(this, Credits.class);
+				startActivity(intent);
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
 	}
 
 }

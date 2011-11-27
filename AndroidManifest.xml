@@ -23,9 +23,17 @@
                   android:label="Set Owned Ingredients">
         </activity>
         <activity android:name="ShoppingListActivity"
-                  android:configChanges="orientation|keyboardHidden"
                   android:label="Shopping Suggestions">
         </activity>
+        <activity android:name="Feedback"
+                  android:label="Feedback and suggestions">
+        </activity>
+        <activity android:name="Instructions"
+                  android:label="How to use">
+        </activity>
+        <activity android:name="Credits"
+                  android:label="Credits">
+        </activity>
     </application>
-    <!-- uses-permission android:name="android.permission.INTERNET" / -->
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest> 

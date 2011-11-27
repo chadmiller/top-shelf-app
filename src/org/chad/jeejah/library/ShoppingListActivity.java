@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.util.Log;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.TreeSet;
 import java.util.Iterator;
@@ -127,14 +129,43 @@ public class ShoppingListActivity extends Activity {
 			}
 
 		}
-
-
-
-
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
 	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.add(Menu.NONE, R.id.instructions, 1, "Help");
+		menu.add(Menu.NONE, R.id.feedback, 4, "Feedback");
+		menu.add(Menu.NONE, R.id.credits, 5, "Credits");
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+		Intent intent;
+		switch (item.getItemId()) {
+			case R.id.instructions:
+				intent = new Intent(this, Instructions.class);
+				startActivity(intent);
+				return true;
+			case R.id.feedback:
+				intent = new Intent(this, Feedback.class);
+				intent.putExtra("source", TAG);
+				startActivity(intent);
+				return true;
+			case R.id.credits:
+				intent = new Intent(this, Credits.class);
+				startActivity(intent);
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+	}
+
+
 }
