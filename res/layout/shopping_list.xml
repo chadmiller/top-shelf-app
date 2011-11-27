@@ -8,6 +8,7 @@
 		android:orientation="vertical"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+		android:background="#9000"
 		>
 		<LinearLayout
 			android:id="@+id/single_ingredient_suggestions"
@@ -21,6 +22,7 @@
 				android:textSize="@dimen/shoppinglist_headers_height"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
+				android:textColor="#FFF"
 				/>
 		</LinearLayout>
 
@@ -36,6 +38,7 @@
 				android:textSize="@dimen/shoppinglist_headers_height"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
+				android:textColor="#FFF"
 				/>
 		</LinearLayout>
 
@@ -52,6 +55,7 @@
 				android:textSize="@dimen/shoppinglist_headers_height"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
+				android:textColor="#FFF"
 				/>
 		</LinearLayout>
 	</LinearLayout>
