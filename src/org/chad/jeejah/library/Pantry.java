@@ -37,6 +37,9 @@ public class Pantry extends PreferenceActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.flickr_tightenup_54569946_as_background));
+		getListView().setCacheColorHint(android.graphics.Color.TRANSPARENT);
+
 		this.ingredients = getIntent().getStringArrayExtra("ingredients");
 		setPreferenceScreen(createPreferenceHierarchy());
 	}
