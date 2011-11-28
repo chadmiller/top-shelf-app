@@ -28,10 +28,11 @@
 			/>
 
 		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background" >
-			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn_pressed" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_toggle_viewable" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
-			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_mark_owned_ingredients" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn_pressed" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_mark_owned_ingredients" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 		</LinearLayout>
+
 
 		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_caption_size" android:gravity="center"
 			android:text="Mark Owned button"
@@ -56,13 +57,13 @@
 			/>
 
 		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
-			android:text='Another cool feature is that the app will help you in shopping.  It will tell you what single ingredients you can add to your bar to get the most bang for your buck.  For example, \"If you get cream, you can make 15 more recipes!\"'
+			android:text='Another cool feature is that the app will help you in shopping.  If you already have a partially-stocked bar, it will tell you what single ingredients you can add to your bar to get the most bang for your buck.  For example, \"If you get cream, you can make 15 more recipes!\"'
 			/>
 
 		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background" >
-			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn_pressed" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_toggle_viewable" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
-			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn_pressed" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_mark_owned_ingredients" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_mark_owned_ingredients" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 		</LinearLayout>
 
 		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_caption_size" android:gravity="center"
@@ -71,7 +72,7 @@
 
 
 		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
-			android:text="Also, to help with shopping, it will tell you what ingredients are most listed in recipes.  And if you have Favorite recipes and you don't have ingredients necessary, it will suggest those."
+			android:text="To help with first starting out to fill a bar, it will tell you what ingredients are most listed in recipes.  And if you have Favorite recipes and you don't have ingredients necessary, it will suggest those.  Tap the Suggest Shopping List button to see its recommendations."
 			/>
 
 		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_header_size" android:padding="15px"
