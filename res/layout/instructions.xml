@@ -15,7 +15,7 @@
 
 		<TextView
 			android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
-			android:text="Bar guides can be hard to use.  You may not know all the ingredients you need to make many drinks, and when you thumb though a cookboo, you are drowned in hundreds of recipes.  There\'s a better way."
+			android:text="Bar guides can be hard to use.  You may not know all the ingredients you need to make many drinks, and when you thumb though a cookbook, you are drowned in hundreds of recipes.  There\'s a better way."
 			/>
 
 		<TextView
@@ -24,7 +24,7 @@
 			/>
 
 		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
-			android:text="The first thing you should to when you start or after shopping is set what ingredients you have to use.  Don't forget garnishes and ice.  The app assumes you have all the hardware you could need, like mixing glasses, blenders, and a few kinds of drinking glasses.  Hit the Mark-Owned button to begin."
+			android:text="The first thing you should to when you start or after shopping is set what ingredients you have to use.  Don't forget garnishes.  The app assumes you have all the hardware you could need, like mixing glasses, blenders, and a few kinds of drinking glasses.  Hit the Mark-Owned button to begin."
 			/>
 
 		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background" >
