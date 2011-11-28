@@ -54,9 +54,11 @@
 			android:padding="8px"
 			/>
 		<View
+			android:id="@+id/jargon_seperator"
 			android:layout_width="fill_parent" 
 			android:layout_height="2px" 
 			android:color="#ccc"
+			android:background="#ccc"
 			/>
 		<TextView
 			android:id="@+id/jargon_defined"
@@ -65,5 +67,18 @@
 			android:padding="10px"
 			android:textSize="@dimen/recipe_jargon_height"
 			/>
+		<!-- View
+			android:layout_width="fill_parent" 
+			android:layout_height="2px" 
+			android:color="#ccc"
+			android:background="#ccc"
+			/>
+		<TextView
+			android:id="@+id/jargon_defined"
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content" 
+			android:padding="10px"
+			android:text="ight"
+			/ -->
 	</LinearLayout>
 </ScrollView>

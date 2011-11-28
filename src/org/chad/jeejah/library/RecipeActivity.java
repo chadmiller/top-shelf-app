@@ -7,6 +7,7 @@ import android.widget.TextView;
 import android.widget.LinearLayout;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -75,7 +76,7 @@ public class RecipeActivity extends Activity {
 
 		for (int i = 0; i < consumation.length; i++) {
 			TextView t = new TextView(this);
-			t.setText("      " + consumation[i]);
+			t.setText("Consume instruction: " + consumation[i]);
 			consumationContainer.addView(t);
 		}
 
@@ -87,6 +88,9 @@ public class RecipeActivity extends Activity {
 			}
 			TextView jargon = (TextView) findViewById(R.id.jargon_defined);
 			jargon.setText("Jargon:\n\n" + s.toString());
+		} else {
+			View v = (View) findViewById(R.id.jargon_seperator);
+			v.setVisibility(View.GONE);
 		}
 
 	}
