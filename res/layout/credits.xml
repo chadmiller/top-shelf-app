@@ -11,9 +11,14 @@
 		<TextView
 			android:layout_width="fill_parent" 
 			android:layout_height="wrap_content" 
-			android:padding="10px"
-			android:text="hi"
-			android:textSize="@dimen/recipe_jargon_height"
+			android:autoLink="web"
+			android:text="Background of Set Owned Ingredients was taken from CC-BY-2.0-licensed photo by Tighten up! at http://www.flickr.com/photos/67818206@N00/54569946/"
+			/>
+		<TextView
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content" 
+			android:autoLink="web"
+			android:text="Background of Shopping Suggestions was taken from CC-BY-2.0-licensed photo by Lincoln-log at http://www.flickr.com/photos/65553294@N00/158661200/"
 			/>
 	</LinearLayout>
 </ScrollView>
