@@ -7,13 +7,84 @@
 		android:orientation="vertical"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
+		android:padding="15px"
 		>
-		<TextView
-			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content" 
-			android:padding="10px"
-			android:text="hi"
-			android:textSize="@dimen/recipe_jargon_height"
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_header_size" android:padding="15px"
+			android:text="Introduction"
 			/>
+
+		<TextView
+			android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
+			android:text="Bar guides can be hard to use.  You may not know all the ingredients you need to make many drinks, and when you thumb though a cookboo, you are drowned in hundreds of recipes.  There\'s a better way."
+			/>
+
+		<TextView
+			android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_header_size" android:padding="15px"
+			android:text="Recipe Filtering"
+			/>
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
+			android:text="The first thing you should to when you start or after shopping is set what ingredients you have to use.  Don't forget garnishes and ice.  The app assumes you have all the hardware you could need, like mixing glasses, blenders, and a few kinds of drinking glasses.  Hit the Mark-Owned button to begin."
+			/>
+
+		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background" >
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn_pressed" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_toggle_viewable" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_mark_owned_ingredients" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+		</LinearLayout>
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_caption_size" android:gravity="center"
+			android:text="Mark Owned button"
+			/>
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
+			android:text="Alternatively, you may disable filtering of what you can make from known ingredient, and instead see every recipe.  Turning off and on the filter can be done with the Toggle-Filtering button.  Recipes that the app doesn't think you can make have an asterisk after the name."
+			/>
+
+		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background" >
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn_pressed" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_toggle_viewable" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_mark_owned_ingredients" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+		</LinearLayout>
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_caption_size" android:gravity="center"
+			android:text="Toggle filtering button"
+			/>
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_header_size" android:padding="15px"
+			android:text="Shopping Suggestions"
+			/>
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
+			android:text='Another cool feature is that the app will help you in shopping.  It will tell you what single ingredients you can add to your bar to get the most bang for your buck.  For example, \"If you get cream, you can make 15 more recipes!\"'
+			/>
+
+		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background" >
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_toggle_viewable" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn_pressed" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_mark_owned_ingredients" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+		</LinearLayout>
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_caption_size" android:gravity="center"
+			android:text="Suggest Shopping List button"
+			/>
+
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
+			android:text="Also, to help with shopping, it will tell you what ingredients are most listed in recipes.  And if you have Favorite recipes and you don't have ingredients necessary, it will suggest those."
+			/>
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_header_size" android:padding="15px"
+			android:text="Recipes"
+			/>
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
+			android:text="Recipes are fraught with the jargon of mixing drinks, so the more technical terms are defined at the bottom of every recipe.  If you find you like something, mark it as a Favorite with the star."
+			/>
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
+			android:text="If a recipe doesn't have a picture attached, and you think your creation photographs well, please submit it."
+			/>
+
 	</LinearLayout>
 </ScrollView>

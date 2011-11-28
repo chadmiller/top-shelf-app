@@ -12,8 +12,7 @@
 			android:layout_width="fill_parent" 
 			android:layout_height="wrap_content" 
 			android:padding="10px"
-			android:text="hi"
-			android:textSize="@dimen/recipe_jargon_height"
+			android:text="(Soon, you'll be able to send a suggestion from here.)"
 			/>
 	</LinearLayout>
 </ScrollView>
