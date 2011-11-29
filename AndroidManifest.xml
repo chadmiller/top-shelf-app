@@ -8,7 +8,7 @@
         <supports-screens android:largeScreens="true" />
         <activity android:name="Search"
                   android:configChanges="orientation|keyboardHidden"
-                  android:label="Drinks">
+                  android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -16,23 +16,23 @@
         </activity>
         <activity android:name="RecipeActivity"
                   android:configChanges="orientation|keyboardHidden"
-                  android:label="View Drink Recipe">
+                  android:label="@string/see_recipe">
         </activity>
         <activity android:name="Pantry"
                   android:configChanges="orientation|keyboardHidden"
-                  android:label="Set Owned Ingredients">
+                  android:label="@string/set_stock">
         </activity>
         <activity android:name="ShoppingListActivity"
-                  android:label="Shopping Suggestions">
+                  android:label="@string/shopping_suggestions">
         </activity>
         <activity android:name="Feedback"
-                  android:label="Feedback and suggestions">
+                  android:label="@string/feedback">
         </activity>
         <activity android:name="Instructions"
-                  android:label="How to use">
+                  android:label="@string/help">
         </activity>
         <activity android:name="Credits"
-                  android:label="Credits">
+                  android:label="@string/credits">
         </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>

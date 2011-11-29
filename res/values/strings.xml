@@ -12,6 +12,24 @@
 	<string name="term_muddle">Muddle: Crush ingredients to release flavors. Use a muddling device, or crush between thumb and ice cube.</string>
 	<string name="term_rim">Rim: Moisten the glass\' rim and sprinkle on the outside.  Don\'t overdo it.  Subtle is better than cloying..</string>
 	<string name="term_splash">Splash: A long squirt. Technically, half an ounce.</string>
-	<!-- string name="term_top"></string -->
+
+	<string name="help">Help</string>
+	<string name="feedback">Feedback</string>
+	<string name="credits">Credits</string>
+	<string name="set_stock">Set Stock</string>
+	<string name="shopping_suggestions">Shopping Suggestions</string>
+	<string name="toggle_filter">Toggle Filter</string>
+	<string name="see_recipe">See Recipe</string>
+	<string name="begin">Begin</string>
+	<string name="welcome">Welcome</string>
+
+	<string name="hit_back_toast">Hit <i>Back</i> when finished.</string>
+
+	<string name="there_are_none">There are no recipes that satisfy the ingredients stocked in your bar.  (Tap to update your list.)</string>
+	<string name="a_recipe_not_available"> * You don\'t own an ingredient. (Tap to update your list.)</string>
+
+	<string name="welcome_message">Enter the ingredients you own to see what recipes you can make with them.  Hit <i>Menu</i> for help later.</string>
+	<!-- 		.setMessage("Enter the ingredients you own to see what recipes you can make with them.") -->
+
 
 </resources>

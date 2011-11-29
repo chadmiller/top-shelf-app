@@ -178,14 +178,14 @@ public class Search extends Activity {
 	void updateFootnote() {
 		if (this.recipeAdapter.isFiltered()) {
 			if (this.recipeAdapter.targetRecipeList.size() == 0) {
-				this.recipeListFootnote.setText("There are no recipes that satisfy the ingredients you say you have. (Tap here to update your list.)");
+				this.recipeListFootnote.setText(R.string.there_are_none);
 				this.recipeListFootnote.setVisibility(View.VISIBLE);
 			} else {
 				this.recipeListFootnote.setVisibility(View.GONE);
 			}
 		} else {
 			this.recipeListFootnote.setVisibility(View.VISIBLE);
-			this.recipeListFootnote.setText(" * You don't own an ingredient. (Tap here to update your list.)");
+			this.recipeListFootnote.setText(R.string.a_recipe_not_available);
 		}
 	}
 
@@ -218,13 +218,18 @@ public class Search extends Activity {
 	@Override
 	public Dialog onCreateDialog(int id) {
 		AlertDialog.Builder adb = new AlertDialog.Builder(this);
-		adb.setTitle("Welcome!")
-			.setMessage("Enter the ingredients you own to see what recipes you can make with them.")
-			.setPositiveButton("Begin", new DialogInterface.OnClickListener() { 
+		adb.setTitle(R.string.welcome)
+			.setMessage(R.string.welcome_message)
+			.setPositiveButton(R.string.begin, new DialogInterface.OnClickListener() { 
 				public void onClick(DialogInterface dialog, int which) {
 					Intent intent = new Intent(Search.this, Pantry.class);
 					intent.putExtra("ingredients", Search.this.recipeBook.knownIngredients.toArray(new String[Search.this.recipeBook.knownIngredients.size()]));
 					Search.this.startActivityForResult(intent, 1);
+				}
+			}).setNegativeButton(R.string.help, new DialogInterface.OnClickListener() { 
+				public void onClick(DialogInterface dialog, int which) {
+					Intent intent = new Intent(Search.this, Instructions.class);
+					Search.this.startActivity(intent);
 				}
 			});
 		return adb.create();
@@ -245,12 +250,12 @@ public class Search extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(Menu.NONE, R.id.instructions, 1, "Help");
-		menu.add(Menu.NONE, R.id.stock, 2, "Set Stock");
-		menu.add(Menu.NONE, R.id.shoppingsuggestions, 3, "Shopping Suggestions");
-		menu.add(Menu.NONE, R.id.feedback, 4, "Feedback");
-		menu.add(Menu.NONE, R.id.credits, 5, "Credits");
-		menu.add(Menu.NONE, R.id.togglefilter, 6, "Toggle Filter");
+		menu.add(Menu.NONE, R.id.instructions, 1, R.string.help);
+		menu.add(Menu.NONE, R.id.stock, 2, R.string.set_stock);
+		menu.add(Menu.NONE, R.id.shoppingsuggestions, 3, R.string.shopping_suggestions);
+		menu.add(Menu.NONE, R.id.feedback, 4, R.string.feedback);
+		menu.add(Menu.NONE, R.id.credits, 5, R.string.credits);
+		menu.add(Menu.NONE, R.id.togglefilter, 6, R.string.toggle_filter);
 		return true;
 	}
 

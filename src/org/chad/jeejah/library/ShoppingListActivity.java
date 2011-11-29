@@ -138,9 +138,9 @@ public class ShoppingListActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(Menu.NONE, R.id.instructions, 1, "Help");
-		menu.add(Menu.NONE, R.id.feedback, 4, "Feedback");
-		menu.add(Menu.NONE, R.id.credits, 5, "Credits");
+		menu.add(Menu.NONE, R.id.instructions, 1, R.string.help);
+		menu.add(Menu.NONE, R.id.feedback, 4, R.string.feedback);
+		menu.add(Menu.NONE, R.id.credits, 5, R.string.credits);
 		return true;
 	}
 
