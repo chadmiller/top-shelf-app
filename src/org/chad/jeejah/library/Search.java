@@ -227,8 +227,11 @@ public class Search extends Activity {
 			}
 		}
 
-		if (this.pantry.isEmpty()) {
+		if (! sp.getBoolean("SEEN_INTRO", false)) {
 			showDialog(1);
+			SharedPreferences.Editor e = sp.edit();
+			e.putBoolean("SEEN_INTRO", true);
+			e.commit();
 		}
 
 		this.recipeBook.updateProducable(this.pantry);
