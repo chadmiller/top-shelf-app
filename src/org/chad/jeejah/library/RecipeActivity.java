@@ -16,7 +16,6 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.util.TreeSet;
-import java.util.Iterator;
 
 public class RecipeActivity extends Activity {
 	private final static String TAG = "org.chad.jeejah.library.RecipeActivity";
@@ -91,9 +90,8 @@ public class RecipeActivity extends Activity {
 
 		if (jargonSet.size() > 0) {
 			StringBuilder s = new StringBuilder();
-			Iterator i = jargonSet.iterator();
-			while (i.hasNext()) {
-				s.append(i.next()).append("\n\n");
+			for (String i : jargonSet) {
+				s.append(i).append("\n\n");
 			}
 			TextView jargon = (TextView) findViewById(R.id.jargon_defined);
 			jargon.setText("Jargon:\n\n" + s.toString());

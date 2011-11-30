@@ -152,9 +152,7 @@ public class Search extends Activity {
 		Bundle singleIngredients = new Bundle();
 		singleIngredients.putStringArray("keys", this.recipeBook.countRecipesSoleAdditionalIngredient.keySet().toArray(new String[this.recipeBook.countRecipesSoleAdditionalIngredient.size()]));
 
-		Iterator<Map.Entry<String,List<Recipe>>> ingredientsThatSatisfyIter = this.recipeBook.countRecipesSoleAdditionalIngredient.entrySet().iterator();
-		while (ingredientsThatSatisfyIter.hasNext()) {
-			Map.Entry<String,List<Recipe>> entry = ingredientsThatSatisfyIter.next();
+		for (Map.Entry<String,List<Recipe>> entry : this.recipeBook.countRecipesSoleAdditionalIngredient.entrySet()) {
 			singleIngredients.putStringArray("enabledby " + entry.getKey(), toStringsArray(entry.getValue()));
 		}
 		intent.putExtra(ShoppingListActivity.SINGLE_KEY, singleIngredients);

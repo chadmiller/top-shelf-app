@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.ArrayList;
 
-import java.util.Iterator;
 import java.util.Collections;
 
 import org.codehaus.jackson.JsonFactory;
@@ -120,9 +119,7 @@ class RecipeBook {
 			return;
 		}
 
-		Iterator bookIterator = this.allRecipes.iterator();
-		while (bookIterator.hasNext()) {
-			Recipe recipe = (Recipe) bookIterator.next(); 
+		for (Recipe recipe : this.allRecipes) {
 			Set<String> recipeNeeds = new TreeSet<String>(recipe.ingredients);
 			recipeNeeds.removeAll(pantry);
 			int size = recipeNeeds.size();

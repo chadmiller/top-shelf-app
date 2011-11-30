@@ -14,10 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.TreeSet;
-import java.util.Iterator;
 import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ShoppingListActivity extends Activity {
 	private static final String TAG = "org.chad.jeejah.library.ShoppingListActivity";
@@ -124,10 +122,9 @@ public class ShoppingListActivity extends Activity {
 
 			if ((bundle != null) && (bundle.containsKey("ingredients"))) {
 				ArrayList<String> ingredients = bundle.getStringArrayList("ingredients");
-				Iterator it = ingredients.iterator();
-				while (it.hasNext()) {
+				for (String s : ingredients) {
 					TextView t = new TextView(this);
-					t.setText(Html.fromHtml("\u2022 <b>" + ((String) it.next()) + "</b>"));
+					t.setText(Html.fromHtml("\u2022 <b>" + s + "</b>"));
 					t.setTextSize(16);
 					t.setPadding(20, 3, 10, 2);
 					t.setTextColor(android.graphics.Color.WHITE);
