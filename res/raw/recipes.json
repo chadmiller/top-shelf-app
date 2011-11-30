@@ -5,15 +5,15 @@
   "gin", 
   "orange juice", 
   "rum", 
+  "cream", 
   "grenadine", 
   "lime", 
-  "cream", 
   "pineapple juice", 
   "triple sec", 
   "sweet/sour mix", 
   "cherry", 
-  "dry vermouth", 
   "coffee liqueur", 
+  "dry vermouth", 
   "amaretto", 
   "brandy", 
   "orange"
@@ -1105,6 +1105,21 @@
     "lemon lime soda", 
     "lemonade", 
     "cola"
+   ]
+  }, 
+  {
+   "prepare_instructions": [
+    "get shot glass", 
+    "add \u2153 oz of banana liqueur", 
+    "add \u2153 oz of coffee liqueur"
+   ], 
+   "name": "C42", 
+   "glasses": [
+    "shot glass"
+   ], 
+   "ingredients": [
+    "banana liqueur", 
+    "coffee liqueur"
    ]
   }, 
   {
@@ -5406,9 +5421,10 @@
    ], 
    "ingredients": [
     "triple sec", 
+    "tequila premium", 
     "sweet/sour mix", 
     "cranberry juice", 
-    "tequila premium"
+    "grand"
    ]
   }, 
   {
@@ -9264,9 +9280,10 @@
    ], 
    "ingredients": [
     "triple sec", 
+    "lime", 
     "sweet/sour mix", 
     "tequila premium", 
-    "lime"
+    "grand"
    ]
   }, 
   {
@@ -12119,7 +12136,8 @@
     "cordial glass"
    ], 
    "ingredients": [
-    "cr\u00e8me de cacao (dark)"
+    "cr\u00e8me de cacao (dark)", 
+    "cream"
    ]
   }, 
   {
@@ -13870,7 +13888,8 @@
    "ingredients": [
     "vodka", 
     "frangelico", 
-    "cr\u00e8me de cacao (white)"
+    "cr\u00e8me de cacao (white)", 
+    "cream"
    ]
   }, 
   {
@@ -16352,7 +16371,8 @@
    ], 
    "ingredients": [
     "scotch whiskey", 
-    "amaretto"
+    "amaretto", 
+    "cream"
    ]
   }, 
   {
@@ -18790,7 +18810,8 @@
    ], 
    "ingredients": [
     "brandy", 
-    "coffee liqueur"
+    "coffee liqueur", 
+    "cream"
    ]
   }, 
   {
@@ -35251,7 +35272,8 @@
    ], 
    "ingredients": [
     "tequila", 
-    "coffee liqueur"
+    "coffee liqueur", 
+    "cream"
    ]
   }, 
   {
@@ -36186,6 +36208,7 @@
    ], 
    "ingredients": [
     "tequila", 
+    "galliano", 
     "orange juice"
    ]
   }, 
@@ -36323,7 +36346,8 @@
    ], 
    "ingredients": [
     "vodka", 
-    "amaretto"
+    "amaretto", 
+    "cream"
    ]
   }, 
   {
@@ -36651,7 +36675,8 @@
     "cordial glass"
    ], 
    "ingredients": [
-    "cr\u00e8me de cacao (dark)"
+    "cr\u00e8me de cacao (dark)", 
+    "cream"
    ]
   }, 
   {
@@ -38205,7 +38230,8 @@
    ], 
    "ingredients": [
     "rum (dark) jamaican", 
-    "coffee liqueur"
+    "coffee liqueur", 
+    "cream"
    ]
   }, 
   {
@@ -42946,7 +42972,8 @@
    ], 
    "ingredients": [
     "vodka", 
-    "coffee liqueur"
+    "coffee liqueur", 
+    "cream"
    ]
   }, 
   {
@@ -47265,6 +47292,6 @@
    ]
   }
  ], 
- "version": "1322351758", 
+ "version": "1322679887", 
  "schema": 2
 }
