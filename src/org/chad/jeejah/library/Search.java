@@ -22,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.Map;
 import java.util.List;
 import java.util.HashSet;
@@ -36,18 +37,22 @@ public class Search extends Activity {
 	private final static String TAG = "org.chad.jeejah.library.Search";
 
 	private static final String DATA_VERSION_DNS_RECORD_NAME = "ver.data.library.jeejah.chad.org.";
+	private SharedPreferences sp;
 
 	private RecipeBook recipeBook;
 
 	private RecipeAdapter recipeAdapter;
 	private TextView recipeListFootnote;
-
+	private Set<String> pantry;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.main);
+
+		this.sp = PreferenceManager.getDefaultSharedPreferences(this);
+		this.pantry = new HashSet<String>();
 
 		if (System.currentTimeMillis() > 1330804221000L) { finish(); }
 
@@ -60,6 +65,9 @@ public class Search extends Activity {
 
 		Set<String> pantry = new HashSet<String>();
 		this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
+
+		sp.registerOnSharedPreferenceChangeListener(this.recipeAdapter);
+		this.recipeAdapter.setFavoritesFromPreferences(sp.getAll());
 
 		ListView recipeListView = (ListView) findViewById(R.id.recipe_list);
 		recipeListView.setAdapter(this.recipeAdapter);
@@ -158,7 +166,22 @@ public class Search extends Activity {
 
 		// Favorite recipes require ingredients
 		// This can't be computed by recipebook author.
-
+		Bundle missingFavoritesIngredients = new Bundle();
+		Set missingIngredients = new TreeSet<String>();
+		for (Map.Entry<String,?> entry : sp.getAll().entrySet()) {
+			String key = (String) entry.getKey();
+			if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
+				String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
+				Boolean isFavorited = (Boolean) entry.getValue();
+				if (isFavorited) {
+					Recipe r = this.recipeBook.allRecipeIndex.get(recipeName);
+					missingIngredients.addAll(r.ingredients);
+				}
+			}
+		}
+		missingIngredients.removeAll(this.pantry);
+		missingFavoritesIngredients.putStringArray("ingredients", (String[]) missingIngredients.toArray(new String[missingIngredients.size()]));
+		intent.putExtra(ShoppingListActivity.FAV_KEY, missingFavoritesIngredients);
 
 		this.startActivity(intent);
 	}
@@ -191,26 +214,25 @@ public class Search extends Activity {
 
 
 	void setUp() {
-		Set<String> pantry = new HashSet<String>();
 
-		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+		this.pantry.clear();
 		Iterator it = sp.getAll().keySet().iterator();
 		while (it.hasNext()) {
 			Object k = it.next();
 			String name = (String) k;
 			if (name.startsWith(Pantry.PREF_PREFIX)) {
 				if (sp.getBoolean(name, false)) {
-					pantry.add(name.substring(Pantry.PREF_PREFIX.length()));
+					this.pantry.add(name.substring(Pantry.PREF_PREFIX.length()));
 				}
 			}
 		}
 
-		if (pantry.isEmpty()) {
+		if (this.pantry.isEmpty()) {
 			showDialog(1);
 		}
 
-		this.recipeBook.updateProducable(pantry);
-		this.recipeAdapter.updatePantry(pantry);
+		this.recipeBook.updateProducable(this.pantry);
+		this.recipeAdapter.updatePantry(this.pantry);
 		this.updateFootnote();
 	}
 

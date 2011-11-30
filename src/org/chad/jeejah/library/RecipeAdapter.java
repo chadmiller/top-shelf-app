@@ -7,20 +7,25 @@ import android.view.View;
 import android.view.LayoutInflater;
 import android.content.Context;
 import android.util.Log;
+import android.content.SharedPreferences;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.Map;
+import java.util.TreeSet;
 
-class RecipeAdapter extends android.widget.BaseAdapter {
+class RecipeAdapter extends android.widget.BaseAdapter implements SharedPreferences.OnSharedPreferenceChangeListener {
 	private final static String TAG = "org.chad.jeejah.library.RecipeAdapter";
 
 	public static class ViewHolder {
 		public TextView name;
 		public TextView ingredients;
 		public ImageView photo;
-		public TextView ratings;
+		public ImageView favorited;
 	}
+
+	private Set<String> favorites;
 
 	private Set<String> pantry;
 	private RecipeBook recipeBook;
@@ -28,6 +33,34 @@ class RecipeAdapter extends android.widget.BaseAdapter {
 	private LayoutInflater inflater;
 
 	public List targetRecipeList;
+
+	public void onSharedPreferenceChanged (SharedPreferences sharedPreferences, String key) {
+		if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
+			String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
+			boolean isFavorited = sharedPreferences.getBoolean(key, false);
+			if (isFavorited) {
+				favorites.add(recipeName);
+			} else {
+				favorites.remove(recipeName);
+			}
+			this.notifyDataSetChanged();
+		}
+	}
+
+	public void setFavoritesFromPreferences(Map<String,?> prefs) {
+		for (Map.Entry<String,?> entry : prefs.entrySet()) {
+			String key = (String) entry.getKey();
+			if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
+				String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
+				Boolean isFavorited = (Boolean) entry.getValue();
+				if (isFavorited) {
+					favorites.add(recipeName);
+				} else {
+					favorites.remove(recipeName);
+				}
+			}
+		}
+	}
 
 	public boolean isFiltered() {
 		return useProducableOnly;
@@ -49,11 +82,15 @@ class RecipeAdapter extends android.widget.BaseAdapter {
 		this.notifyDataSetChanged();
 	}
 
+	
+
 	public RecipeAdapter(Context context, RecipeBook recipeBook, Set<String> pantry, boolean useProducableOnly) {
 		super();
 		this.recipeBook = recipeBook;
 		this.useProducableOnly = useProducableOnly;
 		this.pantry = pantry;
+
+		this.favorites = new TreeSet<String>();
 
 		if (useProducableOnly) {
 			this.targetRecipeList = recipeBook.producableRecipes;
@@ -75,7 +112,7 @@ class RecipeAdapter extends android.widget.BaseAdapter {
 			holder.photo = (ImageView) convertView.findViewById(R.id.recipe_image);
 			holder.name = (TextView) convertView.findViewById(R.id.recipe_name);
 			holder.ingredients = (TextView) convertView.findViewById(R.id.recipe_ingredients_list);
-			holder.ratings = (TextView) convertView.findViewById(R.id.recipe_ratings);
+			holder.favorited = (ImageView) convertView.findViewById(R.id.favorited);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -110,6 +147,11 @@ class RecipeAdapter extends android.widget.BaseAdapter {
 					buffer.append("(").append(s).append(")");
 				}
 			}
+		}
+		if (favorites.contains(recipe.name)) {
+			holder.favorited.setVisibility(View.VISIBLE);
+		} else {
+			holder.favorited.setVisibility(View.INVISIBLE);
 		}
 		holder.ingredients.setText(buffer.toString());
 		//holder.photo.setImageBitmap();  // FIXME glass type

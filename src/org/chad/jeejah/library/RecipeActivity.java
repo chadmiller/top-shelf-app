@@ -4,40 +4,49 @@ package org.chad.jeejah.library;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.util.TreeSet;
 import java.util.Iterator;
 
 public class RecipeActivity extends Activity {
 	private final static String TAG = "org.chad.jeejah.library.RecipeActivity";
+
+	public static final String PREF_PREFIX_FAVORITED = "favorited ";
+	private boolean isFavorited = true;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recipe);
 
-		Intent intent = getIntent();
-		Bundle recipeInfo = intent.getBundleExtra("recipe");
-		TextView title = (TextView) findViewById(R.id.recipe_title);
+		final Intent intent = getIntent();
 
-		title.setText(recipeInfo.getString(Recipe.KEY_NAME));
+		final Bundle recipeInfo = intent.getBundleExtra("recipe");
+		final TextView titleView = (TextView) findViewById(R.id.recipe_title);
 
-		LinearLayout ingredientsContainer = (LinearLayout) findViewById(R.id.recipe_ingredients);
-		LinearLayout preparationContainer = (LinearLayout) findViewById(R.id.recipe_preparation);
-		LinearLayout consumationContainer = (LinearLayout) findViewById(R.id.recipe_consumation);
+		final String title = recipeInfo.getString(Recipe.KEY_NAME);
+		titleView.setText(title);
 
-		String[] ingredients = recipeInfo.getStringArray(Recipe.KEY_INGREDIENTS);
-		String[] preparation = recipeInfo.getStringArray(Recipe.KEY_PREPARE_INST);
-		String[] consumation = recipeInfo.getStringArray(Recipe.KEY_CONSUME_INST);
+		final LinearLayout ingredientsContainer = (LinearLayout) findViewById(R.id.recipe_ingredients);
+		final LinearLayout preparationContainer = (LinearLayout) findViewById(R.id.recipe_preparation);
+		final LinearLayout consumationContainer = (LinearLayout) findViewById(R.id.recipe_consumation);
 
-		Resources res = getResources();
-		TreeSet<String> jargonSet = new TreeSet<String>();
+		final String[] ingredients = recipeInfo.getStringArray(Recipe.KEY_INGREDIENTS);
+		final String[] preparation = recipeInfo.getStringArray(Recipe.KEY_PREPARE_INST);
+		final String[] consumation = recipeInfo.getStringArray(Recipe.KEY_CONSUME_INST);
 
+		final Resources res = getResources();
+		final TreeSet<String> jargonSet = new TreeSet<String>();
 
 		for (int i = 0; i < ingredients.length; i++) {
 			TextView t = new TextView(this);
@@ -93,6 +102,29 @@ public class RecipeActivity extends Activity {
 			v.setVisibility(View.GONE);
 		}
 
+		final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+		final ImageButton favButton = (ImageButton) findViewById(R.id.recipe_favorited_icon);
+		this.isFavorited = sp.getBoolean(PREF_PREFIX_FAVORITED + title, false);
+		setFavoriteButtonEnabled(favButton, this.isFavorited);
+		favButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				RecipeActivity.this.isFavorited = ! RecipeActivity.this.isFavorited;
+				SharedPreferences.Editor e = sp.edit();
+				e.putBoolean(PREF_PREFIX_FAVORITED + title, RecipeActivity.this.isFavorited);
+				e.commit();
+
+				RecipeActivity.this.setFavoriteButtonEnabled((ImageButton) v, RecipeActivity.this.isFavorited);
+			}
+		});
+	}
+
+	private void setFavoriteButtonEnabled(ImageButton ib, boolean newState) {
+		if (newState) {
+			ib.setImageResource(android.R.drawable.btn_star_big_on);
+		} else {
+			ib.setImageResource(android.R.drawable.btn_star_big_off);
+		}
+		Log.d(TAG, "Setting favorited to " + newState);
 	}
 
 	@Override

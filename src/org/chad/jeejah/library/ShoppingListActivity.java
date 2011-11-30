@@ -94,9 +94,21 @@ public class ShoppingListActivity extends Activity {
 			LinearLayout container = (LinearLayout) findViewById(R.id.favorites_ingredient_suggestions);
 			hasWritten = false;
 			Bundle bundle = intent.getBundleExtra(FAV_KEY);
-			if ((bundle != null) ) {
-			}
 
+			if ((bundle != null) && (bundle.containsKey("ingredients"))) {
+				String[] ingredients = bundle.getStringArray("ingredients");
+
+				for (String ingredient : ingredients) {
+					TextView t = new TextView(this);
+					t.setText(Html.fromHtml("\u2022 <b>" + ingredient + "</b>"));
+					t.setTextSize(16);
+					t.setPadding(20, 3, 10, 2);
+					t.setTextColor(android.graphics.Color.WHITE);
+					container.addView(t);
+					hasWritten = true;
+				}
+
+			}
 
 			if (! hasWritten) {
 				container.setVisibility(View.GONE);

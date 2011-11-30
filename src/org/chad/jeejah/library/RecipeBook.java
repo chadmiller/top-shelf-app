@@ -4,7 +4,7 @@ import android.util.Log;
 import android.content.Context;
 
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.Hashtable;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -25,6 +25,7 @@ class RecipeBook {
 
 	public String version;
 
+	public Map<String,Recipe> allRecipeIndex;
 	public List<Recipe> allRecipes;
 	public List<Recipe> producableRecipes;
 	public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
@@ -36,6 +37,7 @@ class RecipeBook {
 		this.allRecipes = new ArrayList<Recipe>(2400);
 		this.knownIngredients = new TreeSet<String>();
 		this.mostUsedIngredients = new ArrayList<String>(17);
+		this.allRecipeIndex = new Hashtable<String,Recipe>(2400);
 
 		try {
 			java.io.InputStream recipeFile = context.getResources().openRawResource(R.raw.recipes);
@@ -92,6 +94,7 @@ class RecipeBook {
 							}
 						}
 						this.allRecipes.add(recipe);
+						this.allRecipeIndex.put(recipe.name, recipe);
 					}
 				}
 			}
@@ -103,7 +106,7 @@ class RecipeBook {
 			Log.e(TAG, "Can't parse JSON", ex);
 		}
 
-		this.countRecipesSoleAdditionalIngredient = new TreeMap<String,List<Recipe>>();
+		this.countRecipesSoleAdditionalIngredient = new Hashtable<String,List<Recipe>>();
 		this.producableRecipes = new ArrayList<Recipe>();
 	}
 

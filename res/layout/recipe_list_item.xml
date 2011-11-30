@@ -29,17 +29,22 @@
 		android:hint="no ingredients"
 		android:textColor="#fff"
 		/>
-	<TextView
-		android:id="@+id/recipe_ratings"
+	<View
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		/>
+	<ImageView
+		android:id="@+id/favorited"
 		android:layout_toRightOf="@id/recipe_name"
-		android:layout_alignParentRight="true"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:hint="no ratings"
-		android:singleLine="true"
+		android:layout_gravity="right"
+		android:layout_weight="0"
+		android:layout_alignParentRight="true"
+		android:src="@android:drawable/btn_star_big_on"
 		android:gravity="right"
-		android:minWidth="40dip"
-		android:textColor="#fff"
+		android:visibility="invisible"
 		/>
 
 </RelativeLayout>
