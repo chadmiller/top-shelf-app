@@ -30,8 +30,11 @@ import android.widget.Toast;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
+
 public class Pantry extends PreferenceActivity {
 	private final static String TAG = "org.chad.jeejah.library.Pantry";
+	private GoogleAnalyticsTracker tracker;
 
 	String[] ingredients;
 	final static String PREF_PREFIX = "checkbox_ingredient ";
@@ -44,6 +47,9 @@ public class Pantry extends PreferenceActivity {
 
 		this.ingredients = getIntent().getStringArrayExtra("ingredients");
 		setPreferenceScreen(createPreferenceHierarchy());
+		this.tracker = GoogleAnalyticsTracker.getInstance();
+		this.tracker.startNewSession(Search.GOOG_ANALYTICS_ID, 60, this);
+		this.tracker.trackPageView("/" + TAG);
 	}
 
 	@Override

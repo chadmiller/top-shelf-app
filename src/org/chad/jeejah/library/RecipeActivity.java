@@ -17,8 +17,11 @@ import android.util.Log;
 
 import java.util.TreeSet;
 
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
+
 public class RecipeActivity extends Activity {
 	private final static String TAG = "org.chad.jeejah.library.RecipeActivity";
+	private GoogleAnalyticsTracker tracker;
 
 	public static final String PREF_PREFIX_FAVORITED = "favorited ";
 	private boolean isFavorited = true;
@@ -27,6 +30,10 @@ public class RecipeActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recipe);
+
+		this.tracker = GoogleAnalyticsTracker.getInstance();
+		this.tracker.startNewSession(Search.GOOG_ANALYTICS_ID, 60, this);
+		this.tracker.trackPageView("/" + TAG);
 
 		final Intent intent = getIntent();
 
@@ -122,7 +129,6 @@ public class RecipeActivity extends Activity {
 		} else {
 			ib.setImageResource(android.R.drawable.btn_star_big_off);
 		}
-		Log.d(TAG, "Setting favorited to " + newState);
 	}
 
 	@Override

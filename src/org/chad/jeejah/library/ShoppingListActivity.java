@@ -17,6 +17,8 @@ import java.util.TreeSet;
 import java.util.Arrays;
 import java.util.ArrayList;
 
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
+
 public class ShoppingListActivity extends Activity {
 	private static final String TAG = "org.chad.jeejah.library.ShoppingListActivity";
 	public static final String FAV_KEY = "favorites' missing ingredients info";
@@ -25,12 +27,18 @@ public class ShoppingListActivity extends Activity {
 
 	private static final int MAX_RECIPES_IN_INGRED = 4;
 
+	private GoogleAnalyticsTracker tracker;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.shopping_list);
 
 		Intent intent = getIntent();
+
+		this.tracker = GoogleAnalyticsTracker.getInstance();
+		this.tracker.startNewSession(Search.GOOG_ANALYTICS_ID, 60, this);
+		this.tracker.trackPageView("/" + TAG);
 
 		{
 			LinearLayout container = (LinearLayout) findViewById(R.id.single_ingredient_suggestions);

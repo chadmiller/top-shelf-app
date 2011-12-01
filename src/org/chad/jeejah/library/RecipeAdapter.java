@@ -15,8 +15,11 @@ import java.util.Set;
 import java.util.Map;
 import java.util.TreeSet;
 
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
+
 class RecipeAdapter extends android.widget.BaseAdapter implements SharedPreferences.OnSharedPreferenceChangeListener {
 	private final static String TAG = "org.chad.jeejah.library.RecipeAdapter";
+	private GoogleAnalyticsTracker tracker;
 
 	public static class ViewHolder {
 		public TextView name;
@@ -40,6 +43,7 @@ class RecipeAdapter extends android.widget.BaseAdapter implements SharedPreferen
 			boolean isFavorited = sharedPreferences.getBoolean(key, false);
 			if (isFavorited) {
 				favorites.add(recipeName);
+				this.tracker.trackEvent("Clicks", "Favorited", recipeName, 1);
 			} else {
 				favorites.remove(recipeName);
 			}

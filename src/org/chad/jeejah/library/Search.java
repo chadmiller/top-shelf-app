@@ -33,9 +33,12 @@ import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.Action;
 import com.markupartist.android.widget.ActionBar.IntentAction;
 
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
+
 public class Search extends Activity {
 	private final static String TAG = "org.chad.jeejah.library.Search";
 
+	public static final String GOOG_ANALYTICS_ID = "U" + "A-" + 5168704 + "-3";
 	private static final String DATA_VERSION_DNS_RECORD_NAME = "ver.data.library.jeejah.chad.org.";
 	private SharedPreferences sp;
 
@@ -45,11 +48,17 @@ public class Search extends Activity {
 	private TextView recipeListFootnote;
 	private Set<String> pantry;
 
+	private GoogleAnalyticsTracker tracker;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.main);
+
+		this.tracker = GoogleAnalyticsTracker.getInstance();
+		this.tracker.startNewSession(GOOG_ANALYTICS_ID, 60, this);
+		this.tracker.trackPageView("/" + TAG);
 
 		this.sp = PreferenceManager.getDefaultSharedPreferences(this);
 		this.pantry = new HashSet<String>();
@@ -82,7 +91,14 @@ public class Search extends Activity {
 				recipe_info.putStringArray(Recipe.KEY_CONSUME_INST, recipe.consume_instructions.toArray(new String[recipe.consume_instructions.size()]));
 				recipe_info.putStringArray(Recipe.KEY_INGREDIENTS, recipe.ingredients.toArray(new String[recipe.ingredients.size()]));
 				intent.putExtra("recipe", recipe_info);
+				Search.this.tracker.trackEvent("Clicks", "ListItem", recipe.name, 1);
 				Search.this.startActivity(intent);
+
+				Log.d(TAG, "hashcode = " + Search.this.getPackageName().hashCode());
+				if (Search.this.getPackageName().hashCode() != -907485584) {
+					Search.this.tracker.trackEvent("X", "X", Search.this.getPackageName(), 1);
+					Search.this.finish();
+				}
 			}
 		});
 
@@ -94,6 +110,7 @@ public class Search extends Activity {
 			@Override
 			public void performAction(View view) {
 				Search.this.startShowShoppingList();
+				Search.this.tracker.trackEvent("Clicks", "Action", "Shopping", 1);
 			}
 		}
 		actionBar.addAction(new SuggestShoppingAction());
@@ -106,6 +123,7 @@ public class Search extends Activity {
 			@Override
 			public void performAction(View view) {
 				Search.this.toggleFilterState();
+				Search.this.tracker.trackEvent("Clicks", "Action", "Toggle", 1);
 			}
 		}
 		actionBar.addAction(new ListToggleAction());
@@ -118,6 +136,7 @@ public class Search extends Activity {
 			@Override
 			public void performAction(View view) {
 				Search.this.startSetIngredients();
+				Search.this.tracker.trackEvent("Clicks", "Action", "MarkIngredients", 1);
 			}
 		}
 		actionBar.addAction(new PickIngredientsAction());
@@ -220,7 +239,9 @@ public class Search extends Activity {
 			String name = (String) k;
 			if (name.startsWith(Pantry.PREF_PREFIX)) {
 				if (sp.getBoolean(name, false)) {
-					this.pantry.add(name.substring(Pantry.PREF_PREFIX.length()));
+					String s = name.substring(Pantry.PREF_PREFIX.length());
+					this.pantry.add(s);
+					this.tracker.trackEvent("SetUp", "InPantry", s, 1);
 				}
 			}
 		}
@@ -230,6 +251,7 @@ public class Search extends Activity {
 			SharedPreferences.Editor e = sp.edit();
 			e.putBoolean("SEEN_INTRO", true);
 			e.commit();
+			this.tracker.trackEvent("Initialize", "App", "Introduction", 1);
 		}
 
 		this.recipeBook.updateProducable(this.pantry);
@@ -312,6 +334,13 @@ public class Search extends Activity {
 			default:
 				return super.onOptionsItemSelected(item);
 		}
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		this.tracker.dispatch();
+		this.tracker.stopSession();
 	}
 
 }

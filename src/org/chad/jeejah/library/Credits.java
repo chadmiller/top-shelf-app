@@ -6,13 +6,20 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
+
 public class Credits extends Activity {
 	private final static String TAG = "org.chad.jeejah.library.Credits";
+	private GoogleAnalyticsTracker tracker;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.credits);
+
+		this.tracker = GoogleAnalyticsTracker.getInstance();
+		this.tracker.startNewSession(Search.GOOG_ANALYTICS_ID, 60, this);
+		this.tracker.trackPageView("/" + TAG);
 	}
 
 	@Override
@@ -24,7 +31,6 @@ public class Credits extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle item selection
 		Intent intent;
 		switch (item.getItemId()) {
 			case R.id.instructions:
