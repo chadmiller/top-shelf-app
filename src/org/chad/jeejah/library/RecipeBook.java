@@ -39,7 +39,10 @@ class RecipeBook {
 		this.allRecipeIndex = new Hashtable<String,Recipe>(2400);
 
 		try {
-			java.io.InputStream recipeFile = context.getResources().openRawResource(R.raw.recipes);
+			java.io.InputStream gzfile = context.getResources().openRawResource(R.raw.recipes);
+			gzfile.skip(256L);
+			java.util.zip.GZIPInputStream recipeFile = new java.util.zip.GZIPInputStream(gzfile);
+
 			JsonFactory jsonFactory = new JsonFactory();
 			JsonParser jp = jsonFactory.createJsonParser(recipeFile);
 			int i = 0;
