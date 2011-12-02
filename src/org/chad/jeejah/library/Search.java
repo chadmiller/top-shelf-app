@@ -220,6 +220,9 @@ public class Search extends Activity {
 			if (this.recipeAdapter.targetRecipeList.size() == 0) {
 				this.recipeListFootnote.setText(R.string.there_are_none);
 				this.recipeListFootnote.setVisibility(View.VISIBLE);
+			} else if (this.recipeAdapter.targetRecipeList.size() < 15) {
+				this.recipeListFootnote.setText(R.string.there_are_too_few);
+				this.recipeListFootnote.setVisibility(View.VISIBLE);
 			} else {
 				this.recipeListFootnote.setVisibility(View.GONE);
 			}

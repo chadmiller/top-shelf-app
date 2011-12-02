@@ -26,10 +26,10 @@
 	<string name="hit_back_toast">Hit <i>Back</i> when finished.</string>
 
 	<string name="there_are_none">There are no recipes that satisfy the ingredients stocked in your bar.  (Tap to update your list.)</string>
+	<string name="there_are_few">This isn\'t many recipes.  You need a few more ingredients.  See our shopping suggestions for ideas.</string>
 	<string name="a_recipe_not_available"> * You don\'t own an ingredient. (Tap to update your list.)</string>
 
 	<string name="welcome_message">Enter the ingredients you own to see what recipes you can make with them.  Hit <i>Menu</i> for help later.</string>
-	<!-- 		.setMessage("Enter the ingredients you own to see what recipes you can make with them.") -->
 
 
 </resources>
