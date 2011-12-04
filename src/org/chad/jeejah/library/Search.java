@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.content.SharedPreferences;
 import android.content.Intent;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
@@ -60,21 +61,25 @@ public class Search extends Activity {
 		this.tracker.startNewSession(GOOG_ANALYTICS_ID, 60, this);
 		this.tracker.trackPageView("/" + TAG);
 
-		this.sp = PreferenceManager.getDefaultSharedPreferences(this);
 		this.pantry = new HashSet<String>();
 
 		if (System.currentTimeMillis() > 1330804221000L) { finish(); }
 
-		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
 
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
 		if (this.recipeBook == null) {
+			long startTime = android.os.SystemClock.uptimeMillis();
 			this.recipeBook = new RecipeBook(this);
+			this.tracker.trackEvent("Performance", "RecipeBookLoading", "Elapsed", (int) (android.os.SystemClock.uptimeMillis() - startTime));
 		}
+
+		LinearLayout loadingIndicator = (LinearLayout) findViewById(R.id.loading_indicator);
+		loadingIndicator.setVisibility(View.GONE);
 
 		Set<String> pantry = new HashSet<String>();
 		this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
 
+		this.sp = PreferenceManager.getDefaultSharedPreferences(this);
 		sp.registerOnSharedPreferenceChangeListener(this.recipeAdapter);
 		this.recipeAdapter.setFavoritesFromPreferences(sp.getAll());
 
@@ -102,6 +107,7 @@ public class Search extends Activity {
 			}
 		});
 
+		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
 		class SuggestShoppingAction implements Action {
 			@Override
 			public int getDrawable() {
