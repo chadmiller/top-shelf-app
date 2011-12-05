@@ -43,7 +43,7 @@
         <item name="android:textSize">16dip</item>
     </style>
     <style name="Drinks.Title">
-        <item name="android:paddingLeft">13sp</item>
+        <item name="android:paddingLeft">12sp</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAppearance">@style/Drinks.WindowTitle</item>
