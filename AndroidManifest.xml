@@ -5,10 +5,12 @@
       android:versionCode="1"
       android:versionName="1.0">
     <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="4" />
-    <application android:label="@string/app_name" >
+    <application android:label="@string/app_name" 
+				 android:theme="@style/Drinks" >
         <supports-screens android:largeScreens="true" />
         <activity android:name="Search"
                   android:configChanges="orientation|keyboardHidden"
+				  android:theme="@style/Drinks"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,25 +18,25 @@
             </intent-filter>
         </activity>
         <activity android:name="RecipeActivity"
+				  android:theme="@style/Drinks"
                   android:configChanges="orientation|keyboardHidden"
-                  android:label="@string/see_recipe">
-        </activity>
+                  android:label="@string/see_recipe" />
         <activity android:name="Pantry"
+				  android:theme="@style/Drinks"
                   android:configChanges="orientation|keyboardHidden"
-                  android:label="@string/set_stock">
-        </activity>
+                  android:label="@string/set_stock" />
         <activity android:name="ShoppingListActivity"
-                  android:label="@string/shopping_suggestions">
-        </activity>
+				  android:theme="@style/Drinks"
+                  android:label="@string/shopping_suggestions" />
         <activity android:name="Feedback"
-                  android:label="@string/feedback">
-        </activity>
+				  android:theme="@style/Drinks"
+                  android:label="@string/feedback" />
         <activity android:name="Instructions"
-                  android:label="@string/help">
-        </activity>
+				  android:theme="@style/Drinks"
+                  android:label="@string/help" />
         <activity android:name="Credits"
-                  android:label="@string/credits">
-        </activity>
+				  android:theme="@style/Drinks"
+                  android:label="@string/credits" />
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
