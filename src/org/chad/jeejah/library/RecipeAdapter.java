@@ -10,6 +10,7 @@ import android.util.Log;
 import android.content.SharedPreferences;
 
 import java.util.Iterator;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.Map;
@@ -128,29 +129,29 @@ class RecipeAdapter extends android.widget.BaseAdapter implements SharedPreferen
 
 		boolean bad = false;
 		Iterator<String> iter = recipe.ingredients.iterator();
-		StringBuffer buffer = new StringBuffer();
+		//StringBuffer buffer = new StringBuffer();
 		if (this.useProducableOnly) {
-			// Display all the same way
-			buffer.append(iter.next());
-			while (iter.hasNext()) {
-				buffer.append(", ").append(iter.next());
-			}
+		//	// Display all the same way
+		//	buffer.append(iter.next());
+		//	while (iter.hasNext()) {
+		//		buffer.append(", ").append(iter.next());
+		//	}
 		} else {
 			String s = iter.next();
 			if (this.pantry.contains(s)) {
-				buffer.append(s);
+		//		buffer.append(s);
 			} else {
 				bad = true;
-				buffer.append("(").append(s).append(")");
+		//		buffer.append("(").append(s).append(")");
 			}
 			while (iter.hasNext()) {
 				s = iter.next();
-				buffer.append(", ");
+		//		buffer.append(", ");
 				if (this.pantry.contains(s)) {
-					buffer.append(s);
+		//			buffer.append(s);
 				} else {
 					bad = true;
-					buffer.append("(").append(s).append(")");
+		//			buffer.append("(").append(s).append(")");
 				}
 			}
 		}
@@ -159,7 +160,8 @@ class RecipeAdapter extends android.widget.BaseAdapter implements SharedPreferen
 		} else {
 			holder.favorited.setVisibility(View.INVISIBLE);
 		}
-		holder.ingredients.setText(buffer.toString());
+		holder.ingredients.setText(recipe.ingredients.toString());
+		//holder.ingredients.setText(buffer.toString());
 		//holder.photo.setImageBitmap();  // FIXME glass type
 		if (bad) {
 			holder.name.setText(recipe.name + "*");
