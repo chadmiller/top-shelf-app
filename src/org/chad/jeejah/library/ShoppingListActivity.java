@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import java.util.TreeSet;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
@@ -25,7 +26,8 @@ public class ShoppingListActivity extends Activity {
 	public static final String SINGLE_KEY = "single ingredients info";
 	public static final String MOSTUSED_KEY = "most requested ingredients";
 
-	private static final int MAX_RECIPES_IN_INGRED = 4;
+	private static final int MAX_PRODUCTIVE_INGREDIENTS_WANTED = 5;
+	private static final int MAX_RECIPES_IN_INGRED = 6;
 
 	private GoogleAnalyticsTracker tracker;
 
@@ -42,15 +44,34 @@ public class ShoppingListActivity extends Activity {
 
 		{
 			LinearLayout container = (LinearLayout) findViewById(R.id.single_ingredient_suggestions);
-			Bundle bundle = intent.getBundleExtra(SINGLE_KEY);
-			String[] ingredients = bundle.getStringArray("keys");
+			final Bundle bundle = intent.getBundleExtra(SINGLE_KEY);
+			final String[] ingredients = bundle.getStringArray("keys");
+
+			Comparator reverseSortIngredientsByRecipeCount = new Comparator<String>() {
+				public int compare(String lhs, String rhs) {
+					try {
+						int lhsCount = bundle.getStringArray("enabledby "+lhs).length;
+						try {
+							int rhsCount = bundle.getStringArray("enabledby "+rhs).length;
+							return rhsCount - lhsCount; // sort descending
+						} catch (NullPointerException ex) {
+							return 1;
+						}
+					} catch (NullPointerException ex) {
+						return -1;
+					}
+				}
+			};
+
+			Arrays.sort(ingredients, reverseSortIngredientsByRecipeCount);
+
+			int limit = MAX_PRODUCTIVE_INGREDIENTS_WANTED;
 			boolean hasWritten = false;
 			if (ingredients != null) {
-				int visibilityLimit = 2 + (ingredients.length / 17);
-				Log.d(TAG, "visibility limit for single ingredient suggestions is " + visibilityLimit + " recipes.");
 				for (int i = 0; i < ingredients.length; i++) {
+					if (limit-- < 1) break;
 					String[] recipes = bundle.getStringArray("enabledby "+ingredients[i]);
-					if ((recipes != null) && (recipes.length > visibilityLimit)) {
+					if (recipes != null) {
 						TextView t = new TextView(this);
 						t.setText(Html.fromHtml("\u2022 <b>" + ingredients[i] + "</b> would let you make"));
 						t.setTextSize(16);
