@@ -50,6 +50,7 @@ public class Search extends Activity {
 	private Set<String> pantry;
 
 	private GoogleAnalyticsTracker tracker;
+	private ActionBar actionBar;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,6 @@ public class Search extends Activity {
 		this.pantry = new HashSet<String>();
 
 		if (System.currentTimeMillis() > 1330804221000L) { finish(); }
-
 
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
 		if (this.recipeBook == null) {
@@ -107,19 +107,7 @@ public class Search extends Activity {
 			}
 		});
 
-		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
-		class SuggestShoppingAction implements Action {
-			@Override
-			public int getDrawable() {
-				return R.drawable.ic_btn_suggest_shopping_list;
-			}
-			@Override
-			public void performAction(View view) {
-				Search.this.startShowShoppingList();
-				Search.this.tracker.trackEvent("Clicks", "Action", "Shopping", 1);
-			}
-		}
-		actionBar.addAction(new SuggestShoppingAction());
+		this.actionBar = (ActionBar) findViewById(R.id.actionbar);
 
 		class ListToggleAction implements Action {
 			@Override
@@ -132,7 +120,7 @@ public class Search extends Activity {
 				Search.this.tracker.trackEvent("Clicks", "Action", "Toggle", 1);
 			}
 		}
-		actionBar.addAction(new ListToggleAction());
+		this.actionBar.addAction(new ListToggleAction());
 
 		class PickIngredientsAction implements Action {
 			@Override
@@ -145,7 +133,20 @@ public class Search extends Activity {
 				Search.this.tracker.trackEvent("Clicks", "Action", "MarkIngredients", 1);
 			}
 		}
-		actionBar.addAction(new PickIngredientsAction());
+		this.actionBar.addAction(new PickIngredientsAction());
+
+		class SuggestShoppingAction implements Action {
+			@Override
+			public int getDrawable() {
+				return R.drawable.ic_btn_suggest_shopping_list;
+			}
+			@Override
+			public void performAction(View view) {
+				Search.this.startShowShoppingList();
+				Search.this.tracker.trackEvent("Clicks", "Action", "Shopping", 1);
+			}
+		}
+		this.actionBar.addAction(new SuggestShoppingAction());
 
 		this.recipeListFootnote = (TextView) findViewById(R.id.recipe_list_footnote);
 		this.recipeListFootnote.setOnClickListener(new OnClickListener() {
@@ -154,6 +155,7 @@ public class Search extends Activity {
 			}
 		});
 
+		this.actionBar.setTitle("Drinks  (" + this.recipeAdapter.getDescription() + ")");
 		setUp();
 	}
 
@@ -213,6 +215,7 @@ public class Search extends Activity {
 	void toggleFilterState() {
 		this.recipeAdapter.toggleVisibility();
 		this.updateFootnote();
+		this.actionBar.setTitle("Drinks  (" + this.recipeAdapter.getDescription() + ")");
 	}
 
 	void startSetIngredients() {

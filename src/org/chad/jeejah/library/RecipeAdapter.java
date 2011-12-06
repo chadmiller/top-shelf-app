@@ -67,6 +67,14 @@ class RecipeAdapter extends android.widget.BaseAdapter implements SharedPreferen
 		}
 	}
 
+	public String getDescription() {
+		if (useProducableOnly) {
+			return "filtered";
+		} else {
+			return "all";
+		}
+	}
+
 	public boolean isFiltered() {
 		return useProducableOnly;
 	}

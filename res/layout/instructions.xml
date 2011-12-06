@@ -28,9 +28,9 @@
 			/>
 
 		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background" >
-			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_toggle_viewable" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn_pressed" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_mark_owned_ingredients" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 		</LinearLayout>
 
 
@@ -43,9 +43,9 @@
 			/>
 
 		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background" >
-			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn_pressed" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_toggle_viewable" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_mark_owned_ingredients" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 		</LinearLayout>
 
 		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_caption_size" android:gravity="center"
@@ -61,9 +61,9 @@
 			/>
 
 		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background" >
-			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn_pressed" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_toggle_viewable" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_mark_owned_ingredients" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+			<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn_pressed" android:layout_centerVertical="true" android:singleLine="true" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 		</LinearLayout>
 
 		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_caption_size" android:gravity="center"
