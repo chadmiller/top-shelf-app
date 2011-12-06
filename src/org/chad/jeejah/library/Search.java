@@ -184,7 +184,6 @@ public class Search extends Activity {
 
 		// Most common ingredients
 		Bundle mostCommonIngredients = new Bundle();
-		Set<String> mostCommonIngredientsSet = new TreeSet<String>(
 		// TODO:  Don't include items that are in the pantry.
 		mostCommonIngredients.putStringArrayList("ingredients", this.recipeBook.mostUsedIngredients);
 		intent.putExtra(ShoppingListActivity.MOSTUSED_KEY, mostCommonIngredients);
