@@ -70,40 +70,13 @@ public class ShoppingListActivity extends Activity {
 			if (ingredients != null) {
 				for (int i = 0; i < ingredients.length; i++) {
 					if (limit-- < 1) break;
-					String[] recipes = bundle.getStringArray("enabledby "+ingredients[i]);
-					if (recipes != null) {
-						TextView t = new TextView(this);
-						t.setText(Html.fromHtml("\u2022 <b>" + ingredients[i] + "</b> would let you make"));
-						t.setTextSize(16);
-						t.setPadding(10, 8, 10, 2);
-						t.setTextColor(android.graphics.Color.WHITE);
-						container.addView(t);
-						hasWritten = true;
-						if (recipes.length == MAX_RECIPES_IN_INGRED) {
-							for (int j = 0; j < recipes.length; j++) {
-								TextView tt = new TextView(this);
-								tt.setText("\u2022 " + recipes[j]);
-								tt.setPadding(38, 3, 10, 2);
-								tt.setTextColor(android.graphics.Color.WHITE);
-								container.addView(tt);
-							}
-						} else {
-							for (int j = 0; j < Math.min(MAX_RECIPES_IN_INGRED-1, recipes.length); j++) {
-								TextView tt = new TextView(this);
-								tt.setText("\u2022 " + recipes[j]);
-								tt.setPadding(38, 3, 10, 2);
-								tt.setTextColor(android.graphics.Color.WHITE);
-								container.addView(tt);
-							}
-							if (recipes.length > MAX_RECIPES_IN_INGRED) {
-								TextView tt = new TextView(this);
-								tt.setText(" ... and " + (recipes.length-MAX_RECIPES_IN_INGRED+1) + " more.");
-								tt.setPadding(38, 3, 10, 2);
-								tt.setTextColor(android.graphics.Color.WHITE);
-								container.addView(tt);
-							}
-						}
-					}
+					int recipeCount = bundle.getStringArray("enabledby "+ingredients[i]).length;
+					TextView t = new TextView(this);
+					t.setText(Html.fromHtml("\u2022 <b>" + ingredients[i] + "</b> would let you make " + recipeCount + " more recipes."));
+					t.setTextSize(16);
+					t.setPadding(10, 8, 10, 2);
+					container.addView(t);
+					hasWritten = true;
 				}
 			} else {
 				Log.d(TAG, "No key/" + SINGLE_KEY + " in bundle.");
@@ -130,7 +103,6 @@ public class ShoppingListActivity extends Activity {
 					t.setText(Html.fromHtml("\u2022 <b>" + ingredient + "</b>"));
 					t.setTextSize(16);
 					t.setPadding(20, 3, 10, 2);
-					t.setTextColor(android.graphics.Color.WHITE);
 					container.addView(t);
 					hasWritten = true;
 				}
@@ -156,7 +128,6 @@ public class ShoppingListActivity extends Activity {
 					t.setText(Html.fromHtml("\u2022 <b>" + s + "</b>"));
 					t.setTextSize(16);
 					t.setPadding(20, 3, 10, 2);
-					t.setTextColor(android.graphics.Color.WHITE);
 					container.addView(t);
 					hasWritten = true;
 				}

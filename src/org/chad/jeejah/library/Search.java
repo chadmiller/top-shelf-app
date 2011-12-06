@@ -99,7 +99,7 @@ public class Search extends Activity {
 				Search.this.tracker.trackEvent("Clicks", "ListItem", recipe.name, 1);
 				Search.this.startActivity(intent);
 
-				Log.d(TAG, "hashcode = " + Search.this.getPackageName().hashCode());
+				Log.d(TAG, "hshcd = " + Search.this.getPackageName().hashCode());
 				if (Search.this.getPackageName().hashCode() != -907485584) {
 					Search.this.tracker.trackEvent("X", "X", Search.this.getPackageName(), 1);
 					Search.this.finish();
@@ -184,6 +184,8 @@ public class Search extends Activity {
 
 		// Most common ingredients
 		Bundle mostCommonIngredients = new Bundle();
+		Set<String> mostCommonIngredientsSet = new TreeSet<String>(
+		// TODO:  Don't include items that are in the pantry.
 		mostCommonIngredients.putStringArrayList("ingredients", this.recipeBook.mostUsedIngredients);
 		intent.putExtra(ShoppingListActivity.MOSTUSED_KEY, mostCommonIngredients);
 
