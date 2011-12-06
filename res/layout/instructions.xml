@@ -87,5 +87,20 @@
 			android:text="If a recipe doesn't have a picture attached, and you think your creation photographs well, please submit it."
 			/>
 
+		<!-- View
+			android:layout_width="fill_parent" 
+			android:layout_height="1px" 
+			android:color="#ccc"
+			android:background="#ccc"
+			/ -->
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_header_size" android:padding="15px"
+			android:text="About Android Permissions"
+			/>
+
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
+			android:text="This package requests the least amount of permissions it needs.  It asks for &quot;Internet&quot; permission so that it can 1) report the popularity of recipes and ingredients, and report usage patterns in the app, and 2) download updates to recipe books.  No private information is collected or sent, only anonymous aggregate information."
+			/>
+
 	</LinearLayout>
 </ScrollView>
