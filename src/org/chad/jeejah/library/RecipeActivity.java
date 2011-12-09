@@ -1,4 +1,3 @@
-
 package org.chad.jeejah.library;
 
 import android.app.Activity;
@@ -11,11 +10,16 @@ import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.view.Menu;
+import android.view.Window;
 import android.view.MenuItem;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.util.TreeSet;
+
+import com.markupartist.android.widget.ActionBar;
+import com.markupartist.android.widget.ActionBar.Action;
+import com.markupartist.android.widget.ActionBar.IntentAction;
 
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
@@ -29,7 +33,14 @@ public class RecipeActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.recipe);
+
+		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
+		actionBar.setDisplayHomeAsUpEnabled(true);
+
+		actionBar.setOnTitleClickListener(new View.OnClickListener() {
+				public void onClick(View v) { RecipeActivity.this.finish(); } });
 
 		this.tracker = GoogleAnalyticsTracker.getInstance();
 		this.tracker.startNewSession(Search.GOOG_ANALYTICS_ID, 60, this);
@@ -41,7 +52,10 @@ public class RecipeActivity extends Activity {
 		final TextView titleView = (TextView) findViewById(R.id.recipe_title);
 
 		final String title = recipeInfo.getString(Recipe.KEY_NAME);
-		titleView.setText(title);
+		//titleView.setText(title);
+		titleView.setVisibility(View.INVISIBLE);
+
+		actionBar.setTitle(title);
 
 		final LinearLayout ingredientsContainer = (LinearLayout) findViewById(R.id.recipe_ingredients);
 		final LinearLayout preparationContainer = (LinearLayout) findViewById(R.id.recipe_preparation);

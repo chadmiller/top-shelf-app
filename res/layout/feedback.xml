@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/org.chad.jeejah.library"
+	android:orientation="vertical"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-		>
-	<LinearLayout
-		android:orientation="vertical"
+	>
+	<com.markupartist.android.widget.ActionBar
+		android:id="@+id/actionbar"
+		app:title="Feedback"
+		style="@style/ActionBar"
+		/>
+
+	<ScrollView
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
-		>
-		<TextView
-			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content" 
-			android:padding="10px"
-			android:text="(Soon, you'll be able to send a suggestion from here.)"
-			/>
-	</LinearLayout>
-</ScrollView>
+			>
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			>
+			<TextView
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" 
+				android:padding="10px"
+				android:text="(Soon, you'll be able to send a suggestion from here.)"
+				/>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

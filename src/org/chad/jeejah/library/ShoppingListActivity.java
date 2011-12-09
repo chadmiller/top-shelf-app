@@ -1,4 +1,3 @@
-
 package org.chad.jeejah.library;
 
 import android.view.View;
@@ -12,6 +11,12 @@ import android.util.Log;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.View;
+
+import com.markupartist.android.widget.ActionBar;
+import com.markupartist.android.widget.ActionBar.Action;
+import com.markupartist.android.widget.ActionBar.IntentAction;
 
 import java.util.TreeSet;
 import java.util.Arrays;
@@ -34,7 +39,14 @@ public class ShoppingListActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.shopping_list);
+
+		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
+		actionBar.setDisplayHomeAsUpEnabled(true);
+
+		actionBar.setOnTitleClickListener(new View.OnClickListener() {
+				public void onClick(View v) { ShoppingListActivity.this.finish(); } });
 
 		Intent intent = getIntent();
 
