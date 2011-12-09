@@ -12,7 +12,13 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.widget.Toast;
 import android.view.Menu;
+import android.view.View;
+import android.view.Window;
 import android.view.MenuItem;
+
+import com.markupartist.android.widget.ActionBar;
+import com.markupartist.android.widget.ActionBar.Action;
+import com.markupartist.android.widget.ActionBar.IntentAction;
 
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
@@ -25,7 +31,16 @@ public class Pantry extends PreferenceActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.pantry);
+
+		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
+		actionBar.setDisplayHomeAsUpEnabled(true);
+
+		actionBar.setOnTitleClickListener(new View.OnClickListener() {
+				public void onClick(View v) { Pantry.this.finish(); } });
+
 		getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.flickr_tightenup_54569946_as_background));
 		getListView().setCacheColorHint(android.graphics.Color.TRANSPARENT);
 
