@@ -52,10 +52,8 @@ public class RecipeActivity extends Activity {
 		final TextView titleView = (TextView) findViewById(R.id.recipe_title);
 
 		final String title = recipeInfo.getString(Recipe.KEY_NAME);
-		//titleView.setText(title);
-		titleView.setVisibility(View.INVISIBLE);
-
-		actionBar.setTitle(title);
+		titleView.setText(title);
+		actionBar.setTitle("Recipe \u201C" + title + "\u201D");
 
 		final LinearLayout ingredientsContainer = (LinearLayout) findViewById(R.id.recipe_ingredients);
 		final LinearLayout preparationContainer = (LinearLayout) findViewById(R.id.recipe_preparation);
