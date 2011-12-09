@@ -41,6 +41,18 @@ public class Pantry extends PreferenceActivity {
 		actionBar.setOnTitleClickListener(new View.OnClickListener() {
 				public void onClick(View v) { Pantry.this.finish(); } });
 
+		class SaveAction implements Action {
+			@Override
+			public int getDrawable() {
+				return R.drawable.ic_btn_okay_and_back;
+			}
+			@Override
+			public void performAction(View view) {
+				Pantry.this.finish();
+			}
+		}
+		actionBar.addAction(new SaveAction());
+
 		getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.flickr_tightenup_54569946_as_background));
 		getListView().setCacheColorHint(android.graphics.Color.TRANSPARENT);
 
