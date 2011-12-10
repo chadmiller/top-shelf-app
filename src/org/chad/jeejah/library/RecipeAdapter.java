@@ -166,7 +166,7 @@ class RecipeAdapter extends android.widget.BaseAdapter implements SharedPreferen
 		if (favorites.contains(recipe.name)) {
 			holder.favorited.setVisibility(View.VISIBLE);
 		} else {
-			holder.favorited.setVisibility(View.INVISIBLE);
+			holder.favorited.setVisibility(View.GONE);
 		}
 		holder.ingredients.setText(recipe.ingredients.toString());
 		//holder.ingredients.setText(buffer.toString());
