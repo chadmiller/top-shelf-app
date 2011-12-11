@@ -67,7 +67,7 @@ public class Search extends Activity {
 				private int n = 0;
 				public void run() {
 					n++;
-					if ((n % 29) == 0) {
+					if ((n % 93) == 0) {
 						RecipeBookLoadTask.this.publishProgress(n);
 					}
 				}
@@ -410,6 +410,7 @@ public class Search extends Activity {
 	protected void showSplashScreen() {
 		Log.d(TAG, "showing splash screen");
 		this.splashDialog = new Dialog(this, R.style.SplashScreen);
+		this.splashDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.splashDialog.setContentView(R.layout.splashscreen);
 		this.splashDialog.setCancelable(false);
 		this.splashDialog.show();

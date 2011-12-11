@@ -4,16 +4,19 @@
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
+	android:background="@drawable/jackrose_as_background"
 	>
 
 	<TextView
 		android:id="@+id/splash_screen_text"
 		android:layout_width="fill_parent" 
-		android:layout_height="wrap_content" 
+		android:layout_height="fill_parent" 
 		android:color="#fff"
 		android:hint="Loading thousands of recipes..."
 		android:gravity="center"
 		android:padding="30px"
+		android:background="#c000"
+		android:textSize="@dimen/text_header_size"
 		/>
 </LinearLayout>
 
