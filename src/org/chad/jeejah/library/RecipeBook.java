@@ -32,11 +32,19 @@ class RecipeBook {
 
 	public Set<String> knownIngredients;
 
+	private Context context;
+
 	public RecipeBook(Context context) {
 		this.allRecipes = new ArrayList<Recipe>(2400);
 		this.knownIngredients = new TreeSet<String>();
 		this.mostUsedIngredients = new ArrayList<String>(17);
 		this.allRecipeIndex = new Hashtable<String,Recipe>(2400);
+		this.countRecipesSoleAdditionalIngredient = new Hashtable<String,List<Recipe>>();
+		this.producableRecipes = new ArrayList<Recipe>();
+		this.context = context;
+	}
+
+	public void load(Runnable updater) {
 
 		try {
 			java.io.InputStream gzfile = context.getResources().openRawResource(R.raw.recipes);
@@ -45,7 +53,6 @@ class RecipeBook {
 
 			JsonFactory jsonFactory = new JsonFactory();
 			JsonParser jp = jsonFactory.createJsonParser(recipeFile);
-			int i = 0;
 			while (jp.nextToken() != JsonToken.END_OBJECT) {
 				jp.nextToken();
 				String fieldname = jp.getCurrentName();
@@ -97,6 +104,7 @@ class RecipeBook {
 						}
 						this.allRecipes.add(recipe);
 						this.allRecipeIndex.put(recipe.name, recipe);
+						updater.run();
 					}
 				}
 			}
@@ -108,8 +116,6 @@ class RecipeBook {
 			Log.e(TAG, "Can't parse JSON", ex);
 		}
 
-		this.countRecipesSoleAdditionalIngredient = new Hashtable<String,List<Recipe>>();
-		this.producableRecipes = new ArrayList<Recipe>();
 	}
 
 

@@ -21,6 +21,8 @@ import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.os.Handler;
+import android.os.AsyncTask;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -51,6 +53,42 @@ public class Search extends Activity {
 
 	private GoogleAnalyticsTracker tracker;
 	private ActionBar actionBar;
+	private Dialog splashDialog;
+
+	private class RecipeBookLoadTask extends AsyncTask<RecipeBook, Integer, Integer> {
+		private TextView splashScreenText;
+
+		@Override
+		protected Integer doInBackground(RecipeBook... recipeBooks) {
+			this.splashScreenText = (TextView) Search.this.splashDialog.findViewById(R.id.splash_screen_text);
+
+			long startTime = android.os.SystemClock.uptimeMillis();
+			recipeBooks[0].load(new Runnable() {
+				private int n = 0;
+				public void run() {
+					n++;
+					if ((n % 29) == 0) {
+						RecipeBookLoadTask.this.publishProgress(n);
+					}
+				}
+			});
+			Search.this.tracker.trackEvent("Performance", "RecipeBookLoading", "Elapsed", (int) (android.os.SystemClock.uptimeMillis() - startTime));
+
+			return new Integer(1);
+		}
+
+		@Override
+		protected void onProgressUpdate(Integer... progresses) {
+			splashScreenText.setText("Loading recipe #" + progresses[0]);
+		}
+
+		@Override
+		protected void onPostExecute(Integer i) {
+			splashScreenText.setText("A moment to process...");
+			Search.this.setUp();
+			Search.this.removeSplashScreen();
+		}
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -67,10 +105,12 @@ public class Search extends Activity {
 		if (System.currentTimeMillis() > 1330804221000L) { finish(); }
 
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
-		if (this.recipeBook == null) {
-			long startTime = android.os.SystemClock.uptimeMillis();
+		if (this.recipeBook != null) {
+			Search.this.setUp();
+		} else {
 			this.recipeBook = new RecipeBook(this);
-			this.tracker.trackEvent("Performance", "RecipeBookLoading", "Elapsed", (int) (android.os.SystemClock.uptimeMillis() - startTime));
+			showSplashScreen();
+			new RecipeBookLoadTask().execute(this.recipeBook);
 		}
 
 		LinearLayout loadingIndicator = (LinearLayout) findViewById(R.id.loading_indicator);
@@ -156,7 +196,6 @@ public class Search extends Activity {
 		});
 
 		this.actionBar.setTitle("Drinks  (" + this.recipeAdapter.getDescription() + ")");
-		setUp();
 	}
 
 	private String[] toStringsArray(List<Recipe> l) {
@@ -355,5 +394,35 @@ public class Search extends Activity {
 		this.tracker.dispatch();
 		this.tracker.stopSession();
 	}
+
+
+	private void removeSplashScreen() {
+		if (this.splashDialog != null) {
+			this.splashDialog.dismiss();
+			this.splashDialog = null;
+			Log.d(TAG, "hiding splash screen");
+		}
+	}
+	 
+	/**
+	 * Shows the splash screen over the full Activity
+	 */
+	protected void showSplashScreen() {
+		Log.d(TAG, "showing splash screen");
+		this.splashDialog = new Dialog(this, R.style.SplashScreen);
+		this.splashDialog.setContentView(R.layout.splashscreen);
+		this.splashDialog.setCancelable(false);
+		this.splashDialog.show();
+	 
+		// Set Runnable to remove splash screen just in case
+		final Handler handler = new Handler();
+		handler.postDelayed(new Runnable() {
+		  @Override
+		  public void run() {
+			removeSplashScreen();
+		  }
+		}, 3000);
+	}
+
 
 }
