@@ -90,6 +90,7 @@ public class Search extends Activity {
 		}
 	}
 
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -196,6 +197,16 @@ public class Search extends Activity {
 		});
 
 		this.actionBar.setTitle("Drinks  (" + this.recipeAdapter.getDescription() + ")");
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		if (this.recipeAdapter.isFiltered()) {
+			if (this.recipeAdapter.targetRecipeList.size() == 0) {
+				toggleFilterState();
+			}
+		}
 	}
 
 	private String[] toStringsArray(List<Recipe> l) {
