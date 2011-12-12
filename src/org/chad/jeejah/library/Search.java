@@ -67,7 +67,7 @@ public class Search extends Activity {
 				private int n = 0;
 				public void run() {
 					n++;
-					if ((n % 93) == 0) {
+					if ((n % 147) == 0) {
 						RecipeBookLoadTask.this.publishProgress(n);
 					}
 				}
