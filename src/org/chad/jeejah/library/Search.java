@@ -87,6 +87,14 @@ public class Search extends Activity {
 			splashScreenText.setText("A moment to process...");
 			Search.this.setUp();
 			Search.this.removeSplashScreen();
+
+			if (Search.this.recipeAdapter.isFiltered()) {
+				if (Search.this.recipeAdapter.targetRecipeList.size() == 0) {
+					Search.this.toggleFilterState();
+					android.widget.Toast.makeText(Search.this, R.string.using_unfiltered_bc_nothing_here, android.widget.Toast.LENGTH_LONG).show();
+				}
+			}
+
 		}
 	}
 
@@ -102,23 +110,19 @@ public class Search extends Activity {
 		this.tracker.trackPageView("/" + TAG);
 
 		this.pantry = new HashSet<String>();
-
-		if (System.currentTimeMillis() > 1330804221000L) { finish(); }
-
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
 		if (this.recipeBook != null) {
 			Search.this.setUp();
+			this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
 		} else {
 			this.recipeBook = new RecipeBook(this);
+			this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
 			showSplashScreen();
 			new RecipeBookLoadTask().execute(this.recipeBook);
 		}
 
 		LinearLayout loadingIndicator = (LinearLayout) findViewById(R.id.loading_indicator);
 		loadingIndicator.setVisibility(View.GONE);
-
-		Set<String> pantry = new HashSet<String>();
-		this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
 
 		this.sp = PreferenceManager.getDefaultSharedPreferences(this);
 		sp.registerOnSharedPreferenceChangeListener(this.recipeAdapter);
@@ -197,16 +201,7 @@ public class Search extends Activity {
 		});
 
 		this.actionBar.setTitle("Drinks  (" + this.recipeAdapter.getDescription() + ")");
-	}
 
-	@Override
-	public void onResume() {
-		super.onResume();
-		if (this.recipeAdapter.isFiltered()) {
-			if (this.recipeAdapter.targetRecipeList.size() == 0) {
-				toggleFilterState();
-			}
-		}
 	}
 
 	private String[] toStringsArray(List<Recipe> l) {
