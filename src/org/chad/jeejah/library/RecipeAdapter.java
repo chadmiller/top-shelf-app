@@ -37,6 +37,7 @@ class RecipeAdapter extends android.widget.BaseAdapter implements SharedPreferen
 	private LayoutInflater inflater;
 
 	public List targetRecipeList;
+	public List pushedStateTargetRecipeList;
 
 	public void onSharedPreferenceChanged (SharedPreferences sharedPreferences, String key) {
 		if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
@@ -77,6 +78,19 @@ class RecipeAdapter extends android.widget.BaseAdapter implements SharedPreferen
 
 	public boolean isFiltered() {
 		return useProducableOnly;
+	}
+
+	public void search(boolean starting) {
+		if (starting) {
+			this.pushedStateTargetRecipeList = this.targetRecipeList;
+			this.targetRecipeList = this.recipeBook.producableRecipes;
+		} else {
+			if (this.pushedStateTargetRecipeList != null) {
+				this.targetRecipeList = this.pushedStateTargetRecipeList;
+			} else {
+				this.targetRecipeList = recipeBook.allRecipes;
+			}
+		}
 	}
 
 	public void toggleVisibility() {

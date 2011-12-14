@@ -37,6 +37,9 @@
     <style name="ActionBarProgressBar" parent="@android:style/Widget.ProgressBar.Small">
     </style>
 
+    <style name="Drinks.SearchBar">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
     <style name="Drinks.WindowTitle">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textStyle">bold</item>

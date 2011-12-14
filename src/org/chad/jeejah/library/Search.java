@@ -55,6 +55,33 @@ public class Search extends Activity {
 	private ActionBar actionBar;
 	private Dialog splashDialog;
 
+
+	private void handleIntent(Intent intent) {
+		if (intent == null) {
+			Log.d(TAG, "NO INTENT");
+			return;
+		}
+
+		Bundle extras = intent.getExtras();
+		if (extras != null) {
+			Log.d(TAG, "Handling intent with data: " + extras.toString());
+		} else {
+			Log.d(TAG, "Handling intent with no data");
+		}
+
+		// Handle search
+		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+			String query = intent.getStringExtra(android.app.SearchManager.QUERY);
+			Log.d(TAG, "Search for " + query + " now!");
+		}
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent) {
+		setIntent(intent);
+		handleIntent(intent);
+	}
+
 	private class RecipeBookLoadTask extends AsyncTask<RecipeBook, Integer, Integer> {
 		private TextView splashScreenText;
 
@@ -98,7 +125,6 @@ public class Search extends Activity {
 		}
 	}
 
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -111,6 +137,8 @@ public class Search extends Activity {
 
 		this.pantry = new HashSet<String>();
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
+
+		RecipeBookLoadTask recipeBookLoader = null;
 		if (this.recipeBook != null) {
 			Search.this.setUp();
 			this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
@@ -118,7 +146,8 @@ public class Search extends Activity {
 			this.recipeBook = new RecipeBook(this);
 			this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
 			showSplashScreen();
-			new RecipeBookLoadTask().execute(this.recipeBook);
+			recipeBookLoader = new RecipeBookLoadTask();
+			recipeBookLoader.execute(this.recipeBook);
 		}
 
 		LinearLayout loadingIndicator = (LinearLayout) findViewById(R.id.loading_indicator);
@@ -201,6 +230,8 @@ public class Search extends Activity {
 		});
 
 		this.actionBar.setTitle("Drinks  (" + this.recipeAdapter.getDescription() + ")");
+
+		handleIntent(getIntent());
 
 	}
 

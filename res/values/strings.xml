@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Drinks</string>
+    <string name="search_hint">Names of recipes</string>
 	<string name="actionbar_activity_not_found">Failed to open intent...</string>
 
 	<string name="term_blend">Blend: Mix in an electric blender.</string>

@@ -25,6 +25,7 @@ class RecipeBook {
 	public String version;
 
 	public Map<String,Recipe> allRecipeIndex;
+	public List<Recipe> searchResultRecipes;
 	public List<Recipe> allRecipes;
 	public List<Recipe> producableRecipes;
 	public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
@@ -41,6 +42,7 @@ class RecipeBook {
 		this.allRecipeIndex = new Hashtable<String,Recipe>(2400);
 		this.countRecipesSoleAdditionalIngredient = new Hashtable<String,List<Recipe>>();
 		this.producableRecipes = new ArrayList<Recipe>();
+		this.searchResultRecipes = new ArrayList<Recipe>();
 		this.context = context;
 	}
 
@@ -113,11 +115,19 @@ class RecipeBook {
 			Log.d(TAG, "recipes count " + this.allRecipes.size());
 
 		} catch (java.io.IOException ex) {
-			Log.e(TAG, "Can't parse JSON", ex);
+			Log.e(TAG, "Can't parse", ex);
 		}
-
 	}
 
+
+	synchronized void updateSearchResult(String query) {
+		this.searchResultRecipes.clear();
+		for (Recipe recipe : this.allRecipes) {
+			if (spinneret.util.Levenshtein.damlevlim(query, recipe.name, 3) < 2) {
+				this.searchResultRecipes.add(recipe);
+			}
+		}
+	}
 
 	synchronized void updateProducable(Set<String> pantry) {
 		// Maybe this should be new-and-clobber.  Hopefully, single threaded.
