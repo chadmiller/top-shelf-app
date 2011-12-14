@@ -43,7 +43,7 @@ public class RecipeActivity extends Activity {
 				public void onClick(View v) { RecipeActivity.this.finish(); } });
 
 		this.tracker = GoogleAnalyticsTracker.getInstance();
-		this.tracker.startNewSession(Search.GOOG_ANALYTICS_ID, 60, this);
+		this.tracker.startNewSession(BookDisplay.GOOG_ANALYTICS_ID, 60, this);
 		this.tracker.trackPageView("/" + TAG);
 
 		final Intent intent = getIntent();

@@ -117,7 +117,7 @@ class RecipeAdapter extends android.widget.BaseAdapter implements SharedPreferen
 		this.useProducableOnly = useProducableOnly;
 		this.pantry = pantry;
 		this.tracker = GoogleAnalyticsTracker.getInstance();
-		this.tracker.startNewSession(Search.GOOG_ANALYTICS_ID, 60, context);
+		this.tracker.startNewSession(BookDisplay.GOOG_ANALYTICS_ID, 60, context);
 
 		this.favorites = new TreeSet<String>();
 

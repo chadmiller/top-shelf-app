@@ -38,8 +38,8 @@ import com.markupartist.android.widget.ActionBar.IntentAction;
 
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
-public class Search extends Activity {
-	private final static String TAG = "org.chad.jeejah.library.Search";
+public class BookDisplay extends Activity {
+	private final static String TAG = "org.chad.jeejah.library.BookDisplay";
 
 	public static final String GOOG_ANALYTICS_ID = "U" + "A-" + 5168704 + "-3";
 	private static final String DATA_VERSION_DNS_RECORD_NAME = "ver.data.library.jeejah.chad.org.";
@@ -87,7 +87,7 @@ public class Search extends Activity {
 
 		@Override
 		protected Integer doInBackground(RecipeBook... recipeBooks) {
-			this.splashScreenText = (TextView) Search.this.splashDialog.findViewById(R.id.splash_screen_text);
+			this.splashScreenText = (TextView) BookDisplay.this.splashDialog.findViewById(R.id.splash_screen_text);
 
 			long startTime = android.os.SystemClock.uptimeMillis();
 			recipeBooks[0].load(new Runnable() {
@@ -99,7 +99,7 @@ public class Search extends Activity {
 					}
 				}
 			});
-			Search.this.tracker.trackEvent("Performance", "RecipeBookLoading", "Elapsed", (int) (android.os.SystemClock.uptimeMillis() - startTime));
+			BookDisplay.this.tracker.trackEvent("Performance", "RecipeBookLoading", "Elapsed", (int) (android.os.SystemClock.uptimeMillis() - startTime));
 
 			return new Integer(1);
 		}
@@ -112,13 +112,13 @@ public class Search extends Activity {
 		@Override
 		protected void onPostExecute(Integer i) {
 			splashScreenText.setText("A moment to process...");
-			Search.this.setUp();
-			Search.this.removeSplashScreen();
+			BookDisplay.this.setUp();
+			BookDisplay.this.removeSplashScreen();
 
-			if (Search.this.recipeAdapter.isFiltered()) {
-				if (Search.this.recipeAdapter.targetRecipeList.size() == 0) {
-					Search.this.toggleFilterState();
-					android.widget.Toast.makeText(Search.this, R.string.using_unfiltered_bc_nothing_here, android.widget.Toast.LENGTH_LONG).show();
+			if (BookDisplay.this.recipeAdapter.isFiltered()) {
+				if (BookDisplay.this.recipeAdapter.targetRecipeList.size() == 0) {
+					BookDisplay.this.toggleFilterState();
+					android.widget.Toast.makeText(BookDisplay.this, R.string.using_unfiltered_bc_nothing_here, android.widget.Toast.LENGTH_LONG).show();
 				}
 			}
 
@@ -140,7 +140,7 @@ public class Search extends Activity {
 
 		RecipeBookLoadTask recipeBookLoader = null;
 		if (this.recipeBook != null) {
-			Search.this.setUp();
+			BookDisplay.this.setUp();
 			this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
 		} else {
 			this.recipeBook = new RecipeBook(this);
@@ -162,7 +162,7 @@ public class Search extends Activity {
 		recipeListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Recipe recipe = (Recipe) parent.getItemAtPosition(position);
-				Intent intent = new Intent(Search.this, RecipeActivity.class);
+				Intent intent = new Intent(BookDisplay.this, RecipeActivity.class);
 				intent.setAction(Intent.ACTION_VIEW);
 				android.os.Bundle recipe_info = new android.os.Bundle();
 				recipe_info.putString(Recipe.KEY_NAME, recipe.name);
@@ -170,13 +170,13 @@ public class Search extends Activity {
 				recipe_info.putStringArray(Recipe.KEY_CONSUME_INST, recipe.consume_instructions.toArray(new String[recipe.consume_instructions.size()]));
 				recipe_info.putStringArray(Recipe.KEY_INGREDIENTS, recipe.ingredients.toArray(new String[recipe.ingredients.size()]));
 				intent.putExtra("recipe", recipe_info);
-				Search.this.tracker.trackEvent("Clicks", "ListItem", recipe.name, 1);
-				Search.this.startActivity(intent);
+				BookDisplay.this.tracker.trackEvent("Clicks", "ListItem", recipe.name, 1);
+				BookDisplay.this.startActivity(intent);
 
-				Log.d(TAG, "hshcd = " + Search.this.getPackageName().hashCode());
-				if (Search.this.getPackageName().hashCode() != -907485584) {
-					Search.this.tracker.trackEvent("X", "X", Search.this.getPackageName(), 1);
-					Search.this.finish();
+				Log.d(TAG, "hshcd = " + BookDisplay.this.getPackageName().hashCode());
+				if (BookDisplay.this.getPackageName().hashCode() != -907485584) {
+					BookDisplay.this.tracker.trackEvent("X", "X", BookDisplay.this.getPackageName(), 1);
+					BookDisplay.this.finish();
 				}
 			}
 		});
@@ -190,8 +190,8 @@ public class Search extends Activity {
 			}
 			@Override
 			public void performAction(View view) {
-				Search.this.toggleFilterState();
-				Search.this.tracker.trackEvent("Clicks", "Action", "Toggle", 1);
+				BookDisplay.this.toggleFilterState();
+				BookDisplay.this.tracker.trackEvent("Clicks", "Action", "Toggle", 1);
 			}
 		}
 		this.actionBar.addAction(new ListToggleAction());
@@ -203,8 +203,8 @@ public class Search extends Activity {
 			}
 			@Override
 			public void performAction(View view) {
-				Search.this.startSetIngredients();
-				Search.this.tracker.trackEvent("Clicks", "Action", "MarkIngredients", 1);
+				BookDisplay.this.startSetIngredients();
+				BookDisplay.this.tracker.trackEvent("Clicks", "Action", "MarkIngredients", 1);
 			}
 		}
 		this.actionBar.addAction(new PickIngredientsAction());
@@ -216,8 +216,8 @@ public class Search extends Activity {
 			}
 			@Override
 			public void performAction(View view) {
-				Search.this.startShowShoppingList();
-				Search.this.tracker.trackEvent("Clicks", "Action", "Shopping", 1);
+				BookDisplay.this.startShowShoppingList();
+				BookDisplay.this.tracker.trackEvent("Clicks", "Action", "Shopping", 1);
 			}
 		}
 		this.actionBar.addAction(new SuggestShoppingAction());
@@ -225,7 +225,7 @@ public class Search extends Activity {
 		this.recipeListFootnote = (TextView) findViewById(R.id.recipe_list_footnote);
 		this.recipeListFootnote.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
-				Search.this.startSetIngredients();
+				BookDisplay.this.startSetIngredients();
 			}
 		});
 
@@ -356,14 +356,14 @@ public class Search extends Activity {
 			.setMessage(R.string.welcome_message)
 			.setPositiveButton(R.string.begin, new DialogInterface.OnClickListener() { 
 				public void onClick(DialogInterface dialog, int which) {
-					Intent intent = new Intent(Search.this, Pantry.class);
-					intent.putExtra("ingredients", Search.this.recipeBook.knownIngredients.toArray(new String[Search.this.recipeBook.knownIngredients.size()]));
-					Search.this.startActivityForResult(intent, 1);
+					Intent intent = new Intent(BookDisplay.this, Pantry.class);
+					intent.putExtra("ingredients", BookDisplay.this.recipeBook.knownIngredients.toArray(new String[BookDisplay.this.recipeBook.knownIngredients.size()]));
+					BookDisplay.this.startActivityForResult(intent, 1);
 				}
 			}).setNegativeButton(R.string.help, new DialogInterface.OnClickListener() { 
 				public void onClick(DialogInterface dialog, int which) {
-					Intent intent = new Intent(Search.this, Instructions.class);
-					Search.this.startActivity(intent);
+					Intent intent = new Intent(BookDisplay.this, Instructions.class);
+					BookDisplay.this.startActivity(intent);
 				}
 			});
 		return adb.create();

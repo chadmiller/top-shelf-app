@@ -59,7 +59,7 @@ public class Pantry extends PreferenceActivity {
 		this.ingredients = getIntent().getStringArrayExtra("ingredients");
 		setPreferenceScreen(createPreferenceHierarchy());
 		this.tracker = GoogleAnalyticsTracker.getInstance();
-		this.tracker.startNewSession(Search.GOOG_ANALYTICS_ID, 60, this);
+		this.tracker.startNewSession(BookDisplay.GOOG_ANALYTICS_ID, 60, this);
 		this.tracker.trackPageView("/" + TAG);
 	}
 
