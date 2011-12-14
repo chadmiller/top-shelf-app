@@ -18,8 +18,8 @@ import java.util.TreeSet;
 
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
-class RecipeAdapter extends android.widget.BaseAdapter implements SharedPreferences.OnSharedPreferenceChangeListener {
-	private final static String TAG = "org.chad.jeejah.library.RecipeAdapter";
+class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPreferences.OnSharedPreferenceChangeListener {
+	private final static String TAG = "org.chad.jeejah.library.RecipesListAdapter";
 	private GoogleAnalyticsTracker tracker;
 
 	public static class ViewHolder {
@@ -111,7 +111,7 @@ class RecipeAdapter extends android.widget.BaseAdapter implements SharedPreferen
 
 	
 
-	public RecipeAdapter(Context context, RecipeBook recipeBook, Set<String> pantry, boolean useProducableOnly) {
+	public RecipesListAdapter(Context context, RecipeBook recipeBook, Set<String> pantry, boolean useProducableOnly) {
 		super();
 		this.recipeBook = recipeBook;
 		this.useProducableOnly = useProducableOnly;

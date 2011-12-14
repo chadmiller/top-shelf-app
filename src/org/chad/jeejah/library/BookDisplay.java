@@ -47,7 +47,7 @@ public class BookDisplay extends Activity {
 
 	private RecipeBook recipeBook;
 
-	private RecipeAdapter recipeAdapter;
+	private RecipesListAdapter recipeAdapter;
 	private TextView recipeListFootnote;
 	private Set<String> pantry;
 
@@ -141,10 +141,10 @@ public class BookDisplay extends Activity {
 		RecipeBookLoadTask recipeBookLoader = null;
 		if (this.recipeBook != null) {
 			BookDisplay.this.setUp();
-			this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
+			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry, true);
 		} else {
 			this.recipeBook = new RecipeBook(this);
-			this.recipeAdapter = new RecipeAdapter(this, recipeBook, pantry, true);
+			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry, true);
 			showSplashScreen();
 			recipeBookLoader = new RecipeBookLoadTask();
 			recipeBookLoader.execute(this.recipeBook);
