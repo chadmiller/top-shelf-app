@@ -1,4 +1,5 @@
 <resources>
+	<item type="id" name="search" />
 	<item type="id" name="instructions" />
 	<item type="id" name="feedback" />
 	<item type="id" name="credits" />

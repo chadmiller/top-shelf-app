@@ -133,6 +133,7 @@ public class BookDisplay extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
 		setContentView(R.layout.main);
 
 		this.tracker = GoogleAnalyticsTracker.getInstance();
@@ -388,12 +389,13 @@ public class BookDisplay extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(Menu.NONE, R.id.instructions, 1, R.string.help);
-		menu.add(Menu.NONE, R.id.stock, 2, R.string.set_stock);
-		menu.add(Menu.NONE, R.id.shoppingsuggestions, 3, R.string.shopping_suggestions);
+		menu.add(Menu.NONE, R.id.search, 0, R.string.search).setIcon(android.R.drawable.ic_menu_search);
+		menu.add(Menu.NONE, R.id.instructions, 1, R.string.help).setIcon(android.R.drawable.ic_menu_help);
+		menu.add(Menu.NONE, R.id.stock, 2, R.string.set_stock).setIcon(R.drawable.ic_btn_mark_owned_ingredients);
+		menu.add(Menu.NONE, R.id.shoppingsuggestions, 3, R.string.shopping_suggestions).setIcon(R.drawable.ic_btn_suggest_shopping_list);
 		menu.add(Menu.NONE, R.id.feedback, 4, R.string.feedback);
 		menu.add(Menu.NONE, R.id.credits, 5, R.string.credits);
-		menu.add(Menu.NONE, R.id.togglefilter, 6, R.string.toggle_filter);
+		menu.add(Menu.NONE, R.id.togglefilter, 6, R.string.toggle_filter).setIcon(android.R.drawable.ic_menu_view);
 		return true;
 	}
 
@@ -402,6 +404,9 @@ public class BookDisplay extends Activity {
 		// Handle item selection
 		Intent intent;
 		switch (item.getItemId()) {
+			case R.id.search:
+				startSearch(null, false, null, false);
+				return true;
 			case R.id.instructions:
 				intent = new Intent(this, Instructions.class);
 				startActivity(intent);
