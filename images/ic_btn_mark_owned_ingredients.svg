@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500pt" version="1.1" xmlns="http://www.w3.org/2000/svg" height="500pt" viewBox="0 0 500 500" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <path id="GlOpenSymbol58564" d="M7.35359 3.79875 C7.35359 3.79875 5.43453 5.89359 4.40437 8.05656 L3.41797 8.76953 C3.41797 8.76953 2.75875 6.60156 1.90437 6.25 C1.90437 6.25 2.38766 5.69328 2.87109 5.69328 C2.87109 5.69328 3.29109 5.69328 3.8575 7.06047 C3.8575 7.06047 4.76562 5.5225 6.88484 3.47656 L1.5625 3.47656 L1.5625 9.27734 L7.35359 9.27734 L7.35359 3.79875 L7.35359 3.79875 Z M8.06641 10 L0.839844 10 L0.839844 2.76359 L7.8125 2.76359 L8.45703 2.38281 L8.63281 2.62688 C8.63281 2.62688 8.44234 2.73922 8.06641 3.08594 L8.06641 10 Z"/>
+  <path id="GlOpenSymbol58748" d="M0.839844 10 L0.839844 2.77344 L8.06641 2.77344 L8.06641 10 L0.839844 10 L0.839844 10 Z M1.57234 9.27734 L7.35359 9.27734 L7.35359 3.49609 L1.57234 3.49609 L1.57234 9.27734 Z"/>
+ </defs>
+ <g id="Background">
+  <path style="fill:#ffffff; fill-rule:evenodd; fill-opacity:0.3;stroke:#ffffff; stroke-opacity:0.8; stroke-width:11; stroke-linecap:butt; stroke-linejoin:miter; stroke-dasharray:none;" d="M0.705107 298.338 C105.427 298.992 105.123 298.338 105.123 298.338 C105.123 298.338 104.306 133.658 105.123 88.0134 C105.427 65.6381 90.8477 71.972 69.3229 44.7508 L69.3229 0 L35.7599 0 C35.7599 0 35.8903 24.3053 35.7599 44.7508 C15.1412 71.4112 0.705107 65.2428 0.705107 88.0134 C0 123.564 0.705107 298.338 0.705107 298.338 L0.705107 298.338 Z" transform="translate(42.6362, 158.22)"/>
+  <path style="fill:none;stroke:#ffffff; stroke-opacity:0.7; stroke-width:9; stroke-linecap:butt; stroke-linejoin:miter; stroke-dasharray:18, 9, 4.5, 9;" d="M0.705107 298.338 C105.427 298.991 105.123 298.338 105.123 298.338 C105.123 298.338 104.306 133.657 105.123 88.0134 C105.427 65.6381 90.8477 71.972 69.3229 44.7508 L69.3229 0 L35.7599 0 C35.7599 0 35.8903 24.3053 35.7599 44.7508 C15.1412 71.4112 0.705107 65.2428 0.705107 88.0134 C0 123.564 0.705107 298.338 0.705107 298.338 L0.705107 298.338 Z" transform="translate(197.651, 158.22)"/>
+  <g transform="translate(36.15, 27)">
+   <use style="fill:#ffffff;stroke:none;" xlink:href="#GlOpenSymbol58564" transform="matrix(11.5 0 0 11.5 0 -26.4023)"/>
+   <path style="fill:none; stroke:none;" d="M0 0 L161.712 0 L161.712 162.71 L0 162.71 L0 0 Z"/>
+  </g>
+  <g transform="translate(193.127, 31.435)">
+   <use style="fill:#ffffff;stroke:none;" xlink:href="#GlOpenSymbol58748" transform="matrix(11.5 0 0 11.5 0 -30.8945)"/>
+   <path style="fill:none; stroke:none;" d="M0 0 L177.147 0 L177.147 165.516 L0 165.516 L0 0 Z"/>
+  </g>
+  <path style="fill:none;stroke:#ffffff; stroke-opacity:0.7; stroke-width:9; stroke-linecap:butt; stroke-linejoin:miter; stroke-dasharray:18, 9, 4.5, 9;" d="M0.705107 298.338 C105.427 298.991 105.123 298.338 105.123 298.338 C105.123 298.338 104.306 133.657 105.123 88.0134 C105.427 65.6381 90.8477 71.972 69.3229 44.7508 L69.3229 0 L35.7599 0 C35.7599 0 35.8903 24.3053 35.7599 44.7508 C15.1412 71.4112 0.705107 65.2428 0.705107 88.0134 C0 123.564 0.705107 298.338 0.705107 298.338 L0.705107 298.338 Z" transform="translate(352.877, 158.22)"/>
+  <g transform="translate(348.353, 31.435)">
+   <use style="fill:#ffffff;stroke:none;" xlink:href="#GlOpenSymbol58748" transform="matrix(11.5 0 0 11.5 0 -30.8945)"/>
+   <path style="fill:none; stroke:none;" d="M0 0 L177.147 0 L177.147 165.516 L0 165.516 L0 0 Z"/>
+  </g>
+ </g>
+</svg>
