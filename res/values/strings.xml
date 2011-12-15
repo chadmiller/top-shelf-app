@@ -25,12 +25,10 @@
 	<string name="welcome">Welcome</string>
 	<string name="loading_recipe_book">Loading thousands of recipes...</string>
 
-	<string name="hit_back_toast">Hit <i>Back</i> when finished.</string>
-
 	<string name="using_unfiltered_bc_nothing_here">Using unfiltered view because you\'d see nothing after filtering.</string>
-	<string name="there_are_none">There are no recipes that satisfy the ingredients stocked in your bar.  (Tap to update your list.)</string>
-	<string name="there_are_too_few">This isn\'t many recipes.  You need a few more ingredients.  See our shopping suggestions for ideas.</string>
-	<string name="a_recipe_not_available"> * You lack ingredient. (Tap to update stocked ingredients for filtering.)</string>
+	<string name="there_are_none">There are no recipes producable with ingredients stocked in your bar. Tap to inventory.</string>
+	<string name="there_are_too_few">Shopping suggestions will help you activate more recipes.</string>
+	<string name="a_recipe_not_available"> * You lack an ingredient. Tap to inventory stock.</string>
 
 	<string name="welcome_message">Enter the ingredients you own to see what recipes you can make with them.  Hit <i>Menu</i> for help later.</string>
 

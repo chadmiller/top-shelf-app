@@ -63,12 +63,6 @@ public class Pantry extends PreferenceActivity {
 		this.tracker.trackPageView("/" + TAG);
 	}
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-		Toast.makeText(this, R.string.hit_back_toast, Toast.LENGTH_SHORT).show();
-	}
-
 	private PreferenceScreen createPreferenceHierarchy() {
 		PreferenceScreen root = getPreferenceManager().createPreferenceScreen(this);
 
