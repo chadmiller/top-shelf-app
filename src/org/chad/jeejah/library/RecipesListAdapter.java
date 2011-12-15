@@ -83,7 +83,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	public void search(boolean starting) {
 		if (starting) {
 			this.pushedStateTargetRecipeList = this.targetRecipeList;
-			this.targetRecipeList = this.recipeBook.producableRecipes;
+			this.targetRecipeList = this.recipeBook.searchResultRecipes;
 		} else {
 			if (this.pushedStateTargetRecipeList != null) {
 				this.targetRecipeList = this.pushedStateTargetRecipeList;
@@ -91,6 +91,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 				this.targetRecipeList = recipeBook.allRecipes;
 			}
 		}
+		this.notifyDataSetChanged();
 	}
 
 	public void toggleVisibility() {

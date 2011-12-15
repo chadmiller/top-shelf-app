@@ -73,6 +73,10 @@ public class BookDisplay extends Activity {
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 			String query = intent.getStringExtra(android.app.SearchManager.QUERY);
 			Log.d(TAG, "Search for " + query + " now!");
+			recipeBook.updateSearchResult(query);
+			this.actionBar.setTitle("Drinks  \u201C" + query + "\u201D");
+			this.recipeAdapter.search(true);
+			this.recipeListFootnote.setVisibility(View.GONE);
 		}
 	}
 

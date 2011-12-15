@@ -122,11 +122,33 @@ class RecipeBook {
 
 	synchronized void updateSearchResult(String query) {
 		this.searchResultRecipes.clear();
+
+		List secondaryList = new LinkedList<Recipe>();
+
+		String normal_query = query.trim().toLowerCase();
 		for (Recipe recipe : this.allRecipes) {
-			if (spinneret.util.Levenshtein.damlevlim(query, recipe.name, 3) < 2) {
+			String normal_recipe_name = recipe.name.toLowerCase();
+			int damlev = spinneret.util.Levenshtein.damlevlim(normal_query, normal_recipe_name, 2);
+			if (damlev == 0) {
 				this.searchResultRecipes.add(recipe);
+				continue;
+			} else if (damlev == 1) {
+				secondaryList.add(recipe);
+				continue;
+			}
+
+			for (String normal_recipe_name_fragment : normal_recipe_name.split(" +")) {
+				damlev = spinneret.util.Levenshtein.damlevlim(normal_query, normal_recipe_name_fragment, 2);
+				if (damlev == 0) {
+					this.searchResultRecipes.add(recipe);
+					break;
+				} else if (damlev == 1) {
+					secondaryList.add(recipe);
+					continue;
+				}
 			}
 		}
+		this.searchResultRecipes.addAll(secondaryList);
 	}
 
 	synchronized void updateProducable(Set<String> pantry) {
