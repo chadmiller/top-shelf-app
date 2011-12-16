@@ -25,7 +25,6 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	public static class ViewHolder {
 		public TextView name;
 		public TextView ingredients;
-		public ImageView photo;
 		public ImageView favorited;
 	}
 
@@ -139,7 +138,6 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		if (convertView == null) {
 			convertView = inflater.inflate(R.layout.recipe_list_item, parent, false);
 			holder = new ViewHolder();
-			holder.photo = (ImageView) convertView.findViewById(R.id.recipe_image);
 			holder.name = (TextView) convertView.findViewById(R.id.recipe_name);
 			holder.ingredients = (TextView) convertView.findViewById(R.id.recipe_ingredients_list);
 			holder.favorited = (ImageView) convertView.findViewById(R.id.favorited);
@@ -185,7 +183,6 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		}
 		holder.ingredients.setText(recipe.ingredients.toString());
 		//holder.ingredients.setText(buffer.toString());
-		//holder.photo.setImageBitmap();  // FIXME glass type
 		if (bad) {
 			holder.name.setText(recipe.name + "*");
 		} else {

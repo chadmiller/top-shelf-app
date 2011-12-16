@@ -6,52 +6,40 @@
 		android:padding="6dp" >
 	
 	<ImageView
-			android:id="@+id/recipe_image"
-			android:layout_width="50px"
-			android:layout_height="50px"
-			android:layout_alignParentLeft="true"
-			android:layout_centerVertical="true"
-			android:paddingRight="10dp"
-			android:background="#00000000" />
-		
-	<ImageView
 			android:id="@+id/favorited"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_alignParentRight="true"
 			android:layout_centerVertical="true"
-			android:src="@android:drawable/star_big_on" />
+			android:src="@android:drawable/star_big_on"
+			/>
 	
 	<TextView
 			android:id="@+id/recipe_name"
 			android:layout_alignParentTop="true"
-			android:layout_toRightOf="@id/recipe_image"
 			android:layout_toLeftOf="@id/favorited"
 			android:layout_alignWithParentIfMissing="true"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="0dp"
 			android:paddingTop="0dp"
-			android:paddingLeft="6dp"
+			android:paddingLeft="20dp"
 			android:paddingRight="6dp"
 			android:singleLine="true"
 			android:ellipsize="end"
-			android:textColor="#fff"
 			android:textSize="22sp"
-			android:hint="recipe name" />
+			/>
 	
 	<TextView
 			android:id="@+id/recipe_ingredients_list"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:layout_below="@id/recipe_name"
-			android:layout_toRightOf="@id/recipe_image"
 			android:layout_toLeftOf="@id/favorited"
 			android:layout_alignWithParentIfMissing="true"
 			android:paddingTop="4dp"
 			android:paddingLeft="6dp"
 			android:paddingRight="6dp"
-			android:hint="no ingredients"
-			android:textColor="#fff" />
+			/>
 
 </RelativeLayout>
