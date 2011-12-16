@@ -137,7 +137,7 @@ class RecipeBook {
 				continue;
 			}
 
-			String normal_recipe_name_fragments[] = normal_recipe_name.split(" +");
+			String normal_recipe_name_fragments[] = normal_recipe_name.split("\\W+");
 			if (normal_recipe_name_fragments.length > 1) {
 				for (String normal_recipe_name_fragment : normal_recipe_name_fragments) {
 					damlev = spinneret.util.Levenshtein.damlevlim(normal_query, normal_recipe_name_fragment, 2);
