@@ -395,7 +395,7 @@ public class BookDisplay extends Activity {
 		menu.add(Menu.NONE, R.id.shoppingsuggestions, 3, R.string.shopping_suggestions).setIcon(R.drawable.ic_btn_suggest_shopping_list);
 		menu.add(Menu.NONE, R.id.feedback, 4, R.string.feedback);
 		menu.add(Menu.NONE, R.id.credits, 5, R.string.credits);
-		menu.add(Menu.NONE, R.id.togglefilter, 6, R.string.toggle_filter).setIcon(android.R.drawable.ic_menu_view);
+		menu.add(Menu.NONE, R.id.togglefilter, 6, R.string.toggle_filter).setIcon(R.drawable.ic_btn_toggle_viewable);
 		return true;
 	}
 
