@@ -132,19 +132,22 @@ class RecipeBook {
 			if (damlev == 0) {
 				this.searchResultRecipes.add(recipe);
 				continue;
-			} else if (damlev == 1) {
+			} else if ((normal_recipe_name.length() > 1) && (damlev == 1)) {
 				secondaryList.add(recipe);
 				continue;
 			}
 
-			for (String normal_recipe_name_fragment : normal_recipe_name.split(" +")) {
-				damlev = spinneret.util.Levenshtein.damlevlim(normal_query, normal_recipe_name_fragment, 2);
-				if (damlev == 0) {
-					this.searchResultRecipes.add(recipe);
-					break;
-				} else if (damlev == 1) {
-					secondaryList.add(recipe);
-					continue;
+			String normal_recipe_name_fragments[] = normal_recipe_name.split(" +");
+			if (normal_recipe_name_fragments.length > 1) {
+				for (String normal_recipe_name_fragment : normal_recipe_name_fragments) {
+					damlev = spinneret.util.Levenshtein.damlevlim(normal_query, normal_recipe_name_fragment, 2);
+					if (damlev == 0) {
+						this.searchResultRecipes.add(recipe);
+						break;
+					} else if ((normal_recipe_name_fragment.length() > 1) && (damlev == 1)) {
+						secondaryList.add(recipe);
+						break;
+					}
 				}
 			}
 		}
