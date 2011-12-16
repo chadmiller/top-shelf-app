@@ -34,7 +34,7 @@ final class RecipeBook {
 	final public Set<String> knownIngredients;
 
 	public RecipeBook() {
-		this.allRecipes = new ArrayList<Recipe>(2400);
+		this.allRecipes = new ArrayList<Recipe>(2600);
 		this.knownIngredients = new TreeSet<String>();
 		this.mostUsedIngredients = new ArrayList<String>(17);
 		this.allRecipeIndex = new Hashtable<String,Recipe>(2400);
@@ -120,7 +120,7 @@ final class RecipeBook {
 	synchronized void updateSearchResult(String query) {
 		this.searchResultRecipes.clear();
 
-		final List secondaryList = new LinkedList<Recipe>();
+		final List<Recipe> secondaryList = new LinkedList<Recipe>();
 
 		String normal_query = query.trim().toLowerCase();
 		for (Recipe recipe : this.allRecipes) {
@@ -168,7 +168,7 @@ final class RecipeBook {
 				this.producableRecipes.add(recipe);
 			} else if (size == 1) {
 				Object remaining = recipeNeeds.toArray()[0];
-				List<Recipe> l = (List<Recipe>) countRecipesSoleAdditionalIngredient.get(remaining);
+				List<Recipe> l = countRecipesSoleAdditionalIngredient.get(remaining);
 				if (l == null) {
 					l = new LinkedList<Recipe>();
 					countRecipesSoleAdditionalIngredient.put((String) remaining, l);

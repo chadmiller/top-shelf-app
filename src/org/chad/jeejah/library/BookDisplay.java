@@ -274,9 +274,9 @@ final public class BookDisplay extends Activity {
 		// Favorite recipes require ingredients
 		// This can't be computed by recipebook author.
 		final Bundle missingFavoritesIngredients = new Bundle();
-		Set missingIngredients = new TreeSet<String>();
+		Set<String> missingIngredients = new TreeSet<String>();
 		for (Map.Entry<String,?> entry : sp.getAll().entrySet()) {
-			final String key = (String) entry.getKey();
+			final String key = entry.getKey();
 			if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
 				final String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
 				Boolean isFavorited = (Boolean) entry.getValue();
@@ -287,7 +287,7 @@ final public class BookDisplay extends Activity {
 			}
 		}
 		missingIngredients.removeAll(this.pantry);
-		missingFavoritesIngredients.putStringArray("ingredients", (String[]) missingIngredients.toArray(new String[missingIngredients.size()]));
+		missingFavoritesIngredients.putStringArray("ingredients", missingIngredients.toArray(new String[missingIngredients.size()]));
 		intent.putExtra(ShoppingListActivity.FAV_KEY, missingFavoritesIngredients);
 
 		this.startActivity(intent);

@@ -115,7 +115,7 @@ public class RecipeActivity extends Activity {
 			TextView jargon = (TextView) findViewById(R.id.jargon_defined);
 			jargon.setText("Jargon:\n\n" + s.toString());
 		} else {
-			View v = (View) findViewById(R.id.jargon_seperator);
+			View v = findViewById(R.id.jargon_seperator);
 			v.setVisibility(View.GONE);
 		}
 

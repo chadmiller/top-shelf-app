@@ -54,7 +54,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 
 	public void setFavoritesFromPreferences(Map<String,?> prefs) {
 		for (Map.Entry<String,?> entry : prefs.entrySet()) {
-			final String key = (String) entry.getKey();
+			final String key = entry.getKey();
 			if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
 				final String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
 				final Boolean isFavorited = (Boolean) entry.getValue();

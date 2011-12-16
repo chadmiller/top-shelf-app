@@ -4,7 +4,7 @@ import java.util.TreeSet;
 import java.util.List;
 import java.util.LinkedList;
 
-final public class Recipe implements Comparable {
+final public class Recipe implements Comparable<Recipe> {
 
 	final public TreeSet<String> ingredients;
 	final public List<String> prepare_instructions;
@@ -27,11 +27,11 @@ final public class Recipe implements Comparable {
 		this.name = name;
 	}
 
-	public int compareTo(Object other) {
+	public int compareTo(Recipe other) {
 		if (this.name == null) {
 			return 1;
 		}
-		return this.name.compareTo(((Recipe) other).name);
+		return this.name.compareTo(other.name);
 	}
 
 	public String toString() {

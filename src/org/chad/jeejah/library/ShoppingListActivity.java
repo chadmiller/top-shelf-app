@@ -58,7 +58,7 @@ public class ShoppingListActivity extends Activity {
 			final Bundle bundle = intent.getBundleExtra(SINGLE_KEY);
 			final String[] ingredients = bundle.getStringArray("keys");
 
-			Comparator reverseSortIngredientsByRecipeCount = new Comparator<String>() {
+			Comparator<String> reverseSortIngredientsByRecipeCount = new Comparator<String>() {
 				public int compare(String lhs, String rhs) {
 					try {
 						final int lhsCount = bundle.getStringArray("enabledby "+lhs).length;
