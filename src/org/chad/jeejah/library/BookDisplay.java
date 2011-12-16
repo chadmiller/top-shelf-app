@@ -94,7 +94,7 @@ final public class BookDisplay extends Activity {
 			this.splashScreenText = (TextView) BookDisplay.this.splashDialog.findViewById(R.id.splash_screen_text);
 
 			final long startTime = android.os.SystemClock.uptimeMillis();
-			recipeBooks[0].load(new Runnable() {
+			recipeBooks[0].load(BookDisplay.this, new Runnable() {
 				private int n = 0;
 				public void run() {
 					n++;
@@ -148,7 +148,7 @@ final public class BookDisplay extends Activity {
 			BookDisplay.this.setUp();
 			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry, true);
 		} else {
-			this.recipeBook = new RecipeBook(this);
+			this.recipeBook = new RecipeBook();
 			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry, true);
 			showSplashScreen();
 			recipeBookLoader = new RecipeBookLoadTask();

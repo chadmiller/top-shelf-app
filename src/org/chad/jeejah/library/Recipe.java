@@ -23,9 +23,6 @@ final public class Recipe implements Comparable {
 		this.consume_instructions = new LinkedList<String>();
 	}
 	public Recipe(String name) {
-		//this.ingredients = new TreeSet<String>();
-		//this.prepare_instructions = new LinkedList<String>();
-		//this.consume_instructions = new LinkedList<String>();
 		this();
 		this.name = name;
 	}

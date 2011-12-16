@@ -33,9 +33,7 @@ final class RecipeBook {
 
 	final public Set<String> knownIngredients;
 
-	private Context context;
-
-	public RecipeBook(Context context) {
+	public RecipeBook() {
 		this.allRecipes = new ArrayList<Recipe>(2400);
 		this.knownIngredients = new TreeSet<String>();
 		this.mostUsedIngredients = new ArrayList<String>(17);
@@ -43,10 +41,9 @@ final class RecipeBook {
 		this.countRecipesSoleAdditionalIngredient = new Hashtable<String,List<Recipe>>();
 		this.producableRecipes = new ArrayList<Recipe>();
 		this.searchResultRecipes = new ArrayList<Recipe>();
-		this.context = context;
 	}
 
-	public void load(Runnable updater) {
+	public void load(Context context, Runnable updater) {
 
 		try {
 			java.io.InputStream gzfile = context.getResources().openRawResource(R.raw.recipes);
@@ -155,7 +152,6 @@ final class RecipeBook {
 	}
 
 	synchronized void updateProducable(Set<String> pantry) {
-		// Maybe this should be new-and-clobber.  Hopefully, single threaded.
 		this.producableRecipes.clear();
 		this.countRecipesSoleAdditionalIngredient.clear();
 
