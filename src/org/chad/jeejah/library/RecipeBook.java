@@ -19,19 +19,19 @@ import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.JsonToken;
 
-class RecipeBook {
+final class RecipeBook {
 	private final static String TAG = "org.chad.jeejah.library.RecipeBook";
 
 	public String version;
 
-	public Map<String,Recipe> allRecipeIndex;
-	public List<Recipe> searchResultRecipes;
-	public List<Recipe> allRecipes;
-	public List<Recipe> producableRecipes;
-	public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
-	public ArrayList<String> mostUsedIngredients;
+	final public Map<String,Recipe> allRecipeIndex;
+	final public List<Recipe> searchResultRecipes;
+	final public List<Recipe> allRecipes;
+	final public List<Recipe> producableRecipes;
+	final public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
+	final public ArrayList<String> mostUsedIngredients;
 
-	public Set<String> knownIngredients;
+	final public Set<String> knownIngredients;
 
 	private Context context;
 
@@ -123,11 +123,11 @@ class RecipeBook {
 	synchronized void updateSearchResult(String query) {
 		this.searchResultRecipes.clear();
 
-		List secondaryList = new LinkedList<Recipe>();
+		final List secondaryList = new LinkedList<Recipe>();
 
 		String normal_query = query.trim().toLowerCase();
 		for (Recipe recipe : this.allRecipes) {
-			String normal_recipe_name = recipe.name.toLowerCase();
+			final String normal_recipe_name = recipe.name.toLowerCase();
 			int damlev = spinneret.util.Levenshtein.damlevlim(normal_query, normal_recipe_name, 2);
 			if (damlev == 0) {
 				this.searchResultRecipes.add(recipe);
@@ -164,7 +164,7 @@ class RecipeBook {
 		}
 
 		for (Recipe recipe : this.allRecipes) {
-			Set<String> recipeNeeds = new TreeSet<String>(recipe.ingredients);
+			final Set<String> recipeNeeds = new TreeSet<String>(recipe.ingredients);
 			recipeNeeds.removeAll(pantry);
 			int size = recipeNeeds.size();
 

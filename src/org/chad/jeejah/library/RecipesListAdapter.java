@@ -28,20 +28,20 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		public ImageView favorited;
 	}
 
-	private Set<String> favorites;
+	final private Set<String> favorites;
+
+	final private RecipeBook recipeBook;
+	final private LayoutInflater inflater;
 
 	private Set<String> pantry;
-	private RecipeBook recipeBook;
 	private boolean useProducableOnly;
-	private LayoutInflater inflater;
-
 	public List targetRecipeList;
 	public List pushedStateTargetRecipeList;
 
 	public void onSharedPreferenceChanged (SharedPreferences sharedPreferences, String key) {
 		if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
-			String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
-			boolean isFavorited = sharedPreferences.getBoolean(key, false);
+			final String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
+			final boolean isFavorited = sharedPreferences.getBoolean(key, false);
 			if (isFavorited) {
 				favorites.add(recipeName);
 				this.tracker.trackEvent("Clicks", "Favorited", recipeName, 1);
@@ -54,10 +54,10 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 
 	public void setFavoritesFromPreferences(Map<String,?> prefs) {
 		for (Map.Entry<String,?> entry : prefs.entrySet()) {
-			String key = (String) entry.getKey();
+			final String key = (String) entry.getKey();
 			if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
-				String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
-				Boolean isFavorited = (Boolean) entry.getValue();
+				final String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
+				final Boolean isFavorited = (Boolean) entry.getValue();
 				if (isFavorited) {
 					favorites.add(recipeName);
 				} else {
@@ -134,7 +134,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ViewHolder holder;
+		final ViewHolder holder;
 		if (convertView == null) {
 			convertView = inflater.inflate(R.layout.recipe_list_item, parent, false);
 			holder = new ViewHolder();
@@ -146,7 +146,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 			holder = (ViewHolder) convertView.getTag();
 		}
 
-		Recipe recipe = (Recipe) this.targetRecipeList.get(position);
+		final Recipe recipe = (Recipe) this.targetRecipeList.get(position);
 
 		boolean bad = false;
 		Iterator<String> iter = recipe.ingredients.iterator();

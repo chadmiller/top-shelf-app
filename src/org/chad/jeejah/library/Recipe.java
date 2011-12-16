@@ -4,11 +4,11 @@ import java.util.TreeSet;
 import java.util.List;
 import java.util.LinkedList;
 
-public class Recipe implements Comparable {
+final public class Recipe implements Comparable {
 
-	public TreeSet<String> ingredients;
-	public List<String> prepare_instructions;
-	public List<String> consume_instructions;
+	final public TreeSet<String> ingredients;
+	final public List<String> prepare_instructions;
+	final public List<String> consume_instructions;
 	public String name;
 	public String glass;
 
@@ -23,9 +23,10 @@ public class Recipe implements Comparable {
 		this.consume_instructions = new LinkedList<String>();
 	}
 	public Recipe(String name) {
-		this.ingredients = new TreeSet<String>();
-		this.prepare_instructions = new LinkedList<String>();
-		this.consume_instructions = new LinkedList<String>();
+		//this.ingredients = new TreeSet<String>();
+		//this.prepare_instructions = new LinkedList<String>();
+		//this.consume_instructions = new LinkedList<String>();
+		this();
 		this.name = name;
 	}
 

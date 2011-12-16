@@ -38,7 +38,7 @@ import com.markupartist.android.widget.ActionBar.IntentAction;
 
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
-public class BookDisplay extends Activity {
+final public class BookDisplay extends Activity {
 	private final static String TAG = "org.chad.jeejah.library.BookDisplay";
 
 	public static final String GOOG_ANALYTICS_ID = "U" + "A-" + 5168704 + "-3";
@@ -62,7 +62,7 @@ public class BookDisplay extends Activity {
 			return;
 		}
 
-		Bundle extras = intent.getExtras();
+		final Bundle extras = intent.getExtras();
 		if (extras != null) {
 			Log.d(TAG, "Handling intent with data: " + extras.toString());
 		} else {
@@ -71,7 +71,7 @@ public class BookDisplay extends Activity {
 
 		// Handle search
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-			String query = intent.getStringExtra(android.app.SearchManager.QUERY);
+			final String query = intent.getStringExtra(android.app.SearchManager.QUERY);
 			Log.d(TAG, "Search for " + query + " now!");
 			recipeBook.updateSearchResult(query);
 			this.actionBar.setTitle("Drinks  \u201C" + query + "\u201D");
@@ -93,7 +93,7 @@ public class BookDisplay extends Activity {
 		protected Integer doInBackground(RecipeBook... recipeBooks) {
 			this.splashScreenText = (TextView) BookDisplay.this.splashDialog.findViewById(R.id.splash_screen_text);
 
-			long startTime = android.os.SystemClock.uptimeMillis();
+			final long startTime = android.os.SystemClock.uptimeMillis();
 			recipeBooks[0].load(new Runnable() {
 				private int n = 0;
 				public void run() {
@@ -155,19 +155,19 @@ public class BookDisplay extends Activity {
 			recipeBookLoader.execute(this.recipeBook);
 		}
 
-		LinearLayout loadingIndicator = (LinearLayout) findViewById(R.id.loading_indicator);
+		final LinearLayout loadingIndicator = (LinearLayout) findViewById(R.id.loading_indicator);
 		loadingIndicator.setVisibility(View.GONE);
 
 		this.sp = PreferenceManager.getDefaultSharedPreferences(this);
 		sp.registerOnSharedPreferenceChangeListener(this.recipeAdapter);
 		this.recipeAdapter.setFavoritesFromPreferences(sp.getAll());
 
-		ListView recipeListView = (ListView) findViewById(R.id.recipe_list);
+		final ListView recipeListView = (ListView) findViewById(R.id.recipe_list);
 		recipeListView.setAdapter(this.recipeAdapter);
 		recipeListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Recipe recipe = (Recipe) parent.getItemAtPosition(position);
-				Intent intent = new Intent(BookDisplay.this, RecipeActivity.class);
+				final Recipe recipe = (Recipe) parent.getItemAtPosition(position);
+				final Intent intent = new Intent(BookDisplay.this, RecipeActivity.class);
 				intent.setAction(Intent.ACTION_VIEW);
 				android.os.Bundle recipe_info = new android.os.Bundle();
 				recipe_info.putString(Recipe.KEY_NAME, recipe.name);
@@ -252,12 +252,12 @@ public class BookDisplay extends Activity {
 	}
 
 	void startShowShoppingList() {
-		Intent intent = new Intent(this, ShoppingListActivity.class);
+		final Intent intent = new Intent(this, ShoppingListActivity.class);
 		intent.setAction(Intent.ACTION_VIEW);
 
 		// Single productive ingredients
 		// This can't be computed by recipebook author.
-		Bundle singleIngredients = new Bundle();
+		final Bundle singleIngredients = new Bundle();
 		singleIngredients.putStringArray("keys", this.recipeBook.countRecipesSoleAdditionalIngredient.keySet().toArray(new String[this.recipeBook.countRecipesSoleAdditionalIngredient.size()]));
 
 		for (Map.Entry<String,List<Recipe>> entry : this.recipeBook.countRecipesSoleAdditionalIngredient.entrySet()) {
@@ -266,22 +266,22 @@ public class BookDisplay extends Activity {
 		intent.putExtra(ShoppingListActivity.SINGLE_KEY, singleIngredients);
 
 		// Most common ingredients
-		Bundle mostCommonIngredients = new Bundle();
+		final Bundle mostCommonIngredients = new Bundle();
 		// TODO:  Don't include items that are in the pantry.
 		mostCommonIngredients.putStringArrayList("ingredients", this.recipeBook.mostUsedIngredients);
 		intent.putExtra(ShoppingListActivity.MOSTUSED_KEY, mostCommonIngredients);
 
 		// Favorite recipes require ingredients
 		// This can't be computed by recipebook author.
-		Bundle missingFavoritesIngredients = new Bundle();
+		final Bundle missingFavoritesIngredients = new Bundle();
 		Set missingIngredients = new TreeSet<String>();
 		for (Map.Entry<String,?> entry : sp.getAll().entrySet()) {
-			String key = (String) entry.getKey();
+			final String key = (String) entry.getKey();
 			if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
-				String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
+				final String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
 				Boolean isFavorited = (Boolean) entry.getValue();
 				if (isFavorited) {
-					Recipe r = this.recipeBook.allRecipeIndex.get(recipeName);
+					final Recipe r = this.recipeBook.allRecipeIndex.get(recipeName);
 					missingIngredients.addAll(r.ingredients);
 				}
 			}
@@ -300,7 +300,7 @@ public class BookDisplay extends Activity {
 	}
 
 	void startSetIngredients() {
-		Intent intent = new Intent(this, Pantry.class);
+		final Intent intent = new Intent(this, Pantry.class);
 		intent.putExtra("ingredients", this.recipeBook.knownIngredients.toArray(new String[this.recipeBook.knownIngredients.size()]));
 		this.startActivityForResult(intent, 1);
 	}
@@ -327,10 +327,10 @@ public class BookDisplay extends Activity {
 	void setUp() {
 
 		this.pantry.clear();
-		Iterator it = sp.getAll().keySet().iterator();
+		final Iterator it = sp.getAll().keySet().iterator();
 		while (it.hasNext()) {
-			Object k = it.next();
-			String name = (String) k;
+			final Object k = it.next();
+			final String name = (String) k;
 			if (name.startsWith(Pantry.PREF_PREFIX)) {
 				if (sp.getBoolean(name, false)) {
 					String s = name.substring(Pantry.PREF_PREFIX.length());
@@ -361,13 +361,13 @@ public class BookDisplay extends Activity {
 			.setMessage(R.string.welcome_message)
 			.setPositiveButton(R.string.begin, new DialogInterface.OnClickListener() { 
 				public void onClick(DialogInterface dialog, int which) {
-					Intent intent = new Intent(BookDisplay.this, Pantry.class);
+					final Intent intent = new Intent(BookDisplay.this, Pantry.class);
 					intent.putExtra("ingredients", BookDisplay.this.recipeBook.knownIngredients.toArray(new String[BookDisplay.this.recipeBook.knownIngredients.size()]));
 					BookDisplay.this.startActivityForResult(intent, 1);
 				}
 			}).setNegativeButton(R.string.help, new DialogInterface.OnClickListener() { 
 				public void onClick(DialogInterface dialog, int which) {
-					Intent intent = new Intent(BookDisplay.this, Instructions.class);
+					final Intent intent = new Intent(BookDisplay.this, Instructions.class);
 					BookDisplay.this.startActivity(intent);
 				}
 			});
@@ -402,7 +402,7 @@ public class BookDisplay extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
-		Intent intent;
+		final Intent intent;
 		switch (item.getItemId()) {
 			case R.id.search:
 				startSearch(null, false, null, false);

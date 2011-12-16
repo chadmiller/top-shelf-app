@@ -14,7 +14,7 @@ import com.markupartist.android.widget.ActionBar.IntentAction;
 
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
-public class Credits extends Activity {
+final public class Credits extends Activity {
 	private final static String TAG = "org.chad.jeejah.library.Credits";
 	private GoogleAnalyticsTracker tracker;
 
@@ -24,7 +24,7 @@ public class Credits extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.credits);
 
-		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
+		final ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		actionBar.setOnTitleClickListener(new View.OnClickListener() {
@@ -44,7 +44,7 @@ public class Credits extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		Intent intent;
+		final Intent intent;
 		switch (item.getItemId()) {
 			case R.id.instructions:
 				intent = new Intent(this, Instructions.class);

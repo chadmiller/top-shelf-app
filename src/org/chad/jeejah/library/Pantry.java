@@ -22,7 +22,7 @@ import com.markupartist.android.widget.ActionBar.IntentAction;
 
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
-public class Pantry extends PreferenceActivity {
+final public class Pantry extends PreferenceActivity {
 	private final static String TAG = "org.chad.jeejah.library.Pantry";
 	private GoogleAnalyticsTracker tracker;
 

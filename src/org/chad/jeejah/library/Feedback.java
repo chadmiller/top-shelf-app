@@ -24,7 +24,7 @@ public class Feedback extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.feedback);
 
-		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
+		final ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		actionBar.setOnTitleClickListener(new View.OnClickListener() {
@@ -45,7 +45,7 @@ public class Feedback extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
-		Intent intent;
+		final Intent intent;
 		switch (item.getItemId()) {
 			case R.id.instructions:
 				intent = new Intent(this, Instructions.class);

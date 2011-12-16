@@ -42,13 +42,13 @@ public class ShoppingListActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.shopping_list);
 
-		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
+		final ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		actionBar.setOnTitleClickListener(new View.OnClickListener() {
 				public void onClick(View v) { ShoppingListActivity.this.finish(); } });
 
-		Intent intent = getIntent();
+		final Intent intent = getIntent();
 
 		this.tracker = GoogleAnalyticsTracker.getInstance();
 		this.tracker.startNewSession(BookDisplay.GOOG_ANALYTICS_ID, 60, this);
@@ -62,9 +62,9 @@ public class ShoppingListActivity extends Activity {
 			Comparator reverseSortIngredientsByRecipeCount = new Comparator<String>() {
 				public int compare(String lhs, String rhs) {
 					try {
-						int lhsCount = bundle.getStringArray("enabledby "+lhs).length;
+						final int lhsCount = bundle.getStringArray("enabledby "+lhs).length;
 						try {
-							int rhsCount = bundle.getStringArray("enabledby "+rhs).length;
+							final int rhsCount = bundle.getStringArray("enabledby "+rhs).length;
 							return rhsCount - lhsCount; // sort descending
 						} catch (NullPointerException ex) {
 							return 1;
