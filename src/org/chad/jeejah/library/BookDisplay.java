@@ -58,16 +58,10 @@ final public class BookDisplay extends Activity {
 
 	private void handleIntent(Intent intent) {
 		if (intent == null) {
-			Log.d(TAG, "NO INTENT");
 			return;
 		}
 
 		final Bundle extras = intent.getExtras();
-		if (extras != null) {
-			Log.d(TAG, "Handling intent with data: " + extras.toString());
-		} else {
-			Log.d(TAG, "Handling intent with no data");
-		}
 
 		// Handle search
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
@@ -138,7 +132,28 @@ final public class BookDisplay extends Activity {
 
 		this.tracker = GoogleAnalyticsTracker.getInstance();
 		this.tracker.startNewSession(GOOG_ANALYTICS_ID, 60, this);
-		this.tracker.trackPageView("/" + TAG);
+
+		Thread report = new Thread(new Runnable() {
+			public void run() {
+				final String NAME = "Pkg";
+				try { Thread.sleep(5000); } catch (InterruptedException ex) { }
+				final String pn = BookDisplay.this.getPackageName();
+				BookDisplay.this.tracker.trackPageView("/" + TAG);
+				BookDisplay.this.tracker.trackEvent(NAME, "PN", pn, 1);
+
+				final android.content.pm.PackageManager pm = BookDisplay.this.getPackageManager();
+				try {
+					final android.content.pm.PackageInfo pi = pm.getPackageInfo(pn, android.content.pm.PackageManager.GET_SIGNATURES);
+					for (android.content.pm.Signature sig : pi.signatures) {
+						BookDisplay.this.tracker.trackEvent(NAME, "Sigs", sig.toCharsString(), 1);
+					}
+					BookDisplay.this.tracker.trackEvent(NAME, "Ver", pi.versionName, 1);
+				} catch (android.content.pm.PackageManager.NameNotFoundException ex) {
+					BookDisplay.this.tracker.trackEvent(NAME, "pn", pn, 1);
+				}
+			}
+		});
+		report.start();
 
 		this.pantry = new HashSet<String>();
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
