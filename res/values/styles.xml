@@ -37,17 +37,18 @@
     <style name="ActionBarProgressBar" parent="@android:style/Widget.ProgressBar.Small">
     </style>
 
-    <style name="Drinks.SearchBar">
-        <item name="android:textColor">@android:color/black</item>
-    </style>
     <style name="Drinks.WindowTitle">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="android:textColorTertiary">@android:color/white</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">16dip</item>
     </style>
     <style name="Drinks.Title">
         <item name="android:paddingLeft">12sp</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="android:textColorTertiary">@android:color/white</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAppearance">@style/Drinks.WindowTitle</item>
     </style>
@@ -55,7 +56,9 @@
         <item name="android:background">@drawable/actionbar_background</item>
     </style>
     <style name="Drinks" parent="android:Theme">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="android:textColorTertiary">@android:color/white</item>
         <item name="android:windowTitleBackgroundStyle">@style/Drinks.TitleBackground</item>
         <item name="android:windowTitleStyle">@style/Drinks.Title</item>
     </style>
