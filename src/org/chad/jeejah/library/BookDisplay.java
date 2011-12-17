@@ -340,12 +340,8 @@ final public class BookDisplay extends Activity {
 
 
 	void setUp() {
-
 		this.pantry.clear();
-		final Iterator it = sp.getAll().keySet().iterator();
-		while (it.hasNext()) {
-			final Object k = it.next();
-			final String name = (String) k;
+		for (String name : sp.getAll().keySet()) {
 			if (name.startsWith(Pantry.PREF_PREFIX)) {
 				if (sp.getBoolean(name, false)) {
 					String s = name.substring(Pantry.PREF_PREFIX.length());
