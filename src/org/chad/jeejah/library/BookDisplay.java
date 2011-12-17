@@ -29,7 +29,6 @@ import java.util.TreeSet;
 import java.util.Map;
 import java.util.List;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Collection;
 
 import com.markupartist.android.widget.ActionBar;
@@ -257,10 +256,8 @@ final public class BookDisplay extends Activity {
 
 	private String[] toStringsArray(List<Recipe> l) {
 		String[] arr = new String[l.size()];
-		Iterator it = l.iterator();
 		int i = 0;
-		while (it.hasNext()) {
-			Recipe r = (Recipe) it.next();
+		for (Recipe r : l) {
 			arr[i++] = r.name;
 		}
 		return arr;
