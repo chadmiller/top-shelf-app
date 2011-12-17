@@ -7,17 +7,17 @@
  <g id="Background">
   <path style="fill:#ffffff; fill-rule:evenodd; fill-opacity:0.3;stroke:#ffffff; stroke-opacity:0.8; stroke-width:11; stroke-linecap:butt; stroke-linejoin:miter; stroke-dasharray:none;" d="M0.705107 298.338 C105.427 298.992 105.123 298.338 105.123 298.338 C105.123 298.338 104.306 133.658 105.123 88.0134 C105.427 65.6381 90.8477 71.972 69.3229 44.7508 L69.3229 0 L35.7599 0 C35.7599 0 35.8903 24.3053 35.7599 44.7508 C15.1412 71.4112 0.705107 65.2428 0.705107 88.0134 C0 123.564 0.705107 298.338 0.705107 298.338 L0.705107 298.338 Z" transform="translate(42.6362, 158.22)"/>
   <path style="fill:none;stroke:#ffffff; stroke-opacity:0.7; stroke-width:9; stroke-linecap:butt; stroke-linejoin:miter; stroke-dasharray:18, 9, 4.5, 9;" d="M0.705107 298.338 C105.427 298.991 105.123 298.338 105.123 298.338 C105.123 298.338 104.306 133.657 105.123 88.0134 C105.427 65.6381 90.8477 71.972 69.3229 44.7508 L69.3229 0 L35.7599 0 C35.7599 0 35.8903 24.3053 35.7599 44.7508 C15.1412 71.4112 0.705107 65.2428 0.705107 88.0134 C0 123.564 0.705107 298.338 0.705107 298.338 L0.705107 298.338 Z" transform="translate(197.651, 158.22)"/>
-  <g transform="translate(36.15, 27)">
-   <use style="fill:#ffffff;stroke:none;" xlink:href="#GlOpenSymbol58564" transform="matrix(11.5 0 0 11.5 0 -26.4023)"/>
+  <g transform="translate(38.15, 29)">
+   <use style="fill:#ffffff;stroke:none;" xlink:href="#GlOpenSymbol58564" transform="matrix(13 0 0 13 0 -29.9766)"/>
    <path style="fill:none; stroke:none;" d="M0 0 L161.712 0 L161.712 162.71 L0 162.71 L0 0 Z"/>
   </g>
-  <g transform="translate(193.127, 31.435)">
-   <use style="fill:#ffffff;stroke:none;" xlink:href="#GlOpenSymbol58748" transform="matrix(11.5 0 0 11.5 0 -30.8945)"/>
+  <g transform="translate(191.13, 33.435)">
+   <use style="fill:#ffffff;stroke:none;" xlink:href="#GlOpenSymbol58748" transform="matrix(13 0 0 13 0 -35.0547)"/>
    <path style="fill:none; stroke:none;" d="M0 0 L177.147 0 L177.147 165.516 L0 165.516 L0 0 Z"/>
   </g>
   <path style="fill:none;stroke:#ffffff; stroke-opacity:0.7; stroke-width:9; stroke-linecap:butt; stroke-linejoin:miter; stroke-dasharray:18, 9, 4.5, 9;" d="M0.705107 298.338 C105.427 298.991 105.123 298.338 105.123 298.338 C105.123 298.338 104.306 133.657 105.123 88.0134 C105.427 65.6381 90.8477 71.972 69.3229 44.7508 L69.3229 0 L35.7599 0 C35.7599 0 35.8903 24.3053 35.7599 44.7508 C15.1412 71.4112 0.705107 65.2428 0.705107 88.0134 C0 123.564 0.705107 298.338 0.705107 298.338 L0.705107 298.338 Z" transform="translate(352.877, 158.22)"/>
-  <g transform="translate(348.353, 31.435)">
-   <use style="fill:#ffffff;stroke:none;" xlink:href="#GlOpenSymbol58748" transform="matrix(11.5 0 0 11.5 0 -30.8945)"/>
+  <g transform="translate(348.353, 33.435)">
+   <use style="fill:#ffffff;stroke:none;" xlink:href="#GlOpenSymbol58748" transform="matrix(13 0 0 13 0 -35.0547)"/>
    <path style="fill:none; stroke:none;" d="M0 0 L177.147 0 L177.147 165.516 L0 165.516 L0 0 Z"/>
   </g>
  </g>
