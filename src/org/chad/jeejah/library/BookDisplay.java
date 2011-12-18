@@ -127,7 +127,7 @@ final public class BookDisplay extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
-		setContentView(R.layout.main);
+		setContentView(R.layout.book_display);
 
 		this.tracker = GoogleAnalyticsTracker.getInstance();
 		this.tracker.startNewSession(GOOG_ANALYTICS_ID, 60, this);
