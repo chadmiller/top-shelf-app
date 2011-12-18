@@ -108,7 +108,6 @@ final public class BookDisplay extends Activity {
 
 		@Override
 		protected void onPostExecute(Integer i) {
-			splashScreenText.setText("A moment to process...");
 			BookDisplay.this.setUp();
 			BookDisplay.this.removeSplashScreen();
 
