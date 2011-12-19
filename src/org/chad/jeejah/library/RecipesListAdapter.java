@@ -172,7 +172,7 @@ Log.d(TAG, "nextFilterState  2");
 Log.d(TAG, "nextFilterState  3 now at all");
 					this.targetRecipeList = recipeBook.allRecipes;
 					android.widget.Toast.makeText(context, R.string.using_unfiltered_bc_nothing_here, android.widget.Toast.LENGTH_LONG).show();
-					footnote.setText(R.string.there_are_none);
+					footnote.setText(R.string.a_recipe_not_available);
 					footnote.setVisibility(View.VISIBLE);
 					return "(all)";
 				} else {
@@ -191,7 +191,8 @@ Log.d(TAG, "nextFilterState  6");
 			} else if (this.targetRecipeList == recipeBook.producableRecipes) {
 Log.d(TAG, "nextFilterState  7 now at all");
 				this.targetRecipeList = recipeBook.allRecipes;
-				footnote.setVisibility(View.GONE);
+				footnote.setText(R.string.a_recipe_not_available);
+				footnote.setVisibility(View.VISIBLE);
 				return "(all)";
 			} else if (this.targetRecipeList == recipeBook.allRecipes) {
 Log.d(TAG, "nextFilterState  8 now at favorite");
