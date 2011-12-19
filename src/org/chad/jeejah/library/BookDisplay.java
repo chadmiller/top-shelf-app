@@ -55,72 +55,6 @@ final public class BookDisplay extends Activity {
 	private Dialog splashDialog;
 
 
-	private void handleIntent(Intent intent) {
-		if (intent == null) {
-			return;
-		}
-
-		final Bundle extras = intent.getExtras();
-
-		// Handle search
-		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-			final String query = intent.getStringExtra(android.app.SearchManager.QUERY);
-			Log.d(TAG, "Search for " + query + " now!");
-			recipeBook.updateSearchResult(query);
-			this.actionBar.setTitle("Drinks  \u201C" + query + "\u201D");
-			this.recipeAdapter.search(true);
-			this.recipeListFootnote.setVisibility(View.GONE);
-		}
-	}
-
-	@Override
-	protected void onNewIntent(Intent intent) {
-		setIntent(intent);
-		handleIntent(intent);
-	}
-
-	private class RecipeBookLoadTask extends AsyncTask<RecipeBook, Integer, Integer> {
-		private TextView splashScreenText;
-
-		@Override
-		protected Integer doInBackground(RecipeBook... recipeBooks) {
-			this.splashScreenText = (TextView) BookDisplay.this.splashDialog.findViewById(R.id.splash_screen_text);
-
-			final long startTime = android.os.SystemClock.uptimeMillis();
-			recipeBooks[0].load(BookDisplay.this, new Runnable() {
-				private int n = 0;
-				public void run() {
-					n++;
-					if ((n % 147) == 0) {
-						RecipeBookLoadTask.this.publishProgress(n);
-					}
-				}
-			});
-			BookDisplay.this.tracker.trackEvent("Performance", "RecipeBookLoading", "Elapsed", (int) (android.os.SystemClock.uptimeMillis() - startTime));
-
-			return new Integer(1);
-		}
-
-		@Override
-		protected void onProgressUpdate(Integer... progresses) {
-			splashScreenText.setText("Loading recipe #" + progresses[0]);
-		}
-
-		@Override
-		protected void onPostExecute(Integer i) {
-			BookDisplay.this.setUp();
-			BookDisplay.this.removeSplashScreen();
-
-			if (BookDisplay.this.recipeAdapter.isFiltered()) {
-				if (BookDisplay.this.recipeAdapter.targetRecipeList.size() == 0) {
-					BookDisplay.this.toggleFilterState();
-					android.widget.Toast.makeText(BookDisplay.this, R.string.using_unfiltered_bc_nothing_here, android.widget.Toast.LENGTH_LONG).show();
-				}
-			}
-
-		}
-	}
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -131,39 +65,16 @@ final public class BookDisplay extends Activity {
 		this.tracker = GoogleAnalyticsTracker.getInstance();
 		this.tracker.startNewSession(GOOG_ANALYTICS_ID, 60, this);
 
-		Thread report = new Thread(new Runnable() {
-			public void run() {
-				final String NAME = "Pkg";
-				try { Thread.sleep(5000); } catch (InterruptedException ex) { }
-				final String pn = BookDisplay.this.getPackageName();
-				BookDisplay.this.tracker.trackPageView("/" + TAG);
-				BookDisplay.this.tracker.trackEvent(NAME, "PN", pn, 1);
-
-				final android.content.pm.PackageManager pm = BookDisplay.this.getPackageManager();
-				try {
-					final android.content.pm.PackageInfo pi = pm.getPackageInfo(pn, android.content.pm.PackageManager.GET_SIGNATURES);
-					for (android.content.pm.Signature sig : pi.signatures) {
-						BookDisplay.this.tracker.trackEvent(NAME, "Sigs", sig.toCharsString(), 1);
-					}
-					BookDisplay.this.tracker.trackEvent(NAME, "Ver", pi.versionName, 1);
-				} catch (android.content.pm.PackageManager.NameNotFoundException ex) {
-					BookDisplay.this.tracker.trackEvent(NAME, "pn", pn, 1);
-				}
-			}
-		});
-		report.start();
-
 		this.pantry = new HashSet<String>();
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
 
 		RecipeBookLoadTask recipeBookLoader = null;
 		if (this.recipeBook != null) {
 			BookDisplay.this.setUp();
-			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry, true);
+			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry);
 		} else {
 			this.recipeBook = new RecipeBook();
-			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry, true);
-			showSplashScreen();
+			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry);
 			recipeBookLoader = new RecipeBookLoadTask();
 			recipeBookLoader.execute(this.recipeBook);
 		}
@@ -208,8 +119,7 @@ final public class BookDisplay extends Activity {
 			}
 			@Override
 			public void performAction(View view) {
-				BookDisplay.this.toggleFilterState();
-				BookDisplay.this.tracker.trackEvent("Clicks", "Action", "Toggle", 1);
+				BookDisplay.this.nextFilterState();
 			}
 		}
 		this.actionBar.addAction(new ListToggleAction());
@@ -247,10 +157,8 @@ final public class BookDisplay extends Activity {
 			}
 		});
 
-		this.actionBar.setTitle("Drinks  (" + this.recipeAdapter.getDescription() + ")");
-
 		handleIntent(getIntent());
-
+		new Thread(new ReportingRunnable()).start();
 	}
 
 	private String[] toStringsArray(List<Recipe> l) {
@@ -304,60 +212,15 @@ final public class BookDisplay extends Activity {
 		this.startActivity(intent);
 	}
 
-	void toggleFilterState() {
-		this.recipeAdapter.toggleVisibility();
-		this.updateFootnote();
-		this.actionBar.setTitle("Drinks  (" + this.recipeAdapter.getDescription() + ")");
+	void nextFilterState() {
+		String filterState = this.recipeAdapter.nextFilterState(this, this.recipeListFootnote);
+		this.actionBar.setTitle("Drinks " + filterState);
 	}
 
 	void startSetIngredients() {
 		final Intent intent = new Intent(this, Pantry.class);
 		intent.putExtra("ingredients", this.recipeBook.knownIngredients.toArray(new String[this.recipeBook.knownIngredients.size()]));
 		this.startActivityForResult(intent, 1);
-	}
-
-
-	void updateFootnote() {
-		if (this.recipeAdapter.isFiltered()) {
-			if (this.recipeAdapter.targetRecipeList.size() == 0) {
-				this.recipeListFootnote.setText(R.string.there_are_none);
-				this.recipeListFootnote.setVisibility(View.VISIBLE);
-			} else if (this.recipeAdapter.targetRecipeList.size() < 15) {
-				this.recipeListFootnote.setText(R.string.there_are_too_few);
-				this.recipeListFootnote.setVisibility(View.VISIBLE);
-			} else {
-				this.recipeListFootnote.setVisibility(View.GONE);
-			}
-		} else {
-			this.recipeListFootnote.setVisibility(View.VISIBLE);
-			this.recipeListFootnote.setText(R.string.a_recipe_not_available);
-		}
-	}
-
-
-	void setUp() {
-		this.pantry.clear();
-		for (String name : sp.getAll().keySet()) {
-			if (name.startsWith(Pantry.PREF_PREFIX)) {
-				if (sp.getBoolean(name, false)) {
-					String s = name.substring(Pantry.PREF_PREFIX.length());
-					this.pantry.add(s);
-					this.tracker.trackEvent("SetUp", "InPantry", s, 1);
-				}
-			}
-		}
-
-		if (! sp.getBoolean("SEEN_INTRO", false)) {
-			showDialog(1);
-			SharedPreferences.Editor e = sp.edit();
-			e.putBoolean("SEEN_INTRO", true);
-			e.commit();
-			this.tracker.trackEvent("Initialize", "App", "Introduction", 1);
-		}
-
-		this.recipeBook.updateProducable(this.pantry);
-		this.recipeAdapter.updatePantry(this.pantry);
-		this.updateFootnote();
 	}
 
 
@@ -430,7 +293,7 @@ final public class BookDisplay extends Activity {
 				startShowShoppingList();
 				return true;
 			case R.id.togglefilter:
-				toggleFilterState();
+				nextFilterState();
 				return true;
 			case R.id.credits:
 				intent = new Intent(this, Credits.class);
@@ -446,6 +309,12 @@ final public class BookDisplay extends Activity {
 		super.onDestroy();
 		this.tracker.dispatch();
 		this.tracker.stopSession();
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent) {
+		setIntent(intent);
+		handleIntent(intent);
 	}
 
 
@@ -477,6 +346,109 @@ final public class BookDisplay extends Activity {
 		  }
 		}, 3000);
 	}
+
+	private void handleIntent(Intent intent) {
+		if (intent == null) {
+			return;
+		}
+
+		final Bundle extras = intent.getExtras();
+
+		// Handle search
+		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+			final String query = intent.getStringExtra(android.app.SearchManager.QUERY);
+			Log.d(TAG, "Search for " + query + " now!");
+			String filterState = this.recipeAdapter.search(query);
+			this.actionBar.setTitle("Drinks " + filterState);
+		}
+	}
+
+	private class RecipeBookLoadTask extends AsyncTask<RecipeBook, Integer, Integer> {
+		private TextView splashScreenText;
+
+		@Override
+		protected void onPreExecute() {
+			showSplashScreen();
+		}
+
+		@Override
+		protected Integer doInBackground(RecipeBook... recipeBooks) {
+			this.splashScreenText = (TextView) BookDisplay.this.splashDialog.findViewById(R.id.splash_screen_text);
+
+			final long startTime = android.os.SystemClock.uptimeMillis();
+			recipeBooks[0].load(BookDisplay.this, new Runnable() {
+				private int n = 0;
+				public void run() {
+					n++;
+					if ((n % 147) == 0) {
+						RecipeBookLoadTask.this.publishProgress(n);
+					}
+				}
+			});
+			BookDisplay.this.tracker.trackEvent("Performance", "RecipeBookLoading", "Elapsed", (int) (android.os.SystemClock.uptimeMillis() - startTime));
+
+			return new Integer(1);
+		}
+
+		@Override
+		protected void onProgressUpdate(Integer... progresses) {
+			splashScreenText.setText("Loading recipe #" + progresses[0]);
+		}
+
+		@Override
+		protected void onPostExecute(Integer i) {
+			BookDisplay.this.setUp();
+			BookDisplay.this.nextFilterState();
+			BookDisplay.this.removeSplashScreen();
+		}
+	}
+
+
+	void setUp() {
+		this.pantry.clear();
+		for (String name : sp.getAll().keySet()) {
+			if (name.startsWith(Pantry.PREF_PREFIX)) {
+				if (sp.getBoolean(name, false)) {
+					String s = name.substring(Pantry.PREF_PREFIX.length());
+					this.pantry.add(s);
+					this.tracker.trackEvent("SetUp", "InPantry", s, 1);
+				}
+			}
+		}
+
+		if (! sp.getBoolean("SEEN_INTRO", false)) {
+			showDialog(1);
+			SharedPreferences.Editor e = sp.edit();
+			e.putBoolean("SEEN_INTRO", true);
+			e.commit();
+			this.tracker.trackEvent("Initialize", "App", "Introduction", 1);
+		}
+
+		this.recipeBook.updateProducable(this.pantry);  // TODO kill
+		this.recipeAdapter.updatePantry(this.pantry);
+	}
+
+	private class ReportingRunnable implements Runnable {
+		public void run() {
+			final String NAME = "Pkg";
+			try { Thread.sleep(5000); } catch (InterruptedException ex) { }
+			final String pn = BookDisplay.this.getPackageName();
+			BookDisplay.this.tracker.trackPageView("/" + TAG);
+			BookDisplay.this.tracker.trackEvent(NAME, "PN", pn, 1);
+
+			final android.content.pm.PackageManager pm = BookDisplay.this.getPackageManager();
+			try {
+				final android.content.pm.PackageInfo pi = pm.getPackageInfo(pn, android.content.pm.PackageManager.GET_SIGNATURES);
+				for (android.content.pm.Signature sig : pi.signatures) {
+					BookDisplay.this.tracker.trackEvent(NAME, "Sigs", sig.toCharsString(), 1);
+				}
+				BookDisplay.this.tracker.trackEvent(NAME, "Ver", pi.versionName, 1);
+			} catch (android.content.pm.PackageManager.NameNotFoundException ex) {
+				BookDisplay.this.tracker.trackEvent(NAME, "pn", pn, 1);
+			}
+		}
+	}
+
 
 
 }

@@ -25,12 +25,12 @@ final class RecipeBook {
 	public String version;
 
 	final public Map<String,Recipe> allRecipeIndex;
-	final public List<Recipe> searchResultRecipes;
 	final public List<Recipe> allRecipes;
+	final public List<Recipe> searchedRecipes;
+	final public List<Recipe> favoriteRecipes;
 	final public List<Recipe> producableRecipes;
 	final public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
 	final public ArrayList<String> mostUsedIngredients;
-
 	final public Set<String> knownIngredients;
 
 	public RecipeBook() {
@@ -40,7 +40,8 @@ final class RecipeBook {
 		this.allRecipeIndex = new Hashtable<String,Recipe>(2400);
 		this.countRecipesSoleAdditionalIngredient = new Hashtable<String,List<Recipe>>();
 		this.producableRecipes = new ArrayList<Recipe>();
-		this.searchResultRecipes = new ArrayList<Recipe>();
+		this.searchedRecipes = new ArrayList<Recipe>();
+		this.favoriteRecipes = new ArrayList<Recipe>();
 	}
 
 	public void load(Context context, Runnable updater) {
@@ -118,7 +119,7 @@ final class RecipeBook {
 
 
 	synchronized void updateSearchResult(String query) {
-		this.searchResultRecipes.clear();
+		this.searchedRecipes.clear();
 
 		final List<Recipe> secondaryList = new LinkedList<Recipe>();
 
@@ -127,7 +128,7 @@ final class RecipeBook {
 			final String normal_recipe_name = recipe.name.toLowerCase();
 			int damlev = spinneret.util.Levenshtein.damlevlim(normal_query, normal_recipe_name, 2);
 			if (damlev == 0) {
-				this.searchResultRecipes.add(recipe);
+				this.searchedRecipes.add(recipe);
 				continue;
 			} else if ((normal_recipe_name.length() > 1) && (damlev == 1)) {
 				secondaryList.add(recipe);
@@ -139,7 +140,7 @@ final class RecipeBook {
 				for (String normal_recipe_name_fragment : normal_recipe_name_fragments) {
 					damlev = spinneret.util.Levenshtein.damlevlim(normal_query, normal_recipe_name_fragment, 2);
 					if (damlev == 0) {
-						this.searchResultRecipes.add(recipe);
+						this.searchedRecipes.add(recipe);
 						break;
 					} else if ((normal_recipe_name_fragment.length() > 1) && (damlev == 1)) {
 						secondaryList.add(recipe);
@@ -148,7 +149,7 @@ final class RecipeBook {
 				}
 			}
 		}
-		this.searchResultRecipes.addAll(secondaryList);
+		this.searchedRecipes.addAll(secondaryList);
 	}
 
 	synchronized void updateProducable(Set<String> pantry) {

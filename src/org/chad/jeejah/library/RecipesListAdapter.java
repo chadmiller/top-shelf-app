@@ -33,110 +33,32 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	final private RecipeBook recipeBook;
 	final private LayoutInflater inflater;
 
+	private String searchQuery;
 	private Set<String> pantry;
-	private boolean useProducableOnly;
 	public List targetRecipeList;
-	public List pushedStateTargetRecipeList;
 
-	public void onSharedPreferenceChanged (SharedPreferences sharedPreferences, String key) {
-		if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
-			final String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
-			final boolean isFavorited = sharedPreferences.getBoolean(key, false);
-			if (isFavorited) {
-				favorites.add(recipeName);
-				this.tracker.trackEvent("Clicks", "Favorited", recipeName, 1);
-			} else {
-				favorites.remove(recipeName);
-			}
-			this.notifyDataSetChanged();
-		}
-	}
-
-	public void setFavoritesFromPreferences(Map<String,?> prefs) {
-		for (Map.Entry<String,?> entry : prefs.entrySet()) {
-			final String key = entry.getKey();
-			if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
-				final String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
-				final Boolean isFavorited = (Boolean) entry.getValue();
-				if (isFavorited) {
-					favorites.add(recipeName);
-				} else {
-					favorites.remove(recipeName);
-				}
-			}
-		}
-	}
-
-	public String getDescription() {
-		if (useProducableOnly) {
-			return "filtered";
-		} else {
-			return "all";
-		}
-	}
-
-	public boolean isFiltered() {
-		return useProducableOnly;
-	}
-
-	public void search(boolean starting) {
-		if (starting) {
-			this.pushedStateTargetRecipeList = this.targetRecipeList;
-			this.targetRecipeList = this.recipeBook.searchResultRecipes;
-		} else {
-			if (this.pushedStateTargetRecipeList != null) {
-				this.targetRecipeList = this.pushedStateTargetRecipeList;
-			} else {
-				this.targetRecipeList = recipeBook.allRecipes;
-			}
-		}
-		this.notifyDataSetChanged();
-	}
-
-	public void toggleVisibility() {
-		this.useProducableOnly = !this.useProducableOnly;
-		if (useProducableOnly) {
-			this.targetRecipeList = recipeBook.producableRecipes;
-		} else {
-			this.targetRecipeList = recipeBook.allRecipes;
-		}
-		this.notifyDataSetChanged();
-		Log.i(TAG, "producable only set to " + this.useProducableOnly);
-	}
-
-	public void updatePantry(Set<String> pantry) {
-		this.pantry = pantry;
-		this.notifyDataSetChanged();
-	}
-
-	
-
-	public RecipesListAdapter(Context context, RecipeBook recipeBook, Set<String> pantry, boolean useProducableOnly) {
+	public RecipesListAdapter(Context context, RecipeBook recipeBook, Set<String> pantry) {
 		super();
 		this.recipeBook = recipeBook;
-		this.useProducableOnly = useProducableOnly;
 		this.pantry = pantry;
 		this.tracker = GoogleAnalyticsTracker.getInstance();
 		this.tracker.startNewSession(BookDisplay.GOOG_ANALYTICS_ID, 60, context);
 
 		this.favorites = new TreeSet<String>();
 
-		if (useProducableOnly) {
-			this.targetRecipeList = recipeBook.producableRecipes;
-		} else {
-			this.targetRecipeList = recipeBook.allRecipes;
-		}
-		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
 	public int getCount() {
+		if (this.targetRecipeList == null)
+			return 0;
 		return this.targetRecipeList.size();
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		final ViewHolder holder;
 		if (convertView == null) {
-			convertView = inflater.inflate(R.layout.recipe_list_item, parent, false);
+			convertView = this.inflater.inflate(R.layout.recipe_list_item, parent, false);
 			holder = new ViewHolder();
 			holder.name = (TextView) convertView.findViewById(R.id.recipe_name);
 			holder.ingredients = (TextView) convertView.findViewById(R.id.recipe_ingredients_list);
@@ -150,32 +72,20 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 
 		boolean bad = false;
 		Iterator<String> iter = recipe.ingredients.iterator();
-		//StringBuffer buffer = new StringBuffer();
-		if (this.useProducableOnly) {
-		//	// Display all the same way
-		//	buffer.append(iter.next());
-		//	while (iter.hasNext()) {
-		//		buffer.append(", ").append(iter.next());
-		//	}
+
+		String s = iter.next();
+		if (this.pantry.contains(s)) {
 		} else {
-			String s = iter.next();
+			bad = true;
+		}
+		while (iter.hasNext()) {
+			s = iter.next();
 			if (this.pantry.contains(s)) {
-		//		buffer.append(s);
 			} else {
 				bad = true;
-		//		buffer.append("(").append(s).append(")");
-			}
-			while (iter.hasNext()) {
-				s = iter.next();
-		//		buffer.append(", ");
-				if (this.pantry.contains(s)) {
-		//			buffer.append(s);
-				} else {
-					bad = true;
-		//			buffer.append("(").append(s).append(")");
-				}
 			}
 		}
+
 		if (favorites.contains(recipe.name)) {
 			holder.favorited.setVisibility(View.VISIBLE);
 		} else {
@@ -209,6 +119,106 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 
 	public boolean isEmpty() { return (this.targetRecipeList == null) || (this.targetRecipeList.size() == 0); }
 
+
+
+
+
+
+	public void onSharedPreferenceChanged (SharedPreferences sharedPreferences, String key) {
+		if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
+			final String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
+			final boolean isFavorited = sharedPreferences.getBoolean(key, false);
+			if (isFavorited) {
+				favorites.add(recipeName);
+				this.tracker.trackEvent("Clicks", "Favorited", recipeName, 1);
+			} else {
+				favorites.remove(recipeName);
+			}
+			this.notifyDataSetChanged();
+		}
+	}
+
+	public void setFavoritesFromPreferences(Map<String,?> prefs) {
+		for (Map.Entry<String,?> entry : prefs.entrySet()) {
+			final String key = entry.getKey();
+			if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
+				final String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
+				final Boolean isFavorited = (Boolean) entry.getValue();
+				if (isFavorited) {
+					favorites.add(recipeName);
+				} else {
+					favorites.remove(recipeName);
+				}
+			}
+		}
+	}
+
+	public String search(String searchQuery) {
+		this.searchQuery = searchQuery;
+		this.targetRecipeList = this.recipeBook.searchedRecipes;
+
+		this.notifyDataSetChanged();
+		return "\u201C" + this.searchQuery + "\u201D";
+	}
+
+	public String nextFilterState(Context context, android.widget.TextView footnote) {
+		/* Filtered, all, favorites, suggested drinks, [search.] */
+
+Log.d(TAG, "nextFilterState  1");
+		try {
+			if (this.targetRecipeList == null) {
+Log.d(TAG, "nextFilterState  2");
+				if (recipeBook.producableRecipes.size() == 0) {
+Log.d(TAG, "nextFilterState  3 now at all");
+					this.targetRecipeList = recipeBook.allRecipes;
+					android.widget.Toast.makeText(context, R.string.using_unfiltered_bc_nothing_here, android.widget.Toast.LENGTH_LONG).show();
+					footnote.setText(R.string.there_are_none);
+					footnote.setVisibility(View.VISIBLE);
+					return "(all)";
+				} else {
+Log.d(TAG, "nextFilterState  4 now at filtered");
+					this.targetRecipeList = recipeBook.producableRecipes;
+					if (recipeBook.producableRecipes.size() < 15) {
+Log.d(TAG, "nextFilterState  5");
+						footnote.setText(R.string.there_are_too_few);
+						footnote.setVisibility(View.VISIBLE);
+					} else {
+Log.d(TAG, "nextFilterState  6");
+						footnote.setVisibility(View.GONE);
+					}
+					return "(filtered)";
+				}
+			} else if (this.targetRecipeList == recipeBook.producableRecipes) {
+Log.d(TAG, "nextFilterState  7 now at all");
+				this.targetRecipeList = recipeBook.allRecipes;
+				footnote.setVisibility(View.GONE);
+				return "(all)";
+			} else if (this.targetRecipeList == recipeBook.allRecipes) {
+Log.d(TAG, "nextFilterState  8 now at favorite");
+				this.targetRecipeList = recipeBook.favoriteRecipes;
+				footnote.setVisibility(View.GONE);
+				return "(favorites)";
+			} else if ((this.targetRecipeList == recipeBook.favoriteRecipes) && (this.searchQuery != null)) {
+Log.d(TAG, "nextFilterState  9 now at searched");
+				this.targetRecipeList = recipeBook.searchedRecipes;
+				footnote.setVisibility(View.GONE);
+				return "\u201C" + this.searchQuery + "\u201D";
+			} else {
+				this.targetRecipeList = recipeBook.producableRecipes;
+				footnote.setVisibility(View.GONE);
+				return "(filtered)";
+			}
+		} finally {
+Log.d(TAG, "nextFilterState  --");
+			this.notifyDataSetChanged();
+		}
+	}
+			// this.recipeListFootnote.setText(R.string.a_recipe_not_available);
+
+	public void updatePantry(Set<String> pantry) {
+		this.pantry = pantry;
+		this.notifyDataSetChanged();
+	}
+
+
 }
-
-
