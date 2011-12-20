@@ -11,10 +11,9 @@ import android.content.SharedPreferences;
 
 import java.util.Iterator;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Set;
+import java.util.List;
 import java.util.Map;
-import java.util.TreeSet;
 
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
@@ -27,8 +26,6 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		public TextView ingredients;
 		public ImageView favorited;
 	}
-
-	final private Set<String> favorites;
 
 	final private RecipeBook recipeBook;
 	final private LayoutInflater inflater;
@@ -43,8 +40,6 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		this.pantry = pantry;
 		this.tracker = GoogleAnalyticsTracker.getInstance();
 		this.tracker.startNewSession(BookDisplay.GOOG_ANALYTICS_ID, 60, context);
-
-		this.favorites = new TreeSet<String>();
 
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
@@ -74,8 +69,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		Iterator<String> iter = recipe.ingredients.iterator();
 
 		String s = iter.next();
-		if (this.pantry.contains(s)) {
-		} else {
+		if (! this.pantry.contains(s)) {
 			bad = true;
 		}
 		while (iter.hasNext()) {
@@ -86,19 +80,17 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 			}
 		}
 
-		if (favorites.contains(recipe.name)) {
+		if (recipeBook.favoriteRecipes.contains(recipe)) {
 			holder.favorited.setVisibility(View.VISIBLE);
 		} else {
 			holder.favorited.setVisibility(View.GONE);
 		}
 		holder.ingredients.setText(recipe.ingredients.toString());
-		//holder.ingredients.setText(buffer.toString());
 		if (bad) {
 			holder.name.setText(recipe.name + "*");
 		} else {
 			holder.name.setText(recipe.name);
 		}
-
 
 		return convertView;
 	}
@@ -119,21 +111,17 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 
 	public boolean isEmpty() { return (this.targetRecipeList == null) || (this.targetRecipeList.size() == 0); }
 
-
-
-
-
-
 	public void onSharedPreferenceChanged (SharedPreferences sharedPreferences, String key) {
 		if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
 			final String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
 			final boolean isFavorited = sharedPreferences.getBoolean(key, false);
 			if (isFavorited) {
-				favorites.add(recipeName);
+				this.recipeBook.addFavorite(recipeName);
 				this.tracker.trackEvent("Clicks", "Favorited", recipeName, 1);
 			} else {
-				favorites.remove(recipeName);
+				this.recipeBook.removeFavorite(recipeName);
 			}
+			// favorites list gets new items.  Other views merely get stars updated.
 			this.notifyDataSetChanged();
 		}
 	}
@@ -145,9 +133,9 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 				final String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
 				final Boolean isFavorited = (Boolean) entry.getValue();
 				if (isFavorited) {
-					favorites.add(recipeName);
+					this.recipeBook.addFavorite(recipeName);
 				} else {
-					favorites.remove(recipeName);
+					this.recipeBook.removeFavorite(recipeName);
 				}
 			}
 		}
@@ -157,50 +145,44 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		this.searchQuery = searchQuery;
 		this.targetRecipeList = this.recipeBook.searchedRecipes;
 
+		this.recipeBook.updateSearchResult(searchQuery);
+
 		this.notifyDataSetChanged();
 		return "\u201C" + this.searchQuery + "\u201D";
 	}
 
 	public String nextFilterState(Context context, android.widget.TextView footnote) {
+		// Is run in background thread only.
 		/* Filtered, all, favorites, suggested drinks, [search.] */
 
-Log.d(TAG, "nextFilterState  1");
 		try {
 			if (this.targetRecipeList == null) {
-Log.d(TAG, "nextFilterState  2");
 				if (recipeBook.producableRecipes.size() == 0) {
-Log.d(TAG, "nextFilterState  3 now at all");
 					this.targetRecipeList = recipeBook.allRecipes;
 					android.widget.Toast.makeText(context, R.string.using_unfiltered_bc_nothing_here, android.widget.Toast.LENGTH_LONG).show();
 					footnote.setText(R.string.a_recipe_not_available);
 					footnote.setVisibility(View.VISIBLE);
 					return "(all)";
 				} else {
-Log.d(TAG, "nextFilterState  4 now at filtered");
 					this.targetRecipeList = recipeBook.producableRecipes;
 					if (recipeBook.producableRecipes.size() < 15) {
-Log.d(TAG, "nextFilterState  5");
 						footnote.setText(R.string.there_are_too_few);
 						footnote.setVisibility(View.VISIBLE);
 					} else {
-Log.d(TAG, "nextFilterState  6");
 						footnote.setVisibility(View.GONE);
 					}
 					return "(filtered)";
 				}
 			} else if (this.targetRecipeList == recipeBook.producableRecipes) {
-Log.d(TAG, "nextFilterState  7 now at all");
 				this.targetRecipeList = recipeBook.allRecipes;
 				footnote.setText(R.string.a_recipe_not_available);
 				footnote.setVisibility(View.VISIBLE);
 				return "(all)";
 			} else if (this.targetRecipeList == recipeBook.allRecipes) {
-Log.d(TAG, "nextFilterState  8 now at favorite");
 				this.targetRecipeList = recipeBook.favoriteRecipes;
 				footnote.setVisibility(View.GONE);
 				return "(favorites)";
 			} else if ((this.targetRecipeList == recipeBook.favoriteRecipes) && (this.searchQuery != null)) {
-Log.d(TAG, "nextFilterState  9 now at searched");
 				this.targetRecipeList = recipeBook.searchedRecipes;
 				footnote.setVisibility(View.GONE);
 				return "\u201C" + this.searchQuery + "\u201D";
@@ -210,7 +192,6 @@ Log.d(TAG, "nextFilterState  9 now at searched");
 				return "(filtered)";
 			}
 		} finally {
-Log.d(TAG, "nextFilterState  --");
 			this.notifyDataSetChanged();
 		}
 	}

@@ -16,7 +16,7 @@
 		android:gravity="center"
 		android:padding="30px"
 		android:background="#c000"
-		android:textSize="@dimen/text_header_size"
+		android:textSize="33dip"
 		/>
 </LinearLayout>
 

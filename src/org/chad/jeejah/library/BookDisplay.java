@@ -67,6 +67,7 @@ final public class BookDisplay extends Activity {
 
 		this.pantry = new HashSet<String>();
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
+		this.sp = PreferenceManager.getDefaultSharedPreferences(this);
 
 		RecipeBookLoadTask recipeBookLoader = null;
 		if (this.recipeBook != null) {
@@ -82,9 +83,7 @@ final public class BookDisplay extends Activity {
 		final LinearLayout loadingIndicator = (LinearLayout) findViewById(R.id.loading_indicator);
 		loadingIndicator.setVisibility(View.GONE);
 
-		this.sp = PreferenceManager.getDefaultSharedPreferences(this);
 		sp.registerOnSharedPreferenceChangeListener(this.recipeAdapter);
-		this.recipeAdapter.setFavoritesFromPreferences(sp.getAll());
 
 		final ListView recipeListView = (ListView) findViewById(R.id.recipe_list);
 		recipeListView.setAdapter(this.recipeAdapter);
@@ -158,7 +157,6 @@ final public class BookDisplay extends Activity {
 		});
 
 		handleIntent(getIntent());
-		new Thread(new ReportingRunnable()).start();
 	}
 
 	private String[] toStringsArray(List<Recipe> l) {
@@ -322,15 +320,13 @@ final public class BookDisplay extends Activity {
 		if (this.splashDialog != null) {
 			this.splashDialog.dismiss();
 			this.splashDialog = null;
-			Log.d(TAG, "hiding splash screen");
 		}
 	}
 	 
 	/**
 	 * Shows the splash screen over the full Activity
 	 */
-	protected void showSplashScreen() {
-		Log.d(TAG, "showing splash screen");
+	protected Dialog showSplashScreen() {
 		this.splashDialog = new Dialog(this, R.style.SplashScreen);
 		this.splashDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.splashDialog.setContentView(R.layout.splashscreen);
@@ -345,6 +341,7 @@ final public class BookDisplay extends Activity {
 			removeSplashScreen();
 		  }
 		}, 3000);
+		return this.splashDialog;
 	}
 
 	private void handleIntent(Intent intent) {
@@ -357,23 +354,22 @@ final public class BookDisplay extends Activity {
 		// Handle search
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 			final String query = intent.getStringExtra(android.app.SearchManager.QUERY);
-			Log.d(TAG, "Search for " + query + " now!");
 			String filterState = this.recipeAdapter.search(query);
 			this.actionBar.setTitle("Drinks " + filterState);
 		}
 	}
 
-	private class RecipeBookLoadTask extends AsyncTask<RecipeBook, Integer, Integer> {
+	private class RecipeBookLoadTask extends AsyncTask<RecipeBook, Integer, Void> {
 		private TextView splashScreenText;
 
 		@Override
 		protected void onPreExecute() {
-			showSplashScreen();
+			Dialog splash = showSplashScreen();
+			this.splashScreenText = (TextView) splash.findViewById(R.id.splash_screen_text);
 		}
 
 		@Override
-		protected Integer doInBackground(RecipeBook... recipeBooks) {
-			this.splashScreenText = (TextView) BookDisplay.this.splashDialog.findViewById(R.id.splash_screen_text);
+		protected Void doInBackground(RecipeBook... recipeBooks) {
 
 			final long startTime = android.os.SystemClock.uptimeMillis();
 			recipeBooks[0].load(BookDisplay.this, new Runnable() {
@@ -387,7 +383,7 @@ final public class BookDisplay extends Activity {
 			});
 			BookDisplay.this.tracker.trackEvent("Performance", "RecipeBookLoading", "Elapsed", (int) (android.os.SystemClock.uptimeMillis() - startTime));
 
-			return new Integer(1);
+			return null;
 		}
 
 		@Override
@@ -396,16 +392,32 @@ final public class BookDisplay extends Activity {
 		}
 
 		@Override
-		protected void onPostExecute(Integer i) {
+		protected void onPostExecute(Void v) {
 			BookDisplay.this.setUp();
 			BookDisplay.this.nextFilterState();
 			BookDisplay.this.removeSplashScreen();
+			new FavoritesLoadTask().execute();
 		}
 	}
 
+	private class FavoritesLoadTask extends AsyncTask<Void, Void, Void> {
+		@Override
+		protected Void doInBackground(Void... vs) {
+			BookDisplay.this.recipeAdapter.setFavoritesFromPreferences(BookDisplay.this.sp.getAll());
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void v) {
+			BookDisplay.this.recipeAdapter.notifyDataSetChanged();
+			new Thread(new ReportingRunnable()).start();
+		}
+	}
 
 	void setUp() {
+		Log.d(TAG, "setUp clearing pantry");
 		this.pantry.clear();
+		Log.d(TAG, "setUp foreach to add to pantry");
 		for (String name : sp.getAll().keySet()) {
 			if (name.startsWith(Pantry.PREF_PREFIX)) {
 				if (sp.getBoolean(name, false)) {
@@ -416,6 +428,7 @@ final public class BookDisplay extends Activity {
 			}
 		}
 
+		Log.d(TAG, "setUp check whether to show intro");
 		if (! sp.getBoolean("SEEN_INTRO", false)) {
 			showDialog(1);
 			SharedPreferences.Editor e = sp.edit();
@@ -424,8 +437,11 @@ final public class BookDisplay extends Activity {
 			this.tracker.trackEvent("Initialize", "App", "Introduction", 1);
 		}
 
+		Log.d(TAG, "setUp update producable...");
 		this.recipeBook.updateProducable(this.pantry);  // TODO kill
+		Log.d(TAG, "setUp update pantry...");
 		this.recipeAdapter.updatePantry(this.pantry);
+		Log.d(TAG, "setUp done");
 	}
 
 	private class ReportingRunnable implements Runnable {

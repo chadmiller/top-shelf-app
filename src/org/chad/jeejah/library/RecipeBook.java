@@ -34,14 +34,14 @@ final class RecipeBook {
 	final public Set<String> knownIngredients;
 
 	public RecipeBook() {
+		this.allRecipeIndex = new Hashtable<String,Recipe>(2600);
 		this.allRecipes = new ArrayList<Recipe>(2600);
 		this.knownIngredients = new TreeSet<String>();
 		this.mostUsedIngredients = new ArrayList<String>(17);
-		this.allRecipeIndex = new Hashtable<String,Recipe>(2400);
 		this.countRecipesSoleAdditionalIngredient = new Hashtable<String,List<Recipe>>();
 		this.producableRecipes = new ArrayList<Recipe>();
 		this.searchedRecipes = new ArrayList<Recipe>();
-		this.favoriteRecipes = new ArrayList<Recipe>();
+		this.favoriteRecipes = new LinkedList<Recipe>();
 	}
 
 	public void load(Context context, Runnable updater) {
@@ -176,6 +176,31 @@ final class RecipeBook {
 				}
 				l.add(recipe);
 			}
+		}
+	}
+
+	synchronized void addFavorite(String recipeName) {
+		Recipe r = allRecipeIndex.get(recipeName);
+		if (r != null) {
+			favoriteRecipes.add(r);
+		} else {
+			Log.d(TAG, "Didn't find favorite " + recipeName + " to add.");
+		}
+	}
+
+	synchronized void removeFavorite(String recipeName) {
+		Recipe r = allRecipeIndex.get(recipeName);
+		if (r != null) {
+			favoriteRecipes.remove(r);
+		} else {
+			Log.d(TAG, "Didn't find favorite" + recipeName + " to remove.");
+		}
+	}
+
+	synchronized void updateFavorites(Iterable<String> recipeNames) {
+		favoriteRecipes.clear();
+		for (String recipeName : recipeNames) {
+			addFavorite(recipeName);
 		}
 	}
 
