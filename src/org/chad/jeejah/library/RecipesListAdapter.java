@@ -141,22 +141,44 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		}
 	}
 
-	public String search(String searchQuery) {
-		this.searchQuery = searchQuery;
-		this.targetRecipeList = this.recipeBook.searchedRecipes;
-
-		this.recipeBook.updateSearchResult(searchQuery);
-
-		this.notifyDataSetChanged();
-		return "\u201C" + this.searchQuery + "\u201D";
+	public int getViewId() {
+		if (this.targetRecipeList == null) {
+			Log.w(TAG, "target recipe list is null. ");
+			return -1;
+		} else if (this.targetRecipeList == recipeBook.producableRecipes) {
+			return 0;
+		} else if (this.targetRecipeList == recipeBook.allRecipes) {
+			return 1;
+		} else if (this.targetRecipeList == recipeBook.favoriteRecipes) {
+			return 2;
+		} else if (this.targetRecipeList == recipeBook.searchedRecipes) {
+			return 3;
+		} else {
+			Log.e(TAG, "target recipe list is unknown. " + this.targetRecipeList);
+			return 4;
+		}
 	}
 
-	public String nextFilterState(Context context, android.widget.TextView footnote) {
-		// Is run in background thread only.
-		/* Filtered, all, favorites, suggested drinks, [search.] */
-
-		try {
-			if (this.targetRecipeList == null) {
+	public String setViewId(int state, Context context, android.widget.TextView footnote) {
+		switch (state) {
+			case 0:
+				this.targetRecipeList = recipeBook.producableRecipes;
+				footnote.setVisibility(View.GONE);
+				return "(filtered)";
+			case 1:
+				this.targetRecipeList = recipeBook.allRecipes;
+				footnote.setText(R.string.a_recipe_not_available);
+				footnote.setVisibility(View.VISIBLE);
+				return "(all)";
+			case 2:
+				this.targetRecipeList = recipeBook.favoriteRecipes;
+				footnote.setVisibility(View.GONE);
+				return "(favorites)";
+			case 3:
+				this.targetRecipeList = recipeBook.searchedRecipes;
+				footnote.setVisibility(View.GONE);
+				return "\u201C" + this.searchQuery + "\u201D";
+			default:
 				if (recipeBook.producableRecipes.size() == 0) {
 					this.targetRecipeList = recipeBook.allRecipes;
 					android.widget.Toast.makeText(context, R.string.using_unfiltered_bc_nothing_here, android.widget.Toast.LENGTH_LONG).show();
@@ -173,24 +195,19 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 					}
 					return "(filtered)";
 				}
-			} else if (this.targetRecipeList == recipeBook.producableRecipes) {
-				this.targetRecipeList = recipeBook.allRecipes;
-				footnote.setText(R.string.a_recipe_not_available);
-				footnote.setVisibility(View.VISIBLE);
-				return "(all)";
-			} else if (this.targetRecipeList == recipeBook.allRecipes) {
-				this.targetRecipeList = recipeBook.favoriteRecipes;
-				footnote.setVisibility(View.GONE);
-				return "(favorites)";
-			} else if ((this.targetRecipeList == recipeBook.favoriteRecipes) && (this.searchQuery != null)) {
-				this.targetRecipeList = recipeBook.searchedRecipes;
-				footnote.setVisibility(View.GONE);
-				return "\u201C" + this.searchQuery + "\u201D";
+		}
+	}
+
+	public String nextFilterState(Context context, android.widget.TextView footnote) {
+		/* Filtered, all, favorites, suggested drinks, [search.] */
+		int state = getViewId();
+		try {
+			if (this.searchQuery != null) {
+				state = (state + 1) % 4;
 			} else {
-				this.targetRecipeList = recipeBook.producableRecipes;
-				footnote.setVisibility(View.GONE);
-				return "(filtered)";
+				state = (state + 1) % 3;
 			}
+			return setViewId(state, context, footnote);
 		} finally {
 			this.notifyDataSetChanged();
 		}
@@ -200,6 +217,22 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	public void updatePantry(Set<String> pantry) {
 		this.pantry = pantry;
 		this.notifyDataSetChanged();
+	}
+
+	public String getSearchQuery() {
+		return this.searchQuery;
+	}
+
+	public void setSearchQuery(String searchQuery) {
+		this.searchQuery = searchQuery;
+		this.targetRecipeList = this.recipeBook.searchedRecipes;
+		this.recipeBook.updateSearchResult(searchQuery);
+	}
+
+	public String search(String searchQuery) {
+		this.setSearchQuery(searchQuery);
+		this.notifyDataSetChanged();
+		return "\u201C" + this.searchQuery + "\u201D";
 	}
 
 

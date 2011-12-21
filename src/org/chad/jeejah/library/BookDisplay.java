@@ -156,6 +156,7 @@ final public class BookDisplay extends Activity {
 			}
 		});
 
+		setInstanceState(savedInstanceState);
 		handleIntent(getIntent());
 	}
 
@@ -299,6 +300,19 @@ final public class BookDisplay extends Activity {
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);
+		}
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		outState.putInt("adapterview", this.recipeAdapter.getViewId());
+		outState.putString("adaptersearchvalue", this.recipeAdapter.getSearchQuery());
+	}
+
+	void setInstanceState(Bundle inState) {
+		if (inState != null) {
+			this.recipeAdapter.setViewId(inState.getInt("adapterview", -1), this, this.recipeListFootnote);
+			this.recipeAdapter.setSearchQuery(inState.getString("adaptersearchvalue"));
 		}
 	}
 
