@@ -418,10 +418,13 @@ final public class BookDisplay extends Activity {
 		Log.d(TAG, "setUp clearing pantry");
 		this.pantry.clear();
 		Log.d(TAG, "setUp foreach to add to pantry");
-		for (String name : sp.getAll().keySet()) {
+		for (Map.Entry<String,?> entry : sp.getAll().entrySet()) {
+			String name = entry.getKey();
 			if (name.startsWith(Pantry.PREF_PREFIX)) {
-				if (sp.getBoolean(name, false)) {
-					String s = name.substring(Pantry.PREF_PREFIX.length());
+//				if (sp.getBoolean(name, false)) {
+				String s = name.substring(Pantry.PREF_PREFIX.length());
+				Boolean v = (Boolean) entry.getValue();
+				if (v) {
 					this.pantry.add(s);
 					this.tracker.trackEvent("SetUp", "InPantry", s, 1);
 				}
