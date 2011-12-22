@@ -145,6 +145,10 @@ final class RecipeBook {
 	synchronized void updateSearchResult(String query) {
 		this.searchedRecipes.clear();
 
+		if (query == null) {
+			return;
+		}
+
 		final List<Recipe> secondaryList = new LinkedList<Recipe>();
 		final List<Recipe> tertiaryList = new LinkedList<Recipe>();
 
