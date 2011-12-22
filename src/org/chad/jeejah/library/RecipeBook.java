@@ -146,8 +146,10 @@ final class RecipeBook {
 		this.searchedRecipes.clear();
 
 		final List<Recipe> secondaryList = new LinkedList<Recipe>();
+		final List<Recipe> tertiaryList = new LinkedList<Recipe>();
 
 		String normal_query = query.trim().toLowerCase();
+		String soundex_query = Soundex.soundex(normal_query);
 		for (Recipe recipe : this.allRecipes) {
 			final String normal_recipe_name = recipe.name.toLowerCase();
 			int damlev = spinneret.util.Levenshtein.damlevlim(normal_query, normal_recipe_name, 2);
@@ -172,8 +174,14 @@ final class RecipeBook {
 					}
 				}
 			}
+
+			if (soundex_query.equals(Soundex.soundex(normal_recipe_name))) {
+				tertiaryList.add(recipe);
+			}
+
 		}
 		this.searchedRecipes.addAll(secondaryList);
+		this.searchedRecipes.addAll(tertiaryList);
 	}
 
 	synchronized void updateProducable(Set<String> pantry) {
