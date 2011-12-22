@@ -26,6 +26,9 @@
 	<string name="welcome">Welcome</string>
 	<string name="loading_recipe_book">Loading thousands of recipes...</string>
 
+	<string name="pref_mixersgarnishes">Mixers and Garnishes</string>
+	<string name="pref_liquors">Liquors and Liqueurs</string>
+
 	<string name="using_unfiltered_bc_nothing_here">Using unfiltered view because you\'d see nothing after filtering.</string>
 	<string name="there_are_none">There are no recipes producable with ingredients stocked in your bar. Tap to inventory.</string>
 	<string name="there_are_too_few">Shopping suggestions will help you activate more recipes.</string>

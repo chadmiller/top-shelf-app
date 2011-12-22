@@ -218,7 +218,10 @@ final public class BookDisplay extends Activity {
 
 	void startSetIngredients() {
 		final Intent intent = new Intent(this, Pantry.class);
-		intent.putExtra("ingredients", this.recipeBook.knownIngredients.toArray(new String[this.recipeBook.knownIngredients.size()]));
+		for (String key : this.recipeBook.categorizedIngredients.keySet()) {
+			List l = this.recipeBook.categorizedIngredients.get(key);
+			intent.putExtra("ingredients-" + key, l.toArray(new String[l.size()]));
+		}
 		this.startActivityForResult(intent, 1);
 	}
 
@@ -230,9 +233,7 @@ final public class BookDisplay extends Activity {
 			.setMessage(R.string.welcome_message)
 			.setPositiveButton(R.string.begin, new DialogInterface.OnClickListener() { 
 				public void onClick(DialogInterface dialog, int which) {
-					final Intent intent = new Intent(BookDisplay.this, Pantry.class);
-					intent.putExtra("ingredients", BookDisplay.this.recipeBook.knownIngredients.toArray(new String[BookDisplay.this.recipeBook.knownIngredients.size()]));
-					BookDisplay.this.startActivityForResult(intent, 1);
+					startSetIngredients();
 				}
 			}).setNegativeButton(R.string.help, new DialogInterface.OnClickListener() { 
 				public void onClick(DialogInterface dialog, int which) {

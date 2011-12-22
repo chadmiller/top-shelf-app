@@ -4,6 +4,7 @@ import android.util.Log;
 import android.content.Context;
 
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.Hashtable;
 
 import java.util.Set;
@@ -31,12 +32,12 @@ final class RecipeBook {
 	final public List<Recipe> producableRecipes;
 	final public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
 	final public ArrayList<String> mostUsedIngredients;
-	final public Set<String> knownIngredients;
+	final public Map<String,List<String>> categorizedIngredients;
 
 	public RecipeBook() {
 		this.allRecipeIndex = new Hashtable<String,Recipe>(2600);
 		this.allRecipes = new ArrayList<Recipe>(2600);
-		this.knownIngredients = new TreeSet<String>();
+		this.categorizedIngredients = new TreeMap<String,List<String>>();
 		this.mostUsedIngredients = new ArrayList<String>(17);
 		this.countRecipesSoleAdditionalIngredient = new Hashtable<String,List<Recipe>>();
 		this.producableRecipes = new ArrayList<Recipe>();
@@ -53,60 +54,83 @@ final class RecipeBook {
 
 			JsonFactory jsonFactory = new JsonFactory();
 			JsonParser jp = jsonFactory.createJsonParser(recipeFile);
-			while (jp.nextToken() != JsonToken.END_OBJECT) {
+			// vers, publish date, ingred, book, most-used ingred
+
+			Log.d(TAG, "tok 1 is " + jp.getText());
+			jp.nextToken(); // WHAT?
+			Log.d(TAG, "tok 2 is " + jp.getText());
+			jp.nextToken(); // START_OBJECT
+			this.version = jp.getText(); jp.nextToken(); // version
+			Log.d(TAG, "vers is " + this.version);
+			Log.d(TAG, "pubdate is " + jp.getText());
+			jp.nextToken(); // publish date
+			Log.d(TAG, "now at list, is " + jp.getText());
+			while (jp.nextToken() != JsonToken.END_OBJECT) { // ingred
+				String ingredientName = jp.getText();
+				Log.d(TAG, "  ingred name is " + ingredientName);
 				jp.nextToken();
-				String fieldname = jp.getCurrentName();
-				if (fieldname.equals("version")) {
-					this.version = jp.getText();
-				} else if (fieldname.equals("most_used_ingredients")) {
-					jp.nextToken();
-					while (jp.nextToken() != JsonToken.END_ARRAY) {
-						this.mostUsedIngredients.add(jp.getText());
-					}
-				} else if (fieldname.equals("book")) {
-					while (jp.nextToken() != JsonToken.END_ARRAY) {
+				String genreName = jp.getText();
+				if ("m".equals(genreName)) {
+					genreName = "mixerandgarnish";
+				} else if ("g".equals(genreName)) {
+					genreName = "mixerandgarnish";
+				} else if (" ".equals(genreName)) {
+					genreName = "liquorandliqueur";
+				} else {
+					Log.e(TAG, "genre id is " + genreName + " but expected m/g/SP.");
+				}
+
+				List genreList = this.categorizedIngredients.get(genreName);
+				if (genreList == null) {
+					genreList = new LinkedList<String>();
+					this.categorizedIngredients.put(genreName, genreList);
+				}
+				genreList.add(ingredientName);
+			}
+			while (jp.nextToken() != JsonToken.END_ARRAY) { // book
+				jp.nextToken();
+				Recipe recipe = new Recipe();
+				while (jp.nextToken() != JsonToken.END_OBJECT) {
+					String fieldname = jp.getCurrentName();
+					if (fieldname == null) {
+						Log.d(TAG, "what? " + jp.getCurrentToken());
+					} else if (fieldname.equals("name")) {
 						jp.nextToken();
-						Recipe recipe = new Recipe();
-						while (jp.nextToken() != JsonToken.END_OBJECT) {
-							fieldname = jp.getCurrentName();
-							if (fieldname == null) {
-								Log.d(TAG, "what? " + jp.getCurrentToken());
-							} else if (fieldname.equals("name")) {
-								jp.nextToken();
-								recipe.name = jp.getText();
-							} else if (fieldname.equals("glasses")) {
-								jp.nextToken();
-								while (jp.nextToken() != JsonToken.END_ARRAY) {
-									if (recipe.glass != null) {
-										Log.v(TAG, "Glass already set to " + recipe.glass + " and now want " + jp.getText());
-									}
-									recipe.glass = jp.getText();
-								}
-							} else if (fieldname.equals("prepare_instructions")) {
-								jp.nextToken();
-								while (jp.nextToken() != JsonToken.END_ARRAY) {
-									recipe.prepare_instructions.add(jp.getText());
-								}
-							} else if (fieldname.equals("consume_instructions")) {
-								jp.nextToken();
-								while (jp.nextToken() != JsonToken.END_ARRAY) {
-									recipe.consume_instructions.add(jp.getText());
-								}
-							} else if (fieldname.equals("ingredients")) {
-								jp.nextToken();
-								while (jp.nextToken() != JsonToken.END_ARRAY) {
-									recipe.ingredients.add(jp.getText());
-									this.knownIngredients.add(jp.getText());
-								}
-							} else {
-								Log.e(TAG, "  UNKNOWN: " + jp.getCurrentToken());
+						recipe.name = jp.getText();
+					} else if (fieldname.equals("glasses")) {
+						jp.nextToken();
+						while (jp.nextToken() != JsonToken.END_ARRAY) {
+							if (recipe.glass != null) {
+								Log.v(TAG, "Glass already set to " + recipe.glass + " and now want " + jp.getText());
 							}
+							recipe.glass = jp.getText();
 						}
-						this.allRecipes.add(recipe);
-						this.allRecipeIndex.put(recipe.name, recipe);
-						updater.run();
+					} else if (fieldname.equals("prepare_instructions")) {
+						jp.nextToken();
+						while (jp.nextToken() != JsonToken.END_ARRAY) {
+							recipe.prepare_instructions.add(jp.getText());
+						}
+					} else if (fieldname.equals("consume_instructions")) {
+						jp.nextToken();
+						while (jp.nextToken() != JsonToken.END_ARRAY) {
+							recipe.consume_instructions.add(jp.getText());
+						}
+					} else if (fieldname.equals("ingredients")) {
+						jp.nextToken();
+						while (jp.nextToken() != JsonToken.END_ARRAY) {
+							recipe.ingredients.add(jp.getText());
+						}
+					} else {
+						Log.e(TAG, "  UNKNOWN: " + jp.getCurrentToken());
 					}
 				}
+				this.allRecipes.add(recipe);
+				this.allRecipeIndex.put(recipe.name, recipe);
+				updater.run();
+			}
+			jp.nextToken();
+			while (jp.nextToken() != JsonToken.END_ARRAY) { // most-used ingred
+				this.mostUsedIngredients.add(jp.getText());
 			}
 
 			Collections.sort(this.allRecipes);

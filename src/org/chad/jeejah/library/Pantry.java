@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.MenuItem;
+import android.util.Log;
 
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.Action;
@@ -26,7 +27,8 @@ final public class Pantry extends PreferenceActivity {
 	private final static String TAG = "org.chad.jeejah.library.Pantry";
 	private GoogleAnalyticsTracker tracker;
 
-	String[] ingredients;
+	String[] ingredientsMixerandgarnish;
+	String[] ingredientsLiquorandliqueur;
 	final static String PREF_PREFIX = "checkbox_ingredient ";
 
 	@Override
@@ -56,7 +58,8 @@ final public class Pantry extends PreferenceActivity {
 		getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.flickr_tightenup_54569946_as_background));
 		getListView().setCacheColorHint(android.graphics.Color.TRANSPARENT);
 
-		this.ingredients = getIntent().getStringArrayExtra("ingredients");
+		this.ingredientsMixerandgarnish = getIntent().getStringArrayExtra("ingredients-mixerandgarnish");
+		this.ingredientsLiquorandliqueur = getIntent().getStringArrayExtra("ingredients-liquorandliqueur");
 		setPreferenceScreen(createPreferenceHierarchy());
 		this.tracker = GoogleAnalyticsTracker.getInstance();
 		this.tracker.startNewSession(BookDisplay.GOOG_ANALYTICS_ID, 60, this);
@@ -64,13 +67,29 @@ final public class Pantry extends PreferenceActivity {
 	}
 
 	private PreferenceScreen createPreferenceHierarchy() {
+
 		PreferenceScreen root = getPreferenceManager().createPreferenceScreen(this);
 
-		for (int i = 0; i < this.ingredients.length; i++) {
+		android.preference.PreferenceCategory mgCategory = new android.preference.PreferenceCategory(this);
+		root.addPreference(mgCategory);
+		mgCategory.setTitle(R.string.pref_mixersgarnishes);
+		mgCategory.setOrderingAsAdded(false);
+		for (String name : ingredientsMixerandgarnish) {
 			CheckBoxPreference checkboxPref = new CheckBoxPreference(this);
-			checkboxPref.setKey(PREF_PREFIX + this.ingredients[i]);
-			checkboxPref.setTitle(this.ingredients[i]);
-			root.addPreference(checkboxPref);
+			checkboxPref.setKey(PREF_PREFIX + name);
+			checkboxPref.setTitle(name);
+			mgCategory.addPreference(checkboxPref);
+		}
+
+		android.preference.PreferenceCategory llCategory = new android.preference.PreferenceCategory(this);
+		root.addPreference(llCategory);
+		llCategory.setTitle(R.string.pref_liquors);
+		llCategory.setOrderingAsAdded(false);
+		for (String name : ingredientsLiquorandliqueur) {
+			CheckBoxPreference checkboxPref = new CheckBoxPreference(this);
+			checkboxPref.setKey(PREF_PREFIX + name);
+			checkboxPref.setTitle(name);
+			llCategory.addPreference(checkboxPref);
 		}
 
 		return root;
