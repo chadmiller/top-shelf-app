@@ -144,7 +144,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	public int getViewId() {
 		if (this.targetRecipeList == null) {
 			Log.w(TAG, "target recipe list is null. ");
-			return -1;
+			return -2;
 		} else if (this.targetRecipeList == recipeBook.producableRecipes) {
 			return 0;
 		} else if (this.targetRecipeList == recipeBook.allRecipes) {
@@ -172,11 +172,13 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 				return "(all)";
 			case 2:
 				this.targetRecipeList = recipeBook.favoriteRecipes;
-				footnote.setVisibility(View.GONE);
+				footnote.setText(R.string.a_recipe_not_available);
+				footnote.setVisibility(View.VISIBLE);
 				return "(favorites)";
 			case 3:
 				this.targetRecipeList = recipeBook.searchedRecipes;
-				footnote.setVisibility(View.GONE);
+				footnote.setText(R.string.a_recipe_not_available);
+				footnote.setVisibility(View.VISIBLE);
 				return "\u201C" + this.searchQuery + "\u201D";
 			default:
 				if (recipeBook.producableRecipes.size() == 0) {
@@ -201,12 +203,14 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	public String nextFilterState(Context context, android.widget.TextView footnote) {
 		/* Filtered, all, favorites, suggested drinks, [search.] */
 		int state = getViewId();
+		Log.d(TAG, "switching! currently at filter state " + state);
 		try {
 			if (this.searchQuery != null) {
 				state = (state + 1) % 4;
 			} else {
 				state = (state + 1) % 3;
 			}
+			Log.d(TAG, "switching! going to filter state " + state);
 			return setViewId(state, context, footnote);
 		} finally {
 			this.notifyDataSetChanged();

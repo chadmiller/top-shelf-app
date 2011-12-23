@@ -30,9 +30,9 @@
 	<string name="pref_liquors">Liquors and Liqueurs</string>
 
 	<string name="using_unfiltered_bc_nothing_here">Using unfiltered view because you\'d see nothing after filtering.</string>
-	<string name="there_are_none">There are no recipes producable with ingredients stocked in your bar. Tap to inventory.</string>
+	<string name="there_are_none">There are no recipes producable with ingredients stocked in your bar.</string>
 	<string name="there_are_too_few">Shopping suggestions will help you activate more recipes.</string>
-	<string name="a_recipe_not_available"> * You lack an ingredient. Tap to inventory stock.</string>
+	<string name="a_recipe_not_available"> * You lack an ingredient that recipe requires.</string>
 
 	<string name="welcome_message">Enter the ingredients you own to see what recipes you can make with them.  Hit <i>Menu</i> for help later.</string>
 
