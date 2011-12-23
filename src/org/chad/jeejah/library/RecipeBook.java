@@ -56,18 +56,14 @@ final class RecipeBook {
 			JsonParser jp = jsonFactory.createJsonParser(recipeFile);
 			// vers, publish date, ingred, book, most-used ingred
 
-			Log.d(TAG, "tok 1 is " + jp.getText());
 			jp.nextToken(); // WHAT?
-			Log.d(TAG, "tok 2 is " + jp.getText());
 			jp.nextToken(); // START_OBJECT
 			this.version = jp.getText(); jp.nextToken(); // version
 			Log.d(TAG, "vers is " + this.version);
 			Log.d(TAG, "pubdate is " + jp.getText());
 			jp.nextToken(); // publish date
-			Log.d(TAG, "now at list, is " + jp.getText());
 			while (jp.nextToken() != JsonToken.END_OBJECT) { // ingred
 				String ingredientName = jp.getText();
-				Log.d(TAG, "  ingred name is " + ingredientName);
 				jp.nextToken();
 				String genreName = jp.getText();
 				if ("m".equals(genreName)) {
