@@ -36,6 +36,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.os.Handler;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.util.Random;
 import java.util.Set;
@@ -59,7 +60,7 @@ final public class BookDisplay extends Activity {
 	private enum Managed { MANAGED, UNMANAGED }
 	private static final int DIALOG_PURCHASEPLZ = 1;
 	private static final int DIALOG_SPLASH = 2;
-	private static final double ASK_DONATION_FREQUENCY = 1.0 / 12.0;
+	private static final int ASK_DONATION_FREQUENCY_WHEN_ZERO = 8;
 
 	private boolean hasDonated = false;
 	private SharedPreferences sp;
@@ -200,7 +201,9 @@ final public class BookDisplay extends Activity {
 		} else {
 			// Never on first run.  Small chance after that.
 			Random rng = new Random();
-			if (rng.nextFloat() < ASK_DONATION_FREQUENCY) {
+			final int chance = rng.nextInt(ASK_DONATION_FREQUENCY_WHEN_ZERO);
+			Log.d(TAG, "chance of showing donation query, 1/" + ASK_DONATION_FREQUENCY_WHEN_ZERO + " and now got " + chance + "==0");
+			if (chance == 0) {
 
 				//TODO Push into AsycnTask
 
@@ -363,7 +366,11 @@ final public class BookDisplay extends Activity {
 		//menu.add(Menu.NONE, R.id.feedback, 4, R.string.feedback);
 		menu.add(Menu.NONE, R.id.credits, 5, R.string.credits);
 		menu.add(Menu.NONE, R.id.togglefilter, 6, R.string.toggle_filter).setIcon(R.drawable.ic_btn_toggle_viewable);
-		menu.add(Menu.NONE, R.id.donate, 7, R.string.donate);
+		if (hasDonated) {
+			menu.add(Menu.NONE, R.id.donate, 7, R.string.donate_donators_rock);
+		} else {
+			menu.add(Menu.NONE, R.id.donate, 7, R.string.donate);
+		}
 		return true;
 	}
 
