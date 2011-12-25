@@ -59,6 +59,7 @@ final public class BookDisplay extends Activity {
 	private enum Managed { MANAGED, UNMANAGED }
 	private static final int DIALOG_PURCHASEPLZ = 1;
 	private static final int DIALOG_SPLASH = 2;
+	private static final double ASK_DONATION_FREQUENCY = 1.0 / 12.0;
 
 	private boolean hasDonated = false;
 	private SharedPreferences sp;
@@ -262,9 +263,9 @@ final public class BookDisplay extends Activity {
 			e.commit();
 			this.tracker.trackEvent("Initialize", "App", "Introduction", 1);
 		} else {
-			// Never on first run.  1/10 chance after that.
+			// Never on first run.  Small chance after that.
 			Random rng = new Random();
-			if (rng.nextFloat() > 0.01) {
+			if (rng.nextFloat() < ASK_DONATION_FREQUENCY) {
 
 				//TODO Push into AsycnTask
 
