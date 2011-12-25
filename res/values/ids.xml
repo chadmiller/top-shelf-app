@@ -6,4 +6,5 @@
 	<item type="id" name="stock" />
 	<item type="id" name="shoppingsuggestions" />
 	<item type="id" name="togglefilter" />
+	<item type="id" name="donate" />
 </resources>

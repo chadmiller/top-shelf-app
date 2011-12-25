@@ -1,10 +1,23 @@
 package org.chad.jeejah.library;
 
+import org.chad.jeejah.library.googmarket.Consts;
+import org.chad.jeejah.library.googmarket.Consts.PurchaseState;
+import org.chad.jeejah.library.googmarket.Consts.ResponseCode;
+import org.chad.jeejah.library.BillingService;
+import org.chad.jeejah.library.BillingService.RequestPurchase;
+import org.chad.jeejah.library.BillingService.RestoreTransactions;
+import org.chad.jeejah.library.PurchaseDatabase;
+import org.chad.jeejah.library.PurchaseObserver;
+
 import android.app.Activity;
+import android.widget.SimpleCursorAdapter;
+import android.database.Cursor;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.content.SharedPreferences;
 import android.content.Intent;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ListView;
@@ -12,9 +25,9 @@ import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.view.Window;
+import android.view.ViewGroup;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.util.Log;
 import android.preference.PreferenceManager;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -24,6 +37,7 @@ import android.view.MenuItem;
 import android.os.Handler;
 import android.os.AsyncTask;
 
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.Map;
@@ -42,7 +56,19 @@ final public class BookDisplay extends Activity {
 
 	public static final String GOOG_ANALYTICS_ID = "U" + "A-" + 5168704 + "-3";
 	private static final String DATA_VERSION_DNS_RECORD_NAME = "ver.data.library.jeejah.chad.org.";
+	private enum Managed { MANAGED, UNMANAGED }
+	private static final int DIALOG_PURCHASEPLZ = 1;
+	private static final int DIALOG_SPLASH = 2;
+
+	private boolean hasDonated = false;
 	private SharedPreferences sp;
+	private DrinksPurchaseObserver mPurchaseObserver;
+	private BillingService mBillingService;
+	private SimpleCursorAdapter mOwnedItemsAdapter;
+	private PurchaseDatabase mPurchaseDatabase;
+	private Cursor mOwnedItemsCursor;
+	private String mPayloadContents = null;
+	private Handler mHandler;
 
 	private RecipeBook recipeBook;
 
@@ -54,6 +80,72 @@ final public class BookDisplay extends Activity {
 	private ActionBar actionBar;
 	private Dialog splashDialog;
 
+	private class DrinksPurchaseObserver extends PurchaseObserver {
+		public DrinksPurchaseObserver(Handler handler) {
+			super(BookDisplay.this, handler);
+		}
+
+		@Override
+		public void onBillingSupported(boolean supported) {
+			if (supported) {
+				//restoreDatabase();
+			}
+		}
+
+		@Override
+		public void onPurchaseStateChange(PurchaseState purchaseState, String itemId,
+				int quantity, long purchaseTime, String developerPayload) {
+			//mOwnedItemsCursor.requery();
+		}
+
+		@Override
+		public void onRequestPurchaseResponse(RequestPurchase request,
+				ResponseCode responseCode) {
+			if (responseCode == ResponseCode.RESULT_OK) {
+				BookDisplay.this.tracker.trackEvent("Initialize", "Donating", "success", 1);
+			} else if (responseCode == ResponseCode.RESULT_USER_CANCELED) {
+				BookDisplay.this.tracker.trackEvent("Initialize", "Donating", "cancelled", 1);
+			} else {
+				BookDisplay.this.tracker.trackEvent("Initialize", "Donating", "failed", 1);
+			}
+		}
+
+		@Override
+		public void onRestoreTransactionsResponse(RestoreTransactions request,
+				ResponseCode responseCode) {
+			if (responseCode == ResponseCode.RESULT_OK) {
+			} else {
+			}
+		}
+	}
+
+	private static class CatalogEntry {
+		public String sku;
+		public int nameId;
+		public Managed managed;
+
+		public CatalogEntry(String sku, int nameId, Managed managed) {
+			this.sku = sku;
+			this.nameId = nameId;
+			this.managed = managed;
+		}
+	}
+
+	/** An array of product list entries for the products that can be purchased. */
+	private static final CatalogEntry[] CATALOG = new CatalogEntry[] {
+		new CatalogEntry("donation1", R.string.catalog_item_updates_and_donation1, Managed.MANAGED),
+		new CatalogEntry("donation2", R.string.catalog_item_updates_and_donation2, Managed.MANAGED),
+		new CatalogEntry("donation3", R.string.catalog_item_updates_and_donation3, Managed.MANAGED),
+		new CatalogEntry("donation4", R.string.catalog_item_updates_and_donation4, Managed.MANAGED),
+		new CatalogEntry("donation5", R.string.catalog_item_updates_and_donation5, Managed.MANAGED),
+		new CatalogEntry("android.test.purchased", R.string.android_test_purchased, Managed.UNMANAGED),
+		//new CatalogEntry("android.test.canceled", R.string.android_test_canceled, Managed.UNMANAGED),
+		//new CatalogEntry("android.test.refunded", R.string.android_test_refunded, Managed.UNMANAGED),
+		//new CatalogEntry("android.test.item_unavailable", R.string.android_test_item_unavailable, Managed.UNMANAGED),
+	};
+
+	private CatalogAdapter mCatalogAdapter;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -62,8 +154,12 @@ final public class BookDisplay extends Activity {
 		setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
 		setContentView(R.layout.book_display);
 
+		mHandler = new Handler();
+
+		mPurchaseDatabase = new PurchaseDatabase(this);
+
 		this.tracker = GoogleAnalyticsTracker.getInstance();
-		this.tracker.startNewSession(GOOG_ANALYTICS_ID, 60, this);
+		this.tracker.startNewSession(GOOG_ANALYTICS_ID, 20, this);
 
 		this.pantry = new HashSet<String>();
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
@@ -101,7 +197,6 @@ final public class BookDisplay extends Activity {
 				BookDisplay.this.tracker.trackEvent("Clicks", "ListItem", recipe.name, 1);
 				BookDisplay.this.startActivity(intent);
 
-				Log.d(TAG, "hshcd = " + BookDisplay.this.getPackageName().hashCode());
 				if (BookDisplay.this.getPackageName().hashCode() != -907485584) {
 					BookDisplay.this.tracker.trackEvent("X", "X", BookDisplay.this.getPackageName(), 1);
 					BookDisplay.this.finish();
@@ -158,6 +253,44 @@ final public class BookDisplay extends Activity {
 
 		setInstanceState(savedInstanceState);
 		handleIntent(getIntent());
+
+
+		if (! sp.getBoolean("SEEN_INTRO", false)) {
+			showDialog(DIALOG_SPLASH);
+			SharedPreferences.Editor e = sp.edit();
+			e.putBoolean("SEEN_INTRO", true);
+			e.commit();
+			this.tracker.trackEvent("Initialize", "App", "Introduction", 1);
+		} else {
+			// Never on first run.  1/10 chance after that.
+			Random rng = new Random();
+			if (rng.nextFloat() > 0.01) {
+
+				//TODO Push into AsycnTask
+
+				// If already purchased something, then stop!
+				mOwnedItemsCursor = mPurchaseDatabase.queryAllPurchasedItems();
+				startManagingCursor(mOwnedItemsCursor);
+				if (mOwnedItemsCursor.moveToFirst()) {
+					do {
+						String sku = mOwnedItemsCursor.getString(0);
+						hasDonated = true;
+					} while (mOwnedItemsCursor.moveToNext());
+					this.tracker.trackEvent("Initialize", "Donation", "discovered", 1);
+				} else {
+					mBillingService = new BillingService();
+					mBillingService.setContext(this);
+					if (mBillingService.checkBillingSupported()) {
+						mCatalogAdapter = new CatalogAdapter(this, CATALOG);
+						mPurchaseObserver = new DrinksPurchaseObserver(mHandler);
+						ResponseHandler.register(mPurchaseObserver);
+						showDialog(DIALOG_PURCHASEPLZ);
+					} else {
+						this.tracker.trackEvent("Initialize", "Donating", "no-mechanism", 1);
+					}
+				}
+			}
+		}
 	}
 
 	private String[] toStringsArray(List<Recipe> l) {
@@ -228,22 +361,50 @@ final public class BookDisplay extends Activity {
 
 	@Override
 	public Dialog onCreateDialog(int id) {
-		AlertDialog.Builder adb = new AlertDialog.Builder(this);
-		adb.setTitle(R.string.welcome)
-			.setMessage(R.string.welcome_message)
-			.setPositiveButton(R.string.begin, new DialogInterface.OnClickListener() { 
-				public void onClick(DialogInterface dialog, int which) {
-					startSetIngredients();
-				}
-			}).setNegativeButton(R.string.help, new DialogInterface.OnClickListener() { 
-				public void onClick(DialogInterface dialog, int which) {
-					final Intent intent = new Intent(BookDisplay.this, Instructions.class);
-					BookDisplay.this.startActivity(intent);
-				}
-			});
-		return adb.create();
-	}
 
+		final AlertDialog.Builder adb = new AlertDialog.Builder(this);
+		switch (id) {
+			case DIALOG_SPLASH:
+				adb.setTitle(R.string.welcome)
+					.setMessage(R.string.welcome_message)
+					.setPositiveButton(R.string.begin, new DialogInterface.OnClickListener() { 
+						public void onClick(DialogInterface dialog, int which) {
+							startSetIngredients();
+						}
+					}).setNegativeButton(R.string.help, new DialogInterface.OnClickListener() { 
+						public void onClick(DialogInterface dialog, int which) {
+							final Intent intent = new Intent(BookDisplay.this, Instructions.class);
+							BookDisplay.this.startActivity(intent);
+						}
+					});
+				return adb.create();
+
+			case DIALOG_PURCHASEPLZ:
+				final int defaultChoice = 2;
+				final DialogInterface.OnClickListener purchase_ocl = new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						BookDisplay.this.tracker.trackEvent("Initialize", "Donating", "attempting", which);
+						if (which == -1) {
+							which = defaultChoice;
+						}
+						final String sku = CATALOG[which].sku;
+						BookDisplay.this.mBillingService.requestPurchase(sku, "1");
+						dialog.dismiss();
+					}
+				};
+				adb.setTitle(R.string.catalog_title)
+					.setSingleChoiceItems(BookDisplay.this.mCatalogAdapter, defaultChoice, purchase_ocl)
+					.setNegativeButton(R.string.catalog_buy_no, new DialogInterface.OnClickListener() { 
+						public void onClick(DialogInterface dialog, int which) {
+							BookDisplay.this.tracker.trackEvent("Initialize", "Donating", "refused", 1);
+							dialog.dismiss();
+						}
+					}).setPositiveButton(R.string.catalog_buy_yes, purchase_ocl);
+				return adb.create();
+			default:
+				return null;
+		}
+	}
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -263,9 +424,10 @@ final public class BookDisplay extends Activity {
 		menu.add(Menu.NONE, R.id.instructions, 1, R.string.help).setIcon(android.R.drawable.ic_menu_help);
 		menu.add(Menu.NONE, R.id.stock, 2, R.string.set_stock).setIcon(R.drawable.ic_btn_mark_owned_ingredients);
 		menu.add(Menu.NONE, R.id.shoppingsuggestions, 3, R.string.shopping_suggestions).setIcon(R.drawable.ic_btn_suggest_shopping_list);
-		menu.add(Menu.NONE, R.id.feedback, 4, R.string.feedback);
+		//menu.add(Menu.NONE, R.id.feedback, 4, R.string.feedback);
 		menu.add(Menu.NONE, R.id.credits, 5, R.string.credits);
 		menu.add(Menu.NONE, R.id.togglefilter, 6, R.string.toggle_filter).setIcon(R.drawable.ic_btn_toggle_viewable);
+		menu.add(Menu.NONE, R.id.donate, 7, R.string.donate);
 		return true;
 	}
 
@@ -299,6 +461,20 @@ final public class BookDisplay extends Activity {
 				intent = new Intent(this, Credits.class);
 				startActivity(intent);
 				return true;
+			case R.id.donate:
+				if (mBillingService == null) {
+					mBillingService = new BillingService();
+					mBillingService.setContext(this);
+					mPurchaseObserver = new DrinksPurchaseObserver(mHandler);
+					ResponseHandler.register(mPurchaseObserver);
+				}
+				if (mBillingService.checkBillingSupported()) {
+					if (mCatalogAdapter == null) {
+						mCatalogAdapter = new CatalogAdapter(this, CATALOG);
+					}
+				}
+				showDialog(DIALOG_PURCHASEPLZ);
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}
@@ -322,6 +498,10 @@ final public class BookDisplay extends Activity {
 		super.onDestroy();
 		this.tracker.dispatch();
 		this.tracker.stopSession();
+		if (mPurchaseDatabase != null)
+			mPurchaseDatabase.close();
+		if (mBillingService != null)
+			mBillingService.unbind();
 	}
 
 	@Override
@@ -430,9 +610,7 @@ final public class BookDisplay extends Activity {
 	}
 
 	void setUp() {
-		Log.d(TAG, "setUp clearing pantry");
 		this.pantry.clear();
-		Log.d(TAG, "setUp foreach to add to pantry");
 		for (Map.Entry<String,?> entry : sp.getAll().entrySet()) {
 			String name = entry.getKey();
 			if (name.startsWith(Pantry.PREF_PREFIX)) {
@@ -446,20 +624,8 @@ final public class BookDisplay extends Activity {
 			}
 		}
 
-		Log.d(TAG, "setUp check whether to show intro");
-		if (! sp.getBoolean("SEEN_INTRO", false)) {
-			showDialog(1);
-			SharedPreferences.Editor e = sp.edit();
-			e.putBoolean("SEEN_INTRO", true);
-			e.commit();
-			this.tracker.trackEvent("Initialize", "App", "Introduction", 1);
-		}
-
-		Log.d(TAG, "setUp update producable...");
 		this.recipeBook.updateProducable(this.pantry);  // TODO kill
-		Log.d(TAG, "setUp update pantry...");
 		this.recipeAdapter.updatePantry(this.pantry);
-		Log.d(TAG, "setUp done");
 	}
 
 	private class ReportingRunnable implements Runnable {
@@ -484,5 +650,30 @@ final public class BookDisplay extends Activity {
 	}
 
 
+	private static class CatalogAdapter extends ArrayAdapter<String> {
+		private CatalogEntry[] mCatalog;
+		public CatalogAdapter(Context context, CatalogEntry[] catalog) {
+			super(context, android.R.layout.select_dialog_singlechoice);
+			mCatalog = catalog;
+			for (CatalogEntry element : catalog) {
+				add(context.getString(element.nameId));
+			}
+			setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		}
+
+		@Override
+		public boolean areAllItemsEnabled() {
+			return true;
+		}
+
+		@Override
+		public View getDropDownView(int position, View convertView, ViewGroup parent) {
+			// If the item at the given list position is not purchasable, then
+			// "gray out" the list item.
+			View view = super.getDropDownView(position, convertView, parent);
+			view.setEnabled(true);
+			return view;
+		}
+	}
 
 }

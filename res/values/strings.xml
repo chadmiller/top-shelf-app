@@ -22,6 +22,8 @@
 	<string name="shopping_suggestions">Shopping</string>
 	<string name="toggle_filter">Toggle Filter</string>
 	<string name="see_recipe">Recipe</string>
+	<string name="donate">Donate to author</string>
+
 	<string name="begin">Begin</string>
 	<string name="welcome">Welcome</string>
 	<string name="loading_recipe_book">Loading thousands of recipes...</string>
@@ -36,5 +38,18 @@
 
 	<string name="welcome_message">Enter the ingredients you own to see what recipes you can make with them.  Hit <i>Menu</i> for help later.</string>
 
+	<string name="catalog_title">This app is free. Care to buy the nice author a drink?</string>
+	<string name="catalog_item_updates_and_donation1">A pack of gum ($0.99)</string>
+	<string name="catalog_item_updates_and_donation2">Domestic beer ($1.80)</string>
+	<string name="catalog_item_updates_and_donation3">Nice imported pint ($3)</string>
+	<string name="catalog_item_updates_and_donation4">Wine bottle ($9)</string>
+	<string name="catalog_item_updates_and_donation5">Liter of Rum ($19)</string>
+	<string name="catalog_buy_yes">Yes, he deserves it.</string>
+	<string name="catalog_buy_no">No.</string>
+
+	<string name="android_test_purchased">[fake purchase]</string>
+	<string name="android_test_canceled">[fake cancel]</string>
+	<string name="android_test_refunded">[fake refund]</string>
+	<string name="android_test_item_unavailable">[fake unavailable]</string>
 
 </resources>
