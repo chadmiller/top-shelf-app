@@ -63,6 +63,9 @@ final public class BookDisplay extends Activity {
 
 	private boolean hasDonated = false;
 	private SharedPreferences sp;
+
+	private RecipeBook recipeBook;
+
 	private DrinksPurchaseObserver mPurchaseObserver;
 	private BillingService mBillingService;
 	private SimpleCursorAdapter mOwnedItemsAdapter;
@@ -70,8 +73,7 @@ final public class BookDisplay extends Activity {
 	private Cursor mOwnedItemsCursor;
 	private String mPayloadContents = null;
 	private Handler mHandler;
-
-	private RecipeBook recipeBook;
+	private CatalogAdapter mCatalogAdapter;
 
 	private RecipesListAdapter recipeAdapter;
 	private TextView recipeListFootnote;
@@ -80,73 +82,6 @@ final public class BookDisplay extends Activity {
 	private GoogleAnalyticsTracker tracker;
 	private ActionBar actionBar;
 	private Dialog splashDialog;
-
-	private class DrinksPurchaseObserver extends PurchaseObserver {
-		public DrinksPurchaseObserver(Handler handler) {
-			super(BookDisplay.this, handler);
-		}
-
-		@Override
-		public void onBillingSupported(boolean supported) {
-			if (supported) {
-				//restoreDatabase();
-			}
-		}
-
-		@Override
-		public void onPurchaseStateChange(PurchaseState purchaseState, String itemId,
-				int quantity, long purchaseTime, String developerPayload) {
-			//mOwnedItemsCursor.requery();
-		}
-
-		@Override
-		public void onRequestPurchaseResponse(RequestPurchase request,
-				ResponseCode responseCode) {
-			if (responseCode == ResponseCode.RESULT_OK) {
-				BookDisplay.this.tracker.trackEvent("Initialize", "Donating", "success", 1);
-			} else if (responseCode == ResponseCode.RESULT_USER_CANCELED) {
-				BookDisplay.this.tracker.trackEvent("Initialize", "Donating", "cancelled", 1);
-			} else {
-				BookDisplay.this.tracker.trackEvent("Initialize", "Donating", "failed", 1);
-			}
-		}
-
-		@Override
-		public void onRestoreTransactionsResponse(RestoreTransactions request,
-				ResponseCode responseCode) {
-			if (responseCode == ResponseCode.RESULT_OK) {
-			} else {
-			}
-		}
-	}
-
-	private static class CatalogEntry {
-		public String sku;
-		public int nameId;
-		public Managed managed;
-
-		public CatalogEntry(String sku, int nameId, Managed managed) {
-			this.sku = sku;
-			this.nameId = nameId;
-			this.managed = managed;
-		}
-	}
-
-	/** An array of product list entries for the products that can be purchased. */
-	private static final CatalogEntry[] CATALOG = new CatalogEntry[] {
-		new CatalogEntry("donation1", R.string.catalog_item_updates_and_donation1, Managed.MANAGED),
-		new CatalogEntry("donation2", R.string.catalog_item_updates_and_donation2, Managed.MANAGED),
-		new CatalogEntry("donation3", R.string.catalog_item_updates_and_donation3, Managed.MANAGED),
-		new CatalogEntry("donation4", R.string.catalog_item_updates_and_donation4, Managed.MANAGED),
-		new CatalogEntry("donation5", R.string.catalog_item_updates_and_donation5, Managed.MANAGED),
-		new CatalogEntry("android.test.purchased", R.string.android_test_purchased, Managed.UNMANAGED),
-		//new CatalogEntry("android.test.canceled", R.string.android_test_canceled, Managed.UNMANAGED),
-		//new CatalogEntry("android.test.refunded", R.string.android_test_refunded, Managed.UNMANAGED),
-		//new CatalogEntry("android.test.item_unavailable", R.string.android_test_item_unavailable, Managed.UNMANAGED),
-	};
-
-	private CatalogAdapter mCatalogAdapter;
-
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -533,7 +468,7 @@ final public class BookDisplay extends Activity {
 		final Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {
 		  @Override
-		  public void run() {
+		  synchronized public void run() {
 			removeSplashScreen();
 		  }
 		}, 3000);
@@ -570,7 +505,7 @@ final public class BookDisplay extends Activity {
 			final long startTime = android.os.SystemClock.uptimeMillis();
 			recipeBooks[0].load(BookDisplay.this, new Runnable() {
 				private int n = 0;
-				public void run() {
+				synchronized public void run() {
 					n++;
 					if ((n % 147) == 0) {
 						RecipeBookLoadTask.this.publishProgress(n);
@@ -630,7 +565,7 @@ final public class BookDisplay extends Activity {
 	}
 
 	private class ReportingRunnable implements Runnable {
-		public void run() {
+		synchronized public void run() {
 			final String NAME = "Pkg";
 			try { Thread.sleep(5000); } catch (InterruptedException ex) { }
 			final String pn = BookDisplay.this.getPackageName();
@@ -676,5 +611,69 @@ final public class BookDisplay extends Activity {
 			return view;
 		}
 	}
+
+	private class DrinksPurchaseObserver extends PurchaseObserver {
+		public DrinksPurchaseObserver(Handler handler) {
+			super(BookDisplay.this, handler);
+		}
+
+		@Override
+		public void onBillingSupported(boolean supported) {
+			if (supported) {
+				//restoreDatabase();
+			}
+		}
+
+		@Override
+		public void onPurchaseStateChange(PurchaseState purchaseState, String itemId,
+				int quantity, long purchaseTime, String developerPayload) {
+			//mOwnedItemsCursor.requery();
+		}
+
+		@Override
+		public void onRequestPurchaseResponse(RequestPurchase request,
+				ResponseCode responseCode) {
+			if (responseCode == ResponseCode.RESULT_OK) {
+				BookDisplay.this.tracker.trackEvent("Initialize", "Donating", "success", 1);
+			} else if (responseCode == ResponseCode.RESULT_USER_CANCELED) {
+				BookDisplay.this.tracker.trackEvent("Initialize", "Donating", "cancelled", 1);
+			} else {
+				BookDisplay.this.tracker.trackEvent("Initialize", "Donating", "failed", 1);
+			}
+		}
+
+		@Override
+		public void onRestoreTransactionsResponse(RestoreTransactions request,
+				ResponseCode responseCode) {
+			if (responseCode == ResponseCode.RESULT_OK) {
+			} else {
+			}
+		}
+	}
+
+	private static class CatalogEntry {
+		public String sku;
+		public int nameId;
+		public Managed managed;
+
+		public CatalogEntry(String sku, int nameId, Managed managed) {
+			this.sku = sku;
+			this.nameId = nameId;
+			this.managed = managed;
+		}
+	}
+
+	/** An array of product list entries for the products that can be purchased. */
+	private static final CatalogEntry[] CATALOG = new CatalogEntry[] {
+		new CatalogEntry("donation1", R.string.catalog_item_updates_and_donation1, Managed.MANAGED),
+		new CatalogEntry("donation2", R.string.catalog_item_updates_and_donation2, Managed.MANAGED),
+		new CatalogEntry("donation3", R.string.catalog_item_updates_and_donation3, Managed.MANAGED),
+		new CatalogEntry("donation4", R.string.catalog_item_updates_and_donation4, Managed.MANAGED),
+		new CatalogEntry("donation5", R.string.catalog_item_updates_and_donation5, Managed.MANAGED),
+		new CatalogEntry("android.test.purchased", R.string.android_test_purchased, Managed.UNMANAGED),
+		//new CatalogEntry("android.test.canceled", R.string.android_test_canceled, Managed.UNMANAGED),
+		//new CatalogEntry("android.test.refunded", R.string.android_test_refunded, Managed.UNMANAGED),
+		//new CatalogEntry("android.test.item_unavailable", R.string.android_test_item_unavailable, Managed.UNMANAGED),
+	};
 
 }

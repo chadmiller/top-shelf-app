@@ -151,7 +151,7 @@ public abstract class PurchaseObserver {
     void postPurchaseStateChange(final PurchaseState purchaseState, final String itemId,
             final int quantity, final long purchaseTime, final String developerPayload) {
         mHandler.post(new Runnable() {
-            public void run() {
+            synchronized public void run() {
                 onPurchaseStateChange(
                         purchaseState, itemId, quantity, purchaseTime, developerPayload);
             }

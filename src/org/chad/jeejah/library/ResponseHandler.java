@@ -111,7 +111,7 @@ public class ResponseHandler {
         // the database because we need to read and update the current quantity
         // first.
         new Thread(new Runnable() {
-            public void run() {
+            synchronized public void run() {
                 PurchaseDatabase db = new PurchaseDatabase(context);
                 int quantity = db.updatePurchase(
                         orderId, productId, purchaseState, purchaseTime, developerPayload);
