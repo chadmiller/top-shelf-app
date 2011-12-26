@@ -69,6 +69,7 @@ public class RecipeActivity extends Activity {
 		for (int i = 0; i < ingredients.length; i++) {
 			TextView t = new TextView(this);
 			t.setText("\u2022   " + ingredients[i]);
+			t.setTextSize(17.0f);
 			t.setPadding(30, 3, 30, 2);
 			ingredientsContainer.addView(t);
 		}
@@ -76,6 +77,7 @@ public class RecipeActivity extends Activity {
 		for (int i = 0; i < preparation.length; i++) {
 			TextView t = new TextView(this);
 			t.setText("" + (i+1) + ".  " + preparation[i]);
+			t.setTextSize(17.0f);
 			t.setPadding(30, 5, 30, 5);
 			preparationContainer.addView(t);
 
