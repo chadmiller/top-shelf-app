@@ -55,7 +55,7 @@ final public class Pantry extends PreferenceActivity {
 		}
 		actionBar.addAction(new SaveAction());
 
-		getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.flickr_tightenup_54569946_as_background));
+		//getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.flickr_tightenup_54569946_as_background));
 		getListView().setCacheColorHint(android.graphics.Color.TRANSPARENT);
 
 		this.ingredientsMixerandgarnish = getIntent().getStringArrayExtra("ingredients-mixerandgarnish");

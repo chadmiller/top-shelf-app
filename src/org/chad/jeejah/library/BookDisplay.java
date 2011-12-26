@@ -53,14 +53,15 @@ import com.markupartist.android.widget.ActionBar.IntentAction;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 final public class BookDisplay extends Activity {
-	private final static String TAG = "org.chad.jeejah.library.BookDisplay";
 
+	private final static String TAG = "org.chad.jeejah.library.BookDisplay";
 	public static final String GOOG_ANALYTICS_ID = "U" + "A-" + 5168704 + "-3";
 	private static final String DATA_VERSION_DNS_RECORD_NAME = "ver.data.library.jeejah.chad.org.";
-	private enum Managed { MANAGED, UNMANAGED }
 	private static final int DIALOG_PURCHASEPLZ = 1;
 	private static final int DIALOG_SPLASH = 2;
-	private static final int ASK_DONATION_FREQUENCY_WHEN_ZERO = 8;
+	private static final int ASK_DONATION_FREQUENCY_WHEN_ZERO = 4;
+
+	private enum Managed { MANAGED, UNMANAGED }
 
 	private boolean hasDonated = false;
 	private SharedPreferences sp;
@@ -200,10 +201,10 @@ final public class BookDisplay extends Activity {
 			this.tracker.trackEvent("Initialize", "App", "Introduction", 1);
 		} else {
 			// Never on first run.  Small chance after that.
-			Random rng = new Random();
+			final Long now = System.currentTimeMillis();
+			final Random rng = new Random();
 			final int chance = rng.nextInt(ASK_DONATION_FREQUENCY_WHEN_ZERO);
-			Log.d(TAG, "chance of showing donation query, 1/" + ASK_DONATION_FREQUENCY_WHEN_ZERO + " and now got " + chance + "==0");
-			if (chance == 0) {
+			if ((chance == 0) && ((sp.getLong("LAST_SEEN_DONATE", 0L) + (1000*60*60*23)) < now)) {
 
 				//TODO Push into AsycnTask
 
@@ -224,6 +225,10 @@ final public class BookDisplay extends Activity {
 						mPurchaseObserver = new DrinksPurchaseObserver(mHandler);
 						ResponseHandler.register(mPurchaseObserver);
 						showDialog(DIALOG_PURCHASEPLZ);
+
+						SharedPreferences.Editor e = sp.edit();
+						e.putLong("LAST_SEEN_DONATE", now);
+						e.commit();
 					} else {
 						this.tracker.trackEvent("Initialize", "Donating", "no-mechanism", 1);
 					}
