@@ -59,8 +59,8 @@
         <item name="android:textColorTertiary">@android:color/white</item>
         <item name="android:windowTitleBackgroundStyle">@style/Drinks.TitleBackground</item>
         <item name="android:windowTitleStyle">@style/Drinks.Title</item>
-		<item name="android:panelColorBackground">@color/menu_background</item>
-		<item name="android:panelFullBackground">@color/menu_background</item>
+		<!-- item name="android:panelColorBackground">@color/menu_background</item -->
+		<!-- item name="android:panelFullBackground">@color/menu_background</item -->
     </style>
 
     <style name="SplashScreen">
