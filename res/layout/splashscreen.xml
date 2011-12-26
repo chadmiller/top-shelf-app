@@ -12,11 +12,11 @@
 		android:layout_width="fill_parent" 
 		android:layout_height="fill_parent" 
 		android:color="#fff"
-		android:hint="Loading thousands of recipes..."
+		android:hint="@string/loading_recipes"
 		android:gravity="center"
-		android:padding="30px"
+		android:padding="30dp"
 		android:background="#c000"
-		android:textSize="33dip"
+		android:textSize="33dp"
 		/>
 </LinearLayout>
 

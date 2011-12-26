@@ -36,6 +36,7 @@
             android:padding="0dip"
             style="@style/ActionBarHomeLogo"
             android:visibility="gone"
+            android:contentDescription="application home"
             />
         <RelativeLayout
             android:id="@+id/actionbar_home_bg"
@@ -52,6 +53,7 @@
                 android:id="@+id/actionbar_home_btn"
                 style="@style/ActionBarHomeItem"
                 android:background="@drawable/actionbar_btn"
+                android:contentDescription="home button"
                 />
         </RelativeLayout>
         <ImageView
@@ -63,6 +65,7 @@
             android:layout_alignParentTop="true"
             android:padding="0dip"
             android:visibility="gone"
+            android:contentDescription="back"
             />
         
         <LinearLayout

@@ -23,17 +23,17 @@
 		<LinearLayout
 			android:orientation="vertical"
 			android:layout_width="fill_parent"
-			android:layout_height="fill_parent"
+			android:layout_height="wrap_content"
 			>
 			<LinearLayout
 				android:orientation="horizontal"
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
-				android:padding="16px"
+				android:padding="16dp"
 				>
 				<TextView  
 					android:id="@+id/recipe_title"
-					android:layout_width="fill_parent" 
+					android:layout_width="0dip" 
 					android:layout_height="wrap_content" 
 					android:lines="1"
 					android:ellipsize="marquee"
@@ -54,26 +54,26 @@
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
 				android:orientation="vertical"
-				android:padding="8px"
+				android:padding="8dp"
 				/>
 			<LinearLayout
 				android:id="@+id/recipe_preparation"
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
 				android:orientation="vertical"
-				android:padding="8px"
+				android:padding="8dp"
 				/>
 			<LinearLayout
 				android:id="@+id/recipe_consumation"
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
 				android:orientation="vertical"
-				android:padding="8px"
+				android:padding="8dp"
 				/>
 			<View
 				android:id="@+id/jargon_seperator"
 				android:layout_width="fill_parent" 
-				android:layout_height="2px" 
+				android:layout_height="2dp" 
 				android:color="#ccc"
 				android:background="#ccc"
 				/>
@@ -81,12 +81,12 @@
 				android:id="@+id/jargon_defined"
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
-				android:padding="10px"
+				android:padding="10dp"
 				android:textSize="@dimen/recipe_jargon_height"
 				/>
 			<!-- View
 				android:layout_width="fill_parent" 
-				android:layout_height="2px" 
+				android:layout_height="2dp" 
 				android:color="#ccc"
 				android:background="#ccc"
 				/>
@@ -94,7 +94,7 @@
 				android:id="@+id/jargon_defined"
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
-				android:padding="10px"
+				android:padding="10dp"
 				android:text="ight"
 				/ -->
 		</LinearLayout>

@@ -20,4 +20,5 @@
     android:layout_centerVertical="true"
     android:maxLines="1"
     android:visibility="visible"
+	android:contentDescription="action item"
     />
