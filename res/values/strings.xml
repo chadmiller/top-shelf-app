@@ -27,8 +27,8 @@
 	<string name="shopping_suggestions">Shopping</string>
 	<string name="toggle_filter">Toggle Filter</string>
 	<string name="see_recipe">Recipe</string>
-	<string name="donate">Donate to author</string>
-	<string name="donate_donators_rock">Tip author again.</string>
+	<string name="donate">Donate</string>
+	<string name="donate_donators_rock">Donate++</string>
 
 	<string name="begin">Begin</string>
 	<string name="welcome">Welcome</string>
