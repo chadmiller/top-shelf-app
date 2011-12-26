@@ -193,12 +193,7 @@ final class RecipeBook {
 		}
 
 		for (Recipe recipe : this.allRecipes) {
-			if (recipe.ingredients.size() <= 1) {
-				Log.d(TAG, "item " + recipe + " has only one ingred");
-				continue;
-			} else {
-				Log.d(TAG, "item " + recipe + " has " + recipe.ingredients.size() + " ingred");
-			}
+			if (recipe.ingredients.size() <= 1) { continue; }
 
 			final Set<String> recipeNeeds = new TreeSet<String>(recipe.ingredients);
 			recipeNeeds.removeAll(pantry);
