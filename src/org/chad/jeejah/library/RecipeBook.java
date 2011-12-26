@@ -48,12 +48,12 @@ final class RecipeBook {
 	public void load(Context context, Runnable updater) {
 
 		try {
-			java.io.InputStream gzfile = context.getResources().openRawResource(R.raw.recipes);
+			final java.io.InputStream gzfile = context.getResources().openRawResource(R.raw.recipes);
 			gzfile.skip(256L);
-			java.util.zip.GZIPInputStream recipeFile = new java.util.zip.GZIPInputStream(gzfile);
+			final java.util.zip.GZIPInputStream recipeFile = new java.util.zip.GZIPInputStream(gzfile);
 
-			JsonFactory jsonFactory = new JsonFactory();
-			JsonParser jp = jsonFactory.createJsonParser(recipeFile);
+			final JsonFactory jsonFactory = new JsonFactory();
+			final JsonParser jp = jsonFactory.createJsonParser(recipeFile);
 			// vers, publish date, ingred, book, most-used ingred
 
 			jp.nextToken(); // WHAT?
@@ -63,7 +63,7 @@ final class RecipeBook {
 			Log.d(TAG, "pubdate is " + jp.getText());
 			jp.nextToken(); // publish date
 			while (jp.nextToken() != JsonToken.END_OBJECT) { // ingred
-				String ingredientName = jp.getText();
+				final String ingredientName = jp.getText();
 				jp.nextToken();
 				String genreName = jp.getText();
 				if ("m".equals(genreName)) {
@@ -85,9 +85,9 @@ final class RecipeBook {
 			}
 			while (jp.nextToken() != JsonToken.END_ARRAY) { // book
 				jp.nextToken();
-				Recipe recipe = new Recipe();
+				final Recipe recipe = new Recipe();
 				while (jp.nextToken() != JsonToken.END_OBJECT) {
-					String fieldname = jp.getCurrentName();
+					final String fieldname = jp.getCurrentName();
 					if (fieldname == null) {
 						Log.d(TAG, "what? " + jp.getCurrentToken());
 					} else if (fieldname.equals("name")) {
@@ -148,8 +148,8 @@ final class RecipeBook {
 		final List<Recipe> secondaryList = new LinkedList<Recipe>();
 		final List<Recipe> tertiaryList = new LinkedList<Recipe>();
 
-		String normal_query = query.trim().toLowerCase();
-		String soundex_query = Soundex.soundex(normal_query);
+		final String normal_query = query.trim().toLowerCase();
+		final String soundex_query = Soundex.soundex(normal_query);
 		for (Recipe recipe : this.allRecipes) {
 			final String normal_recipe_name = recipe.name.toLowerCase();
 			int damlev = spinneret.util.Levenshtein.damlevlim(normal_query, normal_recipe_name, 2);
@@ -161,7 +161,7 @@ final class RecipeBook {
 				continue;
 			}
 
-			String normal_recipe_name_fragments[] = normal_recipe_name.split("\\W+");
+			final String normal_recipe_name_fragments[] = normal_recipe_name.split("\\W+");
 			if (normal_recipe_name_fragments.length > 1) {
 				for (String normal_recipe_name_fragment : normal_recipe_name_fragments) {
 					damlev = spinneret.util.Levenshtein.damlevlim(normal_query, normal_recipe_name_fragment, 2);
@@ -193,14 +193,21 @@ final class RecipeBook {
 		}
 
 		for (Recipe recipe : this.allRecipes) {
+			if (recipe.ingredients.size() <= 1) {
+				Log.d(TAG, "item " + recipe + " has only one ingred");
+				continue;
+			} else {
+				Log.d(TAG, "item " + recipe + " has " + recipe.ingredients.size() + " ingred");
+			}
+
 			final Set<String> recipeNeeds = new TreeSet<String>(recipe.ingredients);
 			recipeNeeds.removeAll(pantry);
-			int size = recipeNeeds.size();
+			final int size = recipeNeeds.size();
 
 			if (size == 0) {
 				this.producableRecipes.add(recipe);
 			} else if (size == 1) {
-				Object remaining = recipeNeeds.toArray()[0];
+				final Object remaining = recipeNeeds.toArray()[0];
 				List<Recipe> l = countRecipesSoleAdditionalIngredient.get(remaining);
 				if (l == null) {
 					l = new LinkedList<Recipe>();
@@ -212,7 +219,7 @@ final class RecipeBook {
 	}
 
 	synchronized void addFavorite(String recipeName) {
-		Recipe r = allRecipeIndex.get(recipeName);
+		final Recipe r = allRecipeIndex.get(recipeName);
 		if (r != null) {
 			favoriteRecipes.add(r);
 		} else {
@@ -221,7 +228,7 @@ final class RecipeBook {
 	}
 
 	synchronized void removeFavorite(String recipeName) {
-		Recipe r = allRecipeIndex.get(recipeName);
+		final Recipe r = allRecipeIndex.get(recipeName);
 		if (r != null) {
 			favoriteRecipes.remove(r);
 		} else {
