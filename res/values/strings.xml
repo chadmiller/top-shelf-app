@@ -14,14 +14,14 @@
 	<string name="term_dash">Dash: A short squirt. Technically, 1/6th of a teaspoon.</string>
 	<string name="term_fill">Fill: Pour up to the top of the glass.</string>
 	<string name="term_float">Float: Gently pour on top of a drink.</string>
-	<string name="term_layer">Layer: Gently add ingredients in layers. You may need a spoon to stop the fall of the pour.</string>
-	<string name="term_muddle">Muddle: Crush ingredients to release flavors. Use a muddling device, or crush between thumb and ice cube.</string>
-	<string name="term_rim">Rim: Moisten the glass\' rim and sprinkle on the outside.  Don\'t overdo it.  Subtle is better than cloying..</string>
+	<string name="term_layer">Layer: Gently add ingredients in layers. You may need a spoon to stop the fall of the pour. Do not stir.</string>
+	<string name="term_muddle">Muddle: Crush ingredients to release flavors. Use a muddling device, or crush between thumb and ice cube or between spoon and glass side.</string>
+	<string name="term_rim">Rim: Moisten the glass\' rim and sprinkle on the outside. One could dunk the rim in a flat bed of a substance, but one must be careful not to overdo it. Subtle is better than cloying.</string>
 	<string name="term_splash">Splash: A long squirt. Technically, half an ounce.</string>
-	<string name="term_top">Top: Add on top.  A lot like "fill", but perhaps not to the top of the serving glass.</string>
-	<string name="term_shake">Shake: This refers to the mixing glass. Shaking is very different than stirring, and they\'re not interchangable. Shaking should be vigorous and long enough that the contents become aerated and fizzy. Generally, shake long enough that the cold of the mixing glass makes your fingers sting.</string>
+	<string name="term_top">Top: Add on top of other ingredients in serving glass. Do not stir.</string>
+	<string name="term_shake">Shake: A vigorous shaking of the mixing glass, usually with ice added. Shaking should be long enough that the contents become aerated and fizzy. Generally, the cold of the mixing glass should make your fingers sting.</string>
 	<string name="term_strain">Strain: Break open the mixing glass and let the liquid contents into the serving glass, keeping the ice in the mixing glass.</string>
-	<string name="term_pour">Pour: Break open the mixing glass and pour the entire contents into the serving glass, including ice.</string>
+	<string name="term_pour">Pour: Break open the mixing glass and pour the entire contents into the serving glass, including any ice in it.</string>
 
     <string name="search">Search</string>
 	<string name="help">Help</string>

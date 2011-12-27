@@ -102,12 +102,10 @@ final class RecipeBook {
 							recipe.glass = jp.getText();
 						}
 					} else if (fieldname.equals("prepare_instructions")) {
-						jp.nextToken();
 						while (jp.nextToken() != JsonToken.END_ARRAY) {
 							recipe.prepare_instructions.add(jp.getText());
 						}
 					} else if (fieldname.equals("consume_instructions")) {
-						jp.nextToken();
 						while (jp.nextToken() != JsonToken.END_ARRAY) {
 							recipe.consume_instructions.add(jp.getText());
 						}

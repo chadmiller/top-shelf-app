@@ -97,6 +97,8 @@ public class RecipeActivity extends Activity {
 				jargonSet.add(res.getString(R.string.term_muddle));
 			if (preparation[i].matches(".*?\\brim\\b.*"))
 				jargonSet.add(res.getString(R.string.term_rim));
+			if (preparation[i].equals("stir and strain"))
+				jargonSet.add(res.getString(R.string.term_strain));
 			if (preparation[i].equals("shake and strain")) {
 				jargonSet.add(res.getString(R.string.term_shake));
 				jargonSet.add(res.getString(R.string.term_strain));
