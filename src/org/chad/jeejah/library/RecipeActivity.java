@@ -97,10 +97,16 @@ public class RecipeActivity extends Activity {
 				jargonSet.add(res.getString(R.string.term_muddle));
 			if (preparation[i].matches(".*?\\brim\\b.*"))
 				jargonSet.add(res.getString(R.string.term_rim));
-			if (preparation[i].matches(".*?\\bsplash\\b.*"))
-				jargonSet.add(res.getString(R.string.term_splash));
-			//if (preparation[i].matches("\\btop\\b")
-				//jargonSet.add(res.getString(R.string.term_top));
+			if (preparation[i].equals("shake and strain")) {
+				jargonSet.add(res.getString(R.string.term_shake));
+				jargonSet.add(res.getString(R.string.term_strain));
+			}
+			if (preparation[i].equals("shake and pour")) {
+				jargonSet.add(res.getString(R.string.term_shake));
+				jargonSet.add(res.getString(R.string.term_pour));
+			}
+			if (preparation[i].matches(".*?\\btop\\b.*"))
+				jargonSet.add(res.getString(R.string.term_top));
 		}
 
 		for (int i = 0; i < consumation.length; i++) {
