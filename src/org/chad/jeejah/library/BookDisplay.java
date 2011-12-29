@@ -121,9 +121,6 @@ final public class BookDisplay extends Activity {
 			recipeBookLoader.execute(this.recipeBook);
 		}
 
-		final String filterState = this.recipeAdapter.getFilterViewName(this.recipeAdapter.getFilterViewId());
-		this.actionBar.setTitle("Drinks " + filterState);
-
 		final ListView recipeListView = (ListView) findViewById(R.id.recipe_list);
 		recipeListView.setAdapter(BookDisplay.this.recipeAdapter);
 		recipeListView.setOnItemClickListener(new OnItemClickListener() {
@@ -148,6 +145,9 @@ final public class BookDisplay extends Activity {
 		});
 
 		setInstanceState(savedInstanceState);
+
+		final String filterState = this.recipeAdapter.getFilterViewName(this.recipeAdapter.getFilterViewId());
+		this.actionBar.setTitle("Drinks " + filterState);
 
 		if (! configurationSharedPreferences.getBoolean("SEEN_INTRO", false)) {
 			showDialog(DIALOG_SPLASH);
