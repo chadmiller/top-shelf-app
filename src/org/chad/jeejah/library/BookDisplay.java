@@ -78,7 +78,7 @@ final public class BookDisplay extends Activity {
 	private Handler mHandler;
 	private CatalogAdapter mCatalogAdapter;
 
-	private RecipesListAdapter recipeAdapter;
+	protected RecipesListAdapter recipeAdapter;
 	private TextView recipeListFootnote;
 	private Set<String> pantry;
 
@@ -450,7 +450,7 @@ final public class BookDisplay extends Activity {
 					n++;
 					RecipeBookLoadTask.this.publishProgress(n);
 				}
-			}, BookDisplay.this.pantry, handler);
+			}, BookDisplay.this.pantry, handler, BookDisplay.this);
 			BookDisplay.this.tracker.trackEvent("Performance", "RecipeBookLoading", "Elapsed", (int) (android.os.SystemClock.uptimeMillis() - startTime));
 
 			return null;

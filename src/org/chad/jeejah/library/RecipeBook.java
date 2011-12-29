@@ -34,19 +34,21 @@ final class RecipeBook {
 	final public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
 	final public ArrayList<String> mostUsedIngredients;
 	final public Map<String,List<String>> categorizedIngredients;
+	final private int BLOCKSIZE = 70;
 
 	public RecipeBook() {
-		this.allRecipeIndex = new Hashtable<String,Recipe>(2600);
-		this.allRecipes = new ArrayList<Recipe>(2600);
+		this.allRecipeIndex = new Hashtable<String,Recipe>(2401);
+		this.allRecipes = new ArrayList<Recipe>(2401);
 		this.categorizedIngredients = new TreeMap<String,List<String>>();
 		this.mostUsedIngredients = new ArrayList<String>(17);
 		this.countRecipesSoleAdditionalIngredient = new Hashtable<String,List<Recipe>>();
-		this.producableRecipes = new ArrayList<Recipe>();
+		this.producableRecipes = new ArrayList<Recipe>(2400);
 		this.searchedRecipes = new ArrayList<Recipe>();
 		this.favoriteRecipes = new LinkedList<Recipe>();
 	}
 
-	public void load(Context context, final Runnable updater, final Set<String> pantry, final Handler handler) {
+	public void load(Context context, final Runnable updater, final Set<String> pantry, final Handler handler, final BookDisplay bookDisplay) {
+		final List<Recipe> block = new ArrayList<Recipe>(BLOCKSIZE);
 
 		Log.d(TAG, "pantry we'll use has " + pantry.size() + " items in it.");
 
@@ -123,21 +125,33 @@ final class RecipeBook {
 				}
 
 				this.allRecipeIndex.put(recipe.name, recipe);
-				handler.post(new Runnable() {
-					public void run() {
-						RecipeBook.this.allRecipes.add(recipe);
-						RecipeBook.this.updateSingleProducable(pantry, recipe);
-					}
-				});
+				block.add(recipe);
+				if (block.size() >= BLOCKSIZE) {
+					RecipeBook.this.allRecipes.addAll(block);
+					handler.post(new Runnable() {
+						public void run() {
+							bookDisplay.recipeAdapter.notifyDataSetChanged();
+						}
+					});
+					block.clear();
+				}
+
+				RecipeBook.this.updateSingleProducable(pantry, recipe);
 				updater.run();
 			}
+
+			handler.post(new Runnable() {
+				public void run() {
+					RecipeBook.this.allRecipes.addAll(block);
+					bookDisplay.recipeAdapter.notifyDataSetChanged();
+				}
+			});
+
+
 			jp.nextToken();
 			while (jp.nextToken() != JsonToken.END_ARRAY) { // most-used ingred
 				this.mostUsedIngredients.add(jp.getText());
 			}
-
-			//Collections.sort(this.allRecipes);
-			Log.d(TAG, "recipes count " + this.allRecipes.size());
 
 		} catch (java.io.IOException ex) {
 			Log.e(TAG, "Can't parse", ex);
