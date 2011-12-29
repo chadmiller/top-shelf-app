@@ -17,8 +17,10 @@
 	<LinearLayout
 		android:id="@+id/loading_indicator"
 		android:orientation="horizontal"
+		android:padding="10dip"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+		android:background="@android:color/black"
 		>
 		<ProgressBar
 			android:layout_width="wrap_content"
@@ -26,6 +28,7 @@
 			style="@android:style/Widget.ProgressBar.Small"
 			android:layout_marginRight="5dp" />
 		<TextView
+			android:id="@+id/splash_screen_text"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/loading_recipe_book" />
@@ -45,7 +48,6 @@
 		android:id="@+id/recipe_list_footnote"
 		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content" 
-		android:text=" * Ingredients not available."
 		android:background="#c000"
 		android:textColor="#ff8"
 		android:padding="10dip"

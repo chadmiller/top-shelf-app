@@ -28,7 +28,6 @@ import android.view.Window;
 import android.view.ViewGroup;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.preference.PreferenceManager;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
@@ -64,7 +63,9 @@ final public class BookDisplay extends Activity {
 	private enum Managed { MANAGED, UNMANAGED }
 
 	private boolean hasDonated = false;
-	private SharedPreferences sp;
+	private SharedPreferences pantrySharedPreferences;
+	private SharedPreferences favoritesSharedPreferences;
+	private SharedPreferences configurationSharedPreferences;
 
 	private RecipeBook recipeBook;
 
@@ -83,7 +84,6 @@ final public class BookDisplay extends Activity {
 
 	private GoogleAnalyticsTracker tracker;
 	private ActionBar actionBar;
-	private Dialog splashDialog;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -101,11 +101,18 @@ final public class BookDisplay extends Activity {
 
 		this.pantry = new HashSet<String>();
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
-		this.sp = PreferenceManager.getDefaultSharedPreferences(this);
+		this.configurationSharedPreferences = getSharedPreferences("configuration", MODE_PRIVATE);
+		this.pantrySharedPreferences = getSharedPreferences(Pantry.FILENAME, MODE_PRIVATE);
+		this.favoritesSharedPreferences = getSharedPreferences(RecipeActivity.FAVORITE_FILENAME, MODE_PRIVATE);
+
+		this.actionBar = (ActionBar) findViewById(R.id.actionbar);
+		this.recipeListFootnote = (TextView) findViewById(R.id.recipe_list_footnote);
 
 		RecipeBookLoadTask recipeBookLoader = null;
 		if (this.recipeBook != null) {
-			BookDisplay.this.setUp();
+			BookDisplay.this.loadPantry();
+			this.recipeBook.updateProducable(this.pantry);  // TODO kill
+			this.recipeAdapter.updatePantry(this.pantry);
 			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry);
 		} else {
 			this.recipeBook = new RecipeBook();
@@ -114,13 +121,11 @@ final public class BookDisplay extends Activity {
 			recipeBookLoader.execute(this.recipeBook);
 		}
 
-		final LinearLayout loadingIndicator = (LinearLayout) findViewById(R.id.loading_indicator);
-		loadingIndicator.setVisibility(View.GONE);
-
-		sp.registerOnSharedPreferenceChangeListener(this.recipeAdapter);
+		final String filterState = this.recipeAdapter.getFilterViewName(this.recipeAdapter.getFilterViewId());
+		this.actionBar.setTitle("Drinks " + filterState);
 
 		final ListView recipeListView = (ListView) findViewById(R.id.recipe_list);
-		recipeListView.setAdapter(this.recipeAdapter);
+		recipeListView.setAdapter(BookDisplay.this.recipeAdapter);
 		recipeListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				final Recipe recipe = (Recipe) parent.getItemAtPosition(position);
@@ -142,60 +147,11 @@ final public class BookDisplay extends Activity {
 			}
 		});
 
-		this.actionBar = (ActionBar) findViewById(R.id.actionbar);
-
-		class ListToggleAction implements Action {
-			@Override
-			public int getDrawable() {
-				return R.drawable.ic_btn_toggle_viewable;
-			}
-			@Override
-			public void performAction(View view) {
-				BookDisplay.this.nextFilterState();
-			}
-		}
-		this.actionBar.addAction(new ListToggleAction());
-
-		class PickIngredientsAction implements Action {
-			@Override
-			public int getDrawable() {
-				return R.drawable.ic_btn_mark_owned_ingredients;
-			}
-			@Override
-			public void performAction(View view) {
-				BookDisplay.this.startSetIngredients();
-				BookDisplay.this.tracker.trackEvent("Clicks", "Action", "MarkIngredients", 1);
-			}
-		}
-		this.actionBar.addAction(new PickIngredientsAction());
-
-		class SuggestShoppingAction implements Action {
-			@Override
-			public int getDrawable() {
-				return R.drawable.ic_btn_suggest_shopping_list;
-			}
-			@Override
-			public void performAction(View view) {
-				BookDisplay.this.startShowShoppingList();
-				BookDisplay.this.tracker.trackEvent("Clicks", "Action", "Shopping", 1);
-			}
-		}
-		this.actionBar.addAction(new SuggestShoppingAction());
-
-		this.recipeListFootnote = (TextView) findViewById(R.id.recipe_list_footnote);
-		this.recipeListFootnote.setOnClickListener(new OnClickListener() {
-			public void onClick(View view) {
-				BookDisplay.this.startSetIngredients();
-			}
-		});
-
 		setInstanceState(savedInstanceState);
-		handleIntent(getIntent());
 
-
-		if (! sp.getBoolean("SEEN_INTRO", false)) {
+		if (! configurationSharedPreferences.getBoolean("SEEN_INTRO", false)) {
 			showDialog(DIALOG_SPLASH);
-			SharedPreferences.Editor e = sp.edit();
+			final SharedPreferences.Editor e = configurationSharedPreferences.edit();
 			e.putBoolean("SEEN_INTRO", true);
 			e.commit();
 			this.tracker.trackEvent("Initialize", "App", "Introduction", 1);
@@ -204,7 +160,7 @@ final public class BookDisplay extends Activity {
 			final Long now = System.currentTimeMillis();
 			final Random rng = new Random();
 			final int chance = rng.nextInt(ASK_DONATION_FREQUENCY_WHEN_ZERO);
-			if ((chance == 0) && ((sp.getLong("LAST_SEEN_DONATE", 0L) + (1000*60*60*23)) < now)) {
+			if ((chance == 0) && ((configurationSharedPreferences.getLong("LAST_SEEN_DONATE", 0L) + (1000*60*60*23)) < now)) {
 
 				//TODO Push into AsycnTask
 
@@ -213,7 +169,7 @@ final public class BookDisplay extends Activity {
 				startManagingCursor(mOwnedItemsCursor);
 				if (mOwnedItemsCursor.moveToFirst()) {
 					do {
-						String sku = mOwnedItemsCursor.getString(0);
+						final String sku = mOwnedItemsCursor.getString(0);
 						hasDonated = true;
 					} while (mOwnedItemsCursor.moveToNext());
 					this.tracker.trackEvent("Initialize", "Donation", "discovered", 1);
@@ -226,7 +182,7 @@ final public class BookDisplay extends Activity {
 						ResponseHandler.register(mPurchaseObserver);
 						showDialog(DIALOG_PURCHASEPLZ);
 
-						SharedPreferences.Editor e = sp.edit();
+						final SharedPreferences.Editor e = configurationSharedPreferences.edit();
 						e.putLong("LAST_SEEN_DONATE", now);
 						e.commit();
 					} else {
@@ -235,10 +191,11 @@ final public class BookDisplay extends Activity {
 				}
 			}
 		}
+		new Thread(new ReportingRunnable()).start();
 	}
 
 	private String[] toStringsArray(List<Recipe> l) {
-		String[] arr = new String[l.size()];
+		final String[] arr = new String[l.size()];
 		int i = 0;
 		for (Recipe r : l) {
 			arr[i++] = r.name;
@@ -269,16 +226,13 @@ final public class BookDisplay extends Activity {
 		// Favorite recipes require ingredients
 		// This can't be computed by recipebook author.
 		final Bundle missingFavoritesIngredients = new Bundle();
-		Set<String> missingIngredients = new TreeSet<String>();
-		for (Map.Entry<String,?> entry : sp.getAll().entrySet()) {
-			final String key = entry.getKey();
-			if (key.startsWith(RecipeActivity.PREF_PREFIX_FAVORITED)) {
-				final String recipeName = key.substring(RecipeActivity.PREF_PREFIX_FAVORITED.length());
-				Boolean isFavorited = (Boolean) entry.getValue();
-				if (isFavorited) {
-					final Recipe r = this.recipeBook.allRecipeIndex.get(recipeName);
-					missingIngredients.addAll(r.ingredients);
-				}
+		final Set<String> missingIngredients = new TreeSet<String>();
+		for (Map.Entry<String,?> entry : favoritesSharedPreferences.getAll().entrySet()) {
+			final String recipeName = entry.getKey();
+			final Boolean isFavorited = (Boolean) entry.getValue();
+			if (isFavorited) {
+				final Recipe r = this.recipeBook.allRecipeIndex.get(recipeName);
+				missingIngredients.addAll(r.ingredients);
 			}
 		}
 		missingIngredients.removeAll(this.pantry);
@@ -289,14 +243,14 @@ final public class BookDisplay extends Activity {
 	}
 
 	void nextFilterState() {
-		String filterState = this.recipeAdapter.nextFilterState(this, this.recipeListFootnote);
+		final String filterState = this.recipeAdapter.nextFilterState(this, this.recipeListFootnote);
 		this.actionBar.setTitle("Drinks " + filterState);
 	}
 
 	void startSetIngredients() {
 		final Intent intent = new Intent(this, Pantry.class);
 		for (String key : this.recipeBook.categorizedIngredients.keySet()) {
-			List l = this.recipeBook.categorizedIngredients.get(key);
+			final List l = this.recipeBook.categorizedIngredients.get(key);
 			intent.putExtra("ingredients-" + key, l.toArray(new String[l.size()]));
 		}
 		this.startActivityForResult(intent, 1);
@@ -352,7 +306,9 @@ final public class BookDisplay extends Activity {
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		setUp();
+		loadPantry();
+		this.recipeBook.updateProducable(this.pantry);  // TODO kill
+		this.recipeAdapter.updatePantry(this.pantry);
 	}
 
 
@@ -430,13 +386,13 @@ final public class BookDisplay extends Activity {
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
-		outState.putInt("adapterview", this.recipeAdapter.getViewId());
+		outState.putInt("adapterview", this.recipeAdapter.getFilterViewId());
 		outState.putString("adaptersearchvalue", this.recipeAdapter.getSearchQuery());
 	}
 
 	void setInstanceState(Bundle inState) {
 		if (inState != null) {
-			this.recipeAdapter.setViewId(inState.getInt("adapterview", -1), this, this.recipeListFootnote);
+			this.recipeAdapter.setFilterViewId(inState.getInt("adapterview", -1), this, this.recipeListFootnote);
 			this.recipeAdapter.setSearchQuery(inState.getString("adaptersearchvalue"));
 		}
 	}
@@ -458,35 +414,6 @@ final public class BookDisplay extends Activity {
 		handleIntent(intent);
 	}
 
-
-	private void removeSplashScreen() {
-		if (this.splashDialog != null) {
-			this.splashDialog.dismiss();
-			this.splashDialog = null;
-		}
-	}
-	 
-	/**
-	 * Shows the splash screen over the full Activity
-	 */
-	protected Dialog showSplashScreen() {
-		this.splashDialog = new Dialog(this, R.style.SplashScreen);
-		this.splashDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		this.splashDialog.setContentView(R.layout.splashscreen);
-		this.splashDialog.setCancelable(false);
-		this.splashDialog.show();
-	 
-		// Set Runnable to remove splash screen just in case
-		final Handler handler = new Handler();
-		handler.postDelayed(new Runnable() {
-		  @Override
-		  synchronized public void run() {
-			removeSplashScreen();
-		  }
-		}, 3000);
-		return this.splashDialog;
-	}
-
 	private void handleIntent(Intent intent) {
 		if (intent == null) {
 			return;
@@ -497,33 +424,33 @@ final public class BookDisplay extends Activity {
 		// Handle search
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 			final String query = intent.getStringExtra(android.app.SearchManager.QUERY);
-			String filterState = this.recipeAdapter.search(query);
+			final String filterState = this.recipeAdapter.search(query);
 			this.actionBar.setTitle("Drinks " + filterState);
 		}
 	}
 
 	private class RecipeBookLoadTask extends AsyncTask<RecipeBook, Integer, Void> {
 		private TextView splashScreenText;
+		private Handler handler;
 
 		@Override
 		protected void onPreExecute() {
-			Dialog splash = showSplashScreen();
-			this.splashScreenText = (TextView) splash.findViewById(R.id.splash_screen_text);
+			this.splashScreenText = (TextView) BookDisplay.this.findViewById(R.id.splash_screen_text);
+			this.handler = new Handler();  // on UI thread;
 		}
 
 		@Override
 		protected Void doInBackground(RecipeBook... recipeBooks) {
+			BookDisplay.this.loadPantry();
 
 			final long startTime = android.os.SystemClock.uptimeMillis();
 			recipeBooks[0].load(BookDisplay.this, new Runnable() {
 				private int n = 0;
 				synchronized public void run() {
 					n++;
-					if ((n % 147) == 0) {
-						RecipeBookLoadTask.this.publishProgress(n);
-					}
+					RecipeBookLoadTask.this.publishProgress(n);
 				}
-			});
+			}, BookDisplay.this.pantry, handler);
 			BookDisplay.this.tracker.trackEvent("Performance", "RecipeBookLoading", "Elapsed", (int) (android.os.SystemClock.uptimeMillis() - startTime));
 
 			return null;
@@ -531,14 +458,69 @@ final public class BookDisplay extends Activity {
 
 		@Override
 		protected void onProgressUpdate(Integer... progresses) {
-			splashScreenText.setText("Loading recipe #" + progresses[0]);
+			final Integer n = progresses[0];
+			if ((n % 147) == 0) { 
+				splashScreenText.setText("Loading recipe #" + n + ".");
+			}
+			if (((n < 50) && ((n % 5) == 0)) || ((n % 200) == 0)) {
+				BookDisplay.this.recipeAdapter.notifyDataSetChanged();
+			}
 		}
 
 		@Override
 		protected void onPostExecute(Void v) {
-			BookDisplay.this.setUp();
-			BookDisplay.this.nextFilterState();
-			BookDisplay.this.removeSplashScreen();
+
+			final LinearLayout loadingIndicator = (LinearLayout) findViewById(R.id.loading_indicator);
+			loadingIndicator.setVisibility(View.GONE);
+
+			favoritesSharedPreferences.registerOnSharedPreferenceChangeListener(BookDisplay.this.recipeAdapter);
+
+			class ListToggleAction implements Action {
+				@Override
+				public int getDrawable() {
+					return R.drawable.ic_btn_toggle_viewable;
+				}
+				@Override
+				public void performAction(View view) {
+					BookDisplay.this.nextFilterState();
+				}
+			}
+			BookDisplay.this.actionBar.addAction(new ListToggleAction());
+
+			class PickIngredientsAction implements Action {
+				@Override
+				public int getDrawable() {
+					return R.drawable.ic_btn_mark_owned_ingredients;
+				}
+				@Override
+				public void performAction(View view) {
+					BookDisplay.this.startSetIngredients();
+					BookDisplay.this.tracker.trackEvent("Clicks", "Action", "MarkIngredients", 1);
+				}
+			}
+			BookDisplay.this.actionBar.addAction(new PickIngredientsAction());
+
+			class SuggestShoppingAction implements Action {
+				@Override
+				public int getDrawable() {
+					return R.drawable.ic_btn_suggest_shopping_list;
+				}
+				@Override
+				public void performAction(View view) {
+					BookDisplay.this.startShowShoppingList();
+					BookDisplay.this.tracker.trackEvent("Clicks", "Action", "Shopping", 1);
+				}
+			}
+			BookDisplay.this.actionBar.addAction(new SuggestShoppingAction());
+
+			BookDisplay.this.recipeListFootnote.setOnClickListener(new OnClickListener() {
+				public void onClick(View view) {
+					BookDisplay.this.startSetIngredients();
+				}
+			});
+
+			handleIntent(getIntent());
+
 			new FavoritesLoadTask().execute();
 		}
 	}
@@ -546,34 +528,28 @@ final public class BookDisplay extends Activity {
 	private class FavoritesLoadTask extends AsyncTask<Void, Void, Void> {
 		@Override
 		protected Void doInBackground(Void... vs) {
-			BookDisplay.this.recipeAdapter.setFavoritesFromPreferences(BookDisplay.this.sp.getAll());
+			BookDisplay.this.recipeAdapter.setFavoritesFromPreferences(BookDisplay.this.favoritesSharedPreferences.getAll());
 			return null;
 		}
 
 		@Override
 		protected void onPostExecute(Void v) {
 			BookDisplay.this.recipeAdapter.notifyDataSetChanged();
-			new Thread(new ReportingRunnable()).start();
 		}
 	}
 
-	void setUp() {
+	private void loadPantry() {
+		Log.d(TAG, "loading pantry");
 		this.pantry.clear();
-		for (Map.Entry<String,?> entry : sp.getAll().entrySet()) {
-			String name = entry.getKey();
-			if (name.startsWith(Pantry.PREF_PREFIX)) {
-//				if (sp.getBoolean(name, false)) {
-				String s = name.substring(Pantry.PREF_PREFIX.length());
-				Boolean v = (Boolean) entry.getValue();
-				if (v) {
-					this.pantry.add(s);
-					this.tracker.trackEvent("SetUp", "InPantry", s, 1);
-				}
+		for (Map.Entry<String,?> entry : pantrySharedPreferences.getAll().entrySet()) {
+			final String name = entry.getKey();
+			final Boolean v = (Boolean) entry.getValue();
+			Log.d(TAG, "loading pantry item " + name + " is " + v);
+			if (v) {
+				this.pantry.add(name);
 			}
 		}
-
-		this.recipeBook.updateProducable(this.pantry);  // TODO kill
-		this.recipeAdapter.updatePantry(this.pantry);
+		Log.d(TAG, "loaded " + pantry.size() + " items into pantry list");
 	}
 
 	private class ReportingRunnable implements Runnable {
@@ -618,7 +594,7 @@ final public class BookDisplay extends Activity {
 		public View getDropDownView(int position, View convertView, ViewGroup parent) {
 			// If the item at the given list position is not purchasable, then
 			// "gray out" the list item.
-			View view = super.getDropDownView(position, convertView, parent);
+			final View view = super.getDropDownView(position, convertView, parent);
 			view.setEnabled(true);
 			return view;
 		}

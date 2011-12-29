@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.Menu;
 import android.view.Window;
 import android.view.MenuItem;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.util.TreeSet;
@@ -27,7 +26,7 @@ public class RecipeActivity extends Activity {
 	private final static String TAG = "org.chad.jeejah.library.RecipeActivity";
 	private GoogleAnalyticsTracker tracker;
 
-	public static final String PREF_PREFIX_FAVORITED = "favorited ";
+	public static final String FAVORITE_FILENAME = "favorites";
 	private boolean isFavorited = true;
 
 	@Override
@@ -36,7 +35,7 @@ public class RecipeActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.recipe);
 
-		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
+		final ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		actionBar.setOnTitleClickListener(new View.OnClickListener() {
@@ -67,7 +66,7 @@ public class RecipeActivity extends Activity {
 		final TreeSet<String> jargonSet = new TreeSet<String>();
 
 		for (int i = 0; i < ingredients.length; i++) {
-			TextView t = new TextView(this);
+			final TextView t = new TextView(this);
 			t.setText("\u2022   " + ingredients[i]);
 			t.setTextSize(17.0f);
 			t.setPadding(30, 3, 30, 2);
@@ -75,7 +74,7 @@ public class RecipeActivity extends Activity {
 		}
 
 		for (int i = 0; i < preparation.length; i++) {
-			TextView t = new TextView(this);
+			final TextView t = new TextView(this);
 			t.setText("" + (i+1) + ".  " + preparation[i]);
 			t.setTextSize(17.0f);
 			t.setPadding(30, 5, 30, 5);
@@ -112,32 +111,32 @@ public class RecipeActivity extends Activity {
 		}
 
 		for (int i = 0; i < consumation.length; i++) {
-			TextView t = new TextView(this);
+			final TextView t = new TextView(this);
 			t.setText("Consume instruction: " + consumation[i]);
 			consumationContainer.addView(t);
 		}
 
 		if (jargonSet.size() > 0) {
-			StringBuilder s = new StringBuilder();
+			final StringBuilder s = new StringBuilder();
 			for (String i : jargonSet) {
 				s.append(i).append("\n\n");
 			}
-			TextView jargon = (TextView) findViewById(R.id.jargon_defined);
+			final TextView jargon = (TextView) findViewById(R.id.jargon_defined);
 			jargon.setText("Jargon:\n\n" + s.toString());
 		} else {
-			View v = findViewById(R.id.jargon_seperator);
+			final View v = findViewById(R.id.jargon_seperator);
 			v.setVisibility(View.GONE);
 		}
 
-		final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+		final SharedPreferences favoritesSharedPreferences = getSharedPreferences(FAVORITE_FILENAME, MODE_PRIVATE);
 		final ImageButton favButton = (ImageButton) findViewById(R.id.recipe_favorited_icon);
-		this.isFavorited = sp.getBoolean(PREF_PREFIX_FAVORITED + title, false);
+		this.isFavorited = favoritesSharedPreferences.getBoolean(title, false);
 		setFavoriteButtonEnabled(favButton, this.isFavorited);
 		favButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				RecipeActivity.this.isFavorited = ! RecipeActivity.this.isFavorited;
-				SharedPreferences.Editor e = sp.edit();
-				e.putBoolean(PREF_PREFIX_FAVORITED + title, RecipeActivity.this.isFavorited);
+				final SharedPreferences.Editor e = favoritesSharedPreferences.edit();
+				e.putBoolean(title, RecipeActivity.this.isFavorited);
 				e.commit();
 
 				RecipeActivity.this.setFavoriteButtonEnabled((ImageButton) v, RecipeActivity.this.isFavorited);

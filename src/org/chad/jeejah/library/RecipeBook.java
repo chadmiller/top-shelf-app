@@ -2,6 +2,7 @@ package org.chad.jeejah.library;
 
 import android.util.Log;
 import android.content.Context;
+import android.os.Handler;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -45,7 +46,9 @@ final class RecipeBook {
 		this.favoriteRecipes = new LinkedList<Recipe>();
 	}
 
-	public void load(Context context, Runnable updater) {
+	public void load(Context context, final Runnable updater, final Set<String> pantry, final Handler handler) {
+
+		Log.d(TAG, "pantry we'll use has " + pantry.size() + " items in it.");
 
 		try {
 			final java.io.InputStream gzfile = context.getResources().openRawResource(R.raw.recipes);
@@ -118,8 +121,14 @@ final class RecipeBook {
 						Log.e(TAG, "  UNKNOWN: " + jp.getCurrentToken());
 					}
 				}
-				this.allRecipes.add(recipe);
+
 				this.allRecipeIndex.put(recipe.name, recipe);
+				handler.post(new Runnable() {
+					public void run() {
+						RecipeBook.this.allRecipes.add(recipe);
+						RecipeBook.this.updateSingleProducable(pantry, recipe);
+					}
+				});
 				updater.run();
 			}
 			jp.nextToken();
@@ -127,7 +136,7 @@ final class RecipeBook {
 				this.mostUsedIngredients.add(jp.getText());
 			}
 
-			Collections.sort(this.allRecipes);
+			//Collections.sort(this.allRecipes);
 			Log.d(TAG, "recipes count " + this.allRecipes.size());
 
 		} catch (java.io.IOException ex) {
@@ -182,6 +191,25 @@ final class RecipeBook {
 		this.searchedRecipes.addAll(tertiaryList);
 	}
 
+
+	private synchronized void updateSingleProducable(Set<String> pantry, Recipe recipe) {
+		final Set<String> recipeNeeds = new TreeSet<String>(recipe.ingredients);  // FIXME
+		recipeNeeds.removeAll(pantry);
+		final int size = recipeNeeds.size();
+
+		if (size == 0) {
+			this.producableRecipes.add(recipe);
+		} else if (size == 1) {
+			final Object remaining = recipeNeeds.toArray()[0];
+			List<Recipe> l = countRecipesSoleAdditionalIngredient.get(remaining);
+			if (l == null) {
+				l = new LinkedList<Recipe>();
+				countRecipesSoleAdditionalIngredient.put((String) remaining, l);
+			}
+			l.add(recipe);
+		}
+	}
+
 	synchronized void updateProducable(Set<String> pantry) {
 		this.producableRecipes.clear();
 		this.countRecipesSoleAdditionalIngredient.clear();
@@ -192,22 +220,7 @@ final class RecipeBook {
 
 		for (Recipe recipe : this.allRecipes) {
 			if (recipe.ingredients.size() <= 1) { continue; }
-
-			final Set<String> recipeNeeds = new TreeSet<String>(recipe.ingredients);
-			recipeNeeds.removeAll(pantry);
-			final int size = recipeNeeds.size();
-
-			if (size == 0) {
-				this.producableRecipes.add(recipe);
-			} else if (size == 1) {
-				final Object remaining = recipeNeeds.toArray()[0];
-				List<Recipe> l = countRecipesSoleAdditionalIngredient.get(remaining);
-				if (l == null) {
-					l = new LinkedList<Recipe>();
-					countRecipesSoleAdditionalIngredient.put((String) remaining, l);
-				}
-				l.add(recipe);
-			}
+			updateSingleProducable(pantry, recipe);
 		}
 	}
 

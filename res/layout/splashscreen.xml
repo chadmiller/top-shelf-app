@@ -4,11 +4,11 @@
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:background="@drawable/jackrose_as_background"
+	android:background="@android:color/transparent"
 	>
 
 	<TextView
-		android:id="@+id/splash_screen_text"
+		android:id="@+id/splash_screen_textx"
 		android:layout_width="fill_parent" 
 		android:layout_height="fill_parent" 
 		android:color="#fff"

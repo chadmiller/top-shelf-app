@@ -29,7 +29,7 @@ final public class Pantry extends PreferenceActivity {
 
 	String[] ingredientsMixerandgarnish;
 	String[] ingredientsLiquorandliqueur;
-	final static String PREF_PREFIX = "checkbox_ingredient ";
+	final static String FILENAME = "pantry";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,9 @@ final public class Pantry extends PreferenceActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pantry);
 
-		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
+		getPreferenceManager().setSharedPreferencesName(FILENAME);
+
+		final ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		actionBar.setOnTitleClickListener(new View.OnClickListener() {
@@ -68,26 +70,26 @@ final public class Pantry extends PreferenceActivity {
 
 	private PreferenceScreen createPreferenceHierarchy() {
 
-		PreferenceScreen root = getPreferenceManager().createPreferenceScreen(this);
+		final PreferenceScreen root = getPreferenceManager().createPreferenceScreen(this);
 
-		android.preference.PreferenceCategory mgCategory = new android.preference.PreferenceCategory(this);
+		final android.preference.PreferenceCategory mgCategory = new android.preference.PreferenceCategory(this);
 		root.addPreference(mgCategory);
 		mgCategory.setTitle(R.string.pref_mixersgarnishes);
 		mgCategory.setOrderingAsAdded(false);
 		for (String name : ingredientsMixerandgarnish) {
-			CheckBoxPreference checkboxPref = new CheckBoxPreference(this);
-			checkboxPref.setKey(PREF_PREFIX + name);
+			final CheckBoxPreference checkboxPref = new CheckBoxPreference(this);
+			checkboxPref.setKey(name);
 			checkboxPref.setTitle(name);
 			mgCategory.addPreference(checkboxPref);
 		}
 
-		android.preference.PreferenceCategory llCategory = new android.preference.PreferenceCategory(this);
+		final android.preference.PreferenceCategory llCategory = new android.preference.PreferenceCategory(this);
 		root.addPreference(llCategory);
 		llCategory.setTitle(R.string.pref_liquors);
 		llCategory.setOrderingAsAdded(false);
 		for (String name : ingredientsLiquorandliqueur) {
-			CheckBoxPreference checkboxPref = new CheckBoxPreference(this);
-			checkboxPref.setKey(PREF_PREFIX + name);
+			final CheckBoxPreference checkboxPref = new CheckBoxPreference(this);
+			checkboxPref.setKey(name);
 			checkboxPref.setTitle(name);
 			llCategory.addPreference(checkboxPref);
 		}

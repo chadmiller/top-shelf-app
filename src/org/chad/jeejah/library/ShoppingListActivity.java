@@ -54,11 +54,11 @@ public class ShoppingListActivity extends Activity {
 		this.tracker.trackPageView("/" + TAG);
 
 		{
-			LinearLayout container = (LinearLayout) findViewById(R.id.single_ingredient_suggestions);
+			final LinearLayout container = (LinearLayout) findViewById(R.id.single_ingredient_suggestions);
 			final Bundle bundle = intent.getBundleExtra(SINGLE_KEY);
 			final String[] ingredients = bundle.getStringArray("keys");
 
-			Comparator<String> reverseSortIngredientsByRecipeCount = new Comparator<String>() {
+			final Comparator<String> reverseSortIngredientsByRecipeCount = new Comparator<String>() {
 				public int compare(String lhs, String rhs) {
 					try {
 						final int lhsCount = bundle.getStringArray("enabledby "+lhs).length;
@@ -81,8 +81,8 @@ public class ShoppingListActivity extends Activity {
 			if (ingredients != null) {
 				for (int i = 0; i < ingredients.length; i++) {
 					if (limit-- < 1) break;
-					int recipeCount = bundle.getStringArray("enabledby "+ingredients[i]).length;
-					TextView t = new TextView(this);
+					final int recipeCount = bundle.getStringArray("enabledby "+ingredients[i]).length;
+					final TextView t = new TextView(this);
 					t.setText(Html.fromHtml("\u2022 <b>" + ingredients[i] + "</b> would let you make " + recipeCount + " more recipes."));
 					t.setTextSize(16);
 					t.setPadding(10, 8, 10, 2);
@@ -102,15 +102,15 @@ public class ShoppingListActivity extends Activity {
 
 		{
 			boolean hasWritten = false;
-			LinearLayout container = (LinearLayout) findViewById(R.id.favorites_ingredient_suggestions);
+			final LinearLayout container = (LinearLayout) findViewById(R.id.favorites_ingredient_suggestions);
 			hasWritten = false;
-			Bundle bundle = intent.getBundleExtra(FAV_KEY);
+			final Bundle bundle = intent.getBundleExtra(FAV_KEY);
 
 			if ((bundle != null) && (bundle.containsKey("ingredients"))) {
-				String[] ingredients = bundle.getStringArray("ingredients");
+				final String[] ingredients = bundle.getStringArray("ingredients");
 
 				for (String ingredient : ingredients) {
-					TextView t = new TextView(this);
+					final TextView t = new TextView(this);
 					t.setText(Html.fromHtml("\u2022 <b>" + ingredient + "</b>"));
 					t.setTextSize(16);
 					t.setPadding(20, 3, 10, 2);
@@ -128,14 +128,14 @@ public class ShoppingListActivity extends Activity {
 
 		{
 			boolean hasWritten = false;
-			LinearLayout container = (LinearLayout) findViewById(R.id.most_used_ingredients);
+			final LinearLayout container = (LinearLayout) findViewById(R.id.most_used_ingredients);
 			hasWritten = false;
-			Bundle bundle = intent.getBundleExtra(MOSTUSED_KEY);
+			final Bundle bundle = intent.getBundleExtra(MOSTUSED_KEY);
 
 			if ((bundle != null) && (bundle.containsKey("ingredients"))) {
-				ArrayList<String> ingredients = bundle.getStringArrayList("ingredients");
+				final ArrayList<String> ingredients = bundle.getStringArrayList("ingredients");
 				for (String s : ingredients) {
-					TextView t = new TextView(this);
+					final TextView t = new TextView(this);
 					t.setText(Html.fromHtml("\u2022 <b>" + s + "</b>"));
 					t.setTextSize(16);
 					t.setPadding(20, 3, 10, 2);
