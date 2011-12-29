@@ -28,6 +28,7 @@
 			android:maxLines="1"
 			android:ellipsize="end"
 			android:textSize="22sp"
+			android:scrollHorizontally="true"
 			/>
 	
 	<TextView
