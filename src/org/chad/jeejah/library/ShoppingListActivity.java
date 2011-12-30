@@ -248,6 +248,9 @@ public class ShoppingListActivity extends Activity {
 	}
 
 	private void sendSms(Set ingredients) {
+		if (ingredients.size() == 0) {
+			return;
+		}
 		Intent intent = new Intent(Intent.ACTION_VIEW); 
 		intent.putExtra("sms_body", join(ingredients, "; ")); 
 		intent.setType("vnd.android-dir/mms-sms"); 
