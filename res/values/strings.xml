@@ -63,6 +63,9 @@
 	<string name="android_test_refunded">[fake refund]</string>
 	<string name="android_test_item_unavailable">[fake unavailable]</string>
 
+	<string name="share_shopping_title">Send shopping list</string>
 	<string name="share_using">Share using</string>
+	<string name="share_cancel">Cancel</string>
+	<string name="share_yes">Send</string>
 
 </resources>
