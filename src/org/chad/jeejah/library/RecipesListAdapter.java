@@ -156,6 +156,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	}
 
 	public String setFilterViewId(int state, Context context, android.widget.TextView footnote) {
+		final int size;
 		switch (state) {
 			case 0:
 				this.targetRecipeList = recipeBook.allRecipes;
@@ -164,17 +165,36 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 				break;
 			case 1:
 				this.targetRecipeList = recipeBook.producableRecipes;
-				footnote.setVisibility(View.GONE);
+				size = this.targetRecipeList.size();
+				if (size == 0) {
+					footnote.setText(R.string.there_are_none);
+					footnote.setVisibility(View.VISIBLE);
+				} else if (size < 10) {
+					footnote.setText(R.string.there_are_too_few);
+					footnote.setVisibility(View.VISIBLE);
+				} else {
+					footnote.setVisibility(View.GONE);
+				}
 				break;
 			case 2:
 				this.targetRecipeList = recipeBook.favoriteRecipes;
-				footnote.setText(R.string.a_recipe_not_available);
-				footnote.setVisibility(View.VISIBLE);
+				size = this.targetRecipeList.size();
+				if (size != 0) {
+					footnote.setText(R.string.a_recipe_not_available);
+					footnote.setVisibility(View.VISIBLE);
+				} else {
+					footnote.setVisibility(View.GONE);
+				}
 				break;
 			case 3:
 				this.targetRecipeList = recipeBook.searchedRecipes;
-				footnote.setText(R.string.a_recipe_not_available);
-				footnote.setVisibility(View.VISIBLE);
+				size = this.targetRecipeList.size();
+				if (size != 0) {
+					footnote.setText(R.string.a_recipe_not_available);
+					footnote.setVisibility(View.VISIBLE);
+				} else {
+					footnote.setVisibility(View.GONE);
+				}
 				break;
 			default:
 				if (recipeBook.producableRecipes.size() == 0) {
