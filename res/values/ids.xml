@@ -7,4 +7,5 @@
 	<item type="id" name="shoppingsuggestions" />
 	<item type="id" name="togglefilter" />
 	<item type="id" name="donate" />
+	<item type="id" name="share" />
 </resources>

@@ -33,6 +33,7 @@
 	<string name="see_recipe">Recipe</string>
 	<string name="donate">Donate</string>
 	<string name="donate_donators_rock">Donate++</string>
+	<string name="share">Share</string>
 
 	<string name="begin">Begin</string>
 	<string name="welcome">Welcome</string>
@@ -61,5 +62,7 @@
 	<string name="android_test_canceled">[fake cancel]</string>
 	<string name="android_test_refunded">[fake refund]</string>
 	<string name="android_test_item_unavailable">[fake unavailable]</string>
+
+	<string name="share_using">Share using</string>
 
 </resources>

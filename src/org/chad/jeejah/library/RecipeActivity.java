@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.Window;
 import android.view.MenuItem;
 import android.util.Log;
+import android.text.Html;
 
 import java.util.TreeSet;
 
@@ -28,6 +29,7 @@ public class RecipeActivity extends Activity {
 
 	public static final String FAVORITE_FILENAME = "favorites";
 	private boolean isFavorited = true;
+	private StringBuilder shareDocument;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class RecipeActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.recipe);
 
+		shareDocument = new StringBuilder();
 		final ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
@@ -53,6 +56,7 @@ public class RecipeActivity extends Activity {
 		final String title = recipeInfo.getString(Recipe.KEY_NAME);
 		titleView.setText(title);
 		actionBar.setTitle("Recipe \u201C" + title + "\u201D");
+		shareDocument.append("<h1>" + title + "<a href=\"https://market.android.com/details?id=" + getPackageName() + "\">*</a></h1>");
 
 		final LinearLayout ingredientsContainer = (LinearLayout) findViewById(R.id.recipe_ingredients);
 		final LinearLayout preparationContainer = (LinearLayout) findViewById(R.id.recipe_preparation);
@@ -75,6 +79,7 @@ public class RecipeActivity extends Activity {
 
 		for (int i = 0; i < preparation.length; i++) {
 			final TextView t = new TextView(this);
+			shareDocument.append("<p>" + preparation[i] + "</p>");
 			t.setText("" + (i+1) + ".  " + preparation[i]);
 			t.setTextSize(17.0f);
 			t.setPadding(30, 5, 30, 5);
@@ -146,6 +151,20 @@ public class RecipeActivity extends Activity {
 				RecipeActivity.this.setFavoriteButtonEnabled((ImageButton) v, RecipeActivity.this.isFavorited);
 			}
 		});
+
+
+		class ShareAction implements Action {
+			@Override
+			public int getDrawable() {
+				return android.R.drawable.ic_menu_share;
+			}
+			@Override
+			public void performAction(View view) {
+				RecipeActivity.this.share();
+			}
+		}
+		actionBar.addAction(new ShareAction());
+
 	}
 
 	private void setFavoriteButtonEnabled(ImageButton ib, boolean newState) {
@@ -166,6 +185,7 @@ public class RecipeActivity extends Activity {
 		menu.add(Menu.NONE, R.id.instructions, 1, R.string.help).setIcon(android.R.drawable.ic_menu_help);
 		menu.add(Menu.NONE, R.id.feedback, 4, R.string.feedback);
 		menu.add(Menu.NONE, R.id.credits, 5, R.string.credits);
+		menu.add(Menu.NONE, R.id.share, 5, R.string.share).setIcon(android.R.drawable.ic_menu_share);
 		return true;
 	}
 
@@ -187,9 +207,19 @@ public class RecipeActivity extends Activity {
 				intent = new Intent(this, Credits.class);
 				startActivity(intent);
 				return true;
+			case R.id.share:
+				share();
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}
+	}
+
+	private void share() {
+		final Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+		sharingIntent.setType("text/html");
+		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml(shareDocument.toString()));
+		startActivity(Intent.createChooser(sharingIntent, getResources().getString(R.string.share_using)));
 	}
 
 }
