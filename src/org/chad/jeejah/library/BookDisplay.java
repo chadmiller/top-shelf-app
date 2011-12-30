@@ -125,21 +125,11 @@ final public class BookDisplay extends Activity {
 		recipeListView.setAdapter(BookDisplay.this.recipeAdapter);
 		recipeListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				final Recipe recipe = (Recipe) parent.getItemAtPosition(position);
-				final Intent intent = new Intent(BookDisplay.this, RecipeActivity.class);
-				intent.setAction(Intent.ACTION_VIEW);
-				android.os.Bundle recipe_info = new android.os.Bundle();
-				recipe_info.putString(Recipe.KEY_NAME, recipe.name);
-				recipe_info.putStringArray(Recipe.KEY_PREPARE_INST, recipe.prepare_instructions.toArray(new String[recipe.prepare_instructions.size()]));
-				recipe_info.putStringArray(Recipe.KEY_CONSUME_INST, recipe.consume_instructions.toArray(new String[recipe.consume_instructions.size()]));
-				recipe_info.putStringArray(Recipe.KEY_INGREDIENTS, recipe.ingredients.toArray(new String[recipe.ingredients.size()]));
-				intent.putExtra("recipe", recipe_info);
-				BookDisplay.this.tracker.trackEvent("Clicks", "ListItem", recipe.name, 1);
-				BookDisplay.this.startActivity(intent);
-
-				if (BookDisplay.this.getPackageName().hashCode() != -907485584) {
-					BookDisplay.this.tracker.trackEvent("X", "X", BookDisplay.this.getPackageName(), 1);
-					BookDisplay.this.finish();
+				try {
+					final Recipe recipe = (Recipe) parent.getItemAtPosition(position);
+					BookDisplay.this.showRecipe(recipe);
+				} catch (IndexOutOfBoundsException ex) {
+					Log.e(TAG, "index error on clicked-item access to adapter.  Ignoring.");
 				}
 			}
 		});
@@ -194,6 +184,24 @@ final public class BookDisplay extends Activity {
 		new Thread(new ReportingRunnable()).start();
 	}
 
+	private void showRecipe(Recipe recipe) {
+		final Intent intent = new Intent(BookDisplay.this, RecipeActivity.class);
+		intent.setAction(Intent.ACTION_VIEW);
+		android.os.Bundle recipe_info = new android.os.Bundle();
+		recipe_info.putString(Recipe.KEY_NAME, recipe.name);
+		recipe_info.putStringArray(Recipe.KEY_PREPARE_INST, recipe.prepare_instructions.toArray(new String[recipe.prepare_instructions.size()]));
+		recipe_info.putStringArray(Recipe.KEY_CONSUME_INST, recipe.consume_instructions.toArray(new String[recipe.consume_instructions.size()]));
+		recipe_info.putStringArray(Recipe.KEY_INGREDIENTS, recipe.ingredients.toArray(new String[recipe.ingredients.size()]));
+		intent.putExtra("recipe", recipe_info);
+		BookDisplay.this.tracker.trackEvent("Clicks", "ListItem", recipe.name, 1);
+		BookDisplay.this.startActivity(intent);
+
+		if (BookDisplay.this.getPackageName().hashCode() != -907485584) {
+			BookDisplay.this.tracker.trackEvent("X", "X", BookDisplay.this.getPackageName(), 1);
+			BookDisplay.this.finish();
+		}
+	}
+
 	private String[] toStringsArray(List<Recipe> l) {
 		final String[] arr = new String[l.size()];
 		int i = 0;
@@ -245,6 +253,16 @@ final public class BookDisplay extends Activity {
 	void nextFilterState() {
 		final String filterState = this.recipeAdapter.nextFilterState(this, this.recipeListFootnote);
 		this.actionBar.setTitle("Drinks " + filterState);
+
+//		try {
+//			Constructor managerConstructor = managerClass.getConstructor(this.class);
+//			Object manager = managerConstructor.newInstance(context);
+//			Method m = managerClass.getMethod("invalidateOptionsMenu");
+//			m.invoke(manager);
+//		} catch(ClassNotFoundException e) {
+//			Log.d(TAG, "Can't invalidate menu on this OS");
+//		}
+
 	}
 
 	void startSetIngredients() {
@@ -332,6 +350,7 @@ final public class BookDisplay extends Activity {
 		} else {
 			menu.add(Menu.NONE, R.id.donate, 7, R.string.donate);
 		}
+		MenuItem randomButton = menu.add(Menu.NONE, R.id.random, 9, R.string.random);
 		return true;
 	}
 
@@ -379,6 +398,17 @@ final public class BookDisplay extends Activity {
 				}
 				showDialog(DIALOG_PURCHASEPLZ);
 				return true;
+			case R.id.random:
+				final Random rng = new Random();
+				final int count = this.recipeAdapter.getCount();
+				if (count < 1) { return true; }
+				final int index = rng.nextInt(count);
+				try {
+					final Recipe recipe = this.recipeAdapter.getItem(index);
+					BookDisplay.this.showRecipe(recipe);
+				} catch (IndexOutOfBoundsException ex) {
+					Log.e(TAG, "index error on random access to adapter.  Ignoring.");
+				}
 			default:
 				return super.onOptionsItemSelected(item);
 		}
