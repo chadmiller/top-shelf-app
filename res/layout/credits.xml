@@ -22,12 +22,12 @@
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			>
-			<TextView
+			<!--  TextView
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
 				android:autoLink="web"
 				android:text="Background of Set Owned Ingredients was taken from CC-BY-2.0-licensed photo by Tighten up! at http://www.flickr.com/photos/67818206@N00/54569946/"
-				/>
+				/ -->
 			<TextView
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
