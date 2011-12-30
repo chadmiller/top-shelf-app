@@ -387,13 +387,19 @@ final public class BookDisplay extends Activity {
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		outState.putInt("adapterview", this.recipeAdapter.getFilterViewId());
-		outState.putString("adaptersearchvalue", this.recipeAdapter.getSearchQuery());
+		final String searchQuery = this.recipeAdapter.getSearchQuery();
+		if (searchQuery != null) {
+			outState.putString("adaptersearchvalue", searchQuery);
+		}
 	}
 
 	void setInstanceState(Bundle inState) {
 		if (inState != null) {
 			this.recipeAdapter.setFilterViewId(inState.getInt("adapterview", -1), this, this.recipeListFootnote);
-			this.recipeAdapter.setSearchQuery(inState.getString("adaptersearchvalue"));
+			final String searchQuery = inState.getString("adaptersearchvalue");
+			if (searchQuery != null) {
+				this.recipeAdapter.setSearchQuery(searchQuery);
+			}
 		}
 	}
 
