@@ -37,12 +37,12 @@ final class RecipeBook {
 	final private int BLOCKSIZE = 70;
 
 	public RecipeBook() {
-		this.allRecipeIndex = new Hashtable<String,Recipe>(2401);
-		this.allRecipes = new ArrayList<Recipe>(2401);
+		this.allRecipeIndex = new Hashtable<String,Recipe>(2420);
+		this.allRecipes = new ArrayList<Recipe>(2420);
 		this.categorizedIngredients = new TreeMap<String,List<String>>();
 		this.mostUsedIngredients = new ArrayList<String>(17);
 		this.countRecipesSoleAdditionalIngredient = new Hashtable<String,List<Recipe>>();
-		this.producableRecipes = new ArrayList<Recipe>(2400);
+		this.producableRecipes = new ArrayList<Recipe>(2420);
 		this.searchedRecipes = new ArrayList<Recipe>();
 		this.favoriteRecipes = new LinkedList<Recipe>();
 	}
