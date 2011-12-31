@@ -575,12 +575,10 @@ final public class BookDisplay extends Activity {
 	}
 
 	private void loadPantry() {
-		Log.d(TAG, "loading pantry");
 		this.pantry.clear();
 		for (Map.Entry<String,?> entry : pantrySharedPreferences.getAll().entrySet()) {
 			final String name = entry.getKey();
 			final Boolean v = (Boolean) entry.getValue();
-			Log.d(TAG, "loading pantry item " + name + " is " + v);
 			if (v) {
 				this.pantry.add(name);
 			}
@@ -600,7 +598,7 @@ final public class BookDisplay extends Activity {
 			try {
 				final android.content.pm.PackageInfo pi = pm.getPackageInfo(pn, android.content.pm.PackageManager.GET_SIGNATURES);
 				for (android.content.pm.Signature sig : pi.signatures) {
-					BookDisplay.this.tracker.trackEvent(NAME, "Sigs", sig.toCharsString(), 1);
+					BookDisplay.this.tracker.trackEvent(NAME, "Sigs", sig.toCharsString().substring(0, 16), 1);
 				}
 				BookDisplay.this.tracker.trackEvent(NAME, "Ver", pi.versionName, 1);
 			} catch (android.content.pm.PackageManager.NameNotFoundException ex) {

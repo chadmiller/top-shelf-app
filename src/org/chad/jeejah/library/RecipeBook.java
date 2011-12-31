@@ -17,9 +17,13 @@ import java.util.ArrayList;
 
 import java.util.Collections;
 
+import java.util.Random;
+
 import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.JsonToken;
+
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 final class RecipeBook {
 	private final static String TAG = "org.chad.jeejah.library.RecipeBook";
@@ -34,7 +38,7 @@ final class RecipeBook {
 	final public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
 	final public ArrayList<String> mostUsedIngredients;
 	final public Map<String,List<String>> categorizedIngredients;
-	final private int BLOCKSIZE = 70;
+
 
 	public RecipeBook() {
 		this.allRecipeIndex = new Hashtable<String,Recipe>(2420);
@@ -47,10 +51,11 @@ final class RecipeBook {
 		this.favoriteRecipes = new LinkedList<Recipe>();
 	}
 
-	public void load(Context context, final Runnable updater, final Set<String> pantry, final Handler handler, final BookDisplay bookDisplay) {
-		final List<Recipe> block = new ArrayList<Recipe>(BLOCKSIZE);
-
-		Log.d(TAG, "pantry we'll use has " + pantry.size() + " items in it.");
+	public void load(final Context context, final Runnable updater, final Set<String> pantry, final Handler handler, final BookDisplay bookDisplay) {
+		final Random rng = new Random();
+		final int blockSize = (rng.nextInt(16) * 16) + 16;
+		final List<Recipe> block = new ArrayList<Recipe>(blockSize);
+		final long startTime = android.os.SystemClock.uptimeMillis();
 
 		try {
 			final java.io.InputStream gzfile = context.getResources().openRawResource(R.raw.recipes);
@@ -102,7 +107,7 @@ final class RecipeBook {
 						jp.nextToken();
 						while (jp.nextToken() != JsonToken.END_ARRAY) {
 							if (recipe.glass != null) {
-								Log.v(TAG, "Glass already set to " + recipe.glass + " and now want " + jp.getText());
+								Log.w(TAG, "Glass already set to " + recipe.glass + " and now want " + jp.getText());
 							}
 							recipe.glass = jp.getText();
 						}
@@ -126,7 +131,7 @@ final class RecipeBook {
 
 				this.allRecipeIndex.put(recipe.name, recipe);
 				block.add(recipe);
-				if (block.size() >= BLOCKSIZE) {
+				if (block.size() >= blockSize) {
 					RecipeBook.this.allRecipes.addAll(block);
 					handler.post(new Runnable() {
 						public void run() {
@@ -147,11 +152,25 @@ final class RecipeBook {
 				}
 			});
 
-
 			jp.nextToken();
 			while (jp.nextToken() != JsonToken.END_ARRAY) { // most-used ingred
 				this.mostUsedIngredients.add(jp.getText());
 			}
+
+			final long endTime = android.os.SystemClock.uptimeMillis();
+			Thread t = new Thread(new Runnable() {
+				public void run() {
+					try { Thread.sleep(2000); } catch (InterruptedException ex) {}
+					GoogleAnalyticsTracker tracker;
+					tracker = GoogleAnalyticsTracker.getInstance();
+					tracker.startNewSession(BookDisplay.GOOG_ANALYTICS_ID, context);
+					tracker.trackEvent("Initialize", "DataStruct1", "blocksize " + blockSize, (int) (endTime-startTime));
+					tracker.dispatch();
+				}
+			});
+			try { t.setPriority(Thread.MIN_PRIORITY); } catch (Exception ex) {}
+			t.start();
+			Log.i(TAG, "blocksize " + blockSize + " takes " + (endTime-startTime) + " ms");
 
 		} catch (java.io.IOException ex) {
 			Log.e(TAG, "Can't parse", ex);
