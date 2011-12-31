@@ -150,7 +150,8 @@ final public class BookDisplay extends Activity {
 			final Long now = System.currentTimeMillis();
 			final Random rng = new Random();
 			final int chance = rng.nextInt(ASK_DONATION_FREQUENCY_WHEN_ZERO);
-			if ((chance == 0) && ((configurationSharedPreferences.getLong("LAST_SEEN_DONATE", 0L) + (1000*60*60*23)) < now)) {
+			final long noDonationUntil = 1326731410324L;
+			if ((chance == 0) && ((configurationSharedPreferences.getLong("LAST_SEEN_DONATE", 0L) + (1000*60*60*23)) < now) && (now > noDonationUntil)) {
 
 				//TODO Push into AsycnTask
 
