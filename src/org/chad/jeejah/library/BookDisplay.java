@@ -434,14 +434,20 @@ final public class BookDisplay extends Activity {
 	}
 
 	@Override
+	protected void onResume() {
+		super.onResume();
+		tracker.trackPageView("/" + TAG);
+	}
+
+	@Override
 	protected void onDestroy() {
-		super.onDestroy();
 		this.tracker.dispatch();
 		this.tracker.stopSession();
 		if (mPurchaseDatabase != null)
 			mPurchaseDatabase.close();
 		if (mBillingService != null)
 			mBillingService.unbind();
+		super.onDestroy();
 	}
 
 	@Override
@@ -591,7 +597,6 @@ final public class BookDisplay extends Activity {
 			final String NAME = "Pkg";
 			try { Thread.sleep(5000); } catch (InterruptedException ex) { }
 			final String pn = BookDisplay.this.getPackageName();
-			BookDisplay.this.tracker.trackPageView("/" + TAG);
 			BookDisplay.this.tracker.trackEvent(NAME, "PN", pn, 1);
 
 			final android.content.pm.PackageManager pm = BookDisplay.this.getPackageManager();
