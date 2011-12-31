@@ -26,7 +26,7 @@ import java.lang.reflect.Method;
  * are used to update the UI.
  */
 public abstract class PurchaseObserver {
-    private static final String TAG = "org.chad.jeejah.library.PurchaseObserver";
+    private static final String TAG = "ocjlPO";
     private final Activity mActivity;
     private final Handler mHandler;
     private Method mStartIntentSender;

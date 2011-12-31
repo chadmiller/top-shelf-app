@@ -33,7 +33,7 @@ import java.util.Iterator;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 public class ShoppingListActivity extends Activity {
-	private static final String TAG = "org.chad.jeejah.library.ShoppingListActivity";
+	private static final String TAG = "ocjlSLA";
 	public static final String FAV_KEY = "favorites' missing ingredients info";
 	public static final String SINGLE_KEY = "single ingredients info";
 	public static final String MOSTUSED_KEY = "most requested ingredients";

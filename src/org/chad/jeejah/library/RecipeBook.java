@@ -26,7 +26,7 @@ import org.codehaus.jackson.JsonToken;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 final class RecipeBook {
-	private final static String TAG = "org.chad.jeejah.library.RecipeBook";
+	private final static String TAG = "ocjlRB";
 
 	public String version;
 

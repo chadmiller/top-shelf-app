@@ -18,7 +18,7 @@ import android.view.View;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 public class Instructions extends Activity {
-	private final static String TAG = "org.chad.jeejah.library.Instructions";
+	private final static String TAG = "ocjlI";
 	private GoogleAnalyticsTracker tracker;
 
 	@Override

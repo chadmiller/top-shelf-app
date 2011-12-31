@@ -50,7 +50,7 @@ import java.util.LinkedList;
  * You should modify and obfuscate this code before using it.
  */
 public class BillingService extends Service implements ServiceConnection {
-    private static final String TAG = "org.chad.jeejah.library.BillingService";
+    private static final String TAG = "ocjlBS";
 
     /** The service connection to the remote MarketBillingService. */
     private static IMarketBillingService mService;

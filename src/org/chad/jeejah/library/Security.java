@@ -36,7 +36,7 @@ import java.util.HashSet;
  * purchases as verified.
  */
 public class Security {
-    private static final String TAG = "org.chad.jeejah.library.Security";
+    private static final String TAG = "ocjlS";
 
     private static final String KEY_FACTORY_ALGORITHM = "RSA";
     private static final String SIGNATURE_ALGORITHM = "SHA1withRSA";
@@ -125,7 +125,7 @@ public class Security {
              * Generally, encryption keys / passwords should only be kept in memory
              * long enough to perform the operation they need to perform.
              */
-            String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjixEy+KMJ8iUnt0o19LUmJ7h8wAiA8ikH3ckn3svfwhdT9SShXsdtyEAiMrx5O4/Wwxh/yzZHkiv7JgPB4wdsJHy6DH81QLvDXi+4bAFBo/p8j202VGcjwsBxXNKiuTVcgGD59pJ4wbapcMUj8fmeAPN1xbhoPYLor+nN+85dQQ0knmvpfnJD0GRAV20G15PfqRUEidNucoEtrD65cTgEc33tMKgDTH7P4DgNK6YjXoNLhTDPFjgAJg9jssAXM/r7xCD4/0IGmiMi1c10TfqUnVU0RFW64se2EgqnN3JrRmRCtl97nmy1rsYZ3HLXxzRBWk3YFqzSFTF0L/KRwM5BQIDAQAB";
+            String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjixEy+KMJ8iUnt0o19LUmJ7h8wAiA8ikH3ckn3svfwhdT9SShXsdtyEAiMrx5O4/Wwxh/yzZHkiv7JgPB4wdsJHy6DH81QLvDXi+4bAFBo/" + "p8j202VGcj" + "wsBxXNKiuTVcgGD5" + "9pJ4wbapcMUj8fmeAPN1" + "xbhoPYLor+nN+85dQQ0knmvp" + "" + "fnJD0GRAV20G1" + "5PfqRUEidNucoEtrD65cTgEc33tMKgDTH7P4DgNK6YjXoNLhTDPFjgAJg9jssAXM/" + "r7xCD4/0IGmiMi1c10TfqUnVU0RFW64se2EgqnN3JrRmRCtl97nmy1rsYZ3HLXxzRBWk3YFqzSFTF0L/KRwM5BQIDAQAB";
             PublicKey key = Security.generatePublicKey(base64EncodedPublicKey);
             verified = Security.verify(key, signedData, signature);
             if (!verified) {

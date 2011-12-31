@@ -53,7 +53,7 @@ import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 final public class BookDisplay extends Activity {
 
-	private final static String TAG = "org.chad.jeejah.library.BookDisplay";
+	private final static String TAG = "ocjlBD";
 	public static final String GOOG_ANALYTICS_ID = "U" + "A-" + 5168704 + "-3";
 	private static final String DATA_VERSION_DNS_RECORD_NAME = "ver.data.library.jeejah.chad.org.";
 	private static final int DIALOG_PURCHASEPLZ = 1;

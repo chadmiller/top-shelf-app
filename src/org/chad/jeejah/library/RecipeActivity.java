@@ -24,7 +24,7 @@ import com.markupartist.android.widget.ActionBar.IntentAction;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 public class RecipeActivity extends Activity {
-	private final static String TAG = "org.chad.jeejah.library.RecipeActivity";
+	private final static String TAG = "ocjlRA";
 	private GoogleAnalyticsTracker tracker;
 
 	public static final String FAVORITE_FILENAME = "favorites";

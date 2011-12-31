@@ -25,7 +25,7 @@ import android.util.Log;
  * You should modify and obfuscate this code before using it.
  */
 public class ResponseHandler {
-    private static final String TAG = "org.chad.jeejah.library.ResponseHandler";
+    private static final String TAG = "ocjlRH";
 
     /**
      * This is a static instance of {@link PurchaseObserver} that the

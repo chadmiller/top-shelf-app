@@ -18,8 +18,7 @@ import java.util.Map;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPreferences.OnSharedPreferenceChangeListener {
-	private final static String TAG = "org.chad.jeejah.library.RecipesListAdapter";
-	private final GoogleAnalyticsTracker tracker;
+	private final static String TAG = "ocjlRLA";
 
 	public static class ViewHolder {
 		public TextView name;
@@ -38,8 +37,6 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		super();
 		this.recipeBook = recipeBook;
 		this.pantry = pantry;
-		this.tracker = GoogleAnalyticsTracker.getInstance();
-		this.tracker.startNewSession(BookDisplay.GOOG_ANALYTICS_ID, 60, context);
 		this.targetRecipeList = recipeBook.allRecipes;
 
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -117,7 +114,10 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		final boolean isFavorited = sharedPreferences.getBoolean(recipeName, false);
 		if (isFavorited) {
 			this.recipeBook.addFavorite(recipeName);
-			this.tracker.trackEvent("Clicks", "Favorited", recipeName, 1);
+			final GoogleAnalyticsTracker tracker = GoogleAnalyticsTracker.getInstance();
+			tracker.startNewSession(BookDisplay.GOOG_ANALYTICS_ID, 60, context);
+			tracker.trackEvent("Clicks", "Favorited", recipeName, 1);
+			tracker.dispatch();
 		} else {
 			this.recipeBook.removeFavorite(recipeName);
 		}

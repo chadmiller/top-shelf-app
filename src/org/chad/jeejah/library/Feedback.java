@@ -15,7 +15,7 @@ import com.markupartist.android.widget.ActionBar.IntentAction;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 public class Feedback extends Activity {
-	private final static String TAG = "org.chad.jeejah.library.Feedback";
+	private final static String TAG = "ocjlF";
 	private GoogleAnalyticsTracker tracker;
 
 	@Override

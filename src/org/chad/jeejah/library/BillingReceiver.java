@@ -36,7 +36,7 @@ import android.util.Log;
  * You should modify and obfuscate this code before using it.
  */
 public class BillingReceiver extends BroadcastReceiver {
-    private static final String TAG = "org.chad.jeejah.library.BillingReceiver";
+    private static final String TAG = "ocjlBR";
 
     /**
      * This is the entry point for all asynchronous messages sent from Android Market to

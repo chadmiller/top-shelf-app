@@ -15,7 +15,7 @@ import com.markupartist.android.widget.ActionBar.IntentAction;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 final public class Credits extends Activity {
-	private final static String TAG = "org.chad.jeejah.library.Credits";
+	private final static String TAG = "ocjlC";
 	private GoogleAnalyticsTracker tracker;
 
 	@Override

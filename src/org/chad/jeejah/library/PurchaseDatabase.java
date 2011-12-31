@@ -33,7 +33,7 @@ import android.util.Log;
  * distribute it to others.
  */
 public class PurchaseDatabase {
-    private static final String TAG = "org.chad.jeejah.library.PurchaseDatabase";
+    private static final String TAG = "ocjlPD";
     private static final String DATABASE_NAME = "purchase.db";
     private static final int DATABASE_VERSION = 1;
     private static final String PURCHASE_HISTORY_TABLE_NAME = "history";

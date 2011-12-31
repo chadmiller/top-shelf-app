@@ -24,7 +24,7 @@ import com.markupartist.android.widget.ActionBar.IntentAction;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 final public class Pantry extends PreferenceActivity {
-	private final static String TAG = "org.chad.jeejah.library.Pantry";
+	private final static String TAG = "ocjlP";
 	private GoogleAnalyticsTracker tracker;
 
 	String[] ingredientsMixerandgarnish;
