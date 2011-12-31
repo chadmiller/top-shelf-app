@@ -19,6 +19,7 @@ import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPreferences.OnSharedPreferenceChangeListener {
 	private final static String TAG = "ocjlRLA";
+	private Context context;
 
 	public static class ViewHolder {
 		public TextView name;
@@ -38,6 +39,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		this.recipeBook = recipeBook;
 		this.pantry = pantry;
 		this.targetRecipeList = recipeBook.allRecipes;
+		this.context = context;
 
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
