@@ -145,10 +145,10 @@ public class ShoppingListActivity extends Activity {
 			final Bundle bundle = intent.getBundleExtra(MOSTUSED_KEY);
 
 			if ((bundle != null) && (bundle.containsKey("ingredients"))) {
-				final ArrayList<String> ingredients = bundle.getStringArrayList("ingredients");
+				final String[] ingredients = bundle.getStringArray("ingredients");
 				for (String s : ingredients) {
 					final TextView t = new TextView(this);
-					//candidateSharedIngredients.add(s);
+					candidateSharedIngredients.add(s);
 					t.setText(Html.fromHtml("\u2022 <b>" + s + "</b>"));
 					t.setTextSize(16);
 					t.setPadding(20, 3, 10, 2);

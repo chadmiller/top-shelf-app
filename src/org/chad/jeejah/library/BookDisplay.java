@@ -229,13 +229,19 @@ final public class BookDisplay extends Activity {
 		// Most common ingredients
 		final Bundle mostCommonIngredients = new Bundle();
 		// TODO:  Don't include items that are in the pantry.
-		mostCommonIngredients.putStringArrayList("ingredients", this.recipeBook.mostUsedIngredients);
+		final Set<String> missingIngredients = new TreeSet<String>();
+		missingIngredients.addAll(this.recipeBook.mostUsedIngredients);
+//		for (String popularItem : this.recipeBook.mostUsedIngredients) {
+//			missingIngredients.add(popularItem);
+//		}
+		missingIngredients.removeAll(this.pantry);
+		mostCommonIngredients.putStringArray("ingredients", missingIngredients.toArray(new String[missingIngredients.size()]));
 		intent.putExtra(ShoppingListActivity.MOSTUSED_KEY, mostCommonIngredients);
 
 		// Favorite recipes require ingredients
 		// This can't be computed by recipebook author.
 		final Bundle missingFavoritesIngredients = new Bundle();
-		final Set<String> missingIngredients = new TreeSet<String>();
+		missingIngredients.clear();
 		for (Map.Entry<String,?> entry : favoritesSharedPreferences.getAll().entrySet()) {
 			final String recipeName = entry.getKey();
 			final Boolean isFavorited = (Boolean) entry.getValue();

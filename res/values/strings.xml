@@ -6,7 +6,7 @@
 
 	<string name="if_you_get_one_ingredient">Based on your current stock, if you get just one more ingredient, you can make these more recipes.</string>
 	<string name="favorites_need_ingredients">Your favorites need these ingredients that you don\'t have.</string>
-	<string name="these_ingredients_are_popular">These ingredients show up most often in recipes. (This doesn\'t consider what you already have in your stock.)</string>
+	<string name="these_ingredients_are_popular">These ingredients show up most often in recipes.</string>
 	<string name="loading_recipes">Loading thousands of recipes&#8230;</string>
 
 	<string name="term_blend">Blend: Mix in an electric blender.</string>
