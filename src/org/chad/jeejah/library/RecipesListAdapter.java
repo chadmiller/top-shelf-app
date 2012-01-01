@@ -21,8 +21,8 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	private final static String TAG = "ocjlRLA";
 	private Context context;
 
-	private final int STATE_ALL = 0;
-	private final int STATE_PRODUCABLE = 1;
+	private final int STATE_PRODUCABLE = 0;
+	private final int STATE_ALL = 1;
 	private final int STATE_FAVORITES = 2;
 	private final int STATE_SEARCHES = 3;
 	private final int STATECOUNT = 4;
