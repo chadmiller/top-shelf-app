@@ -65,9 +65,18 @@ public class RecipeActivity extends Activity {
 		final String[] ingredients = recipeInfo.getStringArray(Recipe.KEY_INGREDIENTS);
 		final String[] preparation = recipeInfo.getStringArray(Recipe.KEY_PREPARE_INST);
 		final String[] consumation = recipeInfo.getStringArray(Recipe.KEY_CONSUME_INST);
+		final String glass = recipeInfo.getString(Recipe.KEY_GLASS);
 
 		final Resources res = getResources();
 		final TreeSet<String> jargonSet = new TreeSet<String>();
+
+		if (glass != null) {
+			final TextView t = new TextView(this);
+			t.setText("\u2022   " + glass);
+			t.setTextSize(17.0f);
+			t.setPadding(30, 3, 30, 2);
+			ingredientsContainer.addView(t);
+		}
 
 		for (int i = 0; i < ingredients.length; i++) {
 			final TextView t = new TextView(this);
@@ -131,7 +140,7 @@ public class RecipeActivity extends Activity {
 				s.append(i).append("\n\n");
 			}
 			final TextView jargon = (TextView) findViewById(R.id.jargon_defined);
-			jargon.setText("Jargon:\n\n" + s.toString());
+			jargon.setText(s.toString());
 		} else {
 			final View v = findViewById(R.id.jargon_seperator);
 			v.setVisibility(View.GONE);

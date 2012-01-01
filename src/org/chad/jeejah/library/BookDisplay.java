@@ -195,6 +195,7 @@ final public class BookDisplay extends Activity {
 		recipe_info.putStringArray(Recipe.KEY_PREPARE_INST, recipe.prepare_instructions.toArray(new String[recipe.prepare_instructions.size()]));
 		recipe_info.putStringArray(Recipe.KEY_CONSUME_INST, recipe.consume_instructions.toArray(new String[recipe.consume_instructions.size()]));
 		recipe_info.putStringArray(Recipe.KEY_INGREDIENTS, recipe.ingredients.toArray(new String[recipe.ingredients.size()]));
+		recipe_info.putString(Recipe.KEY_GLASS, recipe.glass);
 		intent.putExtra("recipe", recipe_info);
 		BookDisplay.this.tracker.trackEvent("Clicks", "ListItem", recipe.name, 1);
 		BookDisplay.this.startActivity(intent);

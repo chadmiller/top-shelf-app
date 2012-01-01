@@ -16,6 +16,7 @@ final public class Recipe implements Comparable<Recipe> {
 	public static final String KEY_CONSUME_INST = "cons";
 	public static final String KEY_NAME = "name";
 	public static final String KEY_INGREDIENTS = "ingr";
+	public static final String KEY_GLASS = "glas";
 
 	public Recipe() {
 		this.ingredients = new TreeSet<String>();
