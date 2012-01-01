@@ -713,7 +713,7 @@ final public class BookDisplay extends Activity {
 		new CatalogEntry("donation3", R.string.catalog_item_updates_and_donation3, Managed.MANAGED),
 		new CatalogEntry("donation4", R.string.catalog_item_updates_and_donation4, Managed.MANAGED),
 		new CatalogEntry("donation5", R.string.catalog_item_updates_and_donation5, Managed.MANAGED),
-		new CatalogEntry("android.test.purchased", R.string.android_test_purchased, Managed.UNMANAGED),
+		//new CatalogEntry("android.test.purchased", R.string.android_test_purchased, Managed.UNMANAGED),
 		//new CatalogEntry("android.test.canceled", R.string.android_test_canceled, Managed.UNMANAGED),
 		//new CatalogEntry("android.test.refunded", R.string.android_test_refunded, Managed.UNMANAGED),
 		//new CatalogEntry("android.test.item_unavailable", R.string.android_test_item_unavailable, Managed.UNMANAGED),
