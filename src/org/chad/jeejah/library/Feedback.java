@@ -38,7 +38,6 @@ public class Feedback extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		menu.add(Menu.NONE, R.id.instructions, 1, R.string.help).setIcon(android.R.drawable.ic_menu_help);
-		menu.add(Menu.NONE, R.id.credits, 5, R.string.credits);
 		return true;
 	}
 
@@ -49,10 +48,6 @@ public class Feedback extends Activity {
 		switch (item.getItemId()) {
 			case R.id.instructions:
 				intent = new Intent(this, Instructions.class);
-				startActivity(intent);
-				return true;
-			case R.id.credits:
-				intent = new Intent(this, Credits.class);
 				startActivity(intent);
 				return true;
 			default:

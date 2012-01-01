@@ -45,9 +45,6 @@
         <activity android:name="Instructions"
 				  android:theme="@style/Drinks"
                   android:label="@string/help" />
-        <activity android:name="Credits"
-				  android:theme="@style/Drinks"
-                  android:label="@string/credits" />
 
 		<service android:name="BillingService" />
 		<receiver android:name="BillingReceiver">

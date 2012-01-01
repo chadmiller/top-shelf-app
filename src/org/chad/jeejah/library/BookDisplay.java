@@ -357,7 +357,6 @@ final public class BookDisplay extends Activity {
 		menu.add(Menu.NONE, R.id.stock, 2, R.string.set_stock); //.setIcon(R.drawable.ic_btn_mark_owned_ingredients);
 		menu.add(Menu.NONE, R.id.shoppingsuggestions, 3, R.string.shopping_suggestions); //.setIcon(R.drawable.ic_btn_suggest_shopping_list);
 		//menu.add(Menu.NONE, R.id.feedback, 4, R.string.feedback);
-		menu.add(Menu.NONE, R.id.credits, 5, R.string.credits);
 		//menu.add(Menu.NONE, R.id.togglefilter, 6, R.string.toggle_filter).setIcon(R.drawable.ic_btn_toggle_viewable);
 		if (hasDonated) {
 			menu.add(Menu.NONE, R.id.donate, 7, R.string.donate_donators_rock);
@@ -393,10 +392,6 @@ final public class BookDisplay extends Activity {
 				return true;
 			case R.id.togglefilter:
 				nextFilterState();
-				return true;
-			case R.id.credits:
-				intent = new Intent(this, Credits.class);
-				startActivity(intent);
 				return true;
 			case R.id.donate:
 				if (mBillingService == null) {
