@@ -100,14 +100,6 @@
 				android:text="To help with first starting a bar, it will tell you what ingredients are most listed in recipes.  And if you have Favorite recipes and you don\'t have ingredients necessary, it will suggest those.  Tap the Suggest-Shopping-List button to see its recommendations."
 				/>
 
-			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_header_size" android:padding="15dp"
-				android:text="Recipes"
-				/>
-
-			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
-				android:text="Technical terms are defined at the bottom of every recipe.  If you find you like some drink, mark it as a Favorite with the star."
-				/>
-
 			<!-- TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
 				android:text="Are you browsing in a noisy bar?  Soon, you\'ll be able to tap the recipe and make its name large enough for a bartender to see from across the room.  Order a round without yelling."
 				/ -->
