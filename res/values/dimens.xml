@@ -8,8 +8,9 @@
 	<dimen name="shoppinglist_ingredient_height">16dip</dimen>
 	<dimen name="shoppinglist_recipe_height">12dip</dimen>
 
-	<dimen name="recipe_title_height">22dip</dimen>
-	<dimen name="recipe_jargon_height">11dip</dimen>
+	<dimen name="recipe_title_height">19dip</dimen>
+	<dimen name="recipe_line_height">12dip</dimen>
+	<dimen name="recipe_jargon_height">9dip</dimen>
 
 	<dimen name="text_header_size">20dip</dimen>
 	<dimen name="text_normal_size">16dip</dimen>

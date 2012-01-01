@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="recipe_title_height">45dip</dimen>
+	<dimen name="recipe_line_height">31dip</dimen>
+	<dimen name="recipe_jargon_height">22dip</dimen>
+</resources>

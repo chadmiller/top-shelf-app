@@ -48,6 +48,7 @@ public class RecipeActivity extends Activity {
 		this.tracker.startNewSession(BookDisplay.GOOG_ANALYTICS_ID, 60, this);
 		this.tracker.trackPageView("/" + TAG);
 
+		final Resources res = getResources();
 		final Intent intent = getIntent();
 
 		final Bundle recipeInfo = intent.getBundleExtra("recipe");
@@ -55,6 +56,7 @@ public class RecipeActivity extends Activity {
 
 		final String title = recipeInfo.getString(Recipe.KEY_NAME);
 		titleView.setText(title);
+		titleView.setTextSize(res.getDimension(R.dimen.recipe_title_height));
 		actionBar.setTitle("Recipe \u201C" + title + "\u201D");
 		shareDocument.append("<h1>" + title + "<a href=\"https://market.android.com/details?id=" + getPackageName() + "\">*</a></h1>");
 
@@ -67,13 +69,12 @@ public class RecipeActivity extends Activity {
 		final String[] consumation = recipeInfo.getStringArray(Recipe.KEY_CONSUME_INST);
 		final String glass = recipeInfo.getString(Recipe.KEY_GLASS);
 
-		final Resources res = getResources();
 		final TreeSet<String> jargonSet = new TreeSet<String>();
 
 		if (glass != null) {
 			final TextView t = new TextView(this);
 			t.setText("\u2022   " + glass);
-			t.setTextSize(17.0f);
+			t.setTextSize(res.getDimension(R.dimen.recipe_line_height));
 			t.setPadding(30, 3, 30, 2);
 			ingredientsContainer.addView(t);
 		}
@@ -81,7 +82,7 @@ public class RecipeActivity extends Activity {
 		for (int i = 0; i < ingredients.length; i++) {
 			final TextView t = new TextView(this);
 			t.setText("\u2022   " + ingredients[i]);
-			t.setTextSize(17.0f);
+			t.setTextSize(res.getDimension(R.dimen.recipe_line_height));
 			t.setPadding(30, 3, 30, 2);
 			ingredientsContainer.addView(t);
 		}
@@ -90,7 +91,7 @@ public class RecipeActivity extends Activity {
 			final TextView t = new TextView(this);
 			shareDocument.append("<p>" + preparation[i] + "</p>");
 			t.setText("" + (i+1) + ".  " + preparation[i]);
-			t.setTextSize(17.0f);
+			t.setTextSize(res.getDimension(R.dimen.recipe_line_height));
 			t.setPadding(30, 5, 30, 5);
 			preparationContainer.addView(t);
 
@@ -131,6 +132,8 @@ public class RecipeActivity extends Activity {
 		for (int i = 0; i < consumation.length; i++) {
 			final TextView t = new TextView(this);
 			t.setText("Consume instruction: " + consumation[i]);
+			t.setTextSize(res.getDimension(R.dimen.recipe_line_height));
+			t.setPadding(30, 5, 30, 5);
 			consumationContainer.addView(t);
 		}
 
@@ -141,6 +144,7 @@ public class RecipeActivity extends Activity {
 			}
 			final TextView jargon = (TextView) findViewById(R.id.jargon_defined);
 			jargon.setText(s.toString());
+			jargon.setTextSize(res.getDimension(R.dimen.recipe_jargon_height));
 		} else {
 			final View v = findViewById(R.id.jargon_seperator);
 			v.setVisibility(View.GONE);
