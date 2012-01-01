@@ -122,7 +122,7 @@ public class ShoppingListActivity extends Activity {
 
 				for (String ingredient : ingredients) {
 					final TextView t = new TextView(this);
-					//candidateSharedIngredients.add(ingredient);  // TODO  After this list excludes owned, reenable this.
+					candidateSharedIngredients.add(ingredient);  // TODO  After this list excludes owned, reenable this.
 					t.setText(Html.fromHtml("\u2022 <b>" + ingredient + "</b>"));
 					t.setTextSize(16);
 					t.setPadding(20, 3, 10, 2);
@@ -148,7 +148,7 @@ public class ShoppingListActivity extends Activity {
 				final ArrayList<String> ingredients = bundle.getStringArrayList("ingredients");
 				for (String s : ingredients) {
 					final TextView t = new TextView(this);
-					candidateSharedIngredients.add(s);
+					//candidateSharedIngredients.add(s);
 					t.setText(Html.fromHtml("\u2022 <b>" + s + "</b>"));
 					t.setTextSize(16);
 					t.setPadding(20, 3, 10, 2);
