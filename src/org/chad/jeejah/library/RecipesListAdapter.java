@@ -21,6 +21,12 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	private final static String TAG = "ocjlRLA";
 	private Context context;
 
+	private final int STATE_ALL = 0;
+	private final int STATE_PRODUCABLE = 1;
+	private final int STATE_FAVORITES = 2;
+	private final int STATE_SEARCHES = 3;
+	private final int STATECOUNT = 4;
+
 	public static class ViewHolder {
 		public TextView name;
 		public TextView ingredients;
@@ -139,33 +145,41 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		}
 	}
 
+	public String setBestInitialState(Context context, android.widget.TextView footnote) {
+		if (recipeBook.producableRecipes.size() > 0) {
+			return setFilterViewId(STATE_PRODUCABLE, context, footnote);
+		} else {
+			return setFilterViewId(STATE_ALL, context, footnote);
+		}
+	}
+
 	public int getFilterViewId() {
 		if (this.targetRecipeList == null) {
 			Log.w(TAG, "target recipe list is null. ");
 			return -2;
 		} else if (this.targetRecipeList == recipeBook.allRecipes) {
-			return 0;
+			return STATE_ALL;
 		} else if (this.targetRecipeList == recipeBook.producableRecipes) {
-			return 1;
+			return STATE_PRODUCABLE;
 		} else if (this.targetRecipeList == recipeBook.favoriteRecipes) {
-			return 2;
+			return STATE_FAVORITES;
 		} else if (this.targetRecipeList == recipeBook.searchedRecipes) {
-			return 3;
+			return STATE_SEARCHES;
 		} else {
 			Log.e(TAG, "target recipe list is unknown. " + this.targetRecipeList);
-			return 4;
+			return STATECOUNT;
 		}
 	}
 
 	public String setFilterViewId(int state, Context context, android.widget.TextView footnote) {
 		final int size;
 		switch (state) {
-			case 0:
+			case STATE_ALL:
 				this.targetRecipeList = recipeBook.allRecipes;
 				footnote.setText(R.string.a_recipe_not_available);
 				footnote.setVisibility(View.VISIBLE);
 				break;
-			case 1:
+			case STATE_PRODUCABLE:
 				this.targetRecipeList = recipeBook.producableRecipes;
 				size = this.targetRecipeList.size();
 				if (size == 0) {
@@ -178,7 +192,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 					footnote.setVisibility(View.GONE);
 				}
 				break;
-			case 2:
+			case STATE_FAVORITES:
 				this.targetRecipeList = recipeBook.favoriteRecipes;
 				size = this.targetRecipeList.size();
 				if (size != 0) {
@@ -188,7 +202,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 					footnote.setVisibility(View.GONE);
 				}
 				break;
-			case 3:
+			case STATE_SEARCHES:
 				this.targetRecipeList = recipeBook.searchedRecipes;
 				size = this.targetRecipeList.size();
 				if (size != 0) {
@@ -222,13 +236,13 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 
 	public String getFilterViewName(int state) {
 		switch (state) {
-			case 0:
+			case STATE_ALL:
 				return "(all)";
-			case 1:
+			case STATE_PRODUCABLE:
 				return "(filtered)";
-			case 2:
+			case STATE_FAVORITES:
 				return "(favorites)";
-			case 3:
+			case STATE_SEARCHES:
 				return "\u201C" + this.searchQuery + "\u201D";
 		}
 		return "-";
@@ -241,9 +255,9 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		Log.d(TAG, "switching! currently at filter state " + state);
 		try {
 			if (this.searchQuery != null) {
-				state = (state + 1) % 4;
+				state = (state + 1) % STATECOUNT;
 			} else {
-				state = (state + 1) % 3;
+				state = (state + 1) % (STATECOUNT-1);
 			}
 			Log.d(TAG, "switching! going to filter state " + state);
 			return setFilterViewId(state, context, footnote);

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Drinks</string>
+    <string name="app_name">Top Shelf</string>
+    <string name="app_name_title_fmt">Top Shelf %s</string>
     <string name="search_hint">Names of recipes</string>
+
 	<string name="actionbar_activity_not_found">Failed to open intent&#8230;</string>
 
 	<string name="if_you_get_one_ingredient">Based on your current stock, if you get just one more ingredient, you can make these more recipes.</string>

@@ -106,6 +106,8 @@ final public class BookDisplay extends Activity {
 		this.favoritesSharedPreferences = getSharedPreferences(RecipeActivity.FAVORITE_FILENAME, MODE_PRIVATE);
 
 		this.actionBar = (ActionBar) findViewById(R.id.actionbar);
+		this.actionBar.setTitle(getResources().getString(R.string.app_name_title_fmt, "[initializing]"));
+
 		this.recipeListFootnote = (TextView) findViewById(R.id.recipe_list_footnote);
 
 		RecipeBookLoadTask recipeBookLoader = null;
@@ -114,6 +116,9 @@ final public class BookDisplay extends Activity {
 			this.recipeBook.updateProducable(this.pantry);  // TODO kill
 			this.recipeAdapter.updatePantry(this.pantry);
 			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry);
+
+			final String filterState = this.recipeAdapter.setBestInitialState(this, this.recipeListFootnote);
+			this.actionBar.setTitle(getResources().getString(R.string.app_name_title_fmt, filterState));
 		} else {
 			this.recipeBook = new RecipeBook();
 			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry);
@@ -135,9 +140,6 @@ final public class BookDisplay extends Activity {
 		});
 
 		setInstanceState(savedInstanceState);
-
-		final String filterState = this.recipeAdapter.getFilterViewName(this.recipeAdapter.getFilterViewId());
-		this.actionBar.setTitle("Drinks " + filterState);
 
 		if (! configurationSharedPreferences.getBoolean("SEEN_INTRO", false)) {
 			showDialog(DIALOG_SPLASH);
@@ -258,8 +260,12 @@ final public class BookDisplay extends Activity {
 	}
 
 	void nextFilterState() {
-		final String filterState = this.recipeAdapter.nextFilterState(this, this.recipeListFootnote);
-		this.actionBar.setTitle("Drinks " + filterState);
+		final String filterState = BookDisplay.this.recipeAdapter.nextFilterState(BookDisplay.this, BookDisplay.this.recipeListFootnote);
+		BookDisplay.this.actionBar.setTitle(BookDisplay.this.getResources().getString(R.string.app_name_title_fmt, filterState));
+		tryInvalidateOptionsMenu();
+	}
+
+	void tryInvalidateOptionsMenu() {
 
 //		try {
 //			Constructor managerConstructor = managerClass.getConstructor(this.class);
@@ -474,7 +480,7 @@ final public class BookDisplay extends Activity {
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 			final String query = intent.getStringExtra(android.app.SearchManager.QUERY);
 			final String filterState = this.recipeAdapter.search(query);
-			this.actionBar.setTitle("Drinks " + filterState);
+			this.actionBar.setTitle(this.getResources().getString(R.string.app_name_title_fmt, filterState));
 		}
 	}
 
@@ -569,6 +575,9 @@ final public class BookDisplay extends Activity {
 			});
 
 			handleIntent(getIntent());
+
+			final String filterState = BookDisplay.this.recipeAdapter.setBestInitialState(BookDisplay.this, BookDisplay.this.recipeListFootnote);
+			BookDisplay.this.actionBar.setTitle(BookDisplay.this.getResources().getString(R.string.app_name_title_fmt, filterState));
 
 			new FavoritesLoadTask().execute();
 		}
