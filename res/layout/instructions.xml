@@ -82,7 +82,7 @@
 				/>
 
 			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
-				android:text='Another cool feature is that the app will help you in shopping.  If you already have a partially-stocked bar, it will tell you what single ingredients you can add to your bar to get the most bang for your buck.  For example, &quot;If you get cream, you can make 15 more recipes!&quot;'
+				android:text='The app will also help you shop.  If you already have a partially-stocked bar, it will tell you what single ingredients you can add to your bar to get the most bang for your buck.  For example, &quot;If you get cream, you can make 15 more recipes!&quot;'
 				/>
 
 			<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background">
@@ -97,10 +97,7 @@
 
 
 			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
-				android:text="To help with first starting out to fill a bar, it will tell you what ingredients are most listed in recipes.  And if you have Favorite recipes and you don\'t have ingredients necessary, it will suggest those.  Tap the Suggest-Shopping-List button to see its recommendations."
-				/>
-			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
-				android:text="You will soon be able to tap items and send those suggestions to shopping-list apps or through SMS to other people."
+				android:text="To help with first starting a bar, it will tell you what ingredients are most listed in recipes.  And if you have Favorite recipes and you don\'t have ingredients necessary, it will suggest those.  Tap the Suggest-Shopping-List button to see its recommendations."
 				/>
 
 			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_header_size" android:padding="15dp"
@@ -108,12 +105,12 @@
 				/>
 
 			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
-				android:text="Recipes are fraught with the jargon of mixing drinks, so the more technical terms are defined at the bottom of every recipe.  If you find you like something, mark it as a Favorite with the star."
+				android:text="Technical terms are defined at the bottom of every recipe.  If you find you like some drink, mark it as a Favorite with the star."
 				/>
 
-			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
+			<!-- TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size"
 				android:text="Are you browsing in a noisy bar?  Soon, you\'ll be able to tap the recipe and make its name large enough for a bartender to see from across the room.  Order a round without yelling."
-				/>
+				/ -->
 
 			<!-- View
 				android:layout_width="fill_parent" 
