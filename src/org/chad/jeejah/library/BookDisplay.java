@@ -78,6 +78,7 @@ final public class BookDisplay extends Activity {
 	private Handler mHandler;
 	private CatalogAdapter mCatalogAdapter;
 
+	private ListView recipeListView;
 	protected RecipesListAdapter recipeAdapter;
 	private TextView recipeListFootnote;
 	private Set<String> pantry;
@@ -105,6 +106,7 @@ final public class BookDisplay extends Activity {
 		this.pantrySharedPreferences = getSharedPreferences(Pantry.FILENAME, MODE_PRIVATE);
 		this.favoritesSharedPreferences = getSharedPreferences(RecipeActivity.FAVORITE_FILENAME, MODE_PRIVATE);
 
+		this.recipeListView = (ListView) findViewById(R.id.recipe_list);
 		this.actionBar = (ActionBar) findViewById(R.id.actionbar);
 		this.actionBar.setTitle(getResources().getString(R.string.app_name_title_fmt, "[initializing]"));
 
@@ -119,6 +121,7 @@ final public class BookDisplay extends Activity {
 
 			final String filterState = this.recipeAdapter.setBestInitialState(this, this.recipeListFootnote);
 			this.actionBar.setTitle(getResources().getString(R.string.app_name_title_fmt, filterState));
+			new FavoritesLoadTask().execute();
 		} else {
 			this.recipeBook = new RecipeBook();
 			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry);
@@ -126,7 +129,6 @@ final public class BookDisplay extends Activity {
 			recipeBookLoader.execute(this.recipeBook);
 		}
 
-		final ListView recipeListView = (ListView) findViewById(R.id.recipe_list);
 		recipeListView.setAdapter(BookDisplay.this.recipeAdapter);
 		recipeListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -592,6 +594,16 @@ final public class BookDisplay extends Activity {
 		@Override
 		protected void onPostExecute(Void v) {
 			BookDisplay.this.recipeAdapter.notifyDataSetChanged();
+
+			final TextView emptyListNotification = (TextView) BookDisplay.this.findViewById(R.id.empty_view);
+			BookDisplay.this.recipeListView.setEmptyView(emptyListNotification);
+			emptyListNotification.setOnClickListener(new OnClickListener() {
+					public void onClick(View view) {
+						BookDisplay.this.nextFilterState();
+						;
+					}
+				});
+
 		}
 	}
 

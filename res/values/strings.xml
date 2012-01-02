@@ -10,6 +10,7 @@
 	<string name="favorites_need_ingredients">Your favorites need these ingredients that you don\'t have.</string>
 	<string name="these_ingredients_are_popular">These ingredients show up most often in recipes.</string>
 	<string name="loading_recipes">Loading thousands of recipes&#8230;</string>
+	<string name="list_is_empty">Nothing available in this view</string>
 
 	<string name="term_blend">Blend: Mix in an electric blender.</string>
 	<string name="term_build">Build: Fill a glass with ice, and pour in ingredients.</string>

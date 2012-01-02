@@ -42,6 +42,17 @@
 		android:cacheColorHint="#00000000"
 		android:fastScrollEnabled="true"
 		android:layout_weight="1"
+		>
+	</ListView>
+	<TextView
+		android:id="@+id/empty_view"
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent" 
+		android:text="@string/list_is_empty"
+		android:textSize="@dimen/text_header_size"
+		android:gravity="center"
+		android:background="#d000"
+		android:visibility="gone"
 		/>
 
 	<TextView
