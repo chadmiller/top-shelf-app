@@ -433,13 +433,16 @@ final public class BookDisplay extends Activity {
 	}
 
 	void setInstanceState(Bundle inState) {
-		if (inState != null) {
-			this.recipeAdapter.setFilterViewId(inState.getInt("adapterview", -1), this, this.recipeListFootnote);
-			final String searchQuery = inState.getString("adaptersearchvalue");
-			if (searchQuery != null) {
-				this.recipeAdapter.setSearchQuery(searchQuery);
+		try {
+			if (inState != null) {
+				final String searchQuery = inState.getString("adaptersearchvalue");
+				if (searchQuery != null) {
+					final String filterState = this.recipeAdapter.search(searchQuery);
+					this.actionBar.setTitle(this.getResources().getString(R.string.app_name_title_fmt, filterState));
+				}
+				this.recipeAdapter.setFilterViewId(inState.getInt("adapterview", -1), this, this.recipeListFootnote);
 			}
-		}
+		} catch (Exception ex) { } // discard errors from restarting from saved bundle.
 	}
 
 	@Override
