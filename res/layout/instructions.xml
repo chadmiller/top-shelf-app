@@ -8,7 +8,7 @@
 	>
 	<com.markupartist.android.widget.ActionBar
 		android:id="@+id/actionbar"
-		app:title="Drinks"
+		app:title="@string/help"
 		style="@style/ActionBar"
 		/>
 
