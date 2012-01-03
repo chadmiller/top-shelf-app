@@ -4,7 +4,7 @@
 	  android:installLocation="preferExternal"
       android:versionCode="12"
       android:versionName="12">
-    <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="4" />
+    <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="10" />
 	<supports-screens android:largeScreens="true" />
     <uses-permission android:name="com.android.vending.BILLING"/>
     <uses-permission android:name="android.permission.INTERNET"/>
