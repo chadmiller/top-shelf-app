@@ -317,7 +317,7 @@ final public class BookDisplay extends Activity {
 				final int defaultChoice = 2;
 				final DialogInterface.OnClickListener purchase_ocl = new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
-						BookDisplay.this.tracker.trackEvent("Initialize", "Donating", "attempting", which);
+						BookDisplay.this.tracker.trackEvent("Initialize", "Donation", "attempting", which);
 						if (which == -1) {
 							which = defaultChoice;
 						}
