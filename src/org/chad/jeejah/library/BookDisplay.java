@@ -114,6 +114,7 @@ final public class BookDisplay extends Activity {
 
 		RecipeBookLoadTask recipeBookLoader = null;
 		if (this.recipeBook != null) {
+			Log.i(TAG, "had configuration instance");
 			BookDisplay.this.loadPantry();
 			this.recipeBook.updateProducable(this.pantry);  // TODO kill
 			this.recipeAdapter.updatePantry(this.pantry);
@@ -123,6 +124,7 @@ final public class BookDisplay extends Activity {
 			this.actionBar.setTitle(getResources().getString(R.string.app_name_title_fmt, filterState));
 			new FavoritesLoadTask().execute();
 		} else {
+			Log.i(TAG, "starting from scratch");
 			this.recipeBook = new RecipeBook();
 			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry);
 			recipeBookLoader = new RecipeBookLoadTask();
@@ -486,17 +488,20 @@ final public class BookDisplay extends Activity {
 	}
 
 	private class RecipeBookLoadTask extends AsyncTask<RecipeBook, Integer, Void> {
+		private final static String TAG = "ocjlBD.RLT";
 		private TextView splashScreenText;
 		private Handler handler;
 
 		@Override
 		protected void onPreExecute() {
+			Log.i(TAG, "pe");
 			this.splashScreenText = (TextView) BookDisplay.this.findViewById(R.id.splash_screen_text);
 			this.handler = new Handler();  // on UI thread;
 		}
 
 		@Override
 		protected Void doInBackground(RecipeBook... recipeBooks) {
+			Log.i(TAG, "dib");
 			BookDisplay.this.loadPantry();
 
 			final long startTime = android.os.SystemClock.uptimeMillis();
@@ -525,6 +530,7 @@ final public class BookDisplay extends Activity {
 
 		@Override
 		protected void onPostExecute(Void v) {
+			Log.i(TAG, "ope");
 
 			final LinearLayout loadingIndicator = (LinearLayout) findViewById(R.id.loading_indicator);
 			loadingIndicator.setVisibility(View.GONE);
@@ -585,14 +591,17 @@ final public class BookDisplay extends Activity {
 	}
 
 	private class FavoritesLoadTask extends AsyncTask<Void, Void, Void> {
+		private final static String TAG = "ocjlBD.FLT";
 		@Override
 		protected Void doInBackground(Void... vs) {
+			Log.i(TAG, "dib");
 			BookDisplay.this.recipeAdapter.setFavoritesFromPreferences(BookDisplay.this.favoritesSharedPreferences.getAll());
 			return null;
 		}
 
 		@Override
 		protected void onPostExecute(Void v) {
+			Log.i(TAG, "ope");
 			BookDisplay.this.recipeAdapter.notifyDataSetChanged();
 
 			final TextView emptyListNotification = (TextView) BookDisplay.this.findViewById(R.id.empty_view);
@@ -638,7 +647,6 @@ final public class BookDisplay extends Activity {
 			}
 		}
 	}
-
 
 	private static class CatalogAdapter extends ArrayAdapter<String> {
 		private CatalogEntry[] mCatalog;
