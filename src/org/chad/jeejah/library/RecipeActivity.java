@@ -178,6 +178,7 @@ public class RecipeActivity extends Activity {
 		}
 		actionBar.addAction(new ShareAction());
 
+		titleView.setKeepScreenOn(true);
 	}
 
 	private void setFavoriteButtonEnabled(ImageButton ib, boolean newState) {
