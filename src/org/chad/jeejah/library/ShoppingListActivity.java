@@ -166,7 +166,7 @@ public class ShoppingListActivity extends Activity {
 		class ShareAction implements Action {
 			@Override
 			public int getDrawable() {
-				return android.R.drawable.ic_menu_share;
+				return android.R.drawable.ic_menu_send;
 			}
 			@Override
 			public void performAction(View view) {
