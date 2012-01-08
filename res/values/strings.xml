@@ -17,7 +17,7 @@
 	<string name="term_dash">Dash: A short squirt. Technically, 1/6th of a teaspoon.</string>
 	<string name="term_fill">Fill: Pour up to the top of the glass.</string>
 	<string name="term_float">Float: Gently pour on top of a drink.</string>
-	<string name="term_layer">Layer: Gently add ingredients in layers. You may need a spoon to stop the fall of the pour. Do not stir.</string>
+	<string name="term_layer">Layer: Gently add ingredients in layers. You may need a spoon to halt the falling liquid, so as not to distrub the layer below it. Do not stir.</string>
 	<string name="term_muddle">Muddle: Crush ingredients to release flavors. Use a muddling device, or crush between thumb and ice cube or between spoon and glass side.</string>
 	<string name="term_rim">Rim: Moisten the glass\' rim and sprinkle on the outside. One could dunk the rim in a flat bed of a substance, but one must be careful not to overdo it. Subtle is better than cloying.</string>
 	<string name="term_splash">Splash: A long squirt. Technically, half an ounce.</string>
@@ -70,5 +70,11 @@
 	<string name="share_using">Share using</string>
 	<string name="share_cancel">Cancel</string>
 	<string name="share_yes">Send</string>
+
+	<string name="introduction_dialog_done">finished with introduction</string>
+	<string name="introduction_dialog_start"><b>Welcome!</b>\n\nYou need to know these three buttons to use this program well.\n\nTap them to read what they do.  When finished, hit the button <i>finished with introduction</i>. Press the menu key later to get help.</string>
+	<string name="introduction_dialog_view"><b>Change View</b>:  Tap this to flip to another view of the list of recipes.\n\n<i>all</i> shows every recipe with no constraints.\n\n<i>filtered</i> shows only recipes that the app knows you have the ingredients to make.\n\n<i>favorites</i> shows recipes that you have marked with a star.\n\nIf you search for recipes, you\'ll see the results as another view.</string>
+	<string name="introduction_dialog_pantry"><b>Inventory Pantry</b>:  If you wish to use the advanced features of this app, it needs to know what ingredients you have in your pantry.  Be sure to include garnishes and mixers.</string>
+	<string name="introduction_dialog_shopping"><b>Shopping Suggestions</b>:  After you tell the app what you have, it can recommend what to get next.</string>
 
 </resources>

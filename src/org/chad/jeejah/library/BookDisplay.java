@@ -20,14 +20,20 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.ViewGroup;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.LayoutInflater;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
@@ -59,6 +65,7 @@ final public class BookDisplay extends Activity {
 	private static final int DIALOG_PURCHASEPLZ = 1;
 	private static final int DIALOG_SPLASH = 2;
 	private static final int ASK_DONATION_FREQUENCY_WHEN_ZERO = 4;
+	private static final String PREF_KEY_STARTUP_AND_DONATE = "INIT";
 
 	private enum Managed { MANAGED, UNMANAGED }
 
@@ -108,7 +115,7 @@ final public class BookDisplay extends Activity {
 
 		this.recipeListView = (ListView) findViewById(R.id.recipe_list);
 		this.actionBar = (ActionBar) findViewById(R.id.actionbar);
-		this.actionBar.setTitle(getResources().getString(R.string.app_name_title_fmt, "[initializing]"));
+		this.actionBar.setTitle(getResources().getString(R.string.app_name_title_fmt, "[...]"));
 
 		this.recipeListFootnote = (TextView) findViewById(R.id.recipe_list_footnote);
 
@@ -145,21 +152,19 @@ final public class BookDisplay extends Activity {
 
 		setInstanceState(savedInstanceState);
 
-		if (! configurationSharedPreferences.getBoolean("SEEN_INTRO", false)) {
+		final Long now = System.currentTimeMillis();
+		if (configurationSharedPreferences.getLong(PREF_KEY_STARTUP_AND_DONATE, 0L) == 0) {
 			showDialog(DIALOG_SPLASH);
 			final SharedPreferences.Editor e = configurationSharedPreferences.edit();
-			e.putBoolean("SEEN_INTRO", true);
+			e.putLong(PREF_KEY_STARTUP_AND_DONATE, now);
 			e.commit();
 			this.tracker.trackEvent("Initialize", "App", "Introduction", 1);
 		} else {
 			// Never on first run.  Small chance after that.
-			final Long now = System.currentTimeMillis();
 			final Random rng = new Random();
 			final int chance = rng.nextInt(ASK_DONATION_FREQUENCY_WHEN_ZERO);
 			final long noDonationUntil = 1325430048000L + (1000*60*60*24*16);
-			if ((chance == 0) && ((configurationSharedPreferences.getLong("LAST_SEEN_DONATE", 0L) + (1000*60*60*23)) < now) && (now > noDonationUntil)) {
-
-				//TODO Push into AsycnTask
+			if ((chance == 0) && ((configurationSharedPreferences.getLong(PREF_KEY_STARTUP_AND_DONATE, 0L) + (1000*60*60*23)) < now) && (now > noDonationUntil)) {
 
 				// If already purchased something, then stop!
 				mOwnedItemsCursor = mPurchaseDatabase.queryAllPurchasedItems();
@@ -180,7 +185,7 @@ final public class BookDisplay extends Activity {
 						showDialog(DIALOG_PURCHASEPLZ);
 
 						final SharedPreferences.Editor e = configurationSharedPreferences.edit();
-						e.putLong("LAST_SEEN_DONATE", now);
+						e.putLong(PREF_KEY_STARTUP_AND_DONATE, now);
 						e.commit();
 					} else {
 						this.tracker.trackEvent("Initialize", "Donating", "no-mechanism", 1);
@@ -235,7 +240,6 @@ final public class BookDisplay extends Activity {
 
 		// Most common ingredients
 		final Bundle mostCommonIngredients = new Bundle();
-		// TODO:  Don't include items that are in the pantry.
 		final Set<String> missingIngredients = new TreeSet<String>();
 		missingIngredients.addAll(this.recipeBook.mostUsedIngredients);
 //		for (String popularItem : this.recipeBook.mostUsedIngredients) {
@@ -299,19 +303,68 @@ final public class BookDisplay extends Activity {
 		final AlertDialog.Builder adb = new AlertDialog.Builder(this);
 		switch (id) {
 			case DIALOG_SPLASH:
-				adb.setTitle(R.string.welcome)
-					.setMessage(R.string.welcome_message)
-					.setPositiveButton(R.string.begin, new DialogInterface.OnClickListener() { 
-						public void onClick(DialogInterface dialog, int which) {
-							startSetIngredients();
-						}
-					}).setNegativeButton(R.string.help, new DialogInterface.OnClickListener() { 
-						public void onClick(DialogInterface dialog, int which) {
-							final Intent intent = new Intent(BookDisplay.this, Instructions.class);
-							BookDisplay.this.startActivity(intent);
-						}
-					});
-				return adb.create();
+				//adb.setTitle(R.string.welcome)
+				//	.setMessage(R.string.welcome_message)
+				//	.setPositiveButton(R.string.begin, new DialogInterface.OnClickListener() { 
+				//		public void onClick(DialogInterface dialog, int which) {
+				//			startSetIngredients();
+				//		}
+				//	}).setNegativeButton(R.string.help, new DialogInterface.OnClickListener() { 
+				//		public void onClick(DialogInterface dialog, int which) {
+				//			final Intent intent = new Intent(BookDisplay.this, Instructions.class);
+				//			BookDisplay.this.startActivity(intent);
+				//		}
+				//	});
+
+				final Dialog dialog = new Dialog(this, R.style.fullScreenOverlay);
+				dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+				dialog.setContentView(R.layout.introduction);
+
+				final ImageView arrowImage = (ImageView) dialog.findViewById(R.id.arrow);
+				final TextView dialogText = (TextView) dialog.findViewById(R.id.introduction_text);
+
+				final ImageButton intro_btn_viewable = (ImageButton) dialog.findViewById(R.id.b_viewable);
+				final ImageButton intro_btn_pantry = (ImageButton) dialog.findViewById(R.id.b_pantry);
+				final ImageButton intro_btn_shopping = (ImageButton) dialog.findViewById(R.id.b_shopping);
+
+				intro_btn_viewable.setOnClickListener(new View.OnClickListener() {
+					public void onClick(View v) {
+						intro_btn_viewable.setSelected(true);
+						intro_btn_pantry.setSelected(false);
+						intro_btn_shopping.setSelected(false);
+						arrowImage.setVisibility(View.GONE);
+						dialogText.setText(R.string.introduction_dialog_view);
+					}
+				});
+
+				intro_btn_pantry.setOnClickListener(new View.OnClickListener() {
+					public void onClick(View v) {
+						intro_btn_viewable.setSelected(false);
+						intro_btn_pantry.setSelected(true);
+						intro_btn_shopping.setSelected(false);
+						arrowImage.setVisibility(View.GONE);
+						dialogText.setText(R.string.introduction_dialog_pantry);
+					}
+				});
+
+				intro_btn_shopping.setOnClickListener(new View.OnClickListener() {
+					public void onClick(View v) {
+						intro_btn_viewable.setSelected(false);
+						intro_btn_pantry.setSelected(false);
+						intro_btn_shopping.setSelected(true);
+						arrowImage.setVisibility(View.GONE);
+						dialogText.setText(R.string.introduction_dialog_shopping);
+					}
+				});
+
+				final Button intro_btn_done = (Button) dialog.findViewById(R.id.dialog_done);
+				intro_btn_done.setOnClickListener(new View.OnClickListener() {
+					public void onClick(View v) {
+						dialog.dismiss();
+					}
+				});
+
+				return dialog;
 
 			case DIALOG_PURCHASEPLZ:
 				final int defaultChoice = 2;

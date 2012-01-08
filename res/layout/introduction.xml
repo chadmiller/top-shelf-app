@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/org.chad.jeejah.library"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="#b000"
+	android:padding="0px"
+	android:layout_margin="0px"
+	>
+
+	<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background">
+		<View android:layout_weight="1" android:layout_height="0px" android:layout_width="fill_parent" />
+		<ImageButton style="@style/ActionBarItem" android:id="@+id/b_viewable" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:maxLines="1" android:src="@drawable/ic_btn_toggle_viewable" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+		<ImageButton style="@style/ActionBarItem" android:id="@+id/b_pantry" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:maxLines="1" android:src="@drawable/ic_btn_mark_owned_ingredients" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+		<ImageButton style="@style/ActionBarItem" android:id="@+id/b_shopping" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:maxLines="1" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
+	</LinearLayout>
+
+
+	<ImageView
+		android:id="@+id/arrow"
+		android:src="@drawable/intro_buttons_arrows"
+		android:layout_gravity="right|top"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		/>
+
+	<ScrollView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="2"
+		>
+
+		<TextView
+			android:id="@+id/introduction_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="20dip"
+			android:textSize="@dimen/recipe_title_height"
+			android:text="@string/introduction_dialog_start" />
+	</ScrollView>
+
+	<Button
+		android:id="@+id/dialog_done"
+		android:text="@string/introduction_dialog_done"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:padding="20dip"
+		android:gravity="center" />
+
+</LinearLayout>
