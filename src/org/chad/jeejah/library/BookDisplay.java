@@ -153,46 +153,49 @@ final public class BookDisplay extends Activity {
 		setInstanceState(savedInstanceState);
 
 		final Long now = System.currentTimeMillis();
+		final Random rng = new Random();
+		final int chance = rng.nextInt(ASK_DONATION_FREQUENCY_WHEN_ZERO);
+		final long noDonationUntil = 1325430048000L + (1000*60*60*24*16);
 		if (configurationSharedPreferences.getLong(PREF_KEY_STARTUP_AND_DONATE, 0L) == 0) {
 			showDialog(DIALOG_SPLASH);
 			final SharedPreferences.Editor e = configurationSharedPreferences.edit();
 			e.putLong(PREF_KEY_STARTUP_AND_DONATE, now);
 			e.commit();
 			this.tracker.trackEvent("Initialize", "App", "Introduction", 1);
-		} else {
-			// Never on first run.  Small chance after that.
-			final Random rng = new Random();
-			final int chance = rng.nextInt(ASK_DONATION_FREQUENCY_WHEN_ZERO);
-			final long noDonationUntil = 1325430048000L + (1000*60*60*24*16);
-			if ((chance == 0) && ((configurationSharedPreferences.getLong(PREF_KEY_STARTUP_AND_DONATE, 0L) + (1000*60*60*23)) < now) && (now > noDonationUntil)) {
+		} else if ((chance == 0) && ((configurationSharedPreferences.getLong(PREF_KEY_STARTUP_AND_DONATE, 0L) + (1000*60*60*23)) < now) && (now > noDonationUntil)) {
 
-				// If already purchased something, then stop!
-				mOwnedItemsCursor = mPurchaseDatabase.queryAllPurchasedItems();
-				startManagingCursor(mOwnedItemsCursor);
-				if (mOwnedItemsCursor.moveToFirst()) {
-					do {
-						final String sku = mOwnedItemsCursor.getString(0);
-						hasDonated = true;
-					} while (mOwnedItemsCursor.moveToNext());
-					this.tracker.trackEvent("Initialize", "Donation", "discovered", 1);
+			// If already purchased something, then stop!
+			mOwnedItemsCursor = mPurchaseDatabase.queryAllPurchasedItems();
+			startManagingCursor(mOwnedItemsCursor);
+			if (mOwnedItemsCursor.moveToFirst()) {
+				do {
+					final String sku = mOwnedItemsCursor.getString(0);
+					hasDonated = true;
+				} while (mOwnedItemsCursor.moveToNext());
+				this.tracker.trackEvent("Initialize", "Donation", "discovered", 1);
+			} else {
+				mBillingService = new BillingService();
+				mBillingService.setContext(this);
+				if (mBillingService.checkBillingSupported()) {
+					mCatalogAdapter = new CatalogAdapter(this, CATALOG);
+					mPurchaseObserver = new DrinksPurchaseObserver(mHandler);
+					ResponseHandler.register(mPurchaseObserver);
+					showDialog(DIALOG_PURCHASEPLZ);
+
+					final SharedPreferences.Editor e = configurationSharedPreferences.edit();
+					e.putLong(PREF_KEY_STARTUP_AND_DONATE, now);
+					e.commit();
 				} else {
-					mBillingService = new BillingService();
-					mBillingService.setContext(this);
-					if (mBillingService.checkBillingSupported()) {
-						mCatalogAdapter = new CatalogAdapter(this, CATALOG);
-						mPurchaseObserver = new DrinksPurchaseObserver(mHandler);
-						ResponseHandler.register(mPurchaseObserver);
-						showDialog(DIALOG_PURCHASEPLZ);
-
-						final SharedPreferences.Editor e = configurationSharedPreferences.edit();
-						e.putLong(PREF_KEY_STARTUP_AND_DONATE, now);
-						e.commit();
-					} else {
-						this.tracker.trackEvent("Initialize", "Donating", "no-mechanism", 1);
-					}
+					this.tracker.trackEvent("Initialize", "Donating", "no-mechanism", 1);
 				}
 			}
+//		} else {
+//			showDialog(DIALOG_SPLASH);
 		}
+
+
+		
+
 		new Thread(new ReportingRunnable()).start();
 	}
 
