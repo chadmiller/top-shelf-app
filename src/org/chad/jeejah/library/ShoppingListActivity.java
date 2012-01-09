@@ -86,15 +86,19 @@ public class ShoppingListActivity extends Activity {
 
 			Arrays.sort(ingredients, reverseSortIngredientsByRecipeCount);
 
-			int limit = MAX_PRODUCTIVE_INGREDIENTS_WANTED;
 			boolean hasWritten = false;
 			if (ingredients != null) {
-				for (int i = 0; i < ingredients.length; i++) {
-					if (limit-- < 1) break;
-					final int recipeCount = bundle.getStringArray("enabledby "+ingredients[i]).length;
+				int itemCount = 0;
+				for (String ingredient : ingredients) {
+					itemCount++;
+
+					final int recipeCount = bundle.getStringArray("enabledby "+ingredient).length;
+					if ((itemCount > MAX_PRODUCTIVE_INGREDIENTS_WANTED) && (recipeCount < (10+itemCount))) {
+						break;
+					}
 					final TextView t = new TextView(this);
-					candidateSharedIngredients.add(ingredients[i]);
-					t.setText(Html.fromHtml("\u2022 <b>" + ingredients[i] + "</b> would let you make " + recipeCount + " more recipes."));
+					candidateSharedIngredients.add(ingredient);
+					t.setText(Html.fromHtml("\u2022 <b>" + ingredient + "</b> would let you make " + recipeCount + " more recipes."));
 					t.setTextSize(16);
 					t.setPadding(10, 8, 10, 2);
 					container.addView(t);
