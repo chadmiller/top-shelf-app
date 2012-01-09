@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!--TODO: 
+    Review the jargon definitions because I'm not sure of anyone.
+    "aerated and fizzy" - ¿gaseoso?
+    "Mixers" - ¿Ingredientes no alcohólicos?
+    "Liqueurs" ?
+   -->
+
+     <!-- 2012-01-08 -->
+    <string name="app_name">Top Shelf</string>
+    <string name="app_name_title_fmt">Top Shelf %s</string>
+
+     <!-- filters cause actionbar headers -->
+     <string name="filtername_show_all">(todo)</string>
+     <string name="filtername_show_producable">(filtrado)</string>
+     <string name="filtername_show_favorite">(favoritos)</string>
+     <string name="filtername_show_searched_ingredients">(por ingrediente)</string>
+
+     <string name="if_you_get_one_ingredient">Según sus provisiones actuales, si consigue un ingrediente más, puede hacer estas otras recetas.</string>
+     <string name="favorites_need_ingredients">Sus favoritos necesitan estos ingredientes que no tiene.</string>
+     <string name="these_ingredients_are_popular">Estos ingredientes aparecen con más frecuencia en las recetas.</string>
+     <string name="loading_recipe_book">Cargando miles de recetas&#8230;</string>
+
+     <string name="search_hint">Nombres de recetas</string>
+     <string name="list_is_empty">Nada disponible en esta vista</string>
+
+     <!-- recipe jargon definitions -->
+     <string name="term_blend">Mezclar: Mezclar en una licuadora.</string>
+     <string name="term_build">Construir: Llenar un vaso con hielo y echar los ingredientes.</string>
+     <string name="term_dash">Pizca: Un chorro pequeño. Tecnicamente, 1/6º de cucharadita.</string>
+     <string name="term_fill">Llenar: Echar hasta llenar el vaso.</string>
+     <string name="term_float">Flotar: Echar gentilmente sobre una bebida.</string>
+     <string name="term_layer">Capa: Agregar ingredientes gentilmente en capas. Podría necesitar una cuchara para deter el líquido mientras cae, de forma que no afecte la capa de abajo. No agite.</string>
+     <string name="term_muddle">Aplastar: Aplastar ingredientes para soltar sabores. Use un mortero, o aplaste entre el pulgar y un cubo de hielo, o entre una cuchara y el lado de un vaso.</string>
+     <string name="term_rim">Bordear: Humedecer el borde del vaso y rocíe desde afuera. Puede voltear el vaso sobre una cama de la sustancia, pero debe tener cuidado de no exagerar. Sutil es mejor que empalagoso.</string>
+     <string name="term_splash">Salpicar: Un chorro grande. Tecnicamente, media onza.</string>
+     <string name="term_top">Tope: Agregar sobre los otros ingredientes en el vaso de servir. No agite.</string>
+     <string name="term_shake">Sacudir: Una enérgica sacudida del vaso de mezclar, por lo general con hielo. La sacudiad debe ser lo suficientemente larga para que el contenido se vuelva gaseoso. Por lo general, el frío del vaso de mezclar debería hacer que los dedos piquen.</string>
+     <string name="term_strain">Colar: Abrir el vaso de mezclar y dejar salir el líquido en el vaso de servir, dejando el hielo en el de mezclar.</string>
+     <string name="term_pour">Verter: Abrir el vaso de mezclar y verter todo el contenido en el vaso de servir, incluyendo el hielo.</string>
+
+     <!-- a menu option name -->
+     <string name="search">Buscar</string>
+     <string name="help">Ayuda</string>
+     <string name="feedback">Retroalimentación</string>
+     <string name="set_stock">Establecer provisiones</string>
+     <string name="shopping_suggestions">Compras</string>
+     <string name="toggle_filter">Alternar filtro</string>
+     <string name="see_recipe">Receta</string>
+     <string name="donate">Donar</string>
+     <string name="donate_donators_rock">Donar++</string>
+     <string name="share">Compartir</string>
+     <string name="random">Aleatorio</string>
+
+
+     <!-- ingredients list headers -->
+     <string name="pref_mixersgarnishes">Ingredientes no alcohólicos y Guarniciones</string>
+     <string name="pref_liquors">Licores y Liqueurs</string>
+
+     <string name="using_unfiltered_bc_nothing_here">Usando una vista sin filtrar porque no aparecería nada con el filtro.</string>
+     <string name="there_are_none">No hay recetas posibles con los ingredientes que ha indicado que hay en el bar.</string>
+     <string name="there_are_too_few">Si indica más provisiones en el bar, verá más recetas aquí. Vea la sugerencia de compras también.</string>
+     <string name="a_recipe_not_available"> * Le hace falta un ingrediente que la receta requiere.</string>
+
+     <string name="welcome_message">Ingrese los ingredientes que tiene para ver qué recetas puede hacer con ellos.  Luego, presione <i>Menú</i> para ver la ayuda.</string>
+
+     <!-- in-app purchasing, imaginary items to suggest similar value -->
+     <string name="catalog_title">Esta aplicación fue gratuita. ¿Le gustaría comprar una bebida para el autor?</string>
+     <string name="catalog_item_updates_and_donation1">Un paquete de chicles ($0.99)</string>
+     <string name="catalog_item_updates_and_donation2">Cerveza nacional ($1.80)</string>
+     <string name="catalog_item_updates_and_donation3">Caña rica e importada ($3)</string>
+     <string name="catalog_item_updates_and_donation4">Botella de vino ($9)</string>
+     <string name="catalog_item_updates_and_donation5">Litro de ron ($19)</string>
+     <string name="catalog_buy_yes">Sí, se lo merece.</string><!-- donate money -->
+     <string name="catalog_buy_no">No.</string><!-- do not donate money -->
+
+     <!-- share shopping list text -->
+     <string name="share_shopping_title">Enviar lista de compras</string>
+     <string name="share_using">Compartir usando</string><!-- title for the list of programs used to send -->
+     <string name="share_cancel">Cancelar</string>
+     <string name="share_yes">Enviar</string>
+
+     <!-- first introduction text, describing what buttons do on main screen -->
+     <string name="introduction_dialog_done">he terminado con la introducción</string><!-- button text to end introduction -->
+     <string name="introduction_dialog_start"><b>¡Bienvenido!</b>\n\nNecesita conocer estos tres botones para usar bien el programa.\n\nPresiónelos para leer lo que hacen.  Al finalizar, presione el botón <i>he terminado con la introducción</i>. Luego, presione la tecla de meú para ver la ayuda.</string>
+     <string name="introduction_dialog_view"><b>Cambiar vista</b>:  Presione este para cambiar a otra vista de la lista de recetas.\n\n<i>todo</i> muestra todas las recentas sin restricciones.\n\n<i>filtrado</i> muestra sólo las recetas que la aplicación sabe que usted tiene los ingredientes necesarios.\n\n<i>favoritos</i> muestra las recetas que usted ha marcado con una estrella.\n\nSi busca recetas, verá los resultados como otra vista.</string>
+     <string name="introduction_dialog_pantry"><b>Inventario de despensa</b>:  Si desea usar las funciones avanzadas de esta aplicación, esta necesita saber qué ingredientes tiene en su despensa.  Asegurese de incluir guarniciones e ingredientes no alcohólicos.</string>
+     <string name="introduction_dialog_shopping"><b>Sugerencias de compras</b>:  Luego de contarle a la aplicación lo que tiene, esta le puede recomendar que conseguir a continuación.</string>
+
+</resources>
+
