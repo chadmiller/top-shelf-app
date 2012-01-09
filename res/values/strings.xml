@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<!-- 2012-01-08 -->
     <string name="app_name">Top Shelf</string>
     <string name="app_name_title_fmt">Top Shelf %s</string>
-    <string name="search_hint">Names of recipes</string>
+
+	<!-- filters cause actionbar headers -->
+	<string name="filtername_show_all">(all)</string>
+	<string name="filtername_show_producable">(filtered)</string>
+	<string name="filtername_show_favorite">(favorites)</string>
+	<string name="filtername_show_searched_ingredients">(by ingredient)</string>
 
 	<string name="actionbar_activity_not_found">Failed to open intent&#8230;</string>
 
 	<string name="if_you_get_one_ingredient">Based on your current stock, if you get just one more ingredient, you can make these more recipes.</string>
 	<string name="favorites_need_ingredients">Your favorites need these ingredients that you don\'t have.</string>
 	<string name="these_ingredients_are_popular">These ingredients show up most often in recipes.</string>
-	<string name="loading_recipes">Loading thousands of recipes&#8230;</string>
+	<string name="loading_recipe_book">Loading thousands of recipes&#8230;</string>
+
+    <string name="search_hint">Names of recipes</string>
 	<string name="list_is_empty">Nothing available in this view</string>
 
+	<!-- recipe jargon definitions -->
 	<string name="term_blend">Blend: Mix in an electric blender.</string>
 	<string name="term_build">Build: Fill a glass with ice, and pour in ingredients.</string>
 	<string name="term_dash">Dash: A short squirt. Technically, 1/6th of a teaspoon.</string>
@@ -26,6 +35,7 @@
 	<string name="term_strain">Strain: Break open the mixing glass and let the liquid contents into the serving glass, keeping the ice in the mixing glass.</string>
 	<string name="term_pour">Pour: Break open the mixing glass and pour the entire contents into the serving glass, including any ice in it.</string>
 
+	<!-- a menu option name -->
     <string name="search">Search</string>
 	<string name="help">Help</string>
 	<string name="feedback">Feedback</string>
@@ -38,10 +48,8 @@
 	<string name="share">Share</string>
 	<string name="random">Random</string>
 
-	<string name="begin">Begin</string>
-	<string name="welcome">Welcome</string>
-	<string name="loading_recipe_book">Loading thousands of recipes&#8230;</string>
 
+	<!-- ingredients list headers -->
 	<string name="pref_mixersgarnishes">Mixers and Garnishes</string>
 	<string name="pref_liquors">Liquors and Liqueurs</string>
 
@@ -52,29 +60,31 @@
 
 	<string name="welcome_message">Enter the ingredients you own to see what recipes you can make with them.  Hit <i>Menu</i> for help later.</string>
 
+	<!-- in-app purchasing, imaginary items to suggest similar value -->
 	<string name="catalog_title">This app was free. Care to buy the author a drink?</string>
 	<string name="catalog_item_updates_and_donation1">A pack of gum ($0.99)</string>
 	<string name="catalog_item_updates_and_donation2">Domestic beer ($1.80)</string>
 	<string name="catalog_item_updates_and_donation3">Nice imported pint ($3)</string>
 	<string name="catalog_item_updates_and_donation4">Wine bottle ($9)</string>
 	<string name="catalog_item_updates_and_donation5">Liter of Rum ($19)</string>
-	<string name="catalog_buy_yes">Yes, he deserves it.</string>
-	<string name="catalog_buy_no">No.</string>
+	<string name="catalog_buy_yes">Yes, he deserves it.</string><!-- donate money -->
+	<string name="catalog_buy_no">No.</string><!-- do not donate money -->
 
-	<string name="android_test_purchased">[fake purchase]</string>
-	<string name="android_test_canceled">[fake cancel]</string>
-	<string name="android_test_refunded">[fake refund]</string>
-	<string name="android_test_item_unavailable">[fake unavailable]</string>
-
+	<!-- share shopping list text -->
 	<string name="share_shopping_title">Send shopping list</string>
-	<string name="share_using">Share using</string>
+	<string name="share_using">Share using</string><!-- title for the list of programs used to send -->
 	<string name="share_cancel">Cancel</string>
 	<string name="share_yes">Send</string>
 
-	<string name="introduction_dialog_done">finished with introduction</string>
+	<!-- first introduction text, describing what buttons do on main screen -->
+	<string name="introduction_dialog_done">finished with introduction</string><!-- button text to end introduction -->
 	<string name="introduction_dialog_start"><b>Welcome!</b>\n\nYou need to know these three buttons to use this program well.\n\nTap them to read what they do.  When finished, hit the button <i>finished with introduction</i>. Press the menu key later to get help.</string>
 	<string name="introduction_dialog_view"><b>Change View</b>:  Tap this to flip to another view of the list of recipes.\n\n<i>all</i> shows every recipe with no constraints.\n\n<i>filtered</i> shows only recipes that the app knows you have the ingredients to make.\n\n<i>favorites</i> shows recipes that you have marked with a star.\n\nIf you search for recipes, you\'ll see the results as another view.</string>
 	<string name="introduction_dialog_pantry"><b>Inventory Pantry</b>:  If you wish to use the advanced features of this app, it needs to know what ingredients you have in your pantry.  Be sure to include garnishes and mixers.</string>
 	<string name="introduction_dialog_shopping"><b>Shopping Suggestions</b>:  After you tell the app what you have, it can recommend what to get next.</string>
+
+	<string name="search_choice">Search by title or ingredients?</string>
+	<string name="search_choice_btn_title">title</string>
+	<string name="search_choice_btn_ingredients">ingredients</string>
 
 </resources>
