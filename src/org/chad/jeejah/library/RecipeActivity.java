@@ -14,7 +14,10 @@ import android.view.Window;
 import android.view.MenuItem;
 import android.util.Log;
 import android.text.Html;
+import android.graphics.Color;
 
+import java.util.Arrays;
+import java.util.Set;
 import java.util.TreeSet;
 
 import com.markupartist.android.widget.ActionBar;
@@ -64,6 +67,7 @@ public class RecipeActivity extends Activity {
 		final LinearLayout preparationContainer = (LinearLayout) findViewById(R.id.recipe_preparation);
 		final LinearLayout consumationContainer = (LinearLayout) findViewById(R.id.recipe_consumation);
 
+		Set<String> pantry = new TreeSet<String>(Arrays.asList(recipeInfo.getStringArray(Recipe.KEY_PANTRY)));
 		final String[] ingredients = recipeInfo.getStringArray(Recipe.KEY_INGREDIENTS);
 		final String[] preparation = recipeInfo.getStringArray(Recipe.KEY_PREPARE_INST);
 		final String[] consumation = recipeInfo.getStringArray(Recipe.KEY_CONSUME_INST);
@@ -82,6 +86,9 @@ public class RecipeActivity extends Activity {
 		for (int i = 0; i < ingredients.length; i++) {
 			final TextView t = new TextView(this);
 			t.setText("\u2022   " + ingredients[i]);
+			if ((pantry.size() != 0) && (! pantry.contains(ingredients[i]))) {
+				t.setTextColor(Color.RED);
+			}
 			t.setTextSize(res.getDimension(R.dimen.recipe_line_height));
 			t.setPadding(30, 3, 30, 2);
 			ingredientsContainer.addView(t);

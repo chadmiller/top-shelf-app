@@ -204,6 +204,11 @@ final public class BookDisplay extends Activity {
 		intent.setAction(Intent.ACTION_VIEW);
 		android.os.Bundle recipe_info = new android.os.Bundle();
 		recipe_info.putString(Recipe.KEY_NAME, recipe.name);
+
+		final Set<String> ownedIngredients = new TreeSet<String>();
+		ownedIngredients.addAll(this.pantry);
+		recipe_info.putStringArray(Recipe.KEY_PANTRY, ownedIngredients.toArray(new String[ownedIngredients.size()]));
+
 		recipe_info.putStringArray(Recipe.KEY_PREPARE_INST, recipe.prepare_instructions.toArray(new String[recipe.prepare_instructions.size()]));
 		recipe_info.putStringArray(Recipe.KEY_CONSUME_INST, recipe.consume_instructions.toArray(new String[recipe.consume_instructions.size()]));
 		recipe_info.putStringArray(Recipe.KEY_INGREDIENTS, recipe.ingredients.toArray(new String[recipe.ingredients.size()]));
