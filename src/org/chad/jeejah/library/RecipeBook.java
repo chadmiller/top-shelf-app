@@ -211,6 +211,10 @@ final class RecipeBook {
 				continue;
 			}
 
+			if (soundex_query.equals(Soundex.soundex(normal_recipe_name))) {
+				tertiaryList.add(recipe);
+			}
+
 			final String normal_recipe_name_fragments[] = normal_recipe_name.split("\\W+");
 			if (normal_recipe_name_fragments.length > 1) {
 				for (String normal_recipe_name_fragment : normal_recipe_name_fragments) {
@@ -223,10 +227,6 @@ final class RecipeBook {
 						break;
 					}
 				}
-			}
-
-			if (soundex_query.equals(Soundex.soundex(normal_recipe_name))) {
-				tertiaryList.add(recipe);
 			}
 
 		}
