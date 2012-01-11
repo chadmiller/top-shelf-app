@@ -273,6 +273,7 @@ final class RecipeBook {
 		} else {
 			Log.d(TAG, "Didn't find favorite " + recipeName + " to add.");
 		}
+		Collections.sort(favoriteRecipes);
 	}
 
 	synchronized void removeFavorite(String recipeName) {
