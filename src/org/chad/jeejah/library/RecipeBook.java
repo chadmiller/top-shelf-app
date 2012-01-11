@@ -113,7 +113,11 @@ final class RecipeBook {
 						}
 					} else if (fieldname.equals("prepare_instructions")) {
 						while (jp.nextToken() != JsonToken.END_ARRAY) {
-							recipe.prepare_instructions.add(jp.getText());
+							if (! "[".equals(jp.getText())) {
+								recipe.prepare_instructions.add(jp.getText());
+							} else {
+								Log.d(TAG, "p p_i " + jp.getCurrentToken());
+							}
 						}
 					} else if (fieldname.equals("consume_instructions")) {
 						while (jp.nextToken() != JsonToken.END_ARRAY) {
@@ -122,11 +126,16 @@ final class RecipeBook {
 					} else if (fieldname.equals("ingredients")) {
 						jp.nextToken();
 						while (jp.nextToken() != JsonToken.END_ARRAY) {
-							recipe.ingredients.add(jp.getText());
+							if (! "[".equals(jp.getText())) {
+								recipe.ingredients.add(jp.getText());
+							} else {
+								Log.d(TAG, "p ing " + jp.getCurrentToken());
+							}
 						}
 					} else {
 						Log.e(TAG, "  UNKNOWN: " + jp.getCurrentToken());
 					}
+
 				}
 
 				this.allRecipeIndex.put(recipe.name, recipe);
