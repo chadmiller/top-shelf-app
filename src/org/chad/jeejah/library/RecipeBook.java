@@ -196,6 +196,7 @@ final class RecipeBook {
 
 		final List<Recipe> secondaryList = new LinkedList<Recipe>();
 		final List<Recipe> tertiaryList = new LinkedList<Recipe>();
+		final List<Recipe> quaternaryList = new LinkedList<Recipe>();
 
 		final String normal_query = query.trim().toLowerCase();
 		final String soundex_query = Soundex.soundex(normal_query);
@@ -215,10 +216,10 @@ final class RecipeBook {
 				for (String normal_recipe_name_fragment : normal_recipe_name_fragments) {
 					damlev = spinneret.util.Levenshtein.damlevlim(normal_query, normal_recipe_name_fragment, 2);
 					if (damlev == 0) {
-						this.searchedRecipes.add(recipe);
+						tertiaryList.add(recipe);
 						break;
 					} else if ((normal_recipe_name_fragment.length() > 1) && (damlev == 1)) {
-						secondaryList.add(recipe);
+						quaternaryList.add(recipe);
 						break;
 					}
 				}
@@ -231,6 +232,7 @@ final class RecipeBook {
 		}
 		this.searchedRecipes.addAll(secondaryList);
 		this.searchedRecipes.addAll(tertiaryList);
+		this.searchedRecipes.addAll(quaternaryList);
 	}
 
 
