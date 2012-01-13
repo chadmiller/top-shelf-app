@@ -16,6 +16,12 @@ import android.util.Log;
 import android.text.Html;
 import android.graphics.Color;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
@@ -33,6 +39,8 @@ public class RecipeActivity extends Activity {
 	public static final String FAVORITE_FILENAME = "favorites";
 	private boolean isFavorited = true;
 	private StringBuilder shareDocument;
+
+	private String title;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -57,7 +65,7 @@ public class RecipeActivity extends Activity {
 		final Bundle recipeInfo = intent.getBundleExtra("recipe");
 		final TextView titleView = (TextView) findViewById(R.id.recipe_title);
 
-		final String title = recipeInfo.getString(Recipe.KEY_NAME);
+		title = recipeInfo.getString(Recipe.KEY_NAME);
 		titleView.setText(title);
 		titleView.setTextSize(res.getDimension(R.dimen.recipe_title_height));
 		actionBar.setTitle("Recipe \u201C" + title + "\u201D");
@@ -206,6 +214,7 @@ public class RecipeActivity extends Activity {
 		menu.add(Menu.NONE, R.id.instructions, 1, R.string.help).setIcon(android.R.drawable.ic_menu_help);
 		//menu.add(Menu.NONE, R.id.feedback, 4, R.string.feedback);
 		menu.add(Menu.NONE, R.id.share, 5, R.string.share).setIcon(android.R.drawable.ic_menu_send);
+		menu.add(Menu.NONE, R.id.add_log, 6, R.string.add_log);
 		return true;
 	}
 
@@ -225,6 +234,40 @@ public class RecipeActivity extends Activity {
 				return true;
 			case R.id.share:
 				share();
+				return true;
+
+			case R.id.add_log:
+
+				try {
+
+					File sdcard = android.os.Environment.getExternalStorageDirectory();
+					File outputDirName = new File(sdcard, "Android/data/" + getPackageName() + "/files/");
+					if (! outputDirName.exists()) {
+						if (! outputDirName.mkdirs()) {
+							Log.i(TAG, "can not make the directory to hold the log file!");
+						}
+					}
+
+					FileOutputStream output = new FileOutputStream(new File(outputDirName, "log.utf8.txt"), true);
+					output.write("\n\n".getBytes("UTF-8"));
+					output.write(new Date().toString().getBytes("UTF-8"));
+					output.write("\n".getBytes("UTF-8"));
+					output.write(title.getBytes("UTF-8"));
+					output.close();
+
+					android.widget.Toast.makeText(this, "Wrote to SD card, Android/data/" + getPackageName() + "/files/log.utf8.txt", android.widget.Toast.LENGTH_LONG).show();
+
+					return true;
+				} catch (FileNotFoundException ex) {
+					Log.w(TAG, ex);
+				} catch (UnsupportedEncodingException ex) {
+					Log.w(TAG, ex);
+				} catch (IOException ex) {
+					Log.w(TAG, ex);
+				}
+
+				android.widget.Toast.makeText(this, "Failed to write log entry to SD card.", android.widget.Toast.LENGTH_LONG).show();
+
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);

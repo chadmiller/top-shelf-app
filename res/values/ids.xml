@@ -8,4 +8,5 @@
 	<item type="id" name="donate" />
 	<item type="id" name="share" />
 	<item type="id" name="random" />
+	<item type="id" name="add_log" />
 </resources>
