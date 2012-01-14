@@ -65,7 +65,11 @@
 				/>
 
 			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
-				android:text="Finally, hit your device\'s Search button to go straight to a list of recipes with your phrase in the recipe name.  Search &quot;Martini&quot;, e.g., to see the 40 or so recipes of martinis.  Voice search may be available on your device too.  Hit the Toggle-View button to exit search list."
+				android:text="Finally, hit your device\'s Search button.  You can get a list of recipes with your phrase in the recipe name.  (Search &quot;Martini&quot;, e.g., to see the 40 or so recipes of martinis.)  Voice search may be available on your device too.  Hit the Toggle-View button to exit search list."
+				/>
+
+			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
+				android:text="Or, you can search by ingredients of recipes.  Picling ingredients narrows the list of recipes displayed. (I want a drink with A and B and C in it.)"
 				/>
 
 			<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background">
@@ -119,7 +123,7 @@
 				/>
 
 			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
-				android:text="This package requests the least amount of permissions it needs.  It asks for &quot;Internet&quot; permission so that it can 1) report the popularity of recipes and ingredients, and report usage patterns in the app, and 2) download updates to recipe books.  No private information is collected or sent, only anonymous aggregate information."
+				android:text="This package requests the least amount of permissions it needs.  It asks for &quot;Internet&quot; permission so that it can 1) report the popularity of recipes and ingredients, and report usage patterns in the app, and 2) download updates to recipe books.  No private information is collected or sent, only anonymous aggregate information.  It asks for &quot;EXTERNAL_STORAGE&quot; so that you can use the Log feature in Recipes."
 				/>
 
 

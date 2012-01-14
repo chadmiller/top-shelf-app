@@ -7,14 +7,16 @@ launcher-icons: $(destinations)
 clean:
 	rm $(destinations)
 
+all: launcher-icons
+
 res/drawable-xhdpi/icon.png: images/olive-on-rim.svg
-	convert -background none $< -scale 96x96 -pointsize 8 -draw "gravity southeast fill white text 0,1 '$(note)'" $@
+	convert -background none $< -scale 96x96 -pointsize 9 -draw "gravity southeast fill white text 0,1 '$(note)'" $@
 
 res/drawable-hdpi/icon.png: images/olive-on-rim.svg
-	convert -background none $< -scale 72x72 -pointsize 8 -draw "gravity southeast fill white text 0,1 '$(note)'" $@
+	convert -background none $< -scale 72x72 -pointsize 9 -draw "gravity southeast fill white text 0,1 '$(note)'" $@
 
 res/drawable/icon.png: images/olive-on-rim.svg
-	convert -background none $< -scale 48x48 -pointsize 8 -draw "gravity southeast fill white text 0,1 '$(note)'" $@
+	convert -background none $< -scale 48x48 -pointsize 9 -draw "gravity southeast fill white text 0,1 '$(note)'" $@
 
 res/drawable-ldpi/icon.png: images/olive-on-rim.svg
-	convert -background none $< -scale 36x36 -pointsize 8 -draw "gravity southeast fill white text 0,1 '$(note)'" $@
+	convert -background none $< -scale 36x36 -pointsize 9 -draw "gravity southeast fill white text 0,1 '$(note)'" $@
