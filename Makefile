@@ -5,7 +5,7 @@ destinations=res/drawable/icon.png res/drawable-xhdpi/icon.png res/drawable-hdpi
 launcher-icons: $(destinations)
 
 clean:
-	rm $(destinations)
+	rm -f $(destinations)
 
 all: launcher-icons
 
