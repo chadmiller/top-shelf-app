@@ -140,12 +140,14 @@ final public class BookDisplay extends Activity {
 			Log.i(TAG, "had configuration instance");
 			BookDisplay.this.loadPantry();
 			this.recipeBook.updateProducable(this.pantry);  // TODO kill
-			this.recipeAdapter.updatePantry(this.pantry);
 			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry);
+			this.recipeAdapter.updatePantry(this.pantry);
 
 			final String filterState = this.recipeAdapter.setBestInitialState(this, this.recipeListFootnote);
 			this.actionBar.setTitle(getResources().getString(R.string.app_name_title_fmt, filterState));
 			new FavoritesLoadTask().execute();
+			final LinearLayout loadingIndicator = (LinearLayout) findViewById(R.id.loading_indicator);
+			loadingIndicator.setVisibility(View.GONE);
 		} else {
 			Log.i(TAG, "starting from scratch");
 			this.recipeBook = new RecipeBook(ingredients);
