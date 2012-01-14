@@ -38,9 +38,10 @@ final class RecipeBook {
 	final public Map<String,List<Recipe>> countRecipesSoleAdditionalIngredient;
 	final public ArrayList<String> mostUsedIngredients;
 	final public Map<String,List<String>> categorizedIngredients;
+	final public List<String> ingredients;
 
 
-	public RecipeBook() {
+	public RecipeBook(List<String> ingredients) {
 		this.allRecipeIndex = new Hashtable<String,Recipe>(2420);
 		this.allRecipes = new ArrayList<Recipe>(2420);
 		this.categorizedIngredients = new TreeMap<String,List<String>>();
@@ -49,6 +50,7 @@ final class RecipeBook {
 		this.producableRecipes = new ArrayList<Recipe>(2420);
 		this.searchedRecipes = new ArrayList<Recipe>();
 		this.favoriteRecipes = new LinkedList<Recipe>();
+		this.ingredients = ingredients;
 	}
 
 	public void load(final Context context, final Runnable updater, final Set<String> pantry, final Handler handler, final BookDisplay bookDisplay) {
@@ -184,8 +186,30 @@ final class RecipeBook {
 		} catch (java.io.IOException ex) {
 			Log.e(TAG, "Can't parse", ex);
 		}
+
+		//  Should this be kept in categories?
+		for (List<String> genreItems : this.categorizedIngredients.values()) {
+			ingredients.addAll(genreItems);
+		}
+		Collections.sort(ingredients);
 	}
 
+
+	synchronized void updateSearchResult(Set<String> ingredientSet) {
+		if (ingredientSet.size() == 0) {
+			this.searchedRecipes.addAll(this.allRecipes);
+			return;
+		}
+
+		this.searchedRecipes.clear();
+
+		for (Recipe recipe : this.allRecipes) {
+			//if (ingredientSet.containsAll(recipe.ingredients)) {
+			if (recipe.ingredients.containsAll(ingredientSet)) {
+				this.searchedRecipes.add(recipe);
+			}
+		}
+	}
 
 	synchronized void updateSearchResult(String query) {
 		this.searchedRecipes.clear();

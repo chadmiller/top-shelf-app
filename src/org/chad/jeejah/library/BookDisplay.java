@@ -46,8 +46,10 @@ import android.util.Log;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Collection;
 
@@ -64,6 +66,8 @@ final public class BookDisplay extends Activity {
 	private static final String DATA_VERSION_DNS_RECORD_NAME = "ver.data.library.jeejah.chad.org.";
 	private static final int DIALOG_PURCHASEPLZ = 1;
 	private static final int DIALOG_SPLASH = 2;
+	private static final int DIALOG_CHOOSE_SEARCH = 3;
+	private static final int DIALOG_CLEAR_INGRED_SEARCH = 4;
 	private static final int ASK_DONATION_FREQUENCY_WHEN_ZERO = 4;
 	private static final String PREF_KEY_STARTUP_AND_DONATE = "INIT";
 
@@ -84,14 +88,20 @@ final public class BookDisplay extends Activity {
 	private String mPayloadContents = null;
 	private Handler mHandler;
 	private CatalogAdapter mCatalogAdapter;
+	private LinearLayout ingredientSearchContainer;
+	private ListView ingredientSearchListView;
 
 	private ListView recipeListView;
 	protected RecipesListAdapter recipeAdapter;
 	private TextView recipeListFootnote;
+	private List<String> ingredients;
 	private Set<String> pantry;
+	private Set<String> ingredientSearchRequirements;
+	private TextView ingredientSearchNoteHeader;
 
 	private GoogleAnalyticsTracker tracker;
 	private ActionBar actionBar;
+	private Handler handler;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -107,13 +117,19 @@ final public class BookDisplay extends Activity {
 		this.tracker = GoogleAnalyticsTracker.getInstance();
 		this.tracker.startNewSession(GOOG_ANALYTICS_ID, 20, this);
 
+		this.handler = new Handler();
+		this.ingredients = new ArrayList<String>(145);
 		this.pantry = new HashSet<String>();
+		this.ingredientSearchRequirements = new LinkedHashSet<String>();
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
 		this.configurationSharedPreferences = getSharedPreferences("configuration", MODE_PRIVATE);
 		this.pantrySharedPreferences = getSharedPreferences(Pantry.FILENAME, MODE_PRIVATE);
 		this.favoritesSharedPreferences = getSharedPreferences(RecipeActivity.FAVORITE_FILENAME, MODE_PRIVATE);
 
+		this.ingredientSearchContainer = (LinearLayout) findViewById(R.id.ingredient_ingredient_search_container);
+		this.ingredientSearchListView = (ListView) findViewById(R.id.ingredient_search_picklist);
 		this.recipeListView = (ListView) findViewById(R.id.recipe_list);
+		this.ingredientSearchNoteHeader = (TextView) findViewById(R.id.ingredient_search_ingr_note);
 		this.actionBar = (ActionBar) findViewById(R.id.actionbar);
 		this.actionBar.setTitle(getResources().getString(R.string.app_name_title_fmt, "[...]"));
 
@@ -132,7 +148,7 @@ final public class BookDisplay extends Activity {
 			new FavoritesLoadTask().execute();
 		} else {
 			Log.i(TAG, "starting from scratch");
-			this.recipeBook = new RecipeBook();
+			this.recipeBook = new RecipeBook(ingredients);
 			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry);
 			recipeBookLoader = new RecipeBookLoadTask();
 			recipeBookLoader.execute(this.recipeBook);
@@ -232,6 +248,28 @@ final public class BookDisplay extends Activity {
 		return arr;
 	}
 
+	@Override
+	public boolean onSearchRequested() {
+		showDialog(DIALOG_CHOOSE_SEARCH);
+		return false;
+	}
+
+	private boolean ingredientSearchNeededUndoing() {
+		if (this.ingredientSearchContainer.getVisibility() != View.GONE) {
+			this.ingredientSearchContainer.setVisibility(View.GONE);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void onBackPressed() {
+		if (ingredientSearchNeededUndoing()) {
+			return;
+		}
+		super.onBackPressed();
+	}
+
 	void startShowShoppingList() {
 		final Intent intent = new Intent(this, ShoppingListActivity.class);
 		intent.setAction(Intent.ACTION_VIEW);
@@ -277,6 +315,7 @@ final public class BookDisplay extends Activity {
 	}
 
 	void nextFilterState() {
+		ingredientSearchNeededUndoing();
 		final String filterState = BookDisplay.this.recipeAdapter.nextFilterState(BookDisplay.this, BookDisplay.this.recipeListFootnote);
 		BookDisplay.this.actionBar.setTitle(BookDisplay.this.getResources().getString(R.string.app_name_title_fmt, filterState));
 		tryInvalidateOptionsMenu();
@@ -396,6 +435,47 @@ final public class BookDisplay extends Activity {
 						}
 					}).setPositiveButton(R.string.catalog_buy_yes, purchase_ocl);
 				return adb.create();
+			case DIALOG_CHOOSE_SEARCH:
+				adb.setTitle(R.string.search_choice)
+					.setPositiveButton(R.string.search_choice_btn_title, new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							BookDisplay.this.startSearch(null, false, null, false);
+							dialog.dismiss();
+						}
+					})
+					.setNeutralButton(R.string.search_choice_btn_ingredients, new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							BookDisplay.this.ingredientSearchContainer.setVisibility(View.VISIBLE);
+							dialog.dismiss();
+
+							final String filterState = BookDisplay.this.recipeAdapter.ingredientSearch(BookDisplay.this.ingredientSearchRequirements);
+							BookDisplay.this.actionBar.setTitle(BookDisplay.this.getResources().getString(R.string.app_name_title_fmt, filterState));
+
+						}
+					})
+					;
+
+				return adb.create();
+
+			case DIALOG_CLEAR_INGRED_SEARCH:
+				adb.setTitle(R.string.search_ingred_clear_all_question)
+					.setNegativeButton(R.string.search_ingred_finish_search, new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							ingredientSearchNeededUndoing();
+							dialog.dismiss();
+						}
+					})
+					.setPositiveButton(R.string.search_ingred_clear_all_clear, new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							BookDisplay.this.ingredientSearchNoteHeader.setText(R.string.ingredient_search_ingr_note);
+							BookDisplay.this.ingredientSearchRequirements.clear();
+							BookDisplay.this.recipeBook.updateSearchResult(BookDisplay.this.ingredientSearchRequirements);
+							BookDisplay.this.recipeAdapter.notifyDataSetChanged();
+							dialog.dismiss();
+						}
+					})
+					;
+				return adb.create();
 			default:
 				return null;
 		}
@@ -438,7 +518,7 @@ final public class BookDisplay extends Activity {
 		final Intent intent;
 		switch (item.getItemId()) {
 			case R.id.search:
-				startSearch(null, false, null, false);
+				showDialog(DIALOG_CHOOSE_SEARCH);
 				return true;
 			case R.id.instructions:
 				intent = new Intent(this, Instructions.class);
@@ -491,9 +571,9 @@ final public class BookDisplay extends Activity {
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		outState.putInt("adapterview", this.recipeAdapter.getFilterViewId());
-		final String searchQuery = this.recipeAdapter.getSearchQuery();
-		if (searchQuery != null) {
-			outState.putString("adaptersearchvalue", searchQuery);
+		final String titleSearchQuery = this.recipeAdapter.getTitleSearchQuery();
+		if (titleSearchQuery != null) {
+			outState.putString("adaptersearchvalue", titleSearchQuery);
 		}
 	}
 
@@ -502,7 +582,7 @@ final public class BookDisplay extends Activity {
 			if (inState != null) {
 				final String searchQuery = inState.getString("adaptersearchvalue");
 				if (searchQuery != null) {
-					final String filterState = this.recipeAdapter.search(searchQuery);
+					final String filterState = this.recipeAdapter.titleSearch(searchQuery);
 					this.actionBar.setTitle(this.getResources().getString(R.string.app_name_title_fmt, filterState));
 				}
 				this.recipeAdapter.setFilterViewId(inState.getInt("adapterview", -1), this, this.recipeListFootnote);
@@ -543,7 +623,7 @@ final public class BookDisplay extends Activity {
 		// Handle search
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 			final String query = intent.getStringExtra(android.app.SearchManager.QUERY);
-			final String filterState = this.recipeAdapter.search(query);
+			final String filterState = this.recipeAdapter.titleSearch(query);
 			this.actionBar.setTitle(this.getResources().getString(R.string.app_name_title_fmt, filterState));
 		}
 	}
@@ -551,13 +631,13 @@ final public class BookDisplay extends Activity {
 	private class RecipeBookLoadTask extends AsyncTask<RecipeBook, Integer, Void> {
 		private final static String TAG = "ocjlBD.RLT";
 		private TextView splashScreenText;
-		private Handler handler;
+		private final String loadingFormat = BookDisplay.this.getResources().getString(R.string.loading_recipe_number);
+
 
 		@Override
 		protected void onPreExecute() {
 			Log.i(TAG, "pe");
 			this.splashScreenText = (TextView) BookDisplay.this.findViewById(R.id.splash_screen_text);
-			this.handler = new Handler();  // on UI thread;
 		}
 
 		@Override
@@ -582,7 +662,7 @@ final public class BookDisplay extends Activity {
 		protected void onProgressUpdate(Integer... progresses) {
 			final Integer n = progresses[0];
 			if ((n % 147) == 0) { 
-				splashScreenText.setText("Loading recipe #" + n + ".");
+				splashScreenText.setText(String.format(loadingFormat, n));
 			}
 			if (((n < 50) && ((n % 5) == 0)) || ((n % 200) == 0)) {
 				BookDisplay.this.recipeAdapter.notifyDataSetChanged();
@@ -673,6 +753,43 @@ final public class BookDisplay extends Activity {
 						;
 					}
 				});
+
+
+			final ArrayAdapter ingredientListAdapter = new ArrayAdapter(BookDisplay.this, android.R.layout.simple_list_item_1, BookDisplay.this.recipeBook.ingredients);
+			final ListView ingredientList = (ListView) BookDisplay.this.findViewById(R.id.ingredient_search_picklist);
+
+			ingredientList.setAdapter(ingredientListAdapter);
+			ingredientList.setOnItemClickListener(new OnItemClickListener() {
+				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+					try {
+						final String pickedItem = BookDisplay.this.ingredients.get(position);
+
+						if (BookDisplay.this.ingredientSearchRequirements.contains(pickedItem)) {
+							BookDisplay.this.ingredientSearchRequirements.remove(pickedItem);
+						} else {
+							BookDisplay.this.ingredientSearchRequirements.add(pickedItem);
+						}
+						BookDisplay.this.recipeBook.updateSearchResult(BookDisplay.this.ingredientSearchRequirements);
+						BookDisplay.this.recipeAdapter.notifyDataSetChanged();
+
+						handler.post(new Runnable() {
+							public void run() {
+								BookDisplay.this.ingredientSearchNoteHeader.setText(BookDisplay.this.getResources().getString(R.string.ingredient_search_ingr_note) + " " + BookDisplay.this.ingredientSearchRequirements);
+							}
+						});
+
+					} catch (IndexOutOfBoundsException ex) {
+					}
+
+				}
+			});
+
+			BookDisplay.this.ingredientSearchNoteHeader.setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					if (BookDisplay.this.ingredientSearchRequirements.size() == 0) { return; }
+					BookDisplay.this.showDialog(BookDisplay.DIALOG_CLEAR_INGRED_SEARCH);
+				}
+			});
 
 		}
 	}

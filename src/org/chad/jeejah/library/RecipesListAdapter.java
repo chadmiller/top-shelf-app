@@ -27,6 +27,9 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	private final int STATE_SEARCHES = 3;
 	private final int STATECOUNT = 4;
 
+	private final int SEARCH_TYPE_TITLE = 0;
+	private final int SEARCH_TYPE_INGREDIENTS = 0;
+
 	public static class ViewHolder {
 		public TextView name;
 		public TextView ingredients;
@@ -36,7 +39,9 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	final private RecipeBook recipeBook;
 	final private LayoutInflater inflater;
 
-	private String searchQuery;
+	private int searchTypeSelected = SEARCH_TYPE_TITLE;
+	private String titleSearchQuery;
+	private Set<String> ingredientSearchSet;
 	private Set<String> pantry;
 	public List targetRecipeList;
 
@@ -243,7 +248,11 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 			case STATE_FAVORITES:
 				return "(favorites)";
 			case STATE_SEARCHES:
-				return "\u201C" + this.searchQuery + "\u201D";
+				if (searchTypeSelected == SEARCH_TYPE_TITLE) {
+					return "\u201C" + this.titleSearchQuery + "\u201D";
+				} else {
+					return "(ingred.)";
+				}
 		}
 		return "-";
 	}
@@ -254,7 +263,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		int state = getFilterViewId();
 		Log.d(TAG, "switching! currently at filter state " + state);
 		try {
-			if (this.searchQuery != null) {
+			if (this.titleSearchQuery != null) {
 				state = (state + 1) % STATECOUNT;
 			} else {
 				state = (state + 1) % (STATECOUNT-1);
@@ -271,20 +280,34 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		this.notifyDataSetChanged();
 	}
 
-	public String getSearchQuery() {
-		return this.searchQuery;
+	public String getTitleSearchQuery() {
+		return this.titleSearchQuery;
 	}
 
-	public void setSearchQuery(String searchQuery) {
-		this.searchQuery = searchQuery;
+	public void setTitleSearchQuery(String titleSearchQuery) {
+		this.titleSearchQuery = titleSearchQuery;
 		this.targetRecipeList = this.recipeBook.searchedRecipes;
-		this.recipeBook.updateSearchResult(searchQuery);
+		this.recipeBook.updateSearchResult(titleSearchQuery);
 	}
 
-	public String search(String searchQuery) {
-		this.setSearchQuery(searchQuery);
+	public void setIngredientSearchSet(Set<String> ingredientSearchSet) {
+		this.ingredientSearchSet = ingredientSearchSet;
+		this.targetRecipeList = this.recipeBook.searchedRecipes;
+		this.recipeBook.updateSearchResult(ingredientSearchSet);
+		Log.d(TAG, "setIngredientSearchSet(ingredientSearchSet)   targetRecipeList is searchedRecipes");
+	}
+
+
+	public String titleSearch(String titleSearchQuery) {
+		this.setTitleSearchQuery(titleSearchQuery);
 		this.notifyDataSetChanged();
-		return "\u201C" + this.searchQuery + "\u201D";
+		return "\u201C" + this.titleSearchQuery + "\u201D";
+	}
+
+	public String ingredientSearch(Set<String> ingredientSearchSet) {
+		this.setIngredientSearchSet(ingredientSearchSet);
+		this.notifyDataSetChanged();
+		return "(ingred.)";
 	}
 
 

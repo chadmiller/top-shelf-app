@@ -16,6 +16,9 @@
 	<string name="favorites_need_ingredients">Your favorites need these ingredients that you don\'t have.</string>
 	<string name="these_ingredients_are_popular">These ingredients show up most often in recipes.</string>
 	<string name="loading_recipe_book">Loading thousands of recipes&#8230;</string>
+	<string name="loading_recipe_number">Loading recipe #%d.</string>
+
+	<string name="ingredient_search_ingr_note">Require these ingredients:</string>
 
     <string name="search_hint">Names of recipes</string>
 	<string name="list_is_empty">Nothing available in this view</string>
@@ -84,8 +87,11 @@
 	<string name="introduction_dialog_pantry"><b>Inventory Pantry</b>:  If you wish to use the advanced features of this app, it needs to know what ingredients you have in your pantry.  Be sure to include garnishes and mixers.</string>
 	<string name="introduction_dialog_shopping"><b>Shopping Suggestions</b>:  After you tell the app what you have, it can recommend what to get next.</string>
 
-	<string name="search_choice">Search by title or ingredients?</string>
-	<string name="search_choice_btn_title">title</string>
-	<string name="search_choice_btn_ingredients">ingredients</string>
+	<string name="search_choice">How do you want to search for recipes?</string>
+	<string name="search_choice_btn_title">By title</string>
+	<string name="search_choice_btn_ingredients">By ingredients</string>
+	<string name="search_ingred_clear_all_question">Stop refining and hide list, or reset to empty?</string>
+	<string name="search_ingred_finish_search">Hide list</string>
+	<string name="search_ingred_clear_all_clear">Reset search</string>
 
 </resources>
