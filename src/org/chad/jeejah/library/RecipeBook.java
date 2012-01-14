@@ -42,7 +42,7 @@ final class RecipeBook {
 	final public List<String> ingredients;
 
 
-	public RecipeBook(List<String> ingredients) {
+	public RecipeBook() {
 		this.allRecipeIndex = new Hashtable<String,Recipe>(2420);
 		this.allRecipes = new ArrayList<Recipe>(2420);
 		this.categorizedIngredients = new TreeMap<String,List<String>>();
@@ -51,10 +51,10 @@ final class RecipeBook {
 		this.producableRecipes = new ArrayList<Recipe>(2420);
 		this.searchedRecipes = new ArrayList<Recipe>();
 		this.favoriteRecipes = new LinkedList<Recipe>();
-		this.ingredients = ingredients;
+		this.ingredients = new ArrayList<String>(145);
 	}
 
-	public void load(final Context context, final Runnable updater, final Set<String> pantry, final Handler handler, final BookDisplay bookDisplay) {
+	public void load(final Context context, final Runnable updater, final Set<String> pantry, final Handler handler, final BookDisplay bookDisplay, List<String> ingredients) {
 		final Random rng = new Random();
 		final int blockSize = (rng.nextInt(16) * 16) + 16;
 		final List<Recipe> block = new ArrayList<Recipe>(blockSize);
@@ -196,6 +196,7 @@ final class RecipeBook {
 
 		this.readyToStore = true;
 	}
+
 
 
 	synchronized void updateSearchResult(Set<String> ingredientSet) {

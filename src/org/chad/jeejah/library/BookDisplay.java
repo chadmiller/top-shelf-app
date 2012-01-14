@@ -94,7 +94,6 @@ final public class BookDisplay extends Activity {
 	private ListView recipeListView;
 	protected RecipesListAdapter recipeAdapter;
 	private TextView recipeListFootnote;
-	private List<String> ingredients;
 	private Set<String> pantry;
 	private Set<String> ingredientSearchRequirements;
 	private TextView ingredientSearchNoteHeader;
@@ -118,7 +117,6 @@ final public class BookDisplay extends Activity {
 		this.tracker.startNewSession(GOOG_ANALYTICS_ID, 20, this);
 
 		this.handler = new Handler();
-		this.ingredients = new ArrayList<String>(145);
 		this.pantry = new HashSet<String>();
 		this.ingredientSearchRequirements = new LinkedHashSet<String>();
 		this.recipeBook = (RecipeBook) getLastNonConfigurationInstance();
@@ -150,7 +148,7 @@ final public class BookDisplay extends Activity {
 			loadingIndicator.setVisibility(View.GONE);
 		} else {
 			Log.i(TAG, "starting from scratch");
-			this.recipeBook = new RecipeBook(ingredients);
+			this.recipeBook = new RecipeBook();
 			this.recipeAdapter = new RecipesListAdapter(this, recipeBook, pantry);
 			recipeBookLoader = new RecipeBookLoadTask();
 			recipeBookLoader.execute(this.recipeBook);
@@ -591,7 +589,9 @@ final public class BookDisplay extends Activity {
 				}
 				this.recipeAdapter.setFilterViewId(inState.getInt("adapterview", -1), this, this.recipeListFootnote);
 			}
-		} catch (Exception ex) { } // discard errors from restarting from saved bundle.
+		} catch (Exception ex) {
+			Log.w(TAG, "discarding saved-instance-state");
+		} // discard errors from restarting from saved bundle.
 	}
 
 	@Override
@@ -656,7 +656,7 @@ final public class BookDisplay extends Activity {
 					n++;
 					RecipeBookLoadTask.this.publishProgress(n);
 				}
-			}, BookDisplay.this.pantry, handler, BookDisplay.this);
+			}, BookDisplay.this.pantry, handler, BookDisplay.this, BookDisplay.this.recipeBook.ingredients);
 			BookDisplay.this.tracker.trackEvent("Performance", "RecipeBookLoading", "Elapsed", (int) (android.os.SystemClock.uptimeMillis() - startTime));
 
 			return null;
@@ -758,15 +758,17 @@ final public class BookDisplay extends Activity {
 					}
 				});
 
+			Log.d(TAG, "now setting up the ingredient list adapter for search. " + BookDisplay.this.recipeBook.ingredients.size());
 
 			final ArrayAdapter ingredientListAdapter = new ArrayAdapter(BookDisplay.this, android.R.layout.simple_list_item_1, BookDisplay.this.recipeBook.ingredients);
 			final ListView ingredientList = (ListView) BookDisplay.this.findViewById(R.id.ingredient_search_picklist);
 
 			ingredientList.setAdapter(ingredientListAdapter);
 			ingredientList.setOnItemClickListener(new OnItemClickListener() {
+				static final String TAG = "ocjlBD.FLT.OICL";
 				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 					try {
-						final String pickedItem = BookDisplay.this.ingredients.get(position);
+						final String pickedItem = BookDisplay.this.recipeBook.ingredients.get(position);
 
 						if (BookDisplay.this.ingredientSearchRequirements.contains(pickedItem)) {
 							BookDisplay.this.ingredientSearchRequirements.remove(pickedItem);
@@ -778,11 +780,13 @@ final public class BookDisplay extends Activity {
 
 						handler.post(new Runnable() {
 							public void run() {
+								Log.d(TAG, "set note text");
 								BookDisplay.this.ingredientSearchNoteHeader.setText(BookDisplay.this.getResources().getString(R.string.ingredient_search_ingr_note) + " " + BookDisplay.this.ingredientSearchRequirements);
 							}
 						});
 
 					} catch (IndexOutOfBoundsException ex) {
+						Log.w(TAG, "clicked item in adapter that is not in the set.");
 					}
 
 				}
