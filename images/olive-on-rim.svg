@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500pt" version="1.1" xmlns="http://www.w3.org/2000/svg" height="500pt" viewBox="0 0 500 500" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <radialGradient cx="634.5" cy="455" id="Grad0" r="634.5" gradientUnits="userSpaceOnUse">
+   <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+   <stop offset="48.7805%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient cx="73.62" cy="199.25" id="Grad1" r="165.25" gradientUnits="userSpaceOnUse">
+   <stop offset="0.813008%" stop-color="#98c236" stop-opacity="1"/>
+   <stop offset="98.7805%" stop-color="#4f8915" stop-opacity="1"/>
+  </radialGradient>
+  <radialGradient cx="46" cy="49" id="Grad2" r="50.625" gradientUnits="userSpaceOnUse">
+   <stop offset="15.0407%" stop-color="#e52718" stop-opacity="1"/>
+   <stop offset="100%" stop-color="#ba4314" stop-opacity="1"/>
+  </radialGradient>
+ </defs>
+ <g opacity="0.8" id="Background">
+  <path style="fill:url(#Grad0); fill-rule:evenodd;stroke:#161412; stroke-width:1; stroke-linecap:butt; stroke-linejoin:miter; stroke-dasharray:none;" d="M1269 455 C1269 706.299 984.937 910 634.5 910 C284.075 910 0 706.299 0 455 C0 203.71 284.075 0 634.5 0 C984.937 0 1269 203.71 1269 455 Z" transform="translate(-390, -210)"/>
+ </g>
+ <g opacity="0.4" id="glass">
+  <path style="fill:#b8b28c; fill-rule:evenodd; fill-opacity:0.5;stroke:#161412; stroke-width:13; stroke-linecap:butt; stroke-linejoin:miter; stroke-dasharray:none;" d="M1462.5 212.5 C1462.5 329.865 1135.12 425 731.25 425 C327.392 425 0 329.865 0 212.5 C0 95.1395 327.392 0 731.25 0 C1135.12 0 1462.5 95.1395 1462.5 212.5 Z" transform="translate(70.75, 101.5)"/>
+  <path style="fill:#b8b28c; fill-rule:evenodd; fill-opacity:0.9;stroke:#161412; stroke-width:13; stroke-linecap:butt; stroke-linejoin:bevel; stroke-dasharray:none;" id="Polygon121314" d="M702.586 578.361 C755.949 574.759 799.953 677.361 857.086 677.361 C1260.96 677.361 1456.12 0 1456.12 117.361 C1456.12 234.726 1128.74 329.861 724.87 329.861 C377.388 329.861 86.5133 259.432 12.0766 165.012 C0 149.694 159.586 354.861 437.086 683.361 L702.586 578.361 Z" transform="translate(77.1298, 197.639)"/>
+ </g>
+ <g opacity="0.3" id="liquid">
+  <path style="fill:#e20078; fill-rule:evenodd;stroke:#161412; stroke-width:4; stroke-linecap:butt; stroke-linejoin:miter; stroke-dasharray:none;" d="M1457.02 242 C1457.02 375.658 1116.78 484 697.024 484 C523.259 484 362.249 463.652 234.228 432.406 C76.4932 240 147.524 327.75 0 145.392 C117.139 59.8197 385.143 0 697.024 0 C1116.78 0 1457.02 108.347 1457.02 242 Z" transform="translate(140.978, 269)"/>
+ </g>
+ <g id="toothpick bottom">
+  <path style="fill:#b8b28c; fill-rule:evenodd;stroke:#161412; stroke-width:5; stroke-linecap:butt; stroke-linejoin:bevel; stroke-dasharray:none;" d="M15.625 0 C14.875 1 0 1.375 2.125 11 C84.375 104.875 108 136.375 121.875 139 C122.625 125.5 97.659 96.25 15.625 0 Z" transform="translate(282.341, 334)"/>
+ </g>
+ <g id="olive">
+  <path style="fill:url(#Grad1); fill-rule:evenodd;stroke:#161412; stroke-width:12.8; stroke-linecap:butt; stroke-linejoin:miter; stroke-dasharray:none;" d="M255.25 165.25 C255.25 256.518 198.113 330.5 127.625 330.5 C57.1397 330.5 0 256.518 0 165.25 C0 73.985 57.1397 0 127.625 0 C198.113 0 255.25 73.985 255.25 165.25 Z" transform="translate(345.907, 62.7319) rotate(-299)"/>
+ </g>
+ <g id="pimento">
+  <path style="fill:url(#Grad2); fill-rule:evenodd;stroke:#161412; stroke-width:12.8; stroke-linecap:butt; stroke-linejoin:miter; stroke-dasharray:none;" d="M90 50.625 C90 78.5854 69.8537 101.25 45 101.25 C20.1472 101.25 0 78.5854 0 50.625 C0 22.6656 20.1472 0 45 0 C69.8537 0 90 22.6656 90 50.625 Z" transform="translate(296.47, 162.495)"/>
+ </g>
+ <g id="toothpick top">
+  <path style="fill:#b8b28c; fill-rule:evenodd;stroke:#161412; stroke-width:4; stroke-linecap:butt; stroke-linejoin:bevel; stroke-dasharray:none;" id="Copy of Polyline45" d="M163.375 168.875 C51.75 43.5 24.75 14.25 0 0 C11.25 25.75 29.034 46.5 148.75 180.75 C154.375 192.875 173.125 172.25 163.375 168.875 Z" transform="translate(20.966, 34.25)"/>
+ </g>
+</svg>
