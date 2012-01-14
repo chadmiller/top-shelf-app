@@ -211,9 +211,6 @@ final public class BookDisplay extends Activity {
 //			showDialog(DIALOG_SPLASH);
 		}
 
-
-		
-
 		new Thread(new ReportingRunnable()).start();
 	}
 
@@ -493,7 +490,12 @@ final public class BookDisplay extends Activity {
 
 	@Override
 	public Object onRetainNonConfigurationInstance() {
-		return this.recipeBook;
+		Log.d(TAG, "onRetainNonConfigurationInstance");
+		if ((this.recipeBook != null) && this.recipeBook.readyToStore) {
+			return this.recipeBook;
+		} else {
+			return null;
+		}
 	}
 
 

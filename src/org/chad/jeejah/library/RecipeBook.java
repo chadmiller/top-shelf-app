@@ -28,6 +28,7 @@ import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 final class RecipeBook {
 	private final static String TAG = "ocjlRB";
 
+	public boolean readyToStore = false;
 	public String version;
 
 	final public Map<String,Recipe> allRecipeIndex;
@@ -192,6 +193,8 @@ final class RecipeBook {
 			ingredients.addAll(genreItems);
 		}
 		Collections.sort(ingredients);
+
+		this.readyToStore = true;
 	}
 
 
