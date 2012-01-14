@@ -82,7 +82,7 @@
 
 	<!-- first introduction text, describing what buttons do on main screen -->
 	<string name="introduction_dialog_done">finished with introduction</string><!-- button text to end introduction -->
-	<string name="introduction_dialog_start"><b>Welcome!</b>\n\nYou need to know these three buttons to use this program well.\n\nTap them to read what they do.  When finished, hit the button <i>finished with introduction</i>. Press the menu key later to get help.</string>
+	<string name="introduction_dialog_start"><b>Welcome!</b>\n\nHit menu/help later if you have a question or complaint.  Thanks!\n\nYou need to know these three buttons to use this program well.\n\nTap them to read what they do.  When finished, hit the button <i>finished with introduction</i>. Press the menu key later to get help.</string>
 	<string name="introduction_dialog_view"><b>Change View</b>:  Tap this to flip to another view of the list of recipes.\n\n<i>all</i> shows every recipe with no constraints.\n\n<i>filtered</i> shows only recipes that the app knows you have the ingredients to make.\n\n<i>favorites</i> shows recipes that you have marked with a star.\n\nIf you search for recipes, you\'ll see the results as another view.</string>
 	<string name="introduction_dialog_pantry"><b>Inventory Pantry</b>:  If you wish to use the advanced features of this app, it needs to know what ingredients you have in your pantry.  Be sure to include garnishes and mixers.</string>
 	<string name="introduction_dialog_shopping"><b>Shopping Suggestions</b>:  After you tell the app what you have, it can recommend what to get next.</string>

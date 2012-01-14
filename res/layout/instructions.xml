@@ -22,6 +22,17 @@
 			android:layout_height="wrap_content"
 			android:padding="15dp"
 			>
+
+			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_header_size" android:padding="15dp"
+				android:text="Help!"
+				/>
+
+			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
+				android:autoLink="web"
+				android:text="If the descriptions below are not enough, please give feedback at our contact page. You should know that no developer can use Android Market comments, since they are anonymous. Instead, if you have trouble or comments, please visit http://getsatisfaction.com/jeejah_smarts/topics "
+				/>
+
+
 			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_header_size" android:padding="15dp"
 				android:text="Introduction"
 				/>
