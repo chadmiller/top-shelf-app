@@ -29,7 +29,7 @@
 
 			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
 				android:autoLink="web"
-				android:text="If the descriptions below are not enough, please give feedback at our contact page. You should know that no developer can use Android Market comments, since they are anonymous. Instead, if you have trouble or comments, please visit http://getsatisfaction.com/jeejah_smarts/topics "
+				android:text="If you need more help, please give feedback at our contact page. You should know that no developer can address Android-Market comments, because they are anonymous. If you have trouble or comments, please visit http://getsatisfaction.com/jeejah_smarts/topics ."
 				/>
 
 
@@ -43,11 +43,11 @@
 				/>
 			<TextView
 				android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
-				android:text="One way of using this app is with no filtering.  You browse recipe titles just as you would with a book."
+				android:text="You can use this app just as you would a recipe book, browsing recipe titles."
 				/>
 			<TextView
 				android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
-				android:text="A better way to use it is to tell the app what raw ingredients you have, and it can 1) filter thousands of recipes and show you only what you can make, and 2) suggest ingredients that you should consider getting."
+				android:text="A better way to use it is to tell the app what raw ingredients you have, and it can 1) filter thousands of recipes and show you only what you can make, and it can 2) suggest ingredients that you should consider getting."
 				/>
 
 			<TextView
@@ -66,21 +66,13 @@
 				<ImageButton style="@style/ActionBarItem" android:background="@drawable/actionbar_btn" android:layout_centerVertical="true" android:maxLines="1" android:src="@drawable/ic_btn_suggest_shopping_list" android:gravity="right" android:layout_gravity="right" android:focusable="false" />
 			</LinearLayout>
 
-
 			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_caption_size" android:gravity="center"
 				android:text="Inventory-Pantry button"
 				/>
 
-			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
-				android:text="Alternatively, you may disable filtering of what you can make from known ingredient, and instead see every recipe.  Turning off and on the filter can be done with the Toggle-View button.  Recipes that the app doesn\'t think you can make have an asterisk after the name."
-				/>
 
 			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
-				android:text="Finally, hit your device\'s Search button.  You can get a list of recipes with your phrase in the recipe name.  (Search &quot;Martini&quot;, e.g., to see the 40 or so recipes of martinis.)  Voice search may be available on your device too.  Hit the Toggle-View button to exit search list."
-				/>
-
-			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
-				android:text="Or, you can search by ingredients of recipes.  Picling ingredients narrows the list of recipes displayed. (I want a drink with A and B and C in it.)"
+				android:text="Alternatively, you may disable filtering, in order to see <i>all</i> recipes.  Turning off and on the filter can be done with the Toggle-View button.  Recipes that the app doesn\'t think you can make have an asterisk after the name."
 				/>
 
 			<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/actionbar_background">
@@ -92,6 +84,14 @@
 
 			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_caption_size" android:gravity="center"
 				android:text="Toggle-View button"
+				/>
+
+			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
+				android:text="If you use the search button or menu-option, you can get a list of recipes with your phrase in the recipe name, or a list of recipes with your chosen ingredients in them.  (Search &quot;Martini&quot;, e.g., to see the 40 or so recipes of martinis.)  Voice search may be available on your device too.  The Toggle-View button is your way of changingaway from the search results."
+				/>
+
+			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
+				android:text="When you search by ingredients of recipes,  picking ingredients narrows the list of recipes displayed. (I want a drink with A and B and C in it.)  Hit your device's Back button to hide the ingredients pick-list."
 				/>
 
 			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_header_size" android:padding="15dp"
