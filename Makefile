@@ -20,3 +20,8 @@ res/drawable/icon.png: images/olive-on-rim.svg
 
 res/drawable-ldpi/icon.png: images/olive-on-rim.svg
 	convert -background none $< -scale 36x36 -pointsize 9 -draw "gravity southeast fill white text 0,1 '$(note)'" $@
+
+
+
+print:
+	trueprint --no-intelligent-line-wrap --no-page-break-after-function --point-size=10 --no-holepunch --landscape --four-up  --no-cover-sheet $$(bzr ls --kind=file --recursive --versioned src/org/chad/jeejah)
