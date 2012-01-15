@@ -152,6 +152,11 @@
 				android:text="Chad Miller is the author of this app.  Email at jeejah@chad.org ."
 				/>
 
+			<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="@dimen/text_normal_size" android:paddingBottom="16dip"
+				android:autoLink="email"
+				android:text="Very generous translation work is by Leo Arias (ES)."
+				/>
+
 		</LinearLayout>
 	</ScrollView>
 </LinearLayout>
