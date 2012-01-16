@@ -3,6 +3,9 @@
     <string name="app_name">Top Shelf</string>
     <string name="app_name_title_fmt">Top Shelf %1$s</string>
 
+    <string name="activity_tally_inventory_title">Tally Inventory</string>
+    <string name="activity_shopping_suggestion_title">Shopping Suggestions</string>
+
 	<!-- filters cause actionbar headers -->
 	<string name="filtername_show_all">(all)</string>
 	<string name="filtername_show_producable">(filtered)</string>

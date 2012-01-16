@@ -8,7 +8,7 @@
 
 	<com.markupartist.android.widget.ActionBar
 		android:id="@+id/actionbar"
-		app:title="Tally Inventory"
+		app:title="@string/activity_tally_inventory_title"
 		style="@style/ActionBar"
 		/>
 

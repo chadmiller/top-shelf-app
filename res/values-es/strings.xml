@@ -12,6 +12,9 @@
     <string name="app_name">Top Shelf</string>
     <string name="app_name_title_fmt">Top Shelf %s</string>
 
+    <string name="activity_tally_inventory_title">Inventario de Despensa</string>
+    <string name="activity_shopping_suggestion_title">Compras Consejo</string>
+
      <!-- filters cause actionbar headers -->
      <string name="filtername_show_all">(todo)</string>
      <string name="filtername_show_producable">(filtrado)</string>

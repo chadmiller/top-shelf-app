@@ -9,7 +9,7 @@
 	>
 	<com.markupartist.android.widget.ActionBar
 		android:id="@+id/actionbar"
-		app:title="Shopping Suggestions"
+		app:title="@string/activity_shopping_suggestion_title"
 		style="@style/ActionBar"
 		/>
 
