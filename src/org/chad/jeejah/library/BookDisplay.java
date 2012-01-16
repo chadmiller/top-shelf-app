@@ -682,6 +682,29 @@ final public class BookDisplay extends Activity {
 
 			favoritesSharedPreferences.registerOnSharedPreferenceChangeListener(BookDisplay.this.recipeAdapter);
 
+			handleIntent(getIntent());
+
+			final String filterState = BookDisplay.this.recipeAdapter.setBestInitialState(BookDisplay.this, BookDisplay.this.recipeListFootnote);
+			BookDisplay.this.actionBar.setTitle(BookDisplay.this.getResources().getString(R.string.app_name_title_fmt, filterState));
+
+			new FavoritesLoadTask().execute();
+		}
+	}
+
+	private class FavoritesLoadTask extends AsyncTask<Void, Void, Void> {
+		private final static String TAG = "ocjlBD.FLT";
+		@Override
+		protected Void doInBackground(Void... vs) {
+			Log.i(TAG, "dib");
+			BookDisplay.this.recipeAdapter.setFavoritesFromPreferences(BookDisplay.this.favoritesSharedPreferences.getAll());
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void v) {
+			Log.i(TAG, "ope");
+			BookDisplay.this.recipeAdapter.notifyDataSetChanged();
+
 			class ListToggleAction implements Action {
 				@Override
 				public int getDrawable() {
@@ -725,29 +748,6 @@ final public class BookDisplay extends Activity {
 					BookDisplay.this.startSetIngredients();
 				}
 			});
-
-			handleIntent(getIntent());
-
-			final String filterState = BookDisplay.this.recipeAdapter.setBestInitialState(BookDisplay.this, BookDisplay.this.recipeListFootnote);
-			BookDisplay.this.actionBar.setTitle(BookDisplay.this.getResources().getString(R.string.app_name_title_fmt, filterState));
-
-			new FavoritesLoadTask().execute();
-		}
-	}
-
-	private class FavoritesLoadTask extends AsyncTask<Void, Void, Void> {
-		private final static String TAG = "ocjlBD.FLT";
-		@Override
-		protected Void doInBackground(Void... vs) {
-			Log.i(TAG, "dib");
-			BookDisplay.this.recipeAdapter.setFavoritesFromPreferences(BookDisplay.this.favoritesSharedPreferences.getAll());
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void v) {
-			Log.i(TAG, "ope");
-			BookDisplay.this.recipeAdapter.notifyDataSetChanged();
 
 			final TextView emptyListNotification = (TextView) BookDisplay.this.findViewById(R.id.empty_view);
 			BookDisplay.this.recipeListView.setEmptyView(emptyListNotification);
