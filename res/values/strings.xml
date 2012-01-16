@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- 2012-01-08 -->
     <string name="app_name">Top Shelf</string>
-    <string name="app_name_title_fmt">Top Shelf %s</string>
+    <string name="app_name_title_fmt">Top Shelf %1$s</string>
 
 	<!-- filters cause actionbar headers -->
 	<string name="filtername_show_all">(all)</string>
 	<string name="filtername_show_producable">(filtered)</string>
 	<string name="filtername_show_favorite">(favorites)</string>
-	<string name="filtername_show_searched_ingredients">(by ingredient)</string>
+	<string name="filtername_show_searched_ingredients">(ingred.)</string>
+	<string name="filtername_show_searched_title_fmt">&#x201C;%1$s&#x201D;</string>
 
-	<string name="actionbar_activity_not_found">Failed to open intent&#8230;</string>
+	<string name="actionbar_activity_not_found">Failed to open intent&#x8230;</string>
 
 	<string name="if_you_get_one_ingredient">Based on your current stock, if you get just one more ingredient, you can make these more recipes.</string>
 	<string name="favorites_need_ingredients">Your favorites need these ingredients that you don\'t have.</string>
 	<string name="these_ingredients_are_popular">These ingredients show up most often in recipes.</string>
-	<string name="loading_recipe_book">Loading thousands of recipes&#8230;</string>
-	<string name="loading_recipe_number">Loading recipe #%d.</string>
+	<string name="loading_recipe_book">Loading thousands of recipes\u8230</string>
+	<string name="loading_recipe_number">Loading recipe #%1$d.</string>
 
 	<string name="ingredient_search_ingr_note">Require these ingredients:</string>
 

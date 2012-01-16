@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.content.Context;
 import android.util.Log;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 
 import java.util.Iterator;
 import java.util.Arrays;
@@ -20,6 +21,7 @@ import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPreferences.OnSharedPreferenceChangeListener {
 	private final static String TAG = "ocjlRLA";
 	private Context context;
+	private Resources resources;
 
 	private final int STATE_PRODUCABLE = 0;
 	private final int STATE_ALL = 1;
@@ -51,6 +53,7 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		this.pantry = pantry;
 		this.targetRecipeList = recipeBook.allRecipes;
 		this.context = context;
+		this.resources = context.getResources();
 
 		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
@@ -242,21 +245,20 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 	public String getFilterViewName(int state) {
 		switch (state) {
 			case STATE_ALL:
-				return "(all)";
+				return resources.getString(R.string.filtername_show_all);
 			case STATE_PRODUCABLE:
-				return "(filtered)";
+				return resources.getString(R.string.filtername_show_producable);
 			case STATE_FAVORITES:
-				return "(favorites)";
+				return resources.getString(R.string.filtername_show_favorite);
 			case STATE_SEARCHES:
 				if (searchTypeSelected == SEARCH_TYPE_TITLE) {
-					return "\u201C" + this.titleSearchQuery + "\u201D";
+					return resources.getString(R.string.filtername_show_searched_title_fmt, this.titleSearchQuery);
 				} else {
-					return "(ingred.)";
+					return resources.getString(R.string.filtername_show_searched_ingredients);
 				}
 		}
 		return "-";
 	}
-
 
 	public String nextFilterState(Context context, android.widget.TextView footnote) {
 		/* Filtered, all, favorites, suggested drinks, [search.] */
@@ -297,18 +299,16 @@ class RecipesListAdapter extends android.widget.BaseAdapter implements SharedPre
 		Log.d(TAG, "setIngredientSearchSet(ingredientSearchSet)   targetRecipeList is searchedRecipes");
 	}
 
-
 	public String titleSearch(String titleSearchQuery) {
 		this.setTitleSearchQuery(titleSearchQuery);
 		this.notifyDataSetChanged();
-		return "\u201C" + this.titleSearchQuery + "\u201D";
+		return resources.getString(R.string.filtername_show_searched_title_fmt, this.titleSearchQuery);
 	}
 
 	public String ingredientSearch(Set<String> ingredientSearchSet) {
 		this.setIngredientSearchSet(ingredientSearchSet);
 		this.notifyDataSetChanged();
-		return "(ingred.)";
+		return resources.getString(R.string.filtername_show_searched_ingredients);
 	}
-
 
 }

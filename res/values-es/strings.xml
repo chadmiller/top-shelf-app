@@ -16,8 +16,8 @@
      <string name="filtername_show_all">(todo)</string>
      <string name="filtername_show_producable">(filtrado)</string>
      <string name="filtername_show_favorite">(favoritos)</string>
-     <string name="filtername_show_searched_ingredients">(por ingrediente)</string>
-
+     <string name="filtername_show_searched_title_fmt">\u201C%{1}s\u201D</string>
+     <string name="filtername_show_searched_ingredients">(ingred.)</string><!-- (por ingrediente) -->
      <string name="if_you_get_one_ingredient">Según sus provisiones actuales, si consigue un ingrediente más, puede hacer estas otras recetas.</string>
      <string name="favorites_need_ingredients">Sus favoritos necesitan estos ingredientes que no tiene.</string>
      <string name="these_ingredients_are_popular">Estos ingredientes aparecen con más frecuencia en las recetas.</string>
@@ -27,19 +27,19 @@
      <string name="list_is_empty">Nada disponible en esta vista</string>
 
      <!-- recipe jargon definitions -->
-     <string name="term_blend">Mezclar: Mezclar en una licuadora.</string>
-     <string name="term_build">Construir: Llenar un vaso con hielo y echar los ingredientes.</string>
-     <string name="term_dash">Pizca: Un chorro pequeño. Tecnicamente, 1/6º de cucharadita.</string>
-     <string name="term_fill">Llenar: Echar hasta llenar el vaso.</string>
-     <string name="term_float">Flotar: Echar gentilmente sobre una bebida.</string>
-     <string name="term_layer">Capa: Agregar ingredientes gentilmente en capas. Podría necesitar una cuchara para deter el líquido mientras cae, de forma que no afecte la capa de abajo. No agite.</string>
-     <string name="term_muddle">Aplastar: Aplastar ingredientes para soltar sabores. Use un mortero, o aplaste entre el pulgar y un cubo de hielo, o entre una cuchara y el lado de un vaso.</string>
-     <string name="term_rim">Bordear: Humedecer el borde del vaso y rocíe desde afuera. Puede voltear el vaso sobre una cama de la sustancia, pero debe tener cuidado de no exagerar. Sutil es mejor que empalagoso.</string>
-     <string name="term_splash">Salpicar: Un chorro grande. Tecnicamente, media onza.</string>
-     <string name="term_top">Tope: Agregar sobre los otros ingredientes en el vaso de servir. No agite.</string>
-     <string name="term_shake">Sacudir: Una enérgica sacudida del vaso de mezclar, por lo general con hielo. La sacudiad debe ser lo suficientemente larga para que el contenido se vuelva gaseoso. Por lo general, el frío del vaso de mezclar debería hacer que los dedos piquen.</string>
-     <string name="term_strain">Colar: Abrir el vaso de mezclar y dejar salir el líquido en el vaso de servir, dejando el hielo en el de mezclar.</string>
-     <string name="term_pour">Verter: Abrir el vaso de mezclar y verter todo el contenido en el vaso de servir, incluyendo el hielo.</string>
+     <string name="term_blend">Blend/Mezclar: Mezclar en una licuadora.</string>
+     <string name="term_build">Build/Construir: Llenar un vaso con hielo y echar los ingredientes.</string>
+     <string name="term_dash">Dash/Pizca: Un chorro pequeño. Tecnicamente, 1/6º de cucharadita.</string>
+     <string name="term_fill">Fill/Llenar: Echar hasta llenar el vaso.</string>
+     <string name="term_float">Float/Flotar: Echar gentilmente sobre una bebida.</string>
+     <string name="term_layer">Layer/Capa: Agregar ingredientes gentilmente en capas. Podría necesitar una cuchara para deter el líquido mientras cae, de forma que no afecte la capa de abajo. No agite.</string>
+     <string name="term_muddle">Muddle/Aplastar: Aplastar ingredientes para soltar sabores. Use un mortero, o aplaste entre el pulgar y un cubo de hielo, o entre una cuchara y el lado de un vaso.</string>
+     <string name="term_rim">Rim/Bordear: Humedecer el borde del vaso y rocíe desde afuera. Puede voltear el vaso sobre una cama de la sustancia, pero debe tener cuidado de no exagerar. Sutil es mejor que empalagoso.</string>
+     <string name="term_splash">Splash/Salpicar: Un chorro grande. Tecnicamente, media onza.</string>
+     <string name="term_top">Top/Tope: Agregar sobre los otros ingredientes en el vaso de servir. No agite.</string>
+     <string name="term_shake">Shake/Sacudir: Una enérgica sacudida del vaso de mezclar, por lo general con hielo. La sacudiad debe ser lo suficientemente larga para que el contenido se vuelva gaseoso. Por lo general, el frío del vaso de mezclar debería hacer que los dedos piquen.</string>
+     <string name="term_strain">Strain/Colar: Abrir el vaso de mezclar y dejar salir el líquido en el vaso de servir, dejando el hielo en el de mezclar.</string>
+     <string name="term_pour">Pour/Verter: Abrir el vaso de mezclar y verter todo el contenido en el vaso de servir, incluyendo el hielo.</string>
 
      <!-- a menu option name -->
      <string name="search">Buscar</string>
